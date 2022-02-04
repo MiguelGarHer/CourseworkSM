@@ -8,6 +8,11 @@
     <artifactId>seMethods</artifactId>
     <version>0.1.0.1</version>
 
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.mongodb</groupId>
@@ -16,10 +21,7 @@
         </dependency>
     </dependencies>
 
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
+
 
     <build>
         <plugins>
