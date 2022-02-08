@@ -9,7 +9,7 @@ public class App
 {
     public static void main(String[] args)
     {
-        // Connect to MongoDB on local system - we're using port 27000
+        // Connect to MongoDB on local system - we're connecting to the container mongo-dbserver using a network bridge
         MongoClient mongoClient = new MongoClient("mongo-dbserver");
         // Get a database - will create when we use it
         MongoDatabase database = mongoClient.getDatabase("mydb");
