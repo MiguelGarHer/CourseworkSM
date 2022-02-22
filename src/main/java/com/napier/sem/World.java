@@ -7,7 +7,7 @@ public class World {
     /// ArrayList containing all the data of the countries
     private ArrayList<Country> countries;
 
-    World(){
+    public World(){
     }
 
     /**
