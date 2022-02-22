@@ -5,16 +5,16 @@ import java.util.ArrayList;
 
 public class World {
 
-    /**
-     * Connection to MySQL database.
-     */
+    // Connection to MySQL database
     private Connection con = null;
 
-    /// ArrayList containing all the data of the countries
-    private ArrayList<Country> countries = new ArrayList<>();
+    // ArrayList containing all the data of the countries
+    private final ArrayList<Country> countries = new ArrayList<>();
 
     /**
-     *
+     * Constructor for World
+     * <br>
+     * Initiates database communication and reading of data
      */
     public World(){
         // Connect to MySQL
@@ -23,14 +23,12 @@ public class World {
         // Read all countries
         getCountries();
 
-        // Test read country
-        displayCountry(countries.get(0));
+        // Test: Print first country to console
+        printCountry(countries.get(0));
 
         // Disconnect from MySQL
         disconnect();
-
     }
-
 
     /**
      * Connect to the MySQL database.
@@ -55,16 +53,16 @@ public class World {
             try
             {
                 // Wait a bit for db to start
-                Thread.sleep(15000);
+                Thread.sleep(20000);
                 // Connect to database
                 con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
                 break;
             }
-            catch (SQLException sqle)
+            catch (SQLException sqlException)
             {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
-                System.out.println(sqle.getMessage());
+                System.out.println("Failed to connect to database attempt " + i);
+                System.out.println(sqlException.getMessage());
             }
             catch (InterruptedException ie)
             {
@@ -99,19 +97,18 @@ public class World {
     {
         try
         {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
+            // Create an SQL statement using connection
+            Statement statement = con.createStatement();
+            // Create SQL statement string for SQL statement
             String strSelect =
                     "SELECT *" +
                     "FROM country;";
             // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            while (rset.next())
+            ResultSet resultSet = statement.executeQuery(strSelect);
+            // For each row returned, add new Country to list
+            while (resultSet.next())
             {
-                Country country = new Country(rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(4),rset.getDouble(5),rset.getInt(6),rset.getInt(7),rset.getDouble(8),rset.getDouble(9),rset.getDouble(10),rset.getString(11),rset.getString(12),rset.getString(13),rset.getInt(14),rset.getString(15));
+                Country country = new Country(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getDouble(5),resultSet.getInt(6),resultSet.getInt(7),resultSet.getDouble(8),resultSet.getDouble(9),resultSet.getDouble(10),resultSet.getString(11),resultSet.getString(12),resultSet.getString(13),resultSet.getInt(14),resultSet.getString(15));
                 countries.add(country);
             }
         }
@@ -123,10 +120,24 @@ public class World {
     }
 
     /**
-     *
-     * @param country
+     * TODO: Read cities
      */
-    public void displayCountry(Country country) {
+    private void getCities() {
+
+    }
+
+    /**
+     *  TODO: Read country language
+     */
+    private void getCountryLanguage() {
+
+    }
+
+    /**
+     *  Prints all country details
+     * @param country: Country to be printed
+     */
+    public void printCountry(Country country) {
         if (country != null) {
             System.out.println(country);
         }

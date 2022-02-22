@@ -7,7 +7,19 @@ public class City {
     public String district;
     public int population;
 
-    public City(){
+    /**
+     * Constructor for City
+     * @param id Unique Id
+     * @param name Name 
+     * @param countryCode Country code
+     * @param district District name
+     * @param population Population
+     */
+    public City(int id, String name, String countryCode, String district, int population) {
+        this.id = id;
+        this.name = name;
+        this.countryCode = countryCode;
+        this.district = district;
+        this.population = population;
     }
-
 }
