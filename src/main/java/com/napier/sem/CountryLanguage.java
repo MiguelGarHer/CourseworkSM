@@ -1,10 +1,12 @@
 package com.napier.sem;
 
 public class CountryLanguage {
-    public CountryLanguage(){
-    }
     public String countryCode;
-    public String Language;
-    public boolean isOficial;
+    public String language;
+    public boolean isOfficial;
     public double percentage;
+
+    public CountryLanguage() {
+    }
+
 }
