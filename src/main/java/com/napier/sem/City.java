@@ -1,10 +1,9 @@
 package com.napier.sem;
 
 public class City {
-
     public City(){
     }
-    
+
     public int id;
     public String name;
     public String countryCode;
