@@ -1,12 +1,10 @@
 package com.napier.sem;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class Country {
-	private ArrayList<City> cities;
-	private ArrayList<Language> languages;
+	public ArrayList<City> cities;
+	public ArrayList<Language> languages;
 
 	public String code;
 	public String name;
