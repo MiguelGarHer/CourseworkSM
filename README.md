@@ -5,7 +5,7 @@ Coursework for Software Methods
 [![Releases](https://img.shields.io/github/release/MiguelGarHer/CourseworkSM/all.svg?style=flat-square)](https://github.com/MiguelGarHer/CourseworkSM/releases)  
 
 ------
-Individual contribution form: https://livenapierac-my.sharepoint.com/:x:/g/personal/40484424_live_napier_ac_uk/ETE6ozWVpZhMrV9-tmBCmGMB9ji4FbKaI5WMBySQ_LFYIA?e=UiCxP2
+- Link to [individual contribution form](https://livenapierac-my.sharepoint.com/:x:/g/personal/40484424_live_napier_ac_uk/ETE6ozWVpZhMrV9-tmBCmGMB9ji4FbKaI5WMBySQ_LFYIA?e=UiCxP2)
 
 ------
-Zube board: https://zube.io/sem-coursework-4/coursework/w/workspace-1/kanban
+- Link to [Zube board](https://zube.io/sem-coursework-4/coursework/w/workspace-1/kanban)
