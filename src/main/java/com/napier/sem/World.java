@@ -2,6 +2,7 @@ package com.napier.sem;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class World {
 
@@ -23,8 +24,8 @@ public class World {
         // Read all countries
         getCountries();
 
-        // Test: Print first country to console
-        printCountry(countries.get(0));
+        // Vinh: Test: sortCitiesPopContinent()
+        sortCitiesPopContinent("Asia");
 
         // Disconnect from MySQL
         disconnect();
@@ -166,7 +167,7 @@ public class World {
             while (resultSet.next())
             {
                 boolean isOfficial = false;
-                if (resultSet.getString(3) == "T") {
+                if (resultSet.getString(3).equals("T")) {
                     isOfficial = true;
                 }
                 Language language = new Language(resultSet.getString(2),isOfficial, resultSet.getDouble(4));
@@ -226,10 +227,10 @@ public class World {
     }
 
     /**
-     *
      * @param continentName
      */
     public void sortCountriesPopContinent(String continentName){
+
     }
 
     /**
@@ -266,10 +267,46 @@ public class World {
     }
 
     /**
+     * Population Report
+     * Condition: All cities in a contient (largest population to smallest)
      *
      * @param continentName
      */
     public void sortCitiesPopContinent(String continentName){
+        // Get all cities in each continent and add to list
+        ArrayList<City> continentCities = new ArrayList<>();
+        long totalPopulation = 0;
+        long urbanPopulation = 0;
+        long ruralPopulation = 0;
+
+        for (Country country : countries) {
+            if (country.continent.equals(continentName)) {
+                continentCities.addAll(country.cities);
+                totalPopulation += country.population;
+            }
+        }
+
+        // Sorting - https://www.baeldung.com/java-8-comparator-comparing
+        continentCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
+        // Calculating percentage and other figures
+        for (City city : continentCities) {
+            urbanPopulation += city.population;
+        }
+        ruralPopulation = totalPopulation - urbanPopulation;
+        double ruralPercentage =  Math.round(ruralPopulation * 1.0 / totalPopulation * 100);
+        double urbanPercentage =  Math.round(urbanPopulation * 1.0 / totalPopulation * 100);
+
+        // Printing report
+        System.out.println("----------------------------------------------------");
+        System.out.println("Population Report: " + continentName);
+        System.out.println("Total population: " + totalPopulation);
+        System.out.println("Urban population: " + urbanPopulation + " (" + urbanPercentage + "%)");
+        System.out.println("Rural population: " + ruralPopulation + " (" + ruralPercentage + "%)");
+        System.out.println("----------------------------------------------------");
+        for (City city : continentCities) {
+            System.out.println(city);
+        }
     }
 
     /**
