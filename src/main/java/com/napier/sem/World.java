@@ -108,7 +108,7 @@ public class World {
             // For each row returned, add new Country to list
             while (resultSet.next())
             {
-                Country country = new Country(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getDouble(5),resultSet.getInt(6),resultSet.getInt(7),resultSet.getDouble(8),resultSet.getDouble(9),resultSet.getDouble(10),resultSet.getString(11),resultSet.getString(12),resultSet.getString(13),resultSet.getInt(14),resultSet.getString(15));
+                Country country = new Country(getCities(resultSet.getString(1)), getLanguages(resultSet.getString(1)),resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getDouble(5),resultSet.getInt(6),resultSet.getInt(7),resultSet.getDouble(8),resultSet.getDouble(9),resultSet.getDouble(10),resultSet.getString(11),resultSet.getString(12),resultSet.getString(13),resultSet.getInt(14),resultSet.getString(15));
                 countries.add(country);
             }
         }
@@ -120,16 +120,65 @@ public class World {
     }
 
     /**
-     * TODO: Read cities
+     * Retrieve all cities from each country
      */
-    private void getCities() {
-
+    private ArrayList<City> getCities(String countryCode) {
+        ArrayList<City> cities = new ArrayList<>();
+        try
+        {
+            // Create an SQL statement using connection
+            Statement statement = con.createStatement();
+            // Create SQL statement string for SQL statement
+            String strSelect =
+                    "SELECT * FROM city WHERE countrycode = '" + countryCode + "';";
+            // Execute SQL statement
+            ResultSet resultSet = statement.executeQuery(strSelect);
+            // For each row returned, add new city to list
+            while (resultSet.next())
+            {
+                City city = new City(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3),resultSet.getString(4), resultSet.getInt(5));
+                cities.add(city);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to retrieve city details");
+        }
+        return cities;
     }
 
     /**
-     *  TODO: Read country language
+     * Retrieve all languages from each country
      */
-    private void getCountryLanguage() {
+    private ArrayList<Language> getLanguages(String countryCode) {
+        ArrayList<Language> languages = new ArrayList<>();
+        try
+        {
+            // Create an SQL statement using connection
+            Statement statement = con.createStatement();
+            // Create SQL statement string for SQL statement
+            String strSelect =
+                    "SELECT * FROM countrylanguage WHERE CountryCode = '" + countryCode + "';";
+            // Execute SQL statement
+            ResultSet resultSet = statement.executeQuery(strSelect);
+            // For each row returned, add new language to list
+            while (resultSet.next())
+            {
+                boolean isOfficial = false;
+                if (resultSet.getString(3) == "T") {
+                    isOfficial = true;
+                }
+                Language language = new Language(resultSet.getString(2),isOfficial, resultSet.getDouble(4));
+                languages.add(language);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to retrieve city details");
+        }
+        return languages;
 
     }
 

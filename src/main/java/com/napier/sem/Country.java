@@ -1,6 +1,13 @@
 package com.napier.sem;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 public class Country {
+	private ArrayList<City> cities;
+	private ArrayList<Language> languages;
+
 	public String code;
 	public String name;
 	public String continent;
@@ -17,25 +24,9 @@ public class Country {
 	public int capital;
 	public String code2;
 
-	/**
-	 * Constructor for Country
-	 * @param code Country code
-	 * @param name Name
-	 * @param continent Continent name
-	 * @param region Region name
-	 * @param surfaceArea Surface area
-	 * @param indepYear Independence year
-	 * @param population Population
-	 * @param lifeExpectancy Life expectancy
-	 * @param GNP GNP
-	 * @param GNPOld Previous GNP
-	 * @param localName Local name
-	 * @param governmentForm Government form
-	 * @param headOfState Head of State
-	 * @param capital Capital
-	 * @param code2 Secondary country code
-	 */
-	public Country(String code, String name, String continent, String region, double surfaceArea, int indepYear, int population, double lifeExpectancy, double GNP, double GNPOld, String localName, String governmentForm, String headOfState, int capital, String code2) {
+	public Country(ArrayList<City> cities, ArrayList<Language> languages, String code, String name, String continent, String region, double surfaceArea, int indepYear, int population, double lifeExpectancy, double GNP, double GNPOld, String localName, String governmentForm, String headOfState, int capital, String code2) {
+		this.cities = cities;
+		this.languages = languages;
 		this.code = code;
 		this.name = name;
 		this.continent = continent;
@@ -53,13 +44,12 @@ public class Country {
 		this.code2 = code2;
 	}
 
-	/**
-	 * @return String containing all country details
-	 */
 	@Override
 	public String toString() {
 		return "Country{" +
-				"code='" + code + '\'' +
+				"cities=" + cities +
+				", languages=" + languages +
+				", code='" + code + '\'' +
 				", name='" + name + '\'' +
 				", continent='" + continent + '\'' +
 				", region='" + region + '\'' +
