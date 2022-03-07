@@ -33,4 +33,8 @@ public class City {
                 ", population=" + population +
                 '}';
     }
+
+    public int getPopulation(){
+        return  this.population;
+    }
 }
