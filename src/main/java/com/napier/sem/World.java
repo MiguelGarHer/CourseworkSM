@@ -267,43 +267,24 @@ public class World {
     }
 
     /**
-     * Population Report
-     * Condition: All cities in a contient (largest population to smallest)
-     *
-     * @param continentName
+     * Print all cities in a continent <br>
+     * Condition: All cities in a continent (largest population to smallest)
+     * @param continentName name of continent
      */
     public void sortCitiesPopContinent(String continentName){
         // Get all cities in each continent and add to list
         ArrayList<City> continentCities = new ArrayList<>();
-        long totalPopulation = 0;
-        long urbanPopulation = 0;
-        long ruralPopulation = 0;
-
         for (Country country : countries) {
             if (country.continent.equals(continentName)) {
                 continentCities.addAll(country.cities);
-                totalPopulation += country.population;
             }
         }
 
         // Sorting - https://www.baeldung.com/java-8-comparator-comparing
         continentCities.sort(Comparator.comparing(City::getPopulation).reversed());
 
-        // Calculating percentage and other figures
-        for (City city : continentCities) {
-            urbanPopulation += city.population;
-        }
-        ruralPopulation = totalPopulation - urbanPopulation;
-        double ruralPercentage =  Math.round(ruralPopulation * 1.0 / totalPopulation * 100);
-        double urbanPercentage =  Math.round(urbanPopulation * 1.0 / totalPopulation * 100);
-
-        // Printing report
-        System.out.println("----------------------------------------------------");
-        System.out.println("Population Report: " + continentName);
-        System.out.println("Total population: " + totalPopulation);
-        System.out.println("Urban population: " + urbanPopulation + " (" + urbanPercentage + "%)");
-        System.out.println("Rural population: " + ruralPopulation + " (" + ruralPercentage + "%)");
-        System.out.println("----------------------------------------------------");
+        // Printing cities in order
+        System.out.println("All cities in " + continentName + ", sorted by population");
         for (City city : continentCities) {
             System.out.println(city);
         }
