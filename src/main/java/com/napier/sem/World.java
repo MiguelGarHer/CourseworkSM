@@ -298,10 +298,28 @@ public class World {
     }
 
     /**
+     *Print all cities in a country
      *
      * @param countryName
      */
     public void sortCitiesPopCountry(String countryName){
+        //Get all cities in every country and add to list
+        ArrayList<City> countryCities = new ArrayList<>();
+        for (Country country : countries) {
+            if (countries.equals(countryName)) {
+                countryCities.addAll(country.cities);
+            }
+        }
+
+        //Sort
+        countryCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
+        //Print cities
+        System.out.println("All cities in " + countryName + ", sorted by population");
+        for (City city : countryCities) {
+            System.out.println(city);
+        }
+
     }
 
     /**
