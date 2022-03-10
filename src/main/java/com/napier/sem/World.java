@@ -2,6 +2,7 @@ package com.napier.sem;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class World {
@@ -24,8 +25,23 @@ public class World {
         // Read all countries
         getCountries();
 
+        // Vinh: Test: sortCitiesPopWorld():
+        sortCitiesPopWorld();
+
+        System.out.println();
+
         // Vinh: Test: sortCitiesPopContinent()
         sortCitiesPopContinent("Asia");
+
+        System.out.println();
+
+        //Miguel: Test: sortCitiesPopRegion()
+        sortCitiesPopRegion("Caribbean");
+
+        System.out.println();
+
+        //Haidi: Test: sortCitiesPopCountry()
+        sortCitiesPopCountry("France");
 
         // Disconnect from MySQL
         disconnect();
@@ -54,7 +70,7 @@ public class World {
             try
             {
                 // Wait a bit for db to start
-                Thread.sleep(20000);
+                Thread.sleep(10000);
                 // Connect to database
                 con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
@@ -261,49 +277,42 @@ public class World {
     }
 
     /**
-     *
+     * Print all cities in the world
+     * Condition: Largest population to smallest
      */
     public void sortCitiesPopWorld(){
+        ArrayList<City> allCities = new ArrayList<>();
+        for (Country country: countries) {
+            allCities.addAll(country.cities);
+        }
+
+        allCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
+        System.out.println("All cities in the world, sorted by population");
+        for (City city : allCities) {
+            System.out.println(city);
+        }
     }
 
     /**
-     * Population Report
-     * Condition: All cities in a contient (largest population to smallest)
-     *
-     * @param continentName
+     * Print all cities in a continent <br>
+     * Condition: All cities in a continent (largest population to smallest)
+     * @param continentName name of continent
      */
     public void sortCitiesPopContinent(String continentName){
         // Get all cities in each continent and add to list
         ArrayList<City> continentCities = new ArrayList<>();
-        long totalPopulation = 0;
-        long urbanPopulation = 0;
-        long ruralPopulation = 0;
-
         for (Country country : countries) {
             if (country.continent.equals(continentName)) {
                 continentCities.addAll(country.cities);
-                totalPopulation += country.population;
             }
         }
 
         // Sorting - https://www.baeldung.com/java-8-comparator-comparing
         continentCities.sort(Comparator.comparing(City::getPopulation).reversed());
 
-        // Calculating percentage and other figures
-        for (City city : continentCities) {
-            urbanPopulation += city.population;
-        }
-        ruralPopulation = totalPopulation - urbanPopulation;
-        double ruralPercentage =  Math.round(ruralPopulation * 1.0 / totalPopulation * 100);
-        double urbanPercentage =  Math.round(urbanPopulation * 1.0 / totalPopulation * 100);
-
-        // Printing report
-        System.out.println("----------------------------------------------------");
-        System.out.println("Population Report: " + continentName);
-        System.out.println("Total population: " + totalPopulation);
-        System.out.println("Urban population: " + urbanPopulation + " (" + urbanPercentage + "%)");
-        System.out.println("Rural population: " + ruralPopulation + " (" + ruralPercentage + "%)");
-        System.out.println("----------------------------------------------------");
+        // Printing cities in order
+        System.out.println("All cities in " + continentName + ", sorted by population");
         for (City city : continentCities) {
             System.out.println(city);
         }
@@ -314,13 +323,47 @@ public class World {
      * @param regionName
      */
     public void sortCitiesPopRegion(String regionName){
+
+        ArrayList<City> sortCities = new ArrayList<City>();
+
+        for(Country c : countries) {
+            if (c.region.equals(regionName)) {
+                sortCities.addAll(c.cities);
+            }
+        }
+
+        sortCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
+
+        System.out.println("All cities in " + regionName + ", sorted by population");
+        for(City c: sortCities){
+            System.out.println(c.toString());
+        }
+
     }
 
     /**
+     * Print all cities in a country
      *
      * @param countryName
      */
     public void sortCitiesPopCountry(String countryName){
+        //Get all cities in every country and add to list
+        ArrayList<City> countryCities = new ArrayList<>();
+        for (Country country : countries) {
+            if (country.name.equals(countryName)) {
+                countryCities.addAll(country.cities);
+            }
+        }
+
+        //Sort
+        countryCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
+        //Print cities
+        System.out.println("All cities in " + countryName + ", sorted by population");
+        for (City city : countryCities) {
+            System.out.println(city);
+        }
+
     }
 
     /**
