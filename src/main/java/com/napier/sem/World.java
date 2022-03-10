@@ -35,6 +35,11 @@ public class World {
 
         System.out.println();
 
+        // Vinh: Test: sortCitiesPopDistrict()
+        sortCitiesPopDistrict("California");
+
+        System.out.println();
+
         //Miguel: Test: sortCitiesPopRegion()
         sortCitiesPopRegion("Caribbean");
 
@@ -371,6 +376,24 @@ public class World {
      * @param districtName
      */
     public void sortCitiesPopDistrict(String districtName){
+        //Get all cities in every country and add to list
+        ArrayList<City> districtCities = new ArrayList<>();
+        for (Country country : countries) {
+            for (City city : country.cities) {
+                if (city.district.equals(districtName)) {
+                    districtCities.add(city);
+                }
+            }
+        }
+
+        //Sort
+        districtCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
+        //Print cities
+        System.out.println("All cities in " + districtName + ", sorted by population");
+        for (City city : districtCities) {
+            System.out.println(city);
+        }
     }
 
     /**
