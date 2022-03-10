@@ -2,6 +2,7 @@ package com.napier.sem;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class World {
@@ -26,6 +27,9 @@ public class World {
 
         // Vinh: Test: sortCitiesPopContinent()
         sortCitiesPopContinent("Asia");
+
+        //Miguel: Test: sortCities
+        sortCitiesPopRegion("Caribbean");
 
         // Disconnect from MySQL
         disconnect();
@@ -295,6 +299,21 @@ public class World {
      * @param regionName
      */
     public void sortCitiesPopRegion(String regionName){
+
+        ArrayList<City> sortCities = new ArrayList<City>();
+
+        for(Country c : countries) {
+            if (c.region.equals(regionName)) {
+                sortCities.addAll(c.cities);
+            }
+        }
+
+        sortCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
+
+        for(City c: sortCities){
+            System.out.println(c.toString());
+        }
+
     }
 
     /**
