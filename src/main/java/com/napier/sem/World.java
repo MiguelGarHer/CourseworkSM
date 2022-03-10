@@ -38,6 +38,11 @@ public class World {
         //Miguel: Test: sortCitiesPopRegion()
         sortCitiesPopRegion("Caribbean");
 
+        System.out.println();
+
+        //Haidi: Test: sortCitiesPopCountry()
+        sortCitiesPopCountry("France");
+
         // Disconnect from MySQL
         disconnect();
     }
@@ -337,7 +342,7 @@ public class World {
     }
 
     /**
-     *Print all cities in a country
+     * Print all cities in a country
      *
      * @param countryName
      */
@@ -345,7 +350,7 @@ public class World {
         //Get all cities in every country and add to list
         ArrayList<City> countryCities = new ArrayList<>();
         for (Country country : countries) {
-            if (countries.equals(countryName)) {
+            if (country.name.equals(countryName)) {
                 countryCities.addAll(country.cities);
             }
         }
