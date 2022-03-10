@@ -28,7 +28,9 @@ public class World {
         // Vinh: Test: sortCitiesPopContinent()
         sortCitiesPopContinent("Asia");
 
-        //Miguel: Test: sortCities
+        System.out.println();
+
+        //Miguel: Test: sortCitiesPopRegion()
         sortCitiesPopRegion("Caribbean");
 
         // Disconnect from MySQL
@@ -310,6 +312,7 @@ public class World {
 
         sortCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
 
+        System.out.println("All cities in " + regionName + ", sorted by population");
         for(City c: sortCities){
             System.out.println(c.toString());
         }
