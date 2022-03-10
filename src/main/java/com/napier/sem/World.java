@@ -297,7 +297,7 @@ public class World {
     public void sortCitiesPopWorld(){
         ArrayList<City> allCities = new ArrayList<>();
         for (Country country: countries) {
-            allCities.addAll(country.cities);
+            allCities.addAll(country.getCities());
         }
 
         allCities.sort(Comparator.comparing(City::getPopulation).reversed());
@@ -317,8 +317,8 @@ public class World {
         // Get all cities in each continent and add to temporary list
         ArrayList<City> continentCities = new ArrayList<>();
         for (Country country : countries) {
-            if (country.continent.equals(continentName)) {
-                continentCities.addAll(country.cities);
+            if (country.getContinent().equals(continentName)) {
+                continentCities.addAll(country.getCities());
             }
         }
 
@@ -342,8 +342,8 @@ public class World {
         ArrayList<City> sortCities = new ArrayList<City>();
 
         for(Country c : countries) {
-            if (c.region.equals(regionName)) {
-                sortCities.addAll(c.cities);
+            if (c.getRegion().equals(regionName)) {
+                sortCities.addAll(c.getCities());
             }
         }
 
@@ -365,8 +365,8 @@ public class World {
         //Get all cities in every country and add to list
         ArrayList<City> countryCities = new ArrayList<>();
         for (Country country : countries) {
-            if (country.name.equals(countryName)) {
-                countryCities.addAll(country.cities);
+            if (country.getName().equals(countryName)) {
+                countryCities.addAll(country.getCities());
             }
         }
 
@@ -390,8 +390,8 @@ public class World {
         //Get all cities in every country and add to list
         ArrayList<City> districtCities = new ArrayList<>();
         for (Country country : countries) {
-            for (City city : country.cities) {
-                if (city.district.equals(districtName)) {
+            for (City city : country.getCities()) {
+                if (city.getDistrict().equals(districtName)) {
                     districtCities.add(city);
                 }
             }

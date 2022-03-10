@@ -1,14 +1,26 @@
 package com.napier.sem;
 
 public class Language {
-    public String language;
-    public boolean isOfficial;
-    public double percentage;
+    private final String language;
+    private final boolean isOfficial;
+    private final double percentage;
 
     public Language(String language, boolean isOfficial, double percentage) {
         this.language = language;
         this.isOfficial = isOfficial;
         this.percentage = percentage;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public boolean isOfficial() {
+        return isOfficial;
+    }
+
+    public double getPercentage() {
+        return percentage;
     }
 
     @Override

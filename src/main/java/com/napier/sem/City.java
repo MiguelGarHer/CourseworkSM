@@ -1,11 +1,11 @@
 package com.napier.sem;
 
 public class City {
-    public int id;
-    public String name;
-    public String countryCode;
-    public String district;
-    public int population;
+    private final int id;
+    private final String name;
+    private final String countryCode;
+    private final String district;
+    private final int population;
 
     /**
      * Constructor for City
@@ -23,6 +23,26 @@ public class City {
         this.population = population;
     }
 
+    public int getPopulation(){
+        return  this.population;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
     @Override
     public String toString() {
         return "City{" +
@@ -32,9 +52,5 @@ public class City {
                 ", district='" + district + '\'' +
                 ", population=" + population +
                 '}';
-    }
-
-    public int getPopulation(){
-        return  this.population;
     }
 }
