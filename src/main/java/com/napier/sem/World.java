@@ -25,6 +25,11 @@ public class World {
         // Read all countries
         getCountries();
 
+        // Vinh: Test: sortCitiesPopWorld():
+        sortCitiesPopWorld();
+
+        System.out.println();
+
         // Vinh: Test: sortCitiesPopContinent()
         sortCitiesPopContinent("Asia");
 
@@ -60,7 +65,7 @@ public class World {
             try
             {
                 // Wait a bit for db to start
-                Thread.sleep(20000);
+                Thread.sleep(10000);
                 // Connect to database
                 con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
@@ -267,9 +272,21 @@ public class World {
     }
 
     /**
-     *
+     * Print all cities in the world
+     * Condition: Largest population to smallest
      */
     public void sortCitiesPopWorld(){
+        ArrayList<City> allCities = new ArrayList<>();
+        for (Country country: countries) {
+            allCities.addAll(country.cities);
+        }
+
+        allCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
+        System.out.println("All cities in the world, sorted by population");
+        for (City city : allCities) {
+            System.out.println(city);
+        }
     }
 
     /**
