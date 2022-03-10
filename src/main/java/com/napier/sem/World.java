@@ -2,7 +2,6 @@ package com.napier.sem;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 public class World {
@@ -142,7 +141,9 @@ public class World {
     }
 
     /**
-     * Retrieve all cities from each country
+     * Read all cities in a country
+     * @param countryCode country code
+     * @return list of City objects
      */
     private ArrayList<City> getCities(String countryCode) {
         ArrayList<City> cities = new ArrayList<>();
@@ -171,7 +172,9 @@ public class World {
     }
 
     /**
-     * Retrieve all languages from each country
+     * Read all languages in a country
+     * @param countryCode country code
+     * @return list of Language objects
      */
     private ArrayList<Language> getLanguages(String countryCode) {
         ArrayList<Language> languages = new ArrayList<>();
@@ -187,10 +190,7 @@ public class World {
             // For each row returned, add new language to list
             while (resultSet.next())
             {
-                boolean isOfficial = false;
-                if (resultSet.getString(3).equals("T")) {
-                    isOfficial = true;
-                }
+                boolean isOfficial = resultSet.getString(3).equals("T");
                 Language language = new Language(resultSet.getString(2),isOfficial, resultSet.getDouble(4));
                 languages.add(language);
             }
@@ -198,15 +198,15 @@ public class World {
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to retrieve city details");
+            System.out.println("Failed to retrieve language details");
         }
         return languages;
 
     }
 
     /**
-     *  Prints all country details
-     * @param country: Country to be printed
+     * Prints all country details
+     * @param country name of country
      */
     public void printCountry(Country country) {
         if (country != null) {
@@ -215,75 +215,84 @@ public class World {
     }
 
     /**
-     *
-     * @param countryName
+     * Generate country report
+     * @param countryName name of country
      */
     public void getCountryRep(String countryName){
     }
 
     /**
-     *
-     * @param cityName
+     * Generate city report
+     * @param cityName name of city
      */
     public void getCityReport(String cityName){
     }
 
     /**
-     *
-     * @param capCityName
+     * Generate capital city report
+     * @param capCityName name of capital city
      */
     public void getCapCityRep(String capCityName){
     }
 
     /**
-     *
+     * Generate population report
      */
     public void getPopulationRep(){
     }
 
     /**
-     *
+     * Print all countries in the world
+     * Sorting: Largest population to smallest
      */
     public void sortCountriesPopWorld(){
     }
 
     /**
-     * @param continentName
+     * Print all countries in a continent
+     * Sorting: Largest population to smallest
+     * @param continentName name of continent
      */
     public void sortCountriesPopContinent(String continentName){
-
     }
 
     /**
-     *
-     * @param regionName
+     * Print all countries in a region
+     * Sorting: Largest population to smallest
+     * @param regionName name of region
      */
     public void sortCountriesPopRegion(String regionName){
     }
 
     /**
-     *
+     * Print top N countries in the world
+     * Sorting: Largest population to smallest
+     * @param n top N
      */
-    public void nPopCountriesWorld(){
+    public void nPopCountriesWorld(int n){
     }
 
     /**
-     *
-     * @param continentName
+     * Print top N countries in a continent
+     * Sorting: Largest population to smallest
+     * @param continentName name of continent
+     * @param n top N
      */
-    public void nPopCountriesContinent(String continentName){
+    public void nPopCountriesContinent(String continentName, int n){
     }
 
     /**
-     *
-     * @param regionName
+     * Print top N countries in a region
+     * Sorting: Largest population to smallest
+     * @param regionName name of region
+     * @param n top N
      */
-    public void nPopCountriesRegion(String regionName){
+    public void nPopCountriesRegion(String regionName, int n){
     }
 
     /**
      * Print all cities in the world
-     * Condition: Largest population to smallest
+     * Sorting: Largest population to smallest
      */
     public void sortCitiesPopWorld(){
         ArrayList<City> allCities = new ArrayList<>();
@@ -301,11 +310,11 @@ public class World {
 
     /**
      * Print all cities in a continent <br>
-     * Condition: All cities in a continent (largest population to smallest)
+     * Sorting: Largest population to smallest
      * @param continentName name of continent
      */
     public void sortCitiesPopContinent(String continentName){
-        // Get all cities in each continent and add to list
+        // Get all cities in each continent and add to temporary list
         ArrayList<City> continentCities = new ArrayList<>();
         for (Country country : countries) {
             if (country.continent.equals(continentName)) {
@@ -313,10 +322,10 @@ public class World {
             }
         }
 
-        // Sorting - https://www.baeldung.com/java-8-comparator-comparing
+        // Sort temporary list - https://www.baeldung.com/java-8-comparator-comparing
         continentCities.sort(Comparator.comparing(City::getPopulation).reversed());
 
-        // Printing cities in order
+        // Print sorted list
         System.out.println("All cities in " + continentName + ", sorted by population");
         for (City city : continentCities) {
             System.out.println(city);
@@ -324,8 +333,9 @@ public class World {
     }
 
     /**
-     *
-     * @param regionName
+     * Print all cities in a region <br>
+     * Sorting: Largest population to smallest
+     * @param regionName name of region
      */
     public void sortCitiesPopRegion(String regionName){
 
@@ -347,9 +357,9 @@ public class World {
     }
 
     /**
-     * Print all cities in a country
-     *
-     * @param countryName
+     * Print all cities in a country <br>
+     * Sorting: Largest population to smallest
+     * @param countryName name of country
      */
     public void sortCitiesPopCountry(String countryName){
         //Get all cities in every country and add to list
@@ -372,8 +382,9 @@ public class World {
     }
 
     /**
-     *
-     * @param districtName
+     * Print all cities in a district <br>
+     * Sorting: Largest population to smallest
+     * @param districtName name of district
      */
     public void sortCitiesPopDistrict(String districtName){
         //Get all cities in every country and add to list
@@ -397,77 +408,97 @@ public class World {
     }
 
     /**
-     *
+     * Print top N cities in the world
+     * Sorting: Largest population to smallest
+     * @param n top N
      */
-    public void nPopCitiesWorld(){
+    public void nPopCitiesWorld(int n){
 
     }
 
     /**
-     *
-     * @param continentName
+     * Print top N cities in a continent
+     * Sorting: Largest population to smallest
+     * @param continentName name of continent
+     * @param n top N
      */
-    public void nPopCitiesContinent(String continentName){
+    public void nPopCitiesContinent(String continentName, int n){
     }
 
     /**
-     *
-     * @param regionName
+     * Print top N cities in a region
+     * Sorting: Largest population to smallest
+     * @param regionName name of region
+     * @param n top N
      */
-    public void nPopCitiesRegion(String regionName){
+    public void nPopCitiesRegion(String regionName, int n){
     }
 
     /**
-     *
-     * @param countryName
+     * Print top N cities in a country
+     * Sorting: Largest population to smallest
+     * @param countryName name of country
+     * @param n top N
      */
-    public void nPopCitiesCountry(String countryName){
+    public void nPopCitiesCountry(String countryName, int n){
     }
 
     /**
-     *
-     * @param districtName
+     * Print top N cities in a district
+     * @param districtName name of district
+     * @param n top N
      */
-    public void nPopCitiesDistrict(String districtName){
+    public void nPopCitiesDistrict(String districtName, int n){
     }
 
     /**
-     *
+     * Print capital cities in the world
+     * Sorting: Largest population to smallest
      */
     public void sortCapCitiesPopWorld(){
     }
 
     /**
-     *
-     * @param regionName
+     * Print capital cities in a region
+     * Sorting: Largest population to smallest
+     * @param regionName name of region
+     * @param n top N
      */
-    public void sortCapCitiesPopRegion(String regionName){
+    public void sortCapCitiesPopRegion(String regionName, int n){
     }
 
     /**
-     *
-     * @param continentName
+     * Print capital cities in a continent
+     * Sorting: Largest population to smallest
+     * @param continentName name of continent
+     * @param n top N
      */
-    public void sortCapCitiesPopContinent(String continentName){
+    public void sortCapCitiesPopContinent(String continentName, int n){
     }
 
     /**
-     *
-     * @param regionName
+     * Print top N capital cities in a region
+     * Sorting: Largest population to smallest
+     * @param regionName name of region
+     * @param n top N
      */
-    public void nPopCapCitiesRegion(String regionName){
+    public void nPopCapCitiesRegion(String regionName, int n){
     }
 
     /**
-     *
-     * @param continentName
+     * Print top N capital cities in a continent
+     * Sorting: Largest population to smallest
+     * @param continentName name of continent
+     * @param n top N
      */
-    public void nPopCapCitiesContinent(String continentName){
+    public void nPopCapCitiesContinent(String continentName, int n){
     }
 
     /**
-     *
+     * Print top N capital cities in the world
+     * Sorting: Largest population to smallest
+     * @param n top N
      */
-    public void nPopCapCitiesWorld(){
+    public void nPopCapCitiesWorld(int n){
     }
 }
