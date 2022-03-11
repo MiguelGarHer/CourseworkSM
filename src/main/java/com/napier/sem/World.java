@@ -19,42 +19,13 @@ public class World {
      */
     public World(){
         // Connect to MySQL
-        connect();
 
-        // Read all countries
-        getCountries();
-
-        // Vinh: Test: sortCitiesPopWorld():
-        sortCitiesPopWorld();
-
-        System.out.println();
-
-        // Vinh: Test: sortCitiesPopContinent()
-        sortCitiesPopContinent("Asia");
-
-        System.out.println();
-
-        // Vinh: Test: sortCitiesPopDistrict()
-        sortCitiesPopDistrict("California");
-
-        System.out.println();
-
-        //Miguel: Test: sortCitiesPopRegion()
-        sortCitiesPopRegion("Caribbean");
-
-        System.out.println();
-
-        //Haidi: Test: sortCitiesPopCountry()
-        sortCitiesPopCountry("France");
-
-        // Disconnect from MySQL
-        disconnect();
     }
 
     /**
      * Connect to the MySQL database.
      */
-    private void connect()
+    public void connect()
     {
         try
         {
@@ -95,7 +66,7 @@ public class World {
     /**
      * Disconnect from the MySQL database.
      */
-    private void disconnect()
+    public void disconnect()
     {
         if (con != null)
         {
@@ -114,7 +85,7 @@ public class World {
     /**
      * Read all countries from database
      */
-    private void getCountries()
+    public void getCountries()
     {
         try
         {
