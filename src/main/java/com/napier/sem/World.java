@@ -293,6 +293,11 @@ public class World {
             }
         }
 
+        if (continentCities.isEmpty()) {
+            System.out.println("No cities");
+            return;
+        }
+
         // Sort temporary list - https://www.baeldung.com/java-8-comparator-comparing
         continentCities.sort(Comparator.comparing(City::getPopulation).reversed());
 
@@ -318,6 +323,11 @@ public class World {
             }
         }
 
+        if (sortCities.isEmpty()) {
+            System.out.println("No cities");
+            return;
+        }
+
         sortCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
 
         System.out.println("All cities in " + regionName + ", sorted by population");
@@ -339,6 +349,11 @@ public class World {
             if (country.getName().equals(countryName)) {
                 countryCities.addAll(country.getCities());
             }
+        }
+
+        if (countryCities.isEmpty()) {
+            System.out.println("No cities");
+            return;
         }
 
         //Sort
@@ -366,6 +381,11 @@ public class World {
                     districtCities.add(city);
                 }
             }
+        }
+
+        if (districtCities.isEmpty()) {
+            System.out.println("No cities");
+            return;
         }
 
         //Sort

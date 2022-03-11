@@ -33,14 +33,14 @@ public class WorldTest
     void sortCitiesPopRegionTestNull()
     {
         world.sortCitiesPopRegion(null);
-        assertNotEquals("All cities in null, sorted by population", outputStreamCaptor.toString().trim());
+        assertEquals("No cities", outputStreamCaptor.toString().trim());
     }
 
     @Test
     void sortCitiesPopCountryTestNull()
     {
         world.sortCitiesPopCountry(null);
-        assertNotEquals("All cities in null, sorted by population", outputStreamCaptor.toString().trim());
+        assertEquals("No cities", outputStreamCaptor.toString().trim());
 
     }
 
@@ -48,16 +48,15 @@ public class WorldTest
     void sortCitiesPopDistrictTestNull()
     {
         world.sortCitiesPopDistrict(null);
-        assertNotEquals("All cities in null, sorted by population", outputStreamCaptor.toString().trim());
+        assertEquals("No cities", outputStreamCaptor.toString().trim());
 
     }
 
     @Test
     void sortCitiesPopContinentTestNull()
     {
-        world.sortCitiesPopDistrict(null);
-        assertNotEquals("All cities in null, sorted by population", outputStreamCaptor.toString().trim());
-
+        world.sortCitiesPopContinent(null);
+        assertEquals("No cities", outputStreamCaptor.toString().trim());
     }
 
 }
