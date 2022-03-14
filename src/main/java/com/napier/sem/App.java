@@ -15,6 +15,21 @@ public class App
         // Read all countries
         world.getCountries();
 
+        // Testing for sprint 1 methods
+        //sprint_1(world);
+
+        // Testing for sprint 2 methods
+        sprint_2(world);
+
+        // Disconnect from MySQL
+        world.disconnect();
+    }
+
+    /**
+     * Testing for sprint 1 methods
+     * @param world world object
+     */
+    private static void sprint_1(World world) {
         // Vinh: Test: sortCitiesPopWorld():
         world.sortCitiesPopWorld();
 
@@ -38,7 +53,20 @@ public class App
         //Haidi: Test: sortCitiesPopCountry()
         world.sortCitiesPopCountry("France");
 
-        // Disconnect from MySQL
-        world.disconnect();
+        System.out.println();
+
+    }
+
+    /**
+     * Testing for sprint 2 methods
+     * @param world world object
+     */
+    private static void sprint_2(World world) {
+        // Vinh Test: sortCountriesPopContinent():
+        world.sortCountriesPopContinent("Asia");
+
+        System.out.println();
+
+
     }
 }

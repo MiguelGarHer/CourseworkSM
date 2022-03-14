@@ -225,6 +225,28 @@ public class World {
      * @param continentName name of continent
      */
     public void sortCountriesPopContinent(String continentName){
+        // Get all cities in each continent and add to temporary list
+        ArrayList<Country> continentCountries = new ArrayList<>();
+        for (Country country : countries) {
+            if (country.getContinent().equals(continentName)) {
+                continentCountries.add(country);
+            }
+        }
+
+        // Null check
+        if (continentCountries.isEmpty()) {
+            System.out.println("No countries");
+            return;
+        }
+
+        // Sort temporary list - https://www.baeldung.com/java-8-comparator-comparing
+        countries.sort(Comparator.comparing(Country::getPopulation).reversed());
+
+        // Print sorted list
+        System.out.println("All countries in " + continentName + ", sorted by population");
+        for (Country country : countries) {
+            System.out.println(country);
+        }
     }
 
     /**

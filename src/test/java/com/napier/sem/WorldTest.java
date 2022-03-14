@@ -59,4 +59,12 @@ public class WorldTest
         assertEquals("No cities", outputStreamCaptor.toString().trim());
     }
 
+    @Test
+    void sortCountriesPopCountriesTestNull()
+    {
+        world.sortCountriesPopContinent(null);
+        assertEquals("No countries", outputStreamCaptor.toString().trim());
+
+    }
+
 }
