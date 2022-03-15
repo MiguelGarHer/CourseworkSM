@@ -67,6 +67,11 @@ public class App
 
         System.out.println();
 
+        //Edu Test : sortCountriesPopRegion():
+        world.sortCountriesPopRegion("Caribbean");
+
+        System.out.println();
+
 
     }
 }

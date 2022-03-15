@@ -255,6 +255,26 @@ public class World {
      * @param regionName name of region
      */
     public void sortCountriesPopRegion(String regionName){
+        //Get all cities in each continent and add to temporary list
+        ArrayList<Country> regionCountries = new ArrayList<>();
+        for (Country country : countries){
+            if(country.getRegion().equals(regionName)){
+                regionCountries.add(country);
+            }
+        }
+
+        //Null check
+        if(regionCountries.isEmpty()){
+            System.out.println("No countries");
+            return;
+        }
+        //Sort temporary list
+        countries.sort(Comparator.comparing(Country::getPopulation).reversed());
+        //Print sorted list
+        System.out.println("All countries in " + regionName + ", sorted by population");
+        for (Country country : countries) {
+            System.out.println(country);
+        }
     }
 
     /**
