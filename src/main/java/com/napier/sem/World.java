@@ -457,18 +457,18 @@ public class World {
      */
     public void sortCapCitiesPopWorld(){
         //get all cities in the world
-        ArrayList<CapCity> allCapCities = new ArrayList<>();
+        ArrayList<Capital> allCapital = new ArrayList<>();
         for (Country country: countries) {
-            allCapCities.addAll(country.getCapCities());
+            allCapital.addAll(country.getCapital());
         }
 
         //Sort capital cities
-        allCapCities.sort(Comparator.comparing(CapCity::getPopulation).reversed());
+        allCapital.sort(Comparator.comparing(Capital::getPopulation).reversed());
 
         //Print
         System.out.println("All capital cities in the world, sorted by population");
-        for (CapCity City : allCapCities) {
-            System.out.println(CapCity);
+        for (Capital capital : allCapital) {
+            System.out.println(capital);
         }
     }
 
