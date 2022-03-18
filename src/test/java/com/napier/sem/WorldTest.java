@@ -3,18 +3,16 @@ package com.napier.sem;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class WorldTest
 {
     static World world;
-    private final PrintStream standardOut = System.out;
+
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
     @BeforeAll
@@ -29,42 +27,117 @@ public class WorldTest
         System.setOut(new PrintStream(outputStreamCaptor));
     }
 
+    //sortCitiesPopRegion tests
+
     @Test
     void sortCitiesPopRegionTestNull()
     {
         world.sortCitiesPopRegion(null);
-        assertEquals("No cities", outputStreamCaptor.toString().trim());
+        assertEquals("Null input, no cities", outputStreamCaptor.toString().trim());
     }
+
+    @Test
+    void sortCitiesPopRegionTestBlank()
+    {
+        world.sortCitiesPopRegion("  ");
+        System.out.println("Blank input, no cities");
+    }
+
+    @Test
+    void sortCitiesPopRegionTestEmpty()
+    {
+        world.sortCitiesPopRegion("");
+        System.out.println("Empty input, no cities");
+    }
+
+    //sortCitiesPopCountry tests
 
     @Test
     void sortCitiesPopCountryTestNull()
     {
         world.sortCitiesPopCountry(null);
-        assertEquals("No cities", outputStreamCaptor.toString().trim());
-
+        assertEquals("Null input, no cities", outputStreamCaptor.toString().trim());
     }
+
+    @Test
+    void sortCitiesPopCountryTestEmpty()
+    {
+        world.sortCitiesPopCountry("");
+        assertEquals("Empty input, no cities", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void sortCitiesPopCountryTestBlank()
+    {
+        world.sortCitiesPopCountry("  ");
+        assertEquals("Blank input, no cities", outputStreamCaptor.toString().trim());
+    }
+
+    //sortCitiesPopDistrict tests
 
     @Test
     void sortCitiesPopDistrictTestNull()
     {
         world.sortCitiesPopDistrict(null);
-        assertEquals("No cities", outputStreamCaptor.toString().trim());
-
+        assertEquals("Null input, no cities", outputStreamCaptor.toString().trim());
     }
+    @Test
+    void sortCitiesPopDistrictTestEmpty()
+    {
+        world.sortCitiesPopDistrict("");
+        assertEquals("Empty input, no cities", outputStreamCaptor.toString().trim());
+    }
+    @Test
+    void sortCitiesPopDistrictTestBlank()
+    {
+        world.sortCitiesPopDistrict("  ");
+        assertEquals("Blank input, no cities", outputStreamCaptor.toString().trim());
+    }
+
+    //sortCitiesPopContinent tests
 
     @Test
     void sortCitiesPopContinentTestNull()
     {
         world.sortCitiesPopContinent(null);
-        assertEquals("No cities", outputStreamCaptor.toString().trim());
+        assertEquals("Null input, no cities", outputStreamCaptor.toString().trim());
     }
+
+    @Test
+    void sortCitiesPopContinentTestBlank()
+    {
+        world.sortCitiesPopContinent("  ");
+        assertEquals("Blank input, no cities", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void sortCitiesPopContinentTestEmpty()
+    {
+        world.sortCitiesPopContinent("");
+        assertEquals("Empty input, no cities", outputStreamCaptor.toString().trim());
+    }
+
+    //sortCountriesPopCountries tests
 
     @Test
     void sortCountriesPopCountriesTestNull()
     {
         world.sortCountriesPopContinent(null);
-        assertEquals("No countries", outputStreamCaptor.toString().trim());
+        assertEquals("Null input, no countries", outputStreamCaptor.toString().trim());
+    }
 
+    @Test
+    void sortCountriesPopCountriesTestBlank()
+    {
+        world.sortCountriesPopContinent("   ");
+        assertEquals("Blank input, no countries", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void sortCountriesPopCountriesTestEmpty()
+    {
+        world.sortCountriesPopContinent("");
+        assertEquals("Empty input, no countries", outputStreamCaptor.toString().trim());
     }
 
 }

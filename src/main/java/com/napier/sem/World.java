@@ -286,6 +286,18 @@ public class World {
      * @param continentName name of continent
      */
     public void sortCountriesPopContinent(String continentName){
+        // Null, empty and blank parameter check
+        if (continentName == null) {
+            System.out.println("Null input, no countries");
+            return;
+        } else if (continentName.isEmpty()) {
+            System.out.println("Empty input, no countries");
+            return;
+        } else if (continentName.isBlank()) {
+            System.out.println("Blank input, no countries");
+            return;
+        }
+
         // Get all cities in each continent and add to temporary list
         ArrayList<Country> continentCountries = new ArrayList<>();
         for (Country country : countries) {
@@ -294,11 +306,6 @@ public class World {
             }
         }
 
-        // Null check
-        if (continentCountries.isEmpty()) {
-            System.out.println("No countries");
-            return;
-        }
 
         // Sort temporary list - https://www.baeldung.com/java-8-comparator-comparing
         countries.sort(Comparator.comparing(Country::getPopulation).reversed());
@@ -368,17 +375,24 @@ public class World {
      * @param continentName name of continent
      */
     public void sortCitiesPopContinent(String continentName){
+        // Null, empty and blank parameter check
+        if (continentName == null) {
+            System.out.println("Null input, no cities");
+            return;
+        } else if (continentName.isEmpty()) {
+            System.out.println("Empty input, no cities");
+            return;
+        } else if (continentName.isBlank()) {
+            System.out.println("Blank input, no cities");
+            return;
+        }
+
         // Get all cities in each continent and add to temporary list
         ArrayList<City> continentCities = new ArrayList<>();
         for (Country country : countries) {
             if (country.getContinent().equals(continentName)) {
                 continentCities.addAll(country.getCities());
             }
-        }
-
-        if (continentCities.isEmpty()) {
-            System.out.println("No cities");
-            return;
         }
 
         // Sort temporary list - https://www.baeldung.com/java-8-comparator-comparing
@@ -397,6 +411,17 @@ public class World {
      * @param regionName name of region
      */
     public void sortCitiesPopRegion(String regionName){
+        // Null, empty and blank parameter check
+        if (regionName == null) {
+            System.out.println("Null input, no cities");
+            return;
+        } else if (regionName.isEmpty()) {
+            System.out.println("Empty input, no cities");
+            return;
+        } else if (regionName.isBlank()) {
+            System.out.println("Blank input, no cities");
+            return;
+        }
 
         ArrayList<City> sortCities = new ArrayList<City>();
 
@@ -404,11 +429,6 @@ public class World {
             if (c.getRegion().equals(regionName)) {
                 sortCities.addAll(c.getCities());
             }
-        }
-
-        if (sortCities.isEmpty()) {
-            System.out.println("No cities");
-            return;
         }
 
         sortCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
@@ -426,18 +446,25 @@ public class World {
      * @param countryName name of country
      */
     public void sortCitiesPopCountry(String countryName){
+        // Null, empty and blank parameter check
+        if (countryName == null) {
+            System.out.println("Null input, no cities");
+            return;
+        } else if (countryName.isEmpty()) {
+            System.out.println("Empty input, no cities");
+            return;
+        } else if (countryName.isBlank()) {
+            System.out.println("Blank input, no cities");
+            return;
+        }
+
         //Get all cities in every country and add to list
         ArrayList<City> countryCities = new ArrayList<>();
         for (Country country : countries) {
             if (country.getName().equals(countryName)) {
                 countryCities.addAll(country.getCities());
             }
-        }
-
-        if (countryCities.isEmpty()) {
-            System.out.println("No cities");
-            return;
-        }
+        }            System.out.println("No cities");
 
         //Sort
         countryCities.sort(Comparator.comparing(City::getPopulation).reversed());
@@ -456,6 +483,18 @@ public class World {
      * @param districtName name of district
      */
     public void sortCitiesPopDistrict(String districtName){
+        // Null, empty and blank parameter check
+        if (districtName == null) {
+            System.out.println("Null input, no cities");
+            return;
+        } else if (districtName.isEmpty()) {
+            System.out.println("Empty input, no cities");
+            return;
+        } else if (districtName.isBlank()) {
+            System.out.println("Blank input, no cities");
+            return;
+        }
+
         //Get all cities in every country and add to list
         ArrayList<City> districtCities = new ArrayList<>();
         for (Country country : countries) {
@@ -464,11 +503,6 @@ public class World {
                     districtCities.add(city);
                 }
             }
-        }
-
-        if (districtCities.isEmpty()) {
-            System.out.println("No cities");
-            return;
         }
 
         //Sort
