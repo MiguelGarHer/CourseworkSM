@@ -75,7 +75,7 @@ public class World {
     }
 
     /**
-     * Gets the result set from SQL query
+     * Retrieves result set from SQL query
      * @param sqlQueryString
      * @return
      * @throws SQLException
@@ -90,9 +90,9 @@ public class World {
     }
 
     /**
-     * Helper function: Convert resultSet to Country
-     * @param resultSet
-     * @return
+     * Creates a Country from result set
+     * @param resultSet ResultSet from SQL query
+     * @return Country
      */
     public Country createCountry(ResultSet resultSet)
     {
@@ -128,7 +128,11 @@ public class World {
         return null;
     }
 
-
+    /**
+     * Converts City object from resultSet
+     * @param resultSet ResultSet from SQL query
+     * @return City
+     */
     public City resultToCity(ResultSet resultSet) {
         try {
             // For each row returned, add new Country to list
@@ -147,22 +151,12 @@ public class World {
         return null;
     }
 
-    public Language resultToLanguage(ResultSet resultSet) {
-        try {
-            boolean isOfficial = resultSet.getString(3).equals("T");
-            Language language = new Language(
-                    resultSet.getString(2),
-                    isOfficial,
-                    resultSet.getDouble(4)
-            );
-            return language;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return null;
-    }
 
-
+    /**
+     * Retrieves all cities of a country
+     * @param countryCode country code
+     * @return ArrayList of City
+     */
     public ArrayList<City> getCities(String countryCode)
     {
         ArrayList<City> cities = new ArrayList<>();
@@ -182,7 +176,7 @@ public class World {
 
 
     /**
-     * Read all countries from database
+     * Retrieves all countries in the world
      */
     public void getCountries()
     {
@@ -220,6 +214,26 @@ public class World {
             System.out.println(e.getMessage());
         }
         return languages;
+    }
+
+    /**
+     *
+     * @param resultSet
+     * @return
+     */
+    public Language resultToLanguage(ResultSet resultSet) {
+        try {
+            boolean isOfficial = resultSet.getString(3).equals("T");
+            Language language = new Language(
+                    resultSet.getString(2),
+                    isOfficial,
+                    resultSet.getDouble(4)
+            );
+            return language;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
     /**
