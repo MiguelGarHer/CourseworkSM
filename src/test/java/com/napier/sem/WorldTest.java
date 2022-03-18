@@ -67,4 +67,15 @@ public class WorldTest
 
     }
 
+    @Test
+    void sortCapCitiesPopRegionTestNull(){
+        world.sortCapCitiesPopRegion(null);
+        assertEquals("REGION NAME IS NULL", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void sortCapCitiesPopRegionTestEmpty(){
+        world.sortCapCitiesPopRegion("This region does not exist");
+        assertEquals("No capital cities in this region", outputStreamCaptor.toString().trim());
+    }
 }

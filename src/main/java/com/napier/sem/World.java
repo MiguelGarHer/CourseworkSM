@@ -510,21 +510,35 @@ public class World {
 
         ArrayList<City> sortCapCities = new ArrayList<City>();
 
-        for(Country c : countries) {
-            if (c.getRegion().equals(regionName)) {
-                for(City city : c.getCities()){
-                    if(city.getId() == c.getCapital()){
-                        sortCapCities.add(city);
+        //NULL checker
+        if(regionName != null) {
+
+            for (Country c : countries) {
+                if (c.getRegion().equals(regionName)) {
+                    for (City city : c.getCities()) {
+                        if (city.getId() == c.getCapital()) {
+                            sortCapCities.add(city);
+                        }
                     }
                 }
             }
+
+            //EMPTY checker
+            if(!sortCapCities.isEmpty()) {
+
+                sortCapCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
+
+                System.out.println("All capital cities in " + regionName + ", sorted by population");
+                for (City c : sortCapCities) {
+                    System.out.println(c.toString());
+                }
+            }
+            else {
+                System.out.println("No capital cities in this region");
+            }
         }
-
-        sortCapCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
-
-        System.out.println("All capital cities in " + regionName + ", sorted by population");
-        for(City c: sortCapCities){
-            System.out.println(c.toString());
+        else {
+            System.out.println("REGION NAME IS NULL");
         }
     }
 
