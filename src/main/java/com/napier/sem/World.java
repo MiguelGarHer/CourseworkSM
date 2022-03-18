@@ -40,7 +40,8 @@ public class World {
         System.out.println();
 
         //Miguel: Test: sortCitiesPopRegion()
-        sortCapCitiesPopRegion("Caribean");
+
+        sortCapCitiesPopRegion("Central Africa");
 
         System.out.println();
 
@@ -466,14 +467,12 @@ public class World {
     public void sortCapCitiesPopRegion(String regionName){
 
         ArrayList<City> sortCapCities = new ArrayList<City>();
-        boolean found = false;
 
         for(Country c : countries) {
             if (c.getRegion().equals(regionName)) {
-                for(int i = 0; i < c.getCities().size() && !found; i++){
-                    if(c.getCities().get(i).getId() == c.getCapital()){
-                        sortCapCities.add(c.getCities().get(i));
-                        found = true;
+                for(City city : c.getCities()){
+                    if(city.getId() == c.getCapital()){
+                        sortCapCities.add(city);
                     }
                 }
             }
