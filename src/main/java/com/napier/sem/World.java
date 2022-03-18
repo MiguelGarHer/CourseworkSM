@@ -40,7 +40,7 @@ public class World {
         System.out.println();
 
         //Miguel: Test: sortCitiesPopRegion()
-        sortCitiesPopRegion("Caribbean");
+        sortCapCitiesPopRegion("Caribean");
 
         System.out.println();
 
@@ -462,9 +462,29 @@ public class World {
      * Print capital cities in a region
      * Sorting: Largest population to smallest
      * @param regionName name of region
-     * @param n top N
      */
-    public void sortCapCitiesPopRegion(String regionName, int n){
+    public void sortCapCitiesPopRegion(String regionName){
+
+        ArrayList<City> sortCapCities = new ArrayList<City>();
+        boolean found = false;
+
+        for(Country c : countries) {
+            if (c.getRegion().equals(regionName)) {
+                for(int i = 0; i < c.getCities().size() && !found; i++){
+                    if(c.getCities().get(i).getId() == c.getCapital()){
+                        sortCapCities.add(c.getCities().get(i));
+                        found = true;
+                    }
+                }
+            }
+        }
+
+        sortCapCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
+
+        System.out.println("All capital cities in " + regionName + ", sorted by population");
+        for(City c: sortCapCities){
+            System.out.println(c.toString());
+        }
     }
 
     /**
