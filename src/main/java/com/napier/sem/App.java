@@ -12,7 +12,7 @@ public class App
         //Connect to MySQL
 
         if (args.length < 1) {
-            world.connect("localhost:33060", 30000);
+            world.connect("localhost:33060", 15000);
         } else{
             world.connect(args[0], Integer.parseInt(args[1]));
         }

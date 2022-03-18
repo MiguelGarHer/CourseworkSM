@@ -3,8 +3,9 @@ package com.napier.sem;
 import java.util.ArrayList;
 
 public class Country {
-	private final ArrayList<City> cities;
-	private final ArrayList<Language> languages;
+	private ArrayList<City> cities;
+
+	private ArrayList<Language> languages;
 
 	private final String code;
 	private final String name;
@@ -22,9 +23,7 @@ public class Country {
 	private final int capital;
 	private final String code2;
 
-	public Country(ArrayList<City> cities, ArrayList<Language> languages, String code, String name, String continent, String region, double surfaceArea, int indepYear, int population, double lifeExpectancy, double GNP, double GNPOld, String localName, String governmentForm, String headOfState, int capital, String code2) {
-		this.cities = cities;
-		this.languages = languages;
+	public Country(String code, String name, String continent, String region, double surfaceArea, int indepYear, int population, double lifeExpectancy, double GNP, double GNPOld, String localName, String governmentForm, String headOfState, int capital, String code2) {
 		this.code = code;
 		this.name = name;
 		this.continent = continent;
@@ -40,6 +39,14 @@ public class Country {
 		this.headOfState = headOfState;
 		this.capital = capital;
 		this.code2 = code2;
+	}
+
+	public void setCities(ArrayList<City> cities) {
+		this.cities = cities;
+	}
+
+	public void setLanguages(ArrayList<Language> languages) {
+		this.languages = languages;
 	}
 
 	public ArrayList<City> getCities() {
