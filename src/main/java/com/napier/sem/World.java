@@ -18,6 +18,38 @@ public class World {
      * Initiates database communication and reading of data
      */
     public World(){
+
+        connect();
+
+        // Read all countries
+        getCountries();
+
+        // Vinh: Test: sortCitiesPopWorld():
+        sortCitiesPopWorld();
+
+        System.out.println();
+
+        // Vinh: Test: sortCitiesPopContinent()
+        sortCitiesPopContinent("Asia");
+
+        System.out.println();
+
+        // Vinh: Test: sortCitiesPopDistrict()
+        sortCitiesPopDistrict("California");
+
+        System.out.println();
+
+        //Miguel: Test: sortCitiesPopRegion()
+
+        sortCapCitiesPopRegion("Central Africa");
+
+        System.out.println();
+
+        //Haidi: Test: sortCitiesPopCountry()
+        sortCitiesPopCountry("France");
+
+        // Disconnect from MySQL
+        disconnect();
     }
 
     /**
