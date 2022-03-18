@@ -18,44 +18,12 @@ public class World {
      * Initiates database communication and reading of data
      */
     public World(){
-        // Connect to MySQL
-        connect();
-
-        // Read all countries
-        getCountries();
-
-        // Vinh: Test: sortCitiesPopWorld():
-        sortCitiesPopWorld();
-
-        System.out.println();
-
-        // Vinh: Test: sortCitiesPopContinent()
-        sortCitiesPopContinent("Asia");
-
-        System.out.println();
-
-        // Vinh: Test: sortCitiesPopDistrict()
-        sortCitiesPopDistrict("California");
-
-        System.out.println();
-
-        //Miguel: Test: sortCitiesPopRegion()
-
-        sortCapCitiesPopRegion("Central Africa");
-
-        System.out.println();
-
-        //Haidi: Test: sortCitiesPopCountry()
-        sortCitiesPopCountry("France");
-
-        // Disconnect from MySQL
-        disconnect();
     }
 
     /**
      * Connect to the MySQL database.
      */
-    private void connect()
+    public void connect()
     {
         try
         {
@@ -96,7 +64,7 @@ public class World {
     /**
      * Disconnect from the MySQL database.
      */
-    private void disconnect()
+    public void disconnect()
     {
         if (con != null)
         {
@@ -115,7 +83,7 @@ public class World {
     /**
      * Read all countries from database
      */
-    private void getCountries()
+    public void getCountries()
     {
         try
         {
@@ -255,6 +223,28 @@ public class World {
      * @param continentName name of continent
      */
     public void sortCountriesPopContinent(String continentName){
+        // Get all cities in each continent and add to temporary list
+        ArrayList<Country> continentCountries = new ArrayList<>();
+        for (Country country : countries) {
+            if (country.getContinent().equals(continentName)) {
+                continentCountries.add(country);
+            }
+        }
+
+        // Null check
+        if (continentCountries.isEmpty()) {
+            System.out.println("No countries");
+            return;
+        }
+
+        // Sort temporary list - https://www.baeldung.com/java-8-comparator-comparing
+        countries.sort(Comparator.comparing(Country::getPopulation).reversed());
+
+        // Print sorted list
+        System.out.println("All countries in " + continentName + ", sorted by population");
+        for (Country country : countries) {
+            System.out.println(country);
+        }
     }
 
     /**
@@ -323,6 +313,11 @@ public class World {
             }
         }
 
+        if (continentCities.isEmpty()) {
+            System.out.println("No cities");
+            return;
+        }
+
         // Sort temporary list - https://www.baeldung.com/java-8-comparator-comparing
         continentCities.sort(Comparator.comparing(City::getPopulation).reversed());
 
@@ -348,6 +343,11 @@ public class World {
             }
         }
 
+        if (sortCities.isEmpty()) {
+            System.out.println("No cities");
+            return;
+        }
+
         sortCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
 
         System.out.println("All cities in " + regionName + ", sorted by population");
@@ -369,6 +369,11 @@ public class World {
             if (country.getName().equals(countryName)) {
                 countryCities.addAll(country.getCities());
             }
+        }
+
+        if (countryCities.isEmpty()) {
+            System.out.println("No cities");
+            return;
         }
 
         //Sort
@@ -396,6 +401,11 @@ public class World {
                     districtCities.add(city);
                 }
             }
+        }
+
+        if (districtCities.isEmpty()) {
+            System.out.println("No cities");
+            return;
         }
 
         //Sort
