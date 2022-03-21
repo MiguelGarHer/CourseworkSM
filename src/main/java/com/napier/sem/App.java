@@ -75,6 +75,8 @@ public class App
         // Vinh Test: nPopCitiesContinent():
         world.nPopCitiesContinent("Asia", 5);
 
+        world.nPopCapCitiesContinent("Asia", 5);
+
         System.out.println();
 
 

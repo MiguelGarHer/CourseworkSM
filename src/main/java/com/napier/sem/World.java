@@ -641,6 +641,40 @@ public class World {
      * @param n top N
      */
     public void nPopCapCitiesContinent(String continentName, int n){
+
+        ArrayList<City> sortCapCities = new ArrayList<City>();
+        int count = 0;
+
+        //NULL checker
+        if(continentName != null) {
+
+            for (int i = 0; i < countries.size() && count <= n; i++) {
+                if (countries.get(i).getRegion().equals(continentName)) {
+                    for (int j = 0; i < countries.get(i).getCities().size() && count <= n; j++) {
+                        if (countries.get(i).getCities().get(j).getId() == countries.get(i).getCapital()) {
+                            sortCapCities.add(countries.get(i).getCities().get(j));
+                        }
+                    }
+                }
+            }
+
+            //EMPTY checker
+            if(!sortCapCities.isEmpty()) {
+
+                sortCapCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
+
+                System.out.println("The " + n + " capital cities in " + continentName + ", sorted by population");
+                for (City c : sortCapCities) {
+                    System.out.println(c.toString());
+                }
+            }
+            else {
+                System.out.println("No capital cities in this continent");
+            }
+        }
+        else {
+            System.out.println("CONTINENT NAME IS NULL");
+        }
     }
 
     /**
