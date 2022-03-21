@@ -65,6 +65,8 @@ public class App
         // Vinh Test: sortCountriesPopContinent():
         world.sortCountriesPopContinent("Asia");
 
+        world.sortCapCitiesPopContinent("Asia");
+
         System.out.println();
 
 

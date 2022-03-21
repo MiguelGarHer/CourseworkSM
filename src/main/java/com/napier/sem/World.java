@@ -514,9 +514,41 @@ public class World {
      * Print capital cities in a continent
      * Sorting: Largest population to smallest
      * @param continentName name of continent
-     * @param n top N
      */
-    public void sortCapCitiesPopContinent(String continentName, int n){
+    public void sortCapCitiesPopContinent(String continentName){
+
+        ArrayList<City> sortCapCities = new ArrayList<City>();
+
+        //NULL checker
+        if(continentName != null) {
+
+            for (Country c : countries) {
+                if (c.getContinent().equals(continentName)) {
+                    for (City city : c.getCities()) {
+                        if (city.getId() == c.getCapital()) {
+                            sortCapCities.add(city);
+                        }
+                    }
+                }
+            }
+
+            //EMPTY checker
+            if(!sortCapCities.isEmpty()) {
+
+                sortCapCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
+
+                System.out.println("All capital cities in " + continentName + ", sorted by population");
+                for (City c : sortCapCities) {
+                    System.out.println(c.toString());
+                }
+            }
+            else {
+                System.out.println("No capital cities in this continent");
+            }
+        }
+        else {
+            System.out.println("CONTINENT NAME IS NULL");
+        }
     }
 
     /**
