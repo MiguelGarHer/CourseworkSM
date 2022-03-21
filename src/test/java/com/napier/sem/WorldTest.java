@@ -66,5 +66,30 @@ public class WorldTest
         assertEquals("No countries", outputStreamCaptor.toString().trim());
 
     }
+//sortCountriesPopRegion Test(Empty, null and blank)
+
+    @Test
+    void sortCountriesPopRegionTestEmpty()
+    {
+        world.sortCountriesPopRegion("");
+        assertEquals("Empty input, no countries", outputStreamCaptor.toString().trim());
+
+    }
+
+    @Test
+    void sortCountriesPopRegionTestNull()
+    {
+        world.sortCountriesPopRegion(null);
+        assertEquals("Null input, no countries", outputStreamCaptor.toString().trim());
+
+    }
+
+    @Test
+    void sortCountriesPopRegionTestBlank()
+    {
+        world.sortCountriesPopRegion("  ");
+        assertEquals("Blank input, no countries", outputStreamCaptor.toString().trim());
+
+    }
 
 }

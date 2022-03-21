@@ -255,6 +255,17 @@ public class World {
      * @param regionName name of region
      */
     public void sortCountriesPopRegion(String regionName){
+        //Empty, null and blank check
+        if(regionName == null){
+            System.out.println("Null input, no countries");
+            return;
+        }if(regionName.isEmpty()){
+            System.out.println("Empty input, no countries");
+            return;
+        } else if(regionName.isBlank()){
+            System.out.println("Blank input, no countries");
+            return;
+        }
         //Get all cities in each continent and add to temporary list
         ArrayList<Country> regionCountries = new ArrayList<>();
         for (Country country : countries){
@@ -263,11 +274,6 @@ public class World {
             }
         }
 
-        //Null check
-        if(regionCountries.isEmpty()){
-            System.out.println("No countries");
-            return;
-        }
         //Sort temporary list
         countries.sort(Comparator.comparing(Country::getPopulation).reversed());
         //Print sorted list
