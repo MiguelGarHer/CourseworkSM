@@ -39,17 +39,13 @@ public class WorldTest
     }
 
     @Test
-    void getResultSetTestBlank() {
-        NullPointerException thrown = assertThrows(NullPointerException.class, () -> {
-            world.getResultSet("  ");
-        });
+    void getResultSetTestBlank() throws SQLException {
+        assertNull(world.getResultSet(" "));
     }
 
     @Test
-    void getResultSetTestEmpty() {
-        NullPointerException thrown = assertThrows(NullPointerException.class, () -> {
-            world.getResultSet("");
-        });
+    void getResultSetTestEmpty() throws SQLException {
+        assertNull(world.getResultSet(""));
     }
 
 

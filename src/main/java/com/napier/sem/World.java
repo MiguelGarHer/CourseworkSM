@@ -81,6 +81,9 @@ public class World {
      * @throws SQLException
      */
     public ResultSet getResultSet(String sqlQueryString) throws SQLException {
+        if (sqlQueryString.isBlank() || sqlQueryString.isEmpty()) {
+            return null;
+        }
         // Create an SQL statement using connection
         Statement statement = con.createStatement();
         // Create SQL statement string for SQL statement

@@ -40,6 +40,7 @@ public class CountryTest {
     void setCitiesTestEmpty() {
         ArrayList<City> emptyCities = new ArrayList<>();
         country.setCities(emptyCities);
+        assertEquals(new ArrayList<City>(), country.getCities());
     }
 
     @Test
@@ -65,12 +66,14 @@ public class CountryTest {
     @Test
     void setLanguagesTestNUll() {
         country.setLanguages(null);
+        assertNull(country.getLanguages());
     }
 
     @Test
     void setLanguagesTestEmpty() {
         ArrayList<Language> emptyLanguages = new ArrayList<>();
         country.setLanguages(emptyLanguages);
+        assertEquals(new ArrayList<Language>(), country.getLanguages());
     }
 
     @Test
