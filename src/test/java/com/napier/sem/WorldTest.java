@@ -201,4 +201,31 @@ public class WorldTest
         assertEquals("Empty input, no countries", outputStreamCaptor.toString().trim());
     }
 
+
+    @Test
+    void nPopCitiesContinentTestNull() {
+        world.nPopCitiesContinent(null, 1);
+        assertEquals("Null input, no cities", outputStreamCaptor.toString().trim());
+
+    }
+
+    @Test
+    void nPopCitiesContinentTestBlank() {
+        world.nPopCitiesContinent("  ", 1);
+        assertEquals("Blank input, no cities", outputStreamCaptor.toString().trim());
+
+    }
+
+    @Test
+    void nPopCitiesContinentTestEmpty() {
+        world.nPopCitiesContinent("", 1);
+        assertEquals("Empty input, no cities", outputStreamCaptor.toString().trim());
+
+    }
+
+    @Test
+    void nPopCitiesContinentTestZeroOrNegative() {
+        world.nPopCitiesContinent("Asia", -1);
+        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+    }
 }
