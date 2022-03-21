@@ -648,11 +648,11 @@ public class World {
         //NULL checker
         if(continentName != null) {
 
-            for (int i = 0; i < countries.size() && count <= n; i++) {
-                if (countries.get(i).getRegion().equals(continentName)) {
-                    for (int j = 0; i < countries.get(i).getCities().size() && count <= n; j++) {
-                        if (countries.get(i).getCities().get(j).getId() == countries.get(i).getCapital()) {
-                            sortCapCities.add(countries.get(i).getCities().get(j));
+            for (Country c : countries) {
+                if (c.getRegion().equals(continentName)) {
+                    for (City city : c.getCities()) {
+                        if (city.getId() == c.getCapital()) {
+                            sortCapCities.add(city);
                         }
                     }
                 }
@@ -664,8 +664,8 @@ public class World {
                 sortCapCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
 
                 System.out.println("The " + n + " capital cities in " + continentName + ", sorted by population");
-                for (City c : sortCapCities) {
-                    System.out.println(c.toString());
+                for (int i = 0; i < n; i++) {
+                    System.out.println(sortCapCities.get(i).toString());
                 }
             }
             else {
