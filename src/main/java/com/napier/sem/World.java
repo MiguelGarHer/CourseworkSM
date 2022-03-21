@@ -125,7 +125,7 @@ public class World {
             country.setLanguages(getLanguages(resultSet.getString(1)));
 
             return country;
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             System.out.println(e.getMessage());
         }
         return null;
@@ -148,7 +148,7 @@ public class World {
             );
 
             return city;
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             System.out.println(e.getMessage());
         }
         return null;
@@ -168,11 +168,12 @@ public class World {
             ResultSet resultSet = getResultSet(sqlQuery);
             while(resultSet.next()) {
                 cities.add(resultToCity(resultSet));
-
             }
             return cities;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        } catch (NullPointerException e) {
+
         }
         return cities;
     }
@@ -201,7 +202,7 @@ public class World {
      * @param countryCode country code
      * @return list of Language objects
      */
-    private ArrayList<Language> getLanguages(String countryCode) {
+    public ArrayList<Language> getLanguages(String countryCode) {
         ArrayList<Language> languages = new ArrayList<>();
         try {
             String sqlQuery = "SELECT * FROM countrylanguage WHERE countrycode = '" + countryCode + "';";
@@ -212,9 +213,10 @@ public class World {
                 languages.add(language);
             }
             return languages;
-        } catch (Exception e)
+        } catch (SQLException e)
         {
             System.out.println(e.getMessage());
+        } catch (NullPointerException e) {
         }
         return languages;
     }

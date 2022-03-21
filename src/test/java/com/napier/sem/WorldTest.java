@@ -3,11 +3,11 @@ package com.napier.sem;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestTemplate;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.sql.SQLException;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,7 +33,7 @@ public class WorldTest
     //
     @Test
     void getResultSetTestNull() {
-        NullPointerException thrown = assertThrows(NullPointerException.class, () -> {
+        NullPointerException exception = assertThrows(NullPointerException.class, () -> {
             world.getResultSet(null);
         });
     }
@@ -51,17 +51,43 @@ public class WorldTest
 
     @Test
     void createCountryTestNull() {
-        NullPointerException thrown = assertThrows(NullPointerException.class, () -> {
-            world.createCountry(null);
-        });
+        assertNull(world.createCountry(null));
     }
 
     @Test
     void resultToCityTestNull() {
-        NullPointerException thrown = assertThrows(NullPointerException.class, () -> {
-            world.resultToCity(null);
+        assertNull(world.resultToCity(null));
+    }
+
+    @Test
+    void getCitiesTestNull() {
+        assertTrue(world.getCities(null).isEmpty());
+
+    }
+
+    @Test
+    void getCitiesTestBlank() {
+        assertTrue(world.getCities("  ").isEmpty());
+    }
+
+    @Test
+    void getCitiesTestEmpty() {
+        assertTrue(world.getCities("").isEmpty());
+    }
+
+    @Test
+    void getLanguagesTestNull() {
+        assertTrue(world.getLanguages(null).isEmpty());
+    }
+
+    @Test
+    void resultToLanguageTest() {
+        NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+            world.resultToLanguage(null);
         });
     }
+
+
     //sortCitiesPopRegion tests
 
     @Test
