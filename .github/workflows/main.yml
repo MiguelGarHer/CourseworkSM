@@ -62,7 +62,7 @@ jobs:
           distribution: 'adopt'
       - name: Unit Tests
         run: mvn -Dtest=com.napier.sem.LanguageTest test
-        
+
   IntegrationTests:
     name: Integration Tests
     runs-on: ubuntu-20.04

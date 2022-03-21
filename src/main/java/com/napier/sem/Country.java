@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Country {
 	private ArrayList<City> cities;
-
 	private ArrayList<Language> languages;
 
 	private final String code;
