@@ -3,9 +3,11 @@ package com.napier.sem;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestTemplate;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -27,6 +29,43 @@ public class WorldTest
         System.setOut(new PrintStream(outputStreamCaptor));
     }
 
+
+    //
+    @Test
+    void getResultSetTestNull() {
+        NullPointerException thrown = assertThrows(NullPointerException.class, () -> {
+            world.getResultSet(null);
+        });
+    }
+
+    @Test
+    void getResultSetTestBlank() {
+        NullPointerException thrown = assertThrows(NullPointerException.class, () -> {
+            world.getResultSet("  ");
+        });
+    }
+
+    @Test
+    void getResultSetTestEmpty() {
+        NullPointerException thrown = assertThrows(NullPointerException.class, () -> {
+            world.getResultSet("");
+        });
+    }
+
+
+    @Test
+    void createCountryTestNull() {
+        NullPointerException thrown = assertThrows(NullPointerException.class, () -> {
+            world.createCountry(null);
+        });
+    }
+
+    @Test
+    void resultToCityTestNull() {
+        NullPointerException thrown = assertThrows(NullPointerException.class, () -> {
+            world.resultToCity(null);
+        });
+    }
     //sortCitiesPopRegion tests
 
     @Test
