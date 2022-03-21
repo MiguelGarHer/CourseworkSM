@@ -456,22 +456,27 @@ public class World {
      * Sorting: Largest population to smallest
      */
     public void sortCapCitiesPopWorld(){
-        //get all cities in the world
-        ArrayList<Capital> allCapital = new ArrayList<>();
-        for (Country country: countries) {
-            allCapital.addAll(country.getCapital());
-        }
+
+        ArrayList<City> sortCapCities = new ArrayList<City>();
+
+            for (Country country : countries) {
+                for (City city : country.getCities()) {
+                    if (city.getId() == country.getCapital()) {
+                            sortCapCities.add(city);
+                    }
+                }
+            }
 
         //Sort capital cities
-        allCapital.sort(Comparator.comparing(Capital::getPopulation).reversed());
+        sortCapCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
 
         //Print
-        System.out.println("All capital cities in the world, sorted by population");
-        for (Capital capital : allCapital) {
-            System.out.println(capital);
+        System.out.println("All capital cities in the World, sorted by population");
+        for (City c : sortCapCities) {
+            System.out.println(c.toString());
         }
     }
-
+    
     /**
      * Print capital cities in a region
      * Sorting: Largest population to smallest
