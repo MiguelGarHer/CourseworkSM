@@ -329,15 +329,18 @@ public class World {
      * @param n top N
      */
     public void nPopCountriesWorld(int n){
+        ///Check n is not an invalid number
         if(n<=0){
             System.out.println("Invalid number");
             return;
         }
         ArrayList<Country> worldCountries = new ArrayList<>();
-        worldCountries.addAll(countries);
+        worldCountries.addAll(Country.getName);
 
+        //Sort all countries by population
         worldCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
 
+        //Print
         System.out.println("Top " + n + " countries in the world, sorted by population");
         for (int i = 0; i < n; i++) {
             System.out.println(worldCountries.get(i));
