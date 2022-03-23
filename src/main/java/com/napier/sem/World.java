@@ -23,39 +23,31 @@ public class World {
     /**
      * Connect to the MySQL database.
      */
-    public void connect()
-    {
-        try
-        {
+    public void connect(String location, int delay) {
+        try {
             // Load Database driver
             Class.forName("com.mysql.cj.jdbc.Driver");
-        }
-        catch (ClassNotFoundException e)
-        {
+        } catch (ClassNotFoundException e) {
             System.out.println("Could not load SQL driver");
             System.exit(-1);
         }
 
         int retries = 10;
-        for (int i = 0; i < retries; ++i)
-        {
+        for (int i = 0; i < retries; ++i) {
             System.out.println("Connecting to database...");
-            try
-            {
+            try {
                 // Wait a bit for db to start
-                Thread.sleep(10000);
+                Thread.sleep(delay);
                 // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
+                con = DriverManager.getConnection("jdbc:mysql://" + location
+                                + "/world?allowPublicKeyRetrieval=true&useSSL=false",
+                        "root", "example");
                 System.out.println("Successfully connected");
                 break;
-            }
-            catch (SQLException sqlException)
-            {
-                System.out.println("Failed to connect to database attempt " + i);
-                System.out.println(sqlException.getMessage());
-            }
-            catch (InterruptedException ie)
-            {
+            } catch (SQLException sqle) {
+                System.out.println("Failed to connect to database attempt " +                                  Integer.toString(i));
+                System.out.println(sqle.getMessage());
+            } catch (InterruptedException ie) {
                 System.out.println("Thread interrupted? Should not happen.");
             }
         }
@@ -81,63 +73,126 @@ public class World {
     }
 
     /**
-     * Read all countries from database
+     * Retrieves result set from SQL query
+     * @param sqlQueryString
+     * @return
+     * @throws SQLException
      */
-    public void getCountries()
-    {
-        try
-        {
-            // Create an SQL statement using connection
-            Statement statement = con.createStatement();
-            // Create SQL statement string for SQL statement
-            String strSelect =
-                    "SELECT *" +
-                    "FROM country;";
-            // Execute SQL statement
-            ResultSet resultSet = statement.executeQuery(strSelect);
-            // For each row returned, add new Country to list
-            while (resultSet.next())
-            {
-                Country country = new Country(getCities(resultSet.getString(1)), getLanguages(resultSet.getString(1)),resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getDouble(5),resultSet.getInt(6),resultSet.getInt(7),resultSet.getDouble(8),resultSet.getDouble(9),resultSet.getDouble(10),resultSet.getString(11),resultSet.getString(12),resultSet.getString(13),resultSet.getInt(14),resultSet.getString(15));
-                countries.add(country);
-            }
+    public ResultSet getResultSet(String sqlQueryString) throws SQLException {
+        if (sqlQueryString.isBlank() || sqlQueryString.isEmpty()) {
+            return null;
         }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to retrieve country details");
-        }
+        // Create an SQL statement using connection
+        Statement statement = con.createStatement();
+        // Create SQL statement string for SQL statement
+        String strSelect = sqlQueryString;
+        // Execute SQL statement
+        return statement.executeQuery(strSelect);
     }
 
     /**
-     * Read all cities in a country
-     * @param countryCode country code
-     * @return list of City objects
+     * Creates a Country from result set
+     * @param resultSet ResultSet from SQL query
+     * @return Country
      */
-    private ArrayList<City> getCities(String countryCode) {
-        ArrayList<City> cities = new ArrayList<>();
-        try
-        {
-            // Create an SQL statement using connection
-            Statement statement = con.createStatement();
-            // Create SQL statement string for SQL statement
-            String strSelect =
-                    "SELECT * FROM city WHERE countrycode = '" + countryCode + "';";
-            // Execute SQL statement
-            ResultSet resultSet = statement.executeQuery(strSelect);
-            // For each row returned, add new city to list
-            while (resultSet.next())
-            {
-                City city = new City(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3),resultSet.getString(4), resultSet.getInt(5));
-                cities.add(city);
-            }
-        }
-        catch (Exception e)
-        {
+    public Country createCountry(ResultSet resultSet)
+    {
+        try {
+            // For each row returned, add new Country to list
+            Country country = new Country(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getDouble(5),
+                    resultSet.getInt(6),
+                    resultSet.getInt(7),
+                    resultSet.getDouble(8),
+                    resultSet.getDouble(9),
+                    resultSet.getDouble(10),
+                    resultSet.getString(11),
+                    resultSet.getString(12),
+                    resultSet.getString(13),
+                    resultSet.getInt(14),
+                    resultSet.getString(15));
+
+            // Get cities method
+            country.setCities(getCities(resultSet.getString(1)));
+
+            // Get languages method
+            country.setLanguages(getLanguages(resultSet.getString(1)));
+
+            return country;
+        } catch (SQLException | NullPointerException e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to retrieve city details");
+        }
+        return null;
+    }
+
+    /**
+     * Converts City object from resultSet
+     * @param resultSet ResultSet from SQL query
+     * @return City
+     */
+    public City resultToCity(ResultSet resultSet) {
+        try {
+            // For each row returned, add new Country to list
+            City city = new City(
+                    resultSet.getInt(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getInt(5)
+            );
+
+            return city;
+        } catch (SQLException | NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+
+    /**
+     * Retrieves all cities of a country
+     * @param countryCode country code
+     * @return ArrayList of City
+     */
+    public ArrayList<City> getCities(String countryCode)
+    {
+        ArrayList<City> cities = new ArrayList<>();
+        try {
+            String sqlQuery = "SELECT * FROM city WHERE countrycode = '" + countryCode + "';";
+            ResultSet resultSet = getResultSet(sqlQuery);
+            while(resultSet.next()) {
+                cities.add(resultToCity(resultSet));
+            }
+            return cities;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } catch (NullPointerException e) {
+
         }
         return cities;
+    }
+
+
+    /**
+     * Retrieves all countries in the world
+     */
+    public void getCountries()
+    {
+        try {
+            String sqlQuery = "SELECT * FROM country;";
+            ResultSet resultSet = getResultSet(sqlQuery);
+            // For each row returned, add new Country to list
+            while (resultSet.next()) {
+                Country country = createCountry(resultSet);
+                countries.add(country);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -145,32 +200,43 @@ public class World {
      * @param countryCode country code
      * @return list of Language objects
      */
-    private ArrayList<Language> getLanguages(String countryCode) {
+    public ArrayList<Language> getLanguages(String countryCode) {
         ArrayList<Language> languages = new ArrayList<>();
-        try
-        {
-            // Create an SQL statement using connection
-            Statement statement = con.createStatement();
-            // Create SQL statement string for SQL statement
-            String strSelect =
-                    "SELECT * FROM countrylanguage WHERE CountryCode = '" + countryCode + "';";
-            // Execute SQL statement
-            ResultSet resultSet = statement.executeQuery(strSelect);
-            // For each row returned, add new language to list
+        try {
+            String sqlQuery = "SELECT * FROM countrylanguage WHERE countrycode = '" + countryCode + "';";
+            ResultSet resultSet = getResultSet(sqlQuery);
             while (resultSet.next())
             {
-                boolean isOfficial = resultSet.getString(3).equals("T");
-                Language language = new Language(resultSet.getString(2),isOfficial, resultSet.getDouble(4));
+                Language language = resultToLanguage(resultSet);
                 languages.add(language);
             }
-        }
-        catch (Exception e)
+            return languages;
+        } catch (SQLException e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to retrieve language details");
+        } catch (NullPointerException e) {
         }
         return languages;
+    }
 
+    /**
+     *
+     * @param resultSet
+     * @return
+     */
+    public Language resultToLanguage(ResultSet resultSet) {
+        try {
+            boolean isOfficial = resultSet.getString(3).equals("T");
+            Language language = new Language(
+                    resultSet.getString(2),
+                    isOfficial,
+                    resultSet.getDouble(4)
+            );
+            return language;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
     /**
@@ -223,6 +289,18 @@ public class World {
      * @param continentName name of continent
      */
     public void sortCountriesPopContinent(String continentName){
+        // Null, empty and blank parameter check
+        if (continentName == null) {
+            System.out.println("Null input, no countries");
+            return;
+        } else if (continentName.isEmpty()) {
+            System.out.println("Empty input, no countries");
+            return;
+        } else if (continentName.isBlank()) {
+            System.out.println("Blank input, no countries");
+            return;
+        }
+
         // Get all cities in each continent and add to temporary list
         ArrayList<Country> continentCountries = new ArrayList<>();
         for (Country country : countries) {
@@ -231,11 +309,6 @@ public class World {
             }
         }
 
-        // Null check
-        if (continentCountries.isEmpty()) {
-            System.out.println("No countries");
-            return;
-        }
 
         // Sort temporary list - https://www.baeldung.com/java-8-comparator-comparing
         countries.sort(Comparator.comparing(Country::getPopulation).reversed());
@@ -305,17 +378,24 @@ public class World {
      * @param continentName name of continent
      */
     public void sortCitiesPopContinent(String continentName){
+        // Null, empty and blank parameter check
+        if (continentName == null) {
+            System.out.println("Null input, no cities");
+            return;
+        } else if (continentName.isEmpty()) {
+            System.out.println("Empty input, no cities");
+            return;
+        } else if (continentName.isBlank()) {
+            System.out.println("Blank input, no cities");
+            return;
+        }
+
         // Get all cities in each continent and add to temporary list
         ArrayList<City> continentCities = new ArrayList<>();
         for (Country country : countries) {
             if (country.getContinent().equals(continentName)) {
                 continentCities.addAll(country.getCities());
             }
-        }
-
-        if (continentCities.isEmpty()) {
-            System.out.println("No cities");
-            return;
         }
 
         // Sort temporary list - https://www.baeldung.com/java-8-comparator-comparing
@@ -334,6 +414,17 @@ public class World {
      * @param regionName name of region
      */
     public void sortCitiesPopRegion(String regionName){
+        // Null, empty and blank parameter check
+        if (regionName == null) {
+            System.out.println("Null input, no cities");
+            return;
+        } else if (regionName.isEmpty()) {
+            System.out.println("Empty input, no cities");
+            return;
+        } else if (regionName.isBlank()) {
+            System.out.println("Blank input, no cities");
+            return;
+        }
 
         ArrayList<City> sortCities = new ArrayList<City>();
 
@@ -341,11 +432,6 @@ public class World {
             if (c.getRegion().equals(regionName)) {
                 sortCities.addAll(c.getCities());
             }
-        }
-
-        if (sortCities.isEmpty()) {
-            System.out.println("No cities");
-            return;
         }
 
         sortCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
@@ -363,18 +449,25 @@ public class World {
      * @param countryName name of country
      */
     public void sortCitiesPopCountry(String countryName){
+        // Null, empty and blank parameter check
+        if (countryName == null) {
+            System.out.println("Null input, no cities");
+            return;
+        } else if (countryName.isEmpty()) {
+            System.out.println("Empty input, no cities");
+            return;
+        } else if (countryName.isBlank()) {
+            System.out.println("Blank input, no cities");
+            return;
+        }
+
         //Get all cities in every country and add to list
         ArrayList<City> countryCities = new ArrayList<>();
         for (Country country : countries) {
             if (country.getName().equals(countryName)) {
                 countryCities.addAll(country.getCities());
             }
-        }
-
-        if (countryCities.isEmpty()) {
-            System.out.println("No cities");
-            return;
-        }
+        }            System.out.println("No cities");
 
         //Sort
         countryCities.sort(Comparator.comparing(City::getPopulation).reversed());
@@ -393,6 +486,18 @@ public class World {
      * @param districtName name of district
      */
     public void sortCitiesPopDistrict(String districtName){
+        // Null, empty and blank parameter check
+        if (districtName == null) {
+            System.out.println("Null input, no cities");
+            return;
+        } else if (districtName.isEmpty()) {
+            System.out.println("Empty input, no cities");
+            return;
+        } else if (districtName.isBlank()) {
+            System.out.println("Blank input, no cities");
+            return;
+        }
+
         //Get all cities in every country and add to list
         ArrayList<City> districtCities = new ArrayList<>();
         for (Country country : countries) {
@@ -401,11 +506,6 @@ public class World {
                     districtCities.add(city);
                 }
             }
-        }
-
-        if (districtCities.isEmpty()) {
-            System.out.println("No cities");
-            return;
         }
 
         //Sort
@@ -425,7 +525,25 @@ public class World {
      */
     public void nPopCitiesWorld(int n){
 
+        //Check n is not an invalid number (negative or zero)
+        if(n<1){
+            System.out.println("Invalid number");
+            return;
+        }
+        ArrayList<City> worldCities = new ArrayList<>();
+        for (Country country: countries){
+            worldCities.addAll(country.getCities());
+        }
+        //Sort all cities by population
+        worldCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
+        //Print top N list
+        System.out.println("Top " + n + " cities in the world, sorted by population");
+        for (int i = 0; i < n; i++) {
+            System.out.println(worldCities.get(i));
+        }
     }
+
 
     /**
      * Print top N cities in a continent
@@ -433,7 +551,43 @@ public class World {
      * @param continentName name of continent
      * @param n top N
      */
-    public void nPopCitiesContinent(String continentName, int n){
+    public void nPopCitiesContinent(String continentName, int n) {
+        // Null, empty and blank parameter check
+        if (continentName == null) {
+            System.out.println("Null input, no cities");
+            return;
+        } else if (continentName.isEmpty()) {
+            System.out.println("Empty input, no cities");
+            return;
+        } else if (continentName.isBlank()) {
+            System.out.println("Blank input, no cities");
+            return;
+        }
+
+        // Non negative and zero parameter check
+        if (n < 1) {
+            System.out.println("Invalid number");
+            return;
+        }
+
+        //Get all cities in specified continent and add to list
+        ArrayList<City> continentCities = new ArrayList<>();
+        for (Country country : countries) {
+            if (country.getContinent().equals(continentName)) {
+                for (City city : country.getCities()) {
+                    continentCities.add(city);
+                }
+            }
+        }
+
+        //Sort all cities by population
+        continentCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
+        //Print list until nth element
+        System.out.println("Top " + n + " cities in " + continentName + ", sorted by population");
+        for (int i = 0; i < n; i++) {
+            System.out.println(continentCities.get(i));
+        }
     }
 
     /**
@@ -535,6 +689,40 @@ public class World {
      * @param n top N
      */
     public void nPopCapCitiesContinent(String continentName, int n){
+
+        ArrayList<City> sortCapCities = new ArrayList<City>();
+        int count = 0;
+
+        //NULL checker
+        if(continentName != null) {
+
+            for (Country c : countries) {
+                if (c.getRegion().equals(continentName)) {
+                    for (City city : c.getCities()) {
+                        if (city.getId() == c.getCapital()) {
+                            sortCapCities.add(city);
+                        }
+                    }
+                }
+            }
+
+            //EMPTY checker
+            if(!sortCapCities.isEmpty()) {
+
+                sortCapCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
+
+                System.out.println("The " + n + " capital cities in " + continentName + ", sorted by population");
+                for (int i = 0; i < n; i++) {
+                    System.out.println(sortCapCities.get(i).toString());
+                }
+            }
+            else {
+                System.out.println("No capital cities in this continent");
+            }
+        }
+        else {
+            System.out.println("CONTINENT NAME IS NULL");
+        }
     }
 
     /**

@@ -10,7 +10,12 @@ public class App
         World world = new World();
 
         //Connect to MySQL
-        world.connect();
+
+        if (args.length < 1) {
+            world.connect("localhost:33060", 15000);
+        } else{
+            world.connect(args[0], Integer.parseInt(args[1]));
+        }
 
         // Read all countries
         world.getCountries();
@@ -64,6 +69,18 @@ public class App
     private static void sprint_2(World world) {
         // Vinh Test: sortCountriesPopContinent():
         world.sortCountriesPopContinent("Asia");
+
+        System.out.println();
+
+        // Edu Test: nPopCitiesWorld
+        world.nPopCitiesWorld(5);
+
+        System.out.println();
+
+        // Vinh Test: nPopCitiesContinent():
+        world.nPopCitiesContinent("Asia", 5);
+
+        world.nPopCapCitiesContinent("Asia", 5);
 
         System.out.println();
 
