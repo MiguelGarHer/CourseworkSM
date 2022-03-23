@@ -527,7 +527,25 @@ public class World {
      */
     public void nPopCitiesWorld(int n){
 
+        //Check n is not an invalid number (negative or zero)
+        if(n<1){
+            System.out.println("Invalid number");
+            return;
+        }
+        ArrayList<City> worldCities = new ArrayList<>();
+        for (Country country: countries){
+            worldCities.addAll(country.getCities());
+        }
+        //Sort all cities by population
+        worldCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
+        //Print top N list
+        System.out.println("Top " + n + " cities in the world, sorted by population");
+        for (int i = 0; i < n; i++) {
+            System.out.println(worldCities.get(i));
+        }
     }
+
 
     /**
      * Print top N cities in a continent

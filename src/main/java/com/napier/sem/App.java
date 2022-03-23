@@ -72,6 +72,11 @@ public class App
 
         System.out.println();
 
+        // Edu Test: nPopCitiesWorld
+        world.nPopCitiesWorld(5);
+
+        System.out.println();
+
         // Vinh Test: nPopCitiesContinent():
         world.nPopCitiesContinent("Asia", 5);
 

@@ -200,7 +200,19 @@ public class WorldTest
         world.sortCountriesPopContinent("");
         assertEquals("Empty input, no countries", outputStreamCaptor.toString().trim());
     }
-
+    //nPopCitiesWorld test
+    @Test
+    void nPopCitiesWorld()
+    {
+        world.nPopCitiesWorld(0);
+        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+    }
+    @Test
+    void nPopCitiesWorldNegative()
+    {
+        world.nPopCitiesWorld(-5);
+        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+    }
 
     @Test
     void nPopCitiesContinentTestNull() {
