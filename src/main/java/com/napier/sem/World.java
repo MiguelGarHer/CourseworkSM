@@ -44,9 +44,9 @@ public class World {
                         "root", "example");
                 System.out.println("Successfully connected");
                 break;
-            } catch (SQLException sqle) {
-                System.out.println("Failed to connect to database attempt " +                                  Integer.toString(i));
-                System.out.println(sqle.getMessage());
+            } catch (SQLException sqlException) {
+                System.out.println("Failed to connect to database attempt " + i);
+                System.out.println(sqlException.getMessage());
             } catch (InterruptedException ie) {
                 System.out.println("Thread interrupted? Should not happen.");
             }
@@ -74,9 +74,9 @@ public class World {
 
     /**
      * Retrieves result set from SQL query
-     * @param sqlQueryString
-     * @return
-     * @throws SQLException
+     * @param sqlQueryString MySQL query
+     * @return ResultSet with all records
+     * @throws SQLException Whenever a query fails
      */
     public ResultSet getResultSet(String sqlQueryString) throws SQLException {
         if (sqlQueryString.isBlank() || sqlQueryString.isEmpty()) {
@@ -84,10 +84,8 @@ public class World {
         }
         // Create an SQL statement using connection
         Statement statement = con.createStatement();
-        // Create SQL statement string for SQL statement
-        String strSelect = sqlQueryString;
         // Execute SQL statement
-        return statement.executeQuery(strSelect);
+        return statement.executeQuery(sqlQueryString);
     }
 
     /**
@@ -98,7 +96,6 @@ public class World {
     public Country createCountry(ResultSet resultSet)
     {
         try {
-            // For each row returned, add new Country to list
             Country country = new Country(
                     resultSet.getString(1),
                     resultSet.getString(2),
@@ -130,21 +127,19 @@ public class World {
     }
 
     /**
-     * Converts City object from resultSet
+     * Converts ResultSet to City object
      * @param resultSet ResultSet from SQL query
      * @return City
      */
     public City resultToCity(ResultSet resultSet) {
         try {
-            // For each row returned, add new Country to list
-            City city = new City(
-                    resultSet.getInt(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getString(4),
-                    resultSet.getInt(5)
-            );
-
+            City city;
+            city = new City(
+                   resultSet.getInt(1),
+                   resultSet.getString(2),
+                   resultSet.getString(3),
+                   resultSet.getString(4),
+                   resultSet.getInt(5));
             return city;
         } catch (SQLException | NullPointerException e) {
             System.out.println(e.getMessage());
@@ -170,7 +165,7 @@ public class World {
             return cities;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } catch (NullPointerException e) {
+        } catch (NullPointerException ignored) {
 
         }
         return cities;
@@ -211,23 +206,23 @@ public class World {
                 languages.add(language);
             }
             return languages;
-        } catch (SQLException e)
-        {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } catch (NullPointerException e) {
+        } catch (NullPointerException ignored) {
         }
         return languages;
     }
 
     /**
-     *
-     * @param resultSet
-     * @return
+     * Converts ResultSet to Language object
+     * @param resultSet ResultSet from SQL query
+     * @return Language object
      */
     public Language resultToLanguage(ResultSet resultSet) {
         try {
             boolean isOfficial = resultSet.getString(3).equals("T");
-            Language language = new Language(
+            Language language;
+            language = new Language(
                     resultSet.getString(2),
                     isOfficial,
                     resultSet.getDouble(4)
@@ -426,7 +421,7 @@ public class World {
             return;
         }
 
-        ArrayList<City> sortCities = new ArrayList<City>();
+        ArrayList<City> sortCities = new ArrayList<>();
 
         for(Country c : countries) {
             if (c.getRegion().equals(regionName)) {
@@ -574,9 +569,7 @@ public class World {
         ArrayList<City> continentCities = new ArrayList<>();
         for (Country country : countries) {
             if (country.getContinent().equals(continentName)) {
-                for (City city : country.getCities()) {
-                    continentCities.add(city);
-                }
+                continentCities.addAll(country.getCities());
             }
         }
 

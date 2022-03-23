@@ -1,7 +1,5 @@
 package com.napier.sem;
 
-import java.sql.*;
-
 public class App
 {
     public static void main(String[] args)
@@ -70,6 +68,8 @@ public class App
         // Vinh Test: sortCountriesPopContinent():
         world.sortCountriesPopContinent("Asia");
 
+        System.out.println();
+
         // Vinh Test: nPopCitiesContinent():
         world.nPopCitiesContinent("Asia", 5);
 
@@ -79,6 +79,12 @@ public class App
         world.nPopCitiesWorld(5);
 
         System.out.println();
+
+        // Edu Test: sortCapCitiesPopRegion
+        world.sortCapCitiesPopRegion("South America");
+
+        System.out.println();
+
 
         // Miguel Test: sortCapCitiesPopContinent
         world.sortCapCitiesPopContinent("Asia");
