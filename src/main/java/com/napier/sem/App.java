@@ -77,6 +77,11 @@ public class App
 
         System.out.println();
 
+        // Vinh Test: nPopCitiesContinent():
+        world.nPopCitiesContinent("Asia", 5);
+
+        System.out.println();
+
 
     }
 }

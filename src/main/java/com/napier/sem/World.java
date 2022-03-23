@@ -553,7 +553,43 @@ public class World {
      * @param continentName name of continent
      * @param n top N
      */
-    public void nPopCitiesContinent(String continentName, int n){
+    public void nPopCitiesContinent(String continentName, int n) {
+        // Null, empty and blank parameter check
+        if (continentName == null) {
+            System.out.println("Null input, no cities");
+            return;
+        } else if (continentName.isEmpty()) {
+            System.out.println("Empty input, no cities");
+            return;
+        } else if (continentName.isBlank()) {
+            System.out.println("Blank input, no cities");
+            return;
+        }
+
+        // Non negative and zero parameter check
+        if (n < 1) {
+            System.out.println("Invalid number");
+            return;
+        }
+
+        //Get all cities in specified continent and add to list
+        ArrayList<City> continentCities = new ArrayList<>();
+        for (Country country : countries) {
+            if (country.getContinent().equals(continentName)) {
+                for (City city : country.getCities()) {
+                    continentCities.add(city);
+                }
+            }
+        }
+
+        //Sort all cities by population
+        continentCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
+        //Print list until nth element
+        System.out.println("Top " + n + " cities in " + continentName + ", sorted by population");
+        for (int i = 0; i < n; i++) {
+            System.out.println(continentCities.get(i));
+        }
     }
 
     /**
