@@ -722,14 +722,12 @@ public class World {
      */
     public void nPopCapCitiesContinent(String continentName, int n){
 
-        ArrayList<City> sortCapCities = new ArrayList<City>();
-        int count = 0;
+        ArrayList<City> sortCapCities = new ArrayList<>();
 
         //NULL checker
         if(continentName != null) {
-
             for (Country c : countries) {
-                if (c.getRegion().equals(continentName)) {
+                if (c.getContinent().equals(continentName)) {
                     for (City city : c.getCities()) {
                         if (city.getId() == c.getCapital()) {
                             sortCapCities.add(city);
@@ -745,7 +743,7 @@ public class World {
 
                 System.out.println("The " + n + " capital cities in " + continentName + ", sorted by population");
                 for (int i = 0; i < n; i++) {
-                    System.out.println(sortCapCities.get(i).toString());
+                    System.out.println(sortCapCities.get(i));
                 }
             }
             else {

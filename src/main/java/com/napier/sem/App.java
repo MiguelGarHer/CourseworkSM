@@ -70,7 +70,8 @@ public class App
         // Vinh Test: sortCountriesPopContinent():
         world.sortCountriesPopContinent("Asia");
 
-        world.sortCapCitiesPopContinent("Asia");
+        // Vinh Test: nPopCitiesContinent():
+        world.nPopCitiesContinent("Asia", 5);
 
         System.out.println();
 
@@ -79,10 +80,18 @@ public class App
 
         System.out.println();
 
-        // Vinh Test: nPopCitiesContinent():
-        world.nPopCitiesContinent("Asia", 5);
+        // Miguel Test: sortCapCitiesPopContinent
+        world.sortCapCitiesPopContinent("Asia");
 
+        System.out.println();
+
+        // Miguel Test: nPopCapCitiesContinent
         world.nPopCapCitiesContinent("Asia", 5);
+
+        System.out.println();
+
+        // Miguel Test: sortCapCitiesPopRegion
+        world.sortCapCitiesPopRegion("South America");
 
         System.out.println();
 
