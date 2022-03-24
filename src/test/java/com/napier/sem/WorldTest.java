@@ -245,6 +245,7 @@ public class WorldTest
         assertEquals("No capital cities in this continent", outputStreamCaptor.toString().trim());
     }
 
+    @Test
     void nPopCitiesContinentTestBlank() {
         world.nPopCitiesContinent("  ", 1);
         assertEquals("Blank input, no cities", outputStreamCaptor.toString().trim());

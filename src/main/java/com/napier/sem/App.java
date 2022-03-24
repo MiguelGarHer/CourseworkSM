@@ -101,6 +101,14 @@ public class App
 
         System.out.println();
 
+        // Haidi Test: nPopCountriesWorld
+        world.nPopCountriesWorld(5);
 
+        System.out.println();
+
+        // Haidi Test: sortCapCitiesPopWorld
+        world.sortCapCitiesPopWorld();
+
+        System.out.println();
     }
 }
