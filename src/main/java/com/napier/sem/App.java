@@ -1,7 +1,5 @@
 package com.napier.sem;
 
-import java.sql.*;
-
 public class App
 {
     public static void main(String[] args)
@@ -10,7 +8,12 @@ public class App
         World world = new World();
 
         //Connect to MySQL
-        world.connect();
+
+        if (args.length < 1) {
+            world.connect("localhost:33060", 15000);
+        } else{
+            world.connect(args[0], Integer.parseInt(args[1]));
+        }
 
         // Read all countries
         world.getCountries();
@@ -67,11 +70,51 @@ public class App
 
         System.out.println();
 
+
+        // Vinh Test: nPopCitiesContinent():
+        world.nPopCitiesContinent("Asia", 5);
+
+        System.out.println();
+
+        // Edu Test: nPopCitiesWorld
+        world.nPopCitiesWorld(5);
+
+        System.out.println();
+
+        // Edu Test: sortCapCitiesPopRegion
+        world.sortCapCitiesPopRegion("South America");
+
+        System.out.println();
+
         //Edu Test : sortCountriesPopRegion():
         world.sortCountriesPopRegion("Caribbean");
 
         System.out.println();
 
 
+        // Miguel Test: sortCapCitiesPopContinent
+        world.sortCapCitiesPopContinent("Asia");
+
+        System.out.println();
+
+        // Miguel Test: nPopCapCitiesContinent
+        world.nPopCapCitiesContinent("Asia", 5);
+
+        System.out.println();
+
+        // Miguel Test: sortCapCitiesPopRegion
+        world.sortCapCitiesPopRegion("South America");
+
+        System.out.println();
+
+        // Haidi Test: nPopCountriesWorld
+        world.nPopCountriesWorld(5);
+
+        System.out.println();
+
+        // Haidi Test: sortCapCitiesPopWorld
+        world.sortCapCitiesPopWorld();
+
+        System.out.println();
     }
 }
