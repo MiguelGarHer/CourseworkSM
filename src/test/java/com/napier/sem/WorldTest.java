@@ -263,5 +263,17 @@ public class WorldTest
         world.nPopCitiesContinent("Asia", -1);
         assertEquals("Invalid number", outputStreamCaptor.toString().trim());
     }
+
+    @Test
+    void nPopCountriesWorldTestNegative() {
+        world.nPopCountriesWorld(-1);
+        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void nPopCountriesWorldTestZero() {
+        world.nPopCountriesWorld(0);
+        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+    }
 }
 
