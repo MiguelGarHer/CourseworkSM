@@ -334,16 +334,21 @@ public class World {
             System.out.println("Invalid number");
             return;
         }
-        ArrayList<Country> worldCountries = new ArrayList<>();
-        worldCountries.addAll(Country.getName);
+
+        ArrayList<Country> nWorldCountries = new ArrayList<>();
+        for (Country country: countries) {
+            if (country != null)  {
+                nWorldCountries.add(country);
+            }
+        }
 
         //Sort all countries by population
-        worldCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
+        nWorldCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
 
         //Print
         System.out.println("Top " + n + " countries in the world, sorted by population");
         for (int i = 0; i < n; i++) {
-            System.out.println(worldCountries.get(i));
+            System.out.println(nWorldCountries.get(i));
         }
     }
 
