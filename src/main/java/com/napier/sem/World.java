@@ -335,6 +335,7 @@ public class World {
             return;
         }
 
+        //get all countries in the world
         ArrayList<Country> nWorldCountries = new ArrayList<>();
         for (Country country: countries) {
             if (country != null)  {
