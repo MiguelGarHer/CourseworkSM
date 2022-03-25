@@ -1,5 +1,9 @@
 package com.napier.sem;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -234,6 +238,31 @@ public class World {
         return null;
     }
 
+    public void countryListToMarkdown(ArrayList<Country> countries, String fileName) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("| Code | Name | Continent | Region | Surface Area | Independence Year | Population | Life Expectancy | GNP | Old GNP | Local Name | Government Form | Head of State | Capital Id | Code 2 |\r\n");
+        sb.append("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\r\n");
+
+        for (Country c : countries) {
+            if (c == null) continue;
+            sb.append("| " + c.getCode() + " | " +
+                    c.getName() + " | " + c.getContinent() + " | " +
+                    c.getRegion() + " | " + c.getSurfaceArea() + " | " +
+                    c.getIndepYear() + " | " + c.getPopulation() + " | " +
+                    c.getLifeExpectancy() + " | " + c.getGNP() + " | " +
+                    c.getGNPOld() + " | " + c.getLocalName() + " | " + c.getGovernmentForm() + " | " +
+                    c.getHeadOfState() + " | " + c.getCapital() + " | " + c.getCode2() + " |\r\n");
+        }
+        try {
+            new File("./reports/").mkdir();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + fileName)));
+            writer.write(sb.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Prints all country details
      * @param country name of country
@@ -306,13 +335,16 @@ public class World {
 
 
         // Sort temporary list - https://www.baeldung.com/java-8-comparator-comparing
-        countries.sort(Comparator.comparing(Country::getPopulation).reversed());
+        continentCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
 
         // Print sorted list
         System.out.println("All countries in " + continentName + ", sorted by population");
-        for (Country country : countries) {
+        for (Country country : continentCountries) {
             System.out.println(country);
         }
+
+        //Write markdown file
+        countryListToMarkdown(continentCountries, "sortCountriesPopContinentAsia");
     }
 
     /**

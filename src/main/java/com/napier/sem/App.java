@@ -117,4 +117,8 @@ public class App
 
         System.out.println();
     }
+
+    private static void sprint_3(World world) {
+        world.sortCountriesPopContinent("Asia");
+    }
 }
