@@ -676,7 +676,7 @@ public class World {
         nCountryCity.sort(Comparator.comparingInt(City::getPopulation).reversed());
 
         //Print it
-        System.out.println("Top " + n + " populated cities in your city");
+        System.out.println("Top " + n + " populated cities in " + countryName + ".");
         for (int i = 0; i < n; i++) {
             System.out.println(nCountryCity.get(i));
         }
