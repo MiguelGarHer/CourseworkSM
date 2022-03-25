@@ -255,7 +255,7 @@ public class World {
         }
         try {
             new File("./reports/").mkdir();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + fileName)));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + fileName + ".md")));
             writer.write(sb.toString());
             writer.close();
         } catch (IOException e) {
