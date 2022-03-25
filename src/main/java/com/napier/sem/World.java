@@ -646,6 +646,40 @@ public class World {
      * @param n top N
      */
     public void nPopCitiesCountry(String countryName, int n){
+        //Check n is not a invalid number
+        if(n<=0){
+            System.out.println("Invalid number");
+            return;
+        }
+
+        //Check Country input is not invalid
+        if (countryName == null) {
+            System.out.println("Null input, no such city.");
+            return;
+        } else if (countryName.isEmpty()) {
+            System.out.println("Empty input.");
+            return;
+        } else if (countryName.isBlank()) {
+            System.out.println("Blank inpout.");
+            return;
+        }
+
+        //Get all cities in the country
+        ArrayList<City> nCountryCity = new ArrayList<City>();
+        for (Country country : countries) {
+            if (country.getName().equals(countryName)) {
+                nCountryCity.addAll(country.getCities());
+            }
+        }
+
+        //Sort all cities by population
+        nCountryCity.sort(Comparator.comparingInt(City::getPopulation).reversed());
+
+        //Print it
+        System.out.println("Top " + n + " populated cities in your city");
+        for (int i = 0; i < n; i++) {
+            System.out.println(nCountryCity.get(i));
+        }
     }
 
     /**
