@@ -637,6 +637,42 @@ public class World {
      * @param n top N
      */
     public void nPopCitiesRegion(String regionName, int n){
+        // Null, empty and blank parameter check
+        if (regionName == null) {
+            System.out.println("Null input, no region");
+            return;
+        } else if (regionName.isEmpty()) {
+            System.out.println("Empty input, no region");
+            return;
+        } else if (regionName.isBlank()) {
+            System.out.println("Blank input, no region");
+            return;
+        }
+
+        // Non negative and zero parameter check
+        if (n < 1) {
+            System.out.println("Invalid number");
+            return;
+        }
+
+        //Get all cities in specified region and add to list
+        ArrayList<City> regionCities = new ArrayList<>();
+        for (Country country : countries) {
+            if (country.getRegion().equals(regionName)) {
+                regionCities.addAll(country.getCities());
+            }
+        }
+
+        //Sort all cities by population
+        regionCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
+        //Print list until nth element
+        System.out.println("Top " + n + " cities in " + regionName + ", sorted by population");
+        for (int i = 0; i < n; i++) {
+            System.out.println(regionCities.get(i));
+        }
+
+
     }
 
     /**
