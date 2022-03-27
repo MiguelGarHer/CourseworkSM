@@ -301,5 +301,31 @@ public class WorldTest
         world.nPopCountriesWorld(0);
         assertEquals("Invalid number", outputStreamCaptor.toString().trim());
     }
+
+
+    @Test
+    void nPopCountriesRegionTestBlank() {
+        world.nPopCountriesRegion("  ", 1);
+        assertEquals("Blank input, no region", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void nPopCountriesRegionTestEmpty() {
+        world.nPopCountriesRegion("", 1);
+        assertEquals("Empty input, no region", outputStreamCaptor.toString().trim());
+
+    }
+
+    @Test
+    void nPopCountriesRegionTestNegative() {
+        world.nPopCountriesRegion("Caribbean", -1);
+        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void nPopCountriesRegionTestZero() {
+        world.nPopCountriesRegion("Caribbean",0);
+        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+    }
 }
 

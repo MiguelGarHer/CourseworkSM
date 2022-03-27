@@ -117,4 +117,15 @@ public class App
 
         System.out.println();
     }
+    /**
+     * Testing for sprint 3 methods
+     * @param world world object
+     */
+    private static void sprint_3(World world) {
+        // Edu Test: nPopCountriesRegion
+        world.nPopCountriesRegion("Caribbean", 5);
+
+        System.out.println();
+    }
+
 }
