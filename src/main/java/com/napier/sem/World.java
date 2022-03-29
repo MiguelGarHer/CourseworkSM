@@ -660,7 +660,7 @@ public class World {
             System.out.println("Empty input.");
             return;
         } else if (countryName.isBlank()) {
-            System.out.println("Blank inpout.");
+            System.out.println("Blank input.");
             return;
         }
 
