@@ -247,7 +247,7 @@ public class World {
             String capitalCityName = null;
             for (City city : country.getCities()) {
                 if (city.getId() == country.getCapital()) {
-                    capitalCityName = city.getName()
+                    capitalCityName = city.getName();
                 }
             }
             if (capitalCityName == null) {
