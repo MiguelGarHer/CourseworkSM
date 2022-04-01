@@ -240,18 +240,26 @@ public class World {
 
     public void countryListToMarkdown(ArrayList<Country> countries, String fileName) {
         StringBuilder sb = new StringBuilder();
-        sb.append("| Code | Name | Continent | Region | Population | Capital Id |\r\n");
+        sb.append("| Code | Name | Continent | Region | Population | Capital |\r\n");
         sb.append("| --- | --- | --- | --- | --- | --- |\r\n");
 
-        for (Country c : countries) {
-            if (c == null) continue;
+        for (Country country : countries) {
+            String capitalCityName = null;
+            for (City city : country.getCities()) {
+                if (city.getId() == country.getCapital()) {
+                    capitalCityName = city.getName()
+                }
+            }
+            if (capitalCityName == null) {
+                capitalCityName = "";
+            }
             sb.append("| " +
-                    c.getCode() + " | " +
-                    c.getName() + " | " +
-                    c.getContinent() + " | " +
-                    c.getRegion() + " | " +
-                    c.getPopulation() + " | " +
-                    c.getCapital() +
+                    country.getCode() + " | " +
+                    country.getName() + " | " +
+                    country.getContinent() + " | " +
+                    country.getRegion() + " | " +
+                    country.getPopulation() + " | " +
+                    capitalCityName +
                     " |" +"\r\n");
         }
         try {
