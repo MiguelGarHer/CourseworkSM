@@ -429,6 +429,8 @@ public class World {
         for (City city : allCities) {
             System.out.println(city);
         }
+
+        MarkdownWriter.cityListToMarkdown(allCities, "sortCitiesPopWorld");
     }
 
     /**
