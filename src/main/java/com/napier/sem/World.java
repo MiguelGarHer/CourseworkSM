@@ -238,39 +238,9 @@ public class World {
         return null;
     }
 
-    public void countryListToMarkdown(ArrayList<Country> countries, String fileName) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("| Code | Name | Continent | Region | Population | Capital |\r\n");
-        sb.append("| --- | --- | --- | --- | --- | --- |\r\n");
 
-        for (Country country : countries) {
-            String capitalCityName = null;
-            for (City city : country.getCities()) {
-                if (city.getId() == country.getCapital()) {
-                    capitalCityName = city.getName();
-                }
-            }
-            if (capitalCityName == null) {
-                capitalCityName = "";
-            }
-            sb.append("| " +
-                    country.getCode() + " | " +
-                    country.getName() + " | " +
-                    country.getContinent() + " | " +
-                    country.getRegion() + " | " +
-                    country.getPopulation() + " | " +
-                    capitalCityName +
-                    " |" +"\r\n");
-        }
-        try {
-            new File("./reports/").mkdir();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + fileName + ".md")));
-            writer.write(sb.toString());
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
+
 
     /**
      * Prints all country details
@@ -354,7 +324,7 @@ public class World {
 
         //Write markdown file
         String fileName = "sortCountriesPopContinent" + continentName;
-        countryListToMarkdown(continentCountries, fileName);
+        MarkdownWriter.countryListToMarkdown(continentCountries, fileName);
     }
 
     /**
@@ -392,7 +362,7 @@ public class World {
 
         //Write markdown file
         String fileName = "sortCountriesPopRegion" + regionName;
-        countryListToMarkdown(regionCountries, fileName);
+        MarkdownWriter.countryListToMarkdown(regionCountries, fileName);
     }
 
     /**
@@ -424,7 +394,7 @@ public class World {
         }
 
         //Write to markdown file
-        countryListToMarkdown(nWorldCountries, "nPopCountriesWorld");
+        MarkdownWriter.countryListToMarkdown(nWorldCountries, n, "nPopCountriesWorld");
     }
 
     /**
