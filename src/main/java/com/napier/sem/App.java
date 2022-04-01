@@ -35,7 +35,7 @@ public class App
         world.sortCountriesPopRegion("Caribbean");
         //world.sortCountriesPopWorld();
 
-        world.nPopCountriesWorld(50);
+        world.nPopCountriesWorld(10);
         //world.nPopCountriesContinent();
         //world.nPopCountriesRegion();
     }

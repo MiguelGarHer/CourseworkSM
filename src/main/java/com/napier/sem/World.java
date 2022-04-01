@@ -394,7 +394,8 @@ public class World {
         }
 
         //Write to markdown file
-        MarkdownWriter.countryListToMarkdown(nWorldCountries, n, "nPopCountriesWorld");
+        String fileName = "nPopCountriesWorld" + n;
+        MarkdownWriter.countryListToMarkdown(nWorldCountries, n, fileName);
     }
 
     /**
