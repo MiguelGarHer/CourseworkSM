@@ -344,7 +344,8 @@ public class World {
         }
 
         //Write markdown file
-        countryListToMarkdown(continentCountries, "sortCountriesPopContinentAsia");
+        String fileName = "sortCountriesPopContinent" + continentName;
+        countryListToMarkdown(continentCountries, fileName);
     }
 
     /**
@@ -379,6 +380,10 @@ public class World {
         for (Country country : regionCountries) {
             System.out.println(country);
         }
+
+        //Write markdown file
+        String fileName = "sortCountriesPopRegion" + regionName;
+        countryListToMarkdown(regionCountries, fileName);
     }
 
     /**
