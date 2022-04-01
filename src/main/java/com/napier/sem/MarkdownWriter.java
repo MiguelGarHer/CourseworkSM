@@ -79,7 +79,7 @@ public class MarkdownWriter {
     public static void cityListToMarkdown(ArrayList<City> cities, String fileName) {
         StringBuilder sb = new StringBuilder();
         sb.append("| Name | Country | District | Population |\r\n");
-        sb.append("| --- | --- | --- | --- | --- | --- |\r\n");
+        sb.append("| --- | --- | --- | --- |\r\n");
 
         for (City city : cities) {
             sb.append("| " +
