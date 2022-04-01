@@ -424,12 +424,13 @@ public class World {
         }
 
         allCities.sort(Comparator.comparing(City::getPopulation).reversed());
-
+        //Print
         System.out.println("All cities in the world, sorted by population");
         for (City city : allCities) {
             System.out.println(city);
         }
 
+        //Markdown file
         MarkdownWriter.cityListToMarkdown(allCities, "sortCitiesPopWorld");
     }
 
@@ -467,6 +468,10 @@ public class World {
         for (City city : continentCities) {
             System.out.println(city);
         }
+
+        String fileName = "sortCitiesPopContinent" + continentName;
+        MarkdownWriter.cityListToMarkdown(continentCities, fileName);
+
     }
 
     /**
@@ -501,6 +506,10 @@ public class World {
         for(City c: sortCities){
             System.out.println(c.toString());
         }
+
+        //Markdown
+        String fileName = "sortCitiesPopRegion" + regionName;
+        MarkdownWriter.cityListToMarkdown(sortCities, fileName);
 
     }
 
@@ -538,6 +547,11 @@ public class World {
         for (City city : countryCities) {
             System.out.println(city);
         }
+
+
+        //Markdown file
+        String fileName = "sortCitiesPopCountry" + countryName;
+        MarkdownWriter.cityListToMarkdown(countryCities, fileName);
 
     }
 
@@ -577,6 +591,10 @@ public class World {
         for (City city : districtCities) {
             System.out.println(city);
         }
+
+        //Markdown files
+        String fileName = "sortCitiesPopDistrict" + districtName;
+        MarkdownWriter.cityListToMarkdown(districtCities, fileName);
     }
 
     /**
