@@ -13,7 +13,8 @@ public class CityTest {
         city = new City(1,
                 "name",
                 "CCE",
-                countryName, "district",
+                "countryName",
+                "district",
                 1);
     }
 
