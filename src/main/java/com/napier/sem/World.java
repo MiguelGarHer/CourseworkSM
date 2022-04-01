@@ -114,7 +114,7 @@ public class World {
                     resultSet.getString(15));
 
             // Get cities method
-            country.setCities(getCities(resultSet.getString(1),resultSet.getString(1)));
+            country.setCities(getCities(resultSet.getString(1),resultSet.getString(2)));
 
             // Get languages method
             country.setLanguages(getLanguages(resultSet.getString(1)));
