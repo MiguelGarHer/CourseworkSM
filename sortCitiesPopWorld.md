@@ -1,5 +1,5 @@
 | Name | Country | District | Population |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Mumbai (Bombay) | IND | Maharashtra | 10500000 |  |
 | Seoul | KOR | Seoul | 9981619 |  |
 | São Paulo | BRA | São Paulo | 9968485 |  |
