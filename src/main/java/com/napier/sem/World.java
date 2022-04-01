@@ -635,7 +635,7 @@ public class World {
      * Sorting: Largest population to smallest
      */
     public void sortCapCitiesPopWorld(){
-
+        //Get all capital cities information
         ArrayList<City> sortCapCities = new ArrayList<City>();
 
             for (Country country : countries) {
@@ -649,7 +649,7 @@ public class World {
         //Sort capital cities
         sortCapCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
 
-        //Print
+        //Print report
         System.out.println("All capital cities in the World, sorted by population");
         for (City c : sortCapCities) {
             System.out.println(c.toString());
