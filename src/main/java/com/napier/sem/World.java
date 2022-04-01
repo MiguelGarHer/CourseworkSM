@@ -240,18 +240,19 @@ public class World {
 
     public void countryListToMarkdown(ArrayList<Country> countries, String fileName) {
         StringBuilder sb = new StringBuilder();
-        sb.append("| Code | Name | Continent | Region | Surface Area | Independence Year | Population | Life Expectancy | GNP | Old GNP | Local Name | Government Form | Head of State | Capital Id | Code 2 |\r\n");
-        sb.append("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\r\n");
+        sb.append("| Code | Name | Continent | Region | Population | Capital Id |\r\n");
+        sb.append("| --- | --- | --- | --- | --- | --- |\r\n");
 
         for (Country c : countries) {
             if (c == null) continue;
-            sb.append("| " + c.getCode() + " | " +
-                    c.getName() + " | " + c.getContinent() + " | " +
-                    c.getRegion() + " | " + c.getSurfaceArea() + " | " +
-                    c.getIndepYear() + " | " + c.getPopulation() + " | " +
-                    c.getLifeExpectancy() + " | " + c.getGNP() + " | " +
-                    c.getGNPOld() + " | " + c.getLocalName() + " | " + c.getGovernmentForm() + " | " +
-                    c.getHeadOfState() + " | " + c.getCapital() + " | " + c.getCode2() + " |\r\n");
+            sb.append("| " +
+                    c.getCode() + " | " +
+                    c.getName() + " | " +
+                    c.getContinent() + " | " +
+                    c.getRegion() + " | " +
+                    c.getPopulation() + " | " +
+                    c.getCapital() +
+                    " |" +"\r\n");
         }
         try {
             new File("./reports/").mkdir();
