@@ -725,6 +725,10 @@ public class World {
         for (City c : sortCapCities) {
             System.out.println(c.toString());
         }
+
+        // Markdown
+        String fileName = "sortCapCitiesPopWorld";
+        MarkdownWriter.cityListToMarkdown(sortCapCities, fileName);
     }
     
     /**
@@ -758,6 +762,10 @@ public class World {
                 for (City c : sortCapCities) {
                     System.out.println(c.toString());
                 }
+
+                //Markdown
+                String fileName = "sortCapCitiesPopRegion" + regionName;
+                MarkdownWriter.cityListToMarkdown(sortCapCities, fileName);
             }
             else {
                 System.out.println("No capital cities in this region");
@@ -799,6 +807,10 @@ public class World {
                 for (City c : sortCapCities) {
                     System.out.println(c.toString());
                 }
+
+                //Markdown
+                String fileName = "sortCapCitiesPopContinent" + continentName;
+                MarkdownWriter.cityListToMarkdown(sortCapCities, fileName);
             }
             else {
                 System.out.println("No capital cities in this continent");
@@ -849,6 +861,10 @@ public class World {
                 for (int i = 0; i < n; i++) {
                     System.out.println(sortCapCities.get(i));
                 }
+
+                //Markdown
+                String fileName = "nPopCapCitiesContinent" + continentName;
+                MarkdownWriter.cityListToMarkdown(sortCapCities,n, fileName);
             }
             else {
                 System.out.println("No capital cities in this continent");

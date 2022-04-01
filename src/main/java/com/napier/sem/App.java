@@ -29,6 +29,10 @@ public class App
 
         // Testing for city reports
         cityReports(world);
+
+        // Testing for cap city reportys
+        capCityReports(world);
+
         // Disconnect from MySQL
         world.disconnect();
     }
