@@ -22,10 +22,47 @@ public class App
         //sprint_1(world);
 
         // Testing for sprint 2 methods
-        sprint_2(world);
+        //sprint_2(world);
 
+        // Testing for country reports
+        countryReports(world);
         // Disconnect from MySQL
         world.disconnect();
+    }
+
+    private static void countryReports(World world) {
+        world.sortCountriesPopContinent("Asia");
+        world.sortCountriesPopRegion("Caribbean");
+        //world.sortCountriesPopWorld();
+
+        world.nPopCountriesWorld(50);
+        //world.nPopCountriesContinent();
+        //world.nPopCountriesRegion();
+    }
+
+    private static void cityReports(World world) {
+        world.sortCitiesPopWorld();
+        world.sortCitiesPopContinent("Asia");
+        world.sortCitiesPopRegion("Caribbean");
+        world.sortCitiesPopCountry("France");
+        world.sortCitiesPopDistrict("California");
+
+        world.nPopCitiesWorld(50);
+        world.nPopCitiesContinent("Asia", 20);
+        //world.nPopCitiesRegion("Caribbean", 5);
+        //world.nPopCitiesCountry("France", 5);
+        //world.nPopCitiesDistrict("California", 5);
+    }
+
+    private static void capCityReports(World world) {
+        world.sortCapCitiesPopWorld();
+        world.sortCapCitiesPopRegion("Caribbean");
+        world.sortCapCitiesPopContinent("Asia");
+
+        //world.nPopCapCitiesRegion("California", 5);
+        world.nPopCapCitiesContinent("Asia", 10);
+        //world.nPopCapCitiesWorld(50);
+
     }
 
     /**

@@ -422,6 +422,9 @@ public class World {
         for (int i = 0; i < n; i++) {
             System.out.println(nWorldCountries.get(i));
         }
+
+        //Write to markdown file
+        countryListToMarkdown(nWorldCountries, "nPopCountriesWorld");
     }
 
     /**
