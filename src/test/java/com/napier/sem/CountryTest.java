@@ -49,12 +49,14 @@ public class CountryTest {
         cities.add(new City(1,
                 "name",
                 "CCE",
-                countryName, "district",
+                "countryName",
+                "district",
                 1));
         cities.add(new City(2,
                 "name",
                 "CCE",
-                countryName, "district",
+                "countryName",
+                "district",
                 2));
         country.setCities(cities);
 
@@ -97,12 +99,14 @@ public class CountryTest {
         cities.add(new City(1,
                 "name",
                 "CCE",
-                countryName, "district",
+                "countryName",
+                "district",
                 1));
         cities.add(new City(2,
                 "name",
                 "CCE",
-                countryName, "district",
+                "countryName",
+                "district",
                 2));
         country.setCities(cities);
 
