@@ -98,5 +98,29 @@ public class MarkdownWriter {
             e.printStackTrace();
         }
     }
+
+    public static void cityListToMarkdown(ArrayList<City> cities, int n, String fileName) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("| Name | Country | District | Population |\r\n");
+        sb.append("| --- | --- | --- | --- |\r\n");
+
+        for (int i = 0; i < n; i++) {
+            City city = cities.get(i);
+            sb.append("| " +
+                    city.getName() + " | " +
+                    city.getCountryName() + " | " +
+                    city.getDistrict() + " | " +
+                    city.getPopulation() + " | " +
+                    " |" +"\r\n");
+        }
+        try {
+            new File("./reports/").mkdir();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + fileName + ".md")));
+            writer.write(sb.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 

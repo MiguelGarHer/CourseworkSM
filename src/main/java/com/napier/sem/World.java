@@ -621,6 +621,10 @@ public class World {
         for (int i = 0; i < n; i++) {
             System.out.println(worldCities.get(i));
         }
+
+        //Markdown
+        String fileName = "nPopCitiesWorld";
+        MarkdownWriter.cityListToMarkdown(worldCities, n, fileName);
     }
 
 
@@ -665,6 +669,10 @@ public class World {
         for (int i = 0; i < n; i++) {
             System.out.println(continentCities.get(i));
         }
+
+        //Markdown
+        String fileName = "nPopCitiesContinent" + continentName;
+        MarkdownWriter.cityListToMarkdown(continentCities, n, fileName);
     }
 
     /**
