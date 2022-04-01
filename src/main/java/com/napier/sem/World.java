@@ -1,9 +1,5 @@
 package com.napier.sem;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -118,7 +114,7 @@ public class World {
                     resultSet.getString(15));
 
             // Get cities method
-            country.setCities(getCities(resultSet.getString(1)));
+            country.setCities(getCities(resultSet.getString(1),resultSet.getString(1)));
 
             // Get languages method
             country.setLanguages(getLanguages(resultSet.getString(1)));
@@ -135,15 +131,16 @@ public class World {
      * @param resultSet ResultSet from SQL query
      * @return City
      */
-    public City resultToCity(ResultSet resultSet) {
+    public City resultToCity(ResultSet resultSet, String countryName) {
         try {
             City city;
             city = new City(
-                   resultSet.getInt(1),
-                   resultSet.getString(2),
-                   resultSet.getString(3),
-                   resultSet.getString(4),
-                   resultSet.getInt(5));
+                    resultSet.getInt(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    countryName,
+                    resultSet.getString(4),
+                    resultSet.getInt(5));
             return city;
         } catch (SQLException | NullPointerException e) {
             System.out.println(e.getMessage());
@@ -157,14 +154,14 @@ public class World {
      * @param countryCode country code
      * @return ArrayList of City
      */
-    public ArrayList<City> getCities(String countryCode)
+    public ArrayList<City> getCities(String countryCode, String countryName)
     {
         ArrayList<City> cities = new ArrayList<>();
         try {
             String sqlQuery = "SELECT * FROM city WHERE countrycode = '" + countryCode + "';";
             ResultSet resultSet = getResultSet(sqlQuery);
             while(resultSet.next()) {
-                cities.add(resultToCity(resultSet));
+                cities.add(resultToCity(resultSet, countryName));
             }
             return cities;
         } catch (SQLException e) {

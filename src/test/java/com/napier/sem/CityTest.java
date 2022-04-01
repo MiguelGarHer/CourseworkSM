@@ -1,13 +1,7 @@
 package com.napier.sem;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestTemplate;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,7 +13,7 @@ public class CityTest {
         city = new City(1,
                 "name",
                 "CCE",
-                "district",
+                countryName, "district",
                 1);
     }
 

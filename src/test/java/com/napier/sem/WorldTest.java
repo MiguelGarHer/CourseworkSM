@@ -56,23 +56,23 @@ public class WorldTest
 
     @Test
     void resultToCityTestNull() {
-        assertNull(world.resultToCity(null));
+        assertNull(world.resultToCity(null, null));
     }
 
     @Test
     void getCitiesTestNull() {
-        assertTrue(world.getCities(null).isEmpty());
+        assertTrue(world.getCities(null, null).isEmpty());
 
     }
 
     @Test
     void getCitiesTestBlank() {
-        assertTrue(world.getCities("  ").isEmpty());
+        assertTrue(world.getCities("  ", "  ").isEmpty());
     }
 
     @Test
     void getCitiesTestEmpty() {
-        assertTrue(world.getCities("").isEmpty());
+        assertTrue(world.getCities("", "").isEmpty());
     }
 
     @Test
