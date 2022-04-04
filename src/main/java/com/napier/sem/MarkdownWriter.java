@@ -8,6 +8,22 @@ import java.util.ArrayList;
 
 public class MarkdownWriter {
     public static void countryListToMarkdown(ArrayList<Country> countries, String fileName) {
+        if (countries == null){
+            System.out.println("Null country list");
+            return;
+        }
+
+        if (fileName == null) {
+            System.out.println("Null filename");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank filename");
+            return;
+        } else if (fileName.isEmpty()) {
+            System.out.println("Empty filename");
+            return;
+        }
+
         StringBuilder sb = new StringBuilder();
         sb.append("| Code | Name | Continent | Region | Population | Capital |\r\n");
         sb.append("| --- | --- | --- | --- | --- | --- |\r\n");
@@ -42,6 +58,27 @@ public class MarkdownWriter {
     }
 
     public static void countryListToMarkdown(ArrayList<Country> countries, int n, String fileName) {
+        if (countries == null){
+            System.out.println("Null country list");
+            return;
+        }
+
+        if (fileName == null) {
+            System.out.println("Null filename");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank filename");
+            return;
+        } else if (fileName.isEmpty()) {
+            System.out.println("Empty filename");
+            return;
+        }
+
+        if (n <= 0) {
+            System.out.println("Invalid number");
+            return;
+        }
+
         StringBuilder sb = new StringBuilder();
         sb.append("| Code | Name | Continent | Region | Population | Capital |\r\n");
         sb.append("| --- | --- | --- | --- | --- | --- |\r\n");
@@ -77,6 +114,23 @@ public class MarkdownWriter {
     }
 
     public static void cityListToMarkdown(ArrayList<City> cities, String fileName) {
+        if (cities == null){
+            System.out.println("Null city list");
+            return;
+        }
+
+        if (fileName == null) {
+            System.out.println("Null filename");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank filename");
+            return;
+        } else if (fileName.isEmpty()) {
+            System.out.println("Empty filename");
+            return;
+        }
+
+
         StringBuilder sb = new StringBuilder();
         sb.append("| Name | Country | District | Population |\r\n");
         sb.append("| --- | --- | --- | --- |\r\n");
@@ -100,6 +154,27 @@ public class MarkdownWriter {
     }
 
     public static void cityListToMarkdown(ArrayList<City> cities, int n, String fileName) {
+        if (cities == null){
+            System.out.println("Null city list");
+            return;
+        }
+
+        if (fileName == null) {
+            System.out.println("Null filename");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank filename");
+            return;
+        } else if (fileName.isEmpty()) {
+            System.out.println("Empty filename");
+            return;
+        }
+
+        if (n <= 0) {
+            System.out.println("Invalid number");
+            return;
+        }
+
         StringBuilder sb = new StringBuilder();
         sb.append("| Name | Country | District | Population |\r\n");
         sb.append("| --- | --- | --- | --- |\r\n");
