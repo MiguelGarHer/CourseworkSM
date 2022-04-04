@@ -79,6 +79,7 @@ public class App
     private static void populationReports(World world) {
         // Get all continent population reports
         world.populationReportAllContinents();
+        world.populationReportAllCountries();
     }
 
     /**

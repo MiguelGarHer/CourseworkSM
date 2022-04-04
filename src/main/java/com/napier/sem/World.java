@@ -360,6 +360,63 @@ public class World {
 
     }
 
+    public void populationReportAllCountries() {
+        String fileName = "populationReportAllCountries";
+        for (Country country : countries ) {
+            populationReportCountry(country, fileName);
+        }
+    }
+
+    public void populationReportCountry(Country country, String fileName) {
+        // Null, empty and blank parameter check
+        if (country == null) {
+            System.out.println("Null input on country");
+            return;
+        }
+
+        if (fileName == null) {
+            System.out.println("Null input on file name");
+            return;
+        } else if (fileName.isEmpty()) {
+            System.out.println("Empty input on file name");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank input on file name");
+            return;
+        }
+
+        long totalPopulation = 0;
+        long cityPopulation = 0;
+        long countrySidePopulation;
+
+        totalPopulation += country.getPopulation();
+        for (City city : country.getCities()) {
+            cityPopulation += city.getPopulation();
+        }
+
+        countrySidePopulation = totalPopulation - cityPopulation;
+
+        int cityPopulationPercentage = (int) Math.round(((double) cityPopulation  / totalPopulation) * 100);
+        int countrySidePopulationPercentage = (int) Math.round(((double) countrySidePopulation / totalPopulation) * 100);
+
+        //Print
+        System.out.println("Population report for " + country.getName());
+        System.out.println("Total population: " + totalPopulation);
+        System.out.println("Population living in cities: " + cityPopulation + "(" + cityPopulationPercentage + "%)");
+        System.out.println("Population not living in cities: " + countrySidePopulation + "(" + countrySidePopulationPercentage + "%)");
+
+        //Markdown
+        MarkdownWriter.populationReportToMarkdown(
+                country.getName(),
+                totalPopulation,
+                cityPopulation,
+                cityPopulationPercentage,
+                countrySidePopulation,
+                countrySidePopulationPercentage,
+                fileName
+        );
+    }
+
     /**
      * Print all countries in the world
      * Sorting: Largest population to smallest
