@@ -131,7 +131,7 @@ public class MarkdownWriter {
                 name + " | " +
                 cityPopulation + " (" + cityPopulationPercentage + "%) | " +
                 countrySidePopulation + " (" + countrySidePopulationPercentage  + "%) | " +
-                totalPopulation + " (" + cityPopulationPercentage + countrySidePopulationPercentage + "%) |" +
+                totalPopulation + " (" + (cityPopulationPercentage + countrySidePopulationPercentage) + "%) |" +
                 "\r\n");
         try {
             new File("./reports/").mkdir();
