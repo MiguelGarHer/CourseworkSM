@@ -309,12 +309,6 @@ public class WorldTest
     }
 
     @Test
-    void populationReportContinentTestEmptyContinentName() {
-        world.populationReportContinent("", "filename.md");
-        assertEquals("Empty input on continent name", outputStreamCaptor.toString().trim());
-    }
-
-    @Test
     void populationReportContinentTestBlankContinentName() {
         world.populationReportContinent("  ", "filename.md");
         assertEquals("Blank input on continent name", outputStreamCaptor.toString().trim());
@@ -324,12 +318,6 @@ public class WorldTest
     void populationReportContinentTestNullFileName() {
         world.populationReportContinent("Asia", null);
         assertEquals("Null input on file name", outputStreamCaptor.toString().trim());
-    }
-
-    @Test
-    void populationReportContinentTestEmptyFileName() {
-        world.populationReportContinent("Asia", "");
-        assertEquals("Empty input on file name", outputStreamCaptor.toString().trim());
     }
 
     @Test
@@ -365,27 +353,6 @@ public class WorldTest
 
         world.populationReportCountry(country, null);
         assertEquals("Null input on file name", outputStreamCaptor.toString().trim());
-    }
-
-    @Test
-    void populationReportCountryTestEmptyFileName() {
-        Country country = new Country("code",
-                "name",
-                "continent",
-                "region",
-                1.0,
-                1,
-                1,
-                1.0,
-                1.0,
-                1.0,
-                "localName",
-                "governmentForm",
-                "headOfState",
-                1,
-                "code2");
-        world.populationReportCountry(country, "");
-        assertEquals("Empty input on file name", outputStreamCaptor.toString().trim());
     }
 
     @Test

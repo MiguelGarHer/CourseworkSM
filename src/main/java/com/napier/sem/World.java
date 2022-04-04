@@ -298,9 +298,6 @@ public class World {
         if (continentName == null) {
             System.out.println("Null input on continent name");
             return;
-        } else if (continentName.isEmpty()) {
-            System.out.println("Empty input on continent name");
-            return;
         } else if (continentName.isBlank()) {
             System.out.println("Blank input on continent name");
             return;
@@ -308,9 +305,6 @@ public class World {
 
         if (fileName == null) {
             System.out.println("Null input on file name");
-            return;
-        } else if (fileName.isEmpty()) {
-            System.out.println("Empty input on file name");
             return;
         } else if (fileName.isBlank()) {
             System.out.println("Blank input on file name");
@@ -376,9 +370,6 @@ public class World {
 
         if (fileName == null) {
             System.out.println("Null input on file name");
-            return;
-        } else if (fileName.isEmpty()) {
-            System.out.println("Empty input on file name");
             return;
         } else if (fileName.isBlank()) {
             System.out.println("Blank input on file name");

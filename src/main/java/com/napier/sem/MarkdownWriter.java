@@ -22,9 +22,6 @@ public class MarkdownWriter {
         } else if (fileName.isBlank()) {
             System.out.println("Blank filename");
             return;
-        } else if (fileName.isEmpty()) {
-            System.out.println("Empty filename");
-            return;
         }
 
         StringBuilder sb = new StringBuilder();
@@ -71,9 +68,6 @@ public class MarkdownWriter {
             return;
         } else if (fileName.isBlank()) {
             System.out.println("Blank filename");
-            return;
-        } else if (fileName.isEmpty()) {
-            System.out.println("Empty filename");
             return;
         }
 
@@ -125,6 +119,21 @@ public class MarkdownWriter {
             int countrySidePopulationPercentage,
             String fileName) {
 
+        if (name == null) {
+            System.out.println("Null input on name");
+            return;
+        } else if (name.isBlank()) {
+            System.out.println("Blank name");
+        }
+
+        if (fileName == null) {
+            System.out.println("Null filename");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank filename");
+            return;
+        }
+
         StringBuilder sb = new StringBuilder();
 
         sb.append("| " +
@@ -152,12 +161,6 @@ public class MarkdownWriter {
             e.printStackTrace();
         }
     }
-
-
-
-
-
-
 
     public static void cityListToMarkdown(ArrayList<City> cities, String fileName) {
         if (cities == null){
