@@ -66,7 +66,7 @@ public class App
         world.sortCapCitiesPopRegion("Caribbean");
         world.sortCapCitiesPopContinent("Asia");
 
-        world.nPopCapCitiesRegion("California", 5);
+        world.nPopCapCitiesRegion("Caribbean", 5);
         world.nPopCapCitiesContinent("Asia", 10);
         //world.nPopCapCitiesWorld(50);
     }
