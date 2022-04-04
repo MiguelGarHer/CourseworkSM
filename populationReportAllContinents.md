@@ -1,4 +1,4 @@
-| Name | Total population | Population living in cities | Population not living in cities |
+| Name | Population living in cities | Population not living in cities | Total population |
 | --- | --- | --- | --- |
 | South America | 172037859 (50%) | 173742141 (50%) | 345780000 (100%) | 
 | Asia | 697604103 (19%) | 3007421597 (81%) | 3705025700 (100%) | 
