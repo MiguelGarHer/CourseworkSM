@@ -11,15 +11,13 @@ import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class WorldTest
-{
+public class WorldTest {
     static World world;
 
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
     @BeforeAll
-    static void init()
-    {
+    static void init() {
         world = new World();
     }
 
@@ -91,22 +89,19 @@ public class WorldTest
     //sortCitiesPopRegion tests
 
     @Test
-    void sortCitiesPopRegionTestNull()
-    {
+    void sortCitiesPopRegionTestNull() {
         world.sortCitiesPopRegion(null);
         assertEquals("Null input, no cities", outputStreamCaptor.toString().trim());
     }
 
     @Test
-    void sortCitiesPopRegionTestBlank()
-    {
+    void sortCitiesPopRegionTestBlank() {
         world.sortCitiesPopRegion("  ");
         System.out.println("Blank input, no cities");
     }
 
     @Test
-    void sortCitiesPopRegionTestEmpty()
-    {
+    void sortCitiesPopRegionTestEmpty() {
         world.sortCitiesPopRegion("");
         System.out.println("Empty input, no cities");
     }
@@ -114,22 +109,19 @@ public class WorldTest
     //sortCitiesPopCountry tests
 
     @Test
-    void sortCitiesPopCountryTestNull()
-    {
+    void sortCitiesPopCountryTestNull() {
         world.sortCitiesPopCountry(null);
         assertEquals("Null input, no cities", outputStreamCaptor.toString().trim());
     }
 
     @Test
-    void sortCitiesPopCountryTestEmpty()
-    {
+    void sortCitiesPopCountryTestEmpty() {
         world.sortCitiesPopCountry("");
         assertEquals("Empty input, no cities", outputStreamCaptor.toString().trim());
     }
 
     @Test
-    void sortCitiesPopCountryTestBlank()
-    {
+    void sortCitiesPopCountryTestBlank() {
         world.sortCitiesPopCountry("  ");
         assertEquals("Blank input, no cities", outputStreamCaptor.toString().trim());
     }
@@ -137,20 +129,19 @@ public class WorldTest
     //sortCitiesPopDistrict tests
 
     @Test
-    void sortCitiesPopDistrictTestNull()
-    {
+    void sortCitiesPopDistrictTestNull() {
         world.sortCitiesPopDistrict(null);
         assertEquals("Null input, no cities", outputStreamCaptor.toString().trim());
     }
+
     @Test
-    void sortCitiesPopDistrictTestEmpty()
-    {
+    void sortCitiesPopDistrictTestEmpty() {
         world.sortCitiesPopDistrict("");
         assertEquals("Empty input, no cities", outputStreamCaptor.toString().trim());
     }
+
     @Test
-    void sortCitiesPopDistrictTestBlank()
-    {
+    void sortCitiesPopDistrictTestBlank() {
         world.sortCitiesPopDistrict("  ");
         assertEquals("Blank input, no cities", outputStreamCaptor.toString().trim());
     }
@@ -158,22 +149,19 @@ public class WorldTest
     //sortCitiesPopContinent tests
 
     @Test
-    void sortCitiesPopContinentTestNull()
-    {
+    void sortCitiesPopContinentTestNull() {
         world.sortCitiesPopContinent(null);
         assertEquals("Null input, no cities", outputStreamCaptor.toString().trim());
     }
 
     @Test
-    void sortCitiesPopContinentTestBlank()
-    {
+    void sortCitiesPopContinentTestBlank() {
         world.sortCitiesPopContinent("  ");
         assertEquals("Blank input, no cities", outputStreamCaptor.toString().trim());
     }
 
     @Test
-    void sortCitiesPopContinentTestEmpty()
-    {
+    void sortCitiesPopContinentTestEmpty() {
         world.sortCitiesPopContinent("");
         assertEquals("Empty input, no cities", outputStreamCaptor.toString().trim());
     }
@@ -181,35 +169,32 @@ public class WorldTest
     //sortCountriesPopCountries tests
 
     @Test
-    void sortCountriesPopCountriesTestNull()
-    {
+    void sortCountriesPopCountriesTestNull() {
         world.sortCountriesPopContinent(null);
         assertEquals("Null input, no countries", outputStreamCaptor.toString().trim());
     }
 
     @Test
-    void sortCountriesPopCountriesTestBlank()
-    {
+    void sortCountriesPopCountriesTestBlank() {
         world.sortCountriesPopContinent("   ");
         assertEquals("Blank input, no countries", outputStreamCaptor.toString().trim());
     }
 
     @Test
-    void sortCountriesPopCountriesTestEmpty()
-    {
+    void sortCountriesPopCountriesTestEmpty() {
         world.sortCountriesPopContinent("");
         assertEquals("Empty input, no countries", outputStreamCaptor.toString().trim());
     }
+
     //nPopCitiesWorld test
     @Test
-    void nPopCitiesWorld()
-    {
+    void nPopCitiesWorld() {
         world.nPopCitiesWorld(0);
         assertEquals("Invalid number", outputStreamCaptor.toString().trim());
     }
+
     @Test
-    void nPopCitiesWorldNegative()
-    {
+    void nPopCitiesWorldNegative() {
         world.nPopCitiesWorld(-5);
         assertEquals("Invalid number", outputStreamCaptor.toString().trim());
     }
@@ -220,53 +205,50 @@ public class WorldTest
         assertEquals("Null input, no cities", outputStreamCaptor.toString().trim());
 
     }
-    
+
     //sortCountriesPopRegion Test(Empty, null and blank)
 
     @Test
-    void sortCountriesPopRegionTestEmpty()
-    {
+    void sortCountriesPopRegionTestEmpty() {
         world.sortCountriesPopRegion("");
         assertEquals("Empty input, no countries", outputStreamCaptor.toString().trim());
 
     }
 
     @Test
-    void sortCountriesPopRegionTestNull()
-    {
+    void sortCountriesPopRegionTestNull() {
         world.sortCountriesPopRegion(null);
         assertEquals("Null input, no countries", outputStreamCaptor.toString().trim());
 
     }
 
     @Test
-    void sortCountriesPopRegionTestBlank()
-    {
+    void sortCountriesPopRegionTestBlank() {
         world.sortCountriesPopRegion("  ");
         assertEquals("Blank input, no countries", outputStreamCaptor.toString().trim());
 
     }
 
     @Test
-    void sortCapCitiesPopRegionTestNull(){
+    void sortCapCitiesPopRegionTestNull() {
         world.sortCapCitiesPopRegion(null);
         assertEquals("REGION NAME IS NULL", outputStreamCaptor.toString().trim());
     }
 
     @Test
-    void sortCapCitiesPopRegionTestEmpty(){
+    void sortCapCitiesPopRegionTestEmpty() {
         world.sortCapCitiesPopRegion("This region does not exist");
         assertEquals("No capital cities in this region", outputStreamCaptor.toString().trim());
     }
 
     @Test
-    void sortCapCitiesPopContinentTestNull(){
+    void sortCapCitiesPopContinentTestNull() {
         world.sortCapCitiesPopContinent(null);
         assertEquals("CONTINENT NAME IS NULL", outputStreamCaptor.toString().trim());
     }
 
     @Test
-    void sortCapCitiesPopContinentTestEmpty(){
+    void sortCapCitiesPopContinentTestEmpty() {
         world.sortCapCitiesPopContinent("This continent does not exist");
         assertEquals("No capital cities in this continent", outputStreamCaptor.toString().trim());
     }
@@ -313,7 +295,7 @@ public class WorldTest
         world.nPopCapCitiesRegion("Asia", 0);
         assertEquals("Invalid number", outputStreamCaptor.toString().trim());
     }
-    
+
     @Test
     void nPopCountriesWorldTestZero() {
         world.nPopCountriesWorld(0);
@@ -324,6 +306,13 @@ public class WorldTest
     void nPopCountriesContinentTestNull() {
         world.nPopCountriesContinent(null, 4);
         assertEquals("Null continent name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void nPopCountriesContinentTestBlank() {
+        world.nPopCountriesContinent("", 1);
+        assertEquals("Blank continent name", outputStreamCaptor.toString().trim());
+
     }
 
     @Test
@@ -338,6 +327,80 @@ public class WorldTest
         world.nPopCountriesContinent("Asia", 0);
         assertEquals("Invalid number", outputStreamCaptor.toString().trim());
 
+    }
+
+    @Test
+    void populationReportContinentTestNullContinentName() {
+        world.populationReportContinent(null, "filename.md");
+        assertEquals("Null input on continent name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportContinentTestBlankContinentName() {
+        world.populationReportContinent("  ", "filename.md");
+        assertEquals("Blank input on continent name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportContinentTestNullFileName() {
+        world.populationReportContinent("Asia", null);
+        assertEquals("Null input on file name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportContinentTestBlankFileName() {
+        world.populationReportContinent("Asia", "  ");
+        assertEquals("Blank input on file name", outputStreamCaptor.toString().trim());
+    }
+
+
+    @Test
+    void populationReportCountryTestNullCountry() {
+        world.populationReportCountry(null, "filename.md");
+        assertEquals("Null input on country", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportCountryTestNullFileName() {
+        Country country = new Country("code",
+                "name",
+                "continent",
+                "region",
+                1.0,
+                1,
+                1,
+                1.0,
+                1.0,
+                1.0,
+                "localName",
+                "governmentForm",
+                "headOfState",
+                1,
+                "code2");
+
+        world.populationReportCountry(country, null);
+        assertEquals("Null input on file name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportCountryTestBlankFileName() {
+        Country country = new Country("code",
+                "name",
+                "continent",
+                "region",
+                1.0,
+                1,
+                1,
+                1.0,
+                1.0,
+                1.0,
+                "localName",
+                "governmentForm",
+                "headOfState",
+                1,
+                "code2");
+        world.populationReportCountry(country, "  ");
+        assertEquals("Blank input on file name", outputStreamCaptor.toString().trim());
     }
 }
 

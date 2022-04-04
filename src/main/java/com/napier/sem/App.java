@@ -1,5 +1,7 @@
 package com.napier.sem;
 
+import java.util.HashSet;
+
 public class App
 {
     public static void main(String[] args)
@@ -10,7 +12,7 @@ public class App
         //Connect to MySQL
 
         if (args.length < 1) {
-            world.connect("localhost:33060", 15000);
+            world.connect("localhost:33060", 0);
         } else{
             world.connect(args[0], Integer.parseInt(args[1]));
         }
@@ -32,6 +34,9 @@ public class App
 
         // Testing for cap city reports
         capCityReports(world);
+
+        // Testing for population reports
+        populationReports(world);
 
         // Disconnect from MySQL
         world.disconnect();
@@ -69,6 +74,12 @@ public class App
         world.nPopCapCitiesRegion("Caribbean", 5);
         world.nPopCapCitiesContinent("Asia", 10);
         //world.nPopCapCitiesWorld(50);
+    }
+
+    private static void populationReports(World world) {
+        // Get all continent population reports
+        world.populationReportAllContinents();
+        world.populationReportAllCountries();
     }
 
     /**

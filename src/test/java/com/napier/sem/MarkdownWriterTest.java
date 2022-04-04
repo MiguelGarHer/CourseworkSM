@@ -54,11 +54,6 @@ public class MarkdownWriterTest {
     }
 
     @Test
-    void countryListToMarkdownTestEmptyFileName() {
-        MarkdownWriter.countryListToMarkdown(countries, "");
-    }
-
-    @Test
     void countryListToMarkdownTestBlankFileName() {
         MarkdownWriter.countryListToMarkdown(countries, "   ");
         assertEquals("Blank filename", outputStreamCaptor.toString().trim());
@@ -89,11 +84,6 @@ public class MarkdownWriterTest {
     }
 
     @Test
-    void cityListToMarkdownTestEmptyFileName() {
-        MarkdownWriter.cityListToMarkdown(cities, "");
-    }
-
-    @Test
     void cityListToMarkdownTestBlankFileName() {
         MarkdownWriter.cityListToMarkdown(cities, "   ");
         assertEquals("Blank filename", outputStreamCaptor.toString().trim());
@@ -121,5 +111,61 @@ public class MarkdownWriterTest {
     void cityListToMarkdownTestInvalidNumberZero() {
         MarkdownWriter.cityListToMarkdown(cities,0, "fileName");
         assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportToMarkdownTestNullName() {
+        MarkdownWriter.populationReportToMarkdown(
+                null,
+                1,
+                1,
+                1,
+                1,
+                1,
+                "fileName"
+        );
+        assertEquals("Null input on name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportToMarkdownTestBlankName() {
+        MarkdownWriter.populationReportToMarkdown(
+                "",
+                1,
+                1,
+                1,
+                1,
+                1,
+                "fileName"
+        );
+        assertEquals("Blank name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportToMarkdownTestNullFileName() {
+        MarkdownWriter.populationReportToMarkdown(
+                "name",
+                1,
+                1,
+                1,
+                1,
+                1,
+                null
+        );
+        assertEquals("Null filename", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportToMarkdownTestEmptyFileName() {
+        MarkdownWriter.populationReportToMarkdown(
+                "name",
+                1,
+                1,
+                1,
+                1,
+                1,
+                ""
+        );
+        assertEquals("Blank filename", outputStreamCaptor.toString().trim());
     }
 }

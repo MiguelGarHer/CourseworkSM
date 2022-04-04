@@ -3,6 +3,7 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 
 public class World {
 
@@ -271,9 +272,140 @@ public class World {
     }
 
     /**
-     * Generate population report
+     * Generate population report of a country
      */
-    public void getPopulationRep(){
+    public void populationReportCountry(Country country){
+
+    }
+
+    public void populationReportAllContinents() {
+        HashSet<String> continentNames = new HashSet<>();
+        for (Country country : countries) {
+            continentNames.add(country.getContinent());
+        }
+
+        String fileName = "populationReportAllContinents";
+        for (String continent : continentNames) {
+            populationReportContinent(continent, fileName);
+        }
+    }
+
+    /**
+     * Generate population report of a continent
+     */
+    public void populationReportContinent(String continentName, String fileName){
+        // Null, empty and blank parameter check
+        if (continentName == null) {
+            System.out.println("Null input on continent name");
+            return;
+        } else if (continentName.isBlank()) {
+            System.out.println("Blank input on continent name");
+            return;
+        }
+
+        if (fileName == null) {
+            System.out.println("Null input on file name");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank input on file name");
+            return;
+        }
+
+        long totalPopulation = 0;
+        long cityPopulation = 0;
+        long countrySidePopulation;
+
+        for (Country country : countries) {
+            if (country.getContinent().equals(continentName)) {
+                totalPopulation += country.getPopulation();
+                for (City city : country.getCities()) {
+                    cityPopulation += city.getPopulation();
+                }
+            }
+        }
+
+        countrySidePopulation = totalPopulation - cityPopulation;
+
+        int cityPopulationPercentage = (int) Math.round(((double) cityPopulation  / totalPopulation) * 100);
+        int countrySidePopulationPercentage = (int) Math.round(((double) countrySidePopulation / totalPopulation) * 100);
+
+        //Print
+        System.out.println("Population report for " + continentName);
+        System.out.println("Total population: " + totalPopulation);
+        System.out.println("Population living in cities: " + cityPopulation + "(" + cityPopulationPercentage + "%)");
+        System.out.println("Population not living in cities: " + countrySidePopulation + "(" + countrySidePopulationPercentage + "%)");
+
+        //Markdown
+        MarkdownWriter.populationReportToMarkdown(
+                continentName,
+                totalPopulation,
+                cityPopulation,
+                cityPopulationPercentage,
+                countrySidePopulation,
+                countrySidePopulationPercentage,
+                fileName
+        );
+    }
+
+    /**
+     * Generate population report of a region
+     */
+    public void populationReportRegion(String regionName){
+
+    }
+
+    public void populationReportAllCountries() {
+        String fileName = "populationReportAllCountries";
+        for (Country country : countries ) {
+            populationReportCountry(country, fileName);
+        }
+    }
+
+    public void populationReportCountry(Country country, String fileName) {
+        // Null, empty and blank parameter check
+        if (country == null) {
+            System.out.println("Null input on country");
+            return;
+        }
+
+        if (fileName == null) {
+            System.out.println("Null input on file name");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank input on file name");
+            return;
+        }
+
+        long totalPopulation = 0;
+        long cityPopulation = 0;
+        long countrySidePopulation;
+
+        totalPopulation += country.getPopulation();
+        for (City city : country.getCities()) {
+            cityPopulation += city.getPopulation();
+        }
+
+        countrySidePopulation = totalPopulation - cityPopulation;
+
+        int cityPopulationPercentage = (int) Math.round(((double) cityPopulation  / totalPopulation) * 100);
+        int countrySidePopulationPercentage = (int) Math.round(((double) countrySidePopulation / totalPopulation) * 100);
+
+        //Print
+        System.out.println("Population report for " + country.getName());
+        System.out.println("Total population: " + totalPopulation);
+        System.out.println("Population living in cities: " + cityPopulation + "(" + cityPopulationPercentage + "%)");
+        System.out.println("Population not living in cities: " + countrySidePopulation + "(" + countrySidePopulationPercentage + "%)");
+
+        //Markdown
+        MarkdownWriter.populationReportToMarkdown(
+                country.getName(),
+                totalPopulation,
+                cityPopulation,
+                cityPopulationPercentage,
+                countrySidePopulation,
+                countrySidePopulationPercentage,
+                fileName
+        );
     }
 
     /**
@@ -404,6 +536,11 @@ public class World {
     public void nPopCountriesContinent(String continentName, int n) {
         if (continentName == null) {
             System.out.println("Null continent name");
+            return;
+        }
+
+        if (continentName.isBlank()) {
+            System.out.println("Blank continent name");
             return;
         }
         if (n <= 0){

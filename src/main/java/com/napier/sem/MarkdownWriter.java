@@ -4,6 +4,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.Buffer;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 
 public class MarkdownWriter {
@@ -18,9 +21,6 @@ public class MarkdownWriter {
             return;
         } else if (fileName.isBlank()) {
             System.out.println("Blank filename");
-            return;
-        } else if (fileName.isEmpty()) {
-            System.out.println("Empty filename");
             return;
         }
 
@@ -69,9 +69,6 @@ public class MarkdownWriter {
         } else if (fileName.isBlank()) {
             System.out.println("Blank filename");
             return;
-        } else if (fileName.isEmpty()) {
-            System.out.println("Empty filename");
-            return;
         }
 
         if (n <= 0) {
@@ -113,6 +110,58 @@ public class MarkdownWriter {
         }
     }
 
+    public static void populationReportToMarkdown(
+            String name,
+            long totalPopulation,
+            long cityPopulation,
+            int cityPopulationPercentage,
+            long countrySidePopulation,
+            int countrySidePopulationPercentage,
+            String fileName) {
+
+        if (name == null) {
+            System.out.println("Null input on name");
+            return;
+        } else if (name.isBlank()) {
+            System.out.println("Blank name");
+        }
+
+        if (fileName == null) {
+            System.out.println("Null filename");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank filename");
+            return;
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("| " +
+                name + " | " +
+                cityPopulation + " (" + cityPopulationPercentage + "%) | " +
+                countrySidePopulation + " (" + countrySidePopulationPercentage  + "%) | " +
+                totalPopulation + " (" + (cityPopulationPercentage + countrySidePopulationPercentage) + "%) |" +
+                "\r\n");
+        try {
+            new File("./reports/").mkdir();
+            File file = new File("./reports/" + fileName + ".md");
+            FileWriter fw;
+            if (file.exists()) {
+                fw = new FileWriter(file, true);
+            } else {
+                fw = new FileWriter(file);
+                sb.insert(0,"| --- | --- | --- | --- |\r\n");
+                sb.insert(0,"| Name | Population living in cities | Population not living in cities | Total population |\r\n");
+
+            }
+            BufferedWriter writer = new BufferedWriter(fw);
+            writer.write(sb.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void cityListToMarkdown(ArrayList<City> cities, String fileName) {
         if (cities == null){
             System.out.println("Null city list");
@@ -129,7 +178,6 @@ public class MarkdownWriter {
             System.out.println("Empty filename");
             return;
         }
-
 
         StringBuilder sb = new StringBuilder();
         sb.append("| Name | Country | District | Population |\r\n");
