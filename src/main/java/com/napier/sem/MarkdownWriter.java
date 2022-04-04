@@ -142,7 +142,7 @@ public class MarkdownWriter {
             } else {
                 fw = new FileWriter(file);
                 sb.insert(0,"| --- | --- | --- | --- |\r\n");
-                sb.insert(0,"| Name | Total population | Population living in cities | Population not living in cities |\r\n");
+                sb.insert(0,"| Name | Population living in cities | Population not living in cities | Total population |\r\n");
 
             }
             BufferedWriter writer = new BufferedWriter(fw);
