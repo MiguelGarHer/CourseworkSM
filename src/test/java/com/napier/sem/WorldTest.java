@@ -301,5 +301,41 @@ public class WorldTest
         world.nPopCountriesWorld(0);
         assertEquals("Invalid number", outputStreamCaptor.toString().trim());
     }
+
+    @Test
+    void populationReportContinentTestNullContinentName() {
+        world.populationReportContinent(null, "filename.md");
+        assertEquals("Null input on continent name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportContinentTestEmptyContinentName() {
+        world.populationReportContinent("", "filename.md");
+        assertEquals("Empty input on continent name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportContinentTestBlankContinentName() {
+        world.populationReportContinent("  ", "filename.md");
+        assertEquals("Blank input on continent name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportContinentTestNullFileName() {
+        world.populationReportContinent("Asia", null);
+        assertEquals("Null input on file name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportContinentTestEmptyFileName() {
+        world.populationReportContinent("Asia", "");
+        assertEquals("Empty input on file name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportContinentTestBlankFileName() {
+        world.populationReportContinent("Asia", "  ");
+        assertEquals("Blank input on file name", outputStreamCaptor.toString().trim());
+    }
 }
 

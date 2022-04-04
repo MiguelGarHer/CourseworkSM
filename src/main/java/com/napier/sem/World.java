@@ -281,9 +281,7 @@ public class World {
     public void populationReportAllContinents() {
         HashSet<String> continentNames = new HashSet<>();
         for (Country country : countries) {
-            if (!continentNames.contains(country.getContinent())) {
-                continentNames.add(country.getContinent());
-            }
+            continentNames.add(country.getContinent());
         }
 
         String fileName = "populationReportAllContinents";
@@ -296,6 +294,29 @@ public class World {
      * Generate population report of a continent
      */
     public void populationReportContinent(String continentName, String fileName){
+        // Null, empty and blank parameter check
+        if (continentName == null) {
+            System.out.println("Null input on continent name");
+            return;
+        } else if (continentName.isEmpty()) {
+            System.out.println("Empty input on continent name");
+            return;
+        } else if (continentName.isBlank()) {
+            System.out.println("Blank input on continent name");
+            return;
+        }
+
+        if (fileName == null) {
+            System.out.println("Null input on file name");
+            return;
+        } else if (fileName.isEmpty()) {
+            System.out.println("Empty input on file name");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank input on file name");
+            return;
+        }
+
         long totalPopulation = 0;
         long cityPopulation = 0;
         long countrySidePopulation;
@@ -308,6 +329,7 @@ public class World {
                 }
             }
         }
+
         countrySidePopulation = totalPopulation - cityPopulation;
 
         int cityPopulationPercentage = (int) Math.round(((double) cityPopulation  / totalPopulation) * 100);
