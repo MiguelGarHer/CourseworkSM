@@ -1,5 +1,7 @@
 package com.napier.sem;
 
+import java.util.HashSet;
+
 public class App
 {
     public static void main(String[] args)
@@ -10,7 +12,7 @@ public class App
         //Connect to MySQL
 
         if (args.length < 1) {
-            world.connect("localhost:33060", 10000);
+            world.connect("localhost:33060", 0);
         } else{
             world.connect(args[0], Integer.parseInt(args[1]));
         }
@@ -75,7 +77,8 @@ public class App
     }
 
     private static void populationReports(World world) {
-        world.populationReportContinent("Asia");
+        // Get all continent population reports
+        world.populationReportAllContinents();
     }
 
     /**

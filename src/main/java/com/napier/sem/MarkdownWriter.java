@@ -4,6 +4,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.Buffer;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 
 public class MarkdownWriter {
@@ -113,9 +116,48 @@ public class MarkdownWriter {
         }
     }
 
-    public static void countryPopulationToMarkdown() {
+    public static void populationReportToMarkdown(
+            String name,
+            long totalPopulation,
+            long cityPopulation,
+            int cityPopulationPercentage,
+            long countrySidePopulation,
+            int countrySidePopulationPercentage,
+            String fileName) {
 
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("| " +
+                name + " | " +
+                totalPopulation + " (100%) | " +
+                cityPopulation + " (" + cityPopulationPercentage + "%) | " +
+                countrySidePopulation + " (" + countrySidePopulationPercentage  + "%) | " +
+                "\r\n");
+        try {
+            new File("./reports/").mkdir();
+            File file = new File("./reports/" + fileName + ".md");
+            FileWriter fw;
+            if (file.exists()) {
+                fw = new FileWriter(file, true);
+            } else {
+                fw = new FileWriter(file);
+                sb.insert(0,"| --- | --- | --- | --- |\r\n");
+                sb.insert(0,"| Name | Total population | Population living in cities | Population not living in cities |\r\n");
+
+            }
+            BufferedWriter writer = new BufferedWriter(fw);
+            writer.write(sb.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+
+
+
+
+
 
     public static void cityListToMarkdown(ArrayList<City> cities, String fileName) {
         if (cities == null){

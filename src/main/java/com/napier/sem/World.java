@@ -3,6 +3,7 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 
 public class World {
 
@@ -277,10 +278,24 @@ public class World {
 
     }
 
+    public void populationReportAllContinents() {
+        HashSet<String> continentNames = new HashSet<>();
+        for (Country country : countries) {
+            if (!continentNames.contains(country.getContinent())) {
+                continentNames.add(country.getContinent());
+            }
+        }
+
+        String fileName = "populationReportAllContinents";
+        for (String continent : continentNames) {
+            populationReportContinent(continent, fileName);
+        }
+    }
+
     /**
      * Generate population report of a continent
      */
-    public void populationReportContinent(String continentName){
+    public void populationReportContinent(String continentName, String fileName){
         long totalPopulation = 0;
         long cityPopulation = 0;
         long countrySidePopulation;
@@ -305,6 +320,15 @@ public class World {
         System.out.println("Population not living in cities: " + countrySidePopulation + "(" + countrySidePopulationPercentage + "%)");
 
         //Markdown
+        MarkdownWriter.populationReportToMarkdown(
+                continentName,
+                totalPopulation,
+                cityPopulation,
+                cityPopulationPercentage,
+                countrySidePopulation,
+                countrySidePopulationPercentage,
+                fileName
+        );
     }
 
     /**
