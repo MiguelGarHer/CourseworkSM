@@ -129,9 +129,9 @@ public class MarkdownWriter {
 
         sb.append("| " +
                 name + " | " +
-                totalPopulation + " (100%) | " +
                 cityPopulation + " (" + cityPopulationPercentage + "%) | " +
                 countrySidePopulation + " (" + countrySidePopulationPercentage  + "%) | " +
+                totalPopulation + " (100%) | " +
                 "\r\n");
         try {
             new File("./reports/").mkdir();
