@@ -828,6 +828,31 @@ public class World {
      * @param n top N
      */
     public void nPopCapCitiesRegion(String regionName, int n){
+        ArrayList<City> regionCapCities = new ArrayList<>();
+
+        // Get all cap cities in the region
+        for (Country country : countries) {
+            if (country.getRegion().equals(regionName)) {
+                for (City city: country.getCities()) {
+                    if (city.getId() == country.getCapital()) {
+                        regionCapCities.add(city);
+                    }
+                }
+            }
+        }
+
+        // Sort
+        regionCapCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
+
+        // Print
+        System.out.println("Top " + n + " populated capital cities in" + regionName);
+        for (int i = 0; i < n; i++) {
+            System.out.println(regionCapCities.get(i));
+        }
+
+        // Markdown
+        String fileName = "nPopCapCities" + regionName;
+        MarkdownWriter.cityListToMarkdown(regionCapCities, n, regionName);
     }
 
     /**
