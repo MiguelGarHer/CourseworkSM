@@ -852,7 +852,7 @@ public class World {
 
         // Markdown
         String fileName = "nPopCapCities" + regionName;
-        MarkdownWriter.cityListToMarkdown(regionCapCities, n, regionName);
+        MarkdownWriter.cityListToMarkdown(regionCapCities, n, fileName);
     }
 
     /**
