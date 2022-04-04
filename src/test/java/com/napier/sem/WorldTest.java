@@ -297,9 +297,47 @@ public class WorldTest
     }
 
     @Test
+    void nPopCapCitiesRegionTestNull() {
+        world.nPopCapCitiesRegion(null, 4);
+        assertEquals("Null region name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void nPopCapCitiesRegionTestInvalidN() {
+        world.nPopCapCitiesRegion("Asia", -1);
+        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void nPopCapCitiesRegionTestZero() {
+        world.nPopCapCitiesRegion("Asia", 0);
+        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+    }
+    
+    @Test
     void nPopCountriesWorldTestZero() {
         world.nPopCountriesWorld(0);
         assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void nPopCountriesContinentTestNull() {
+        world.nPopCountriesContinent(null, 4);
+        assertEquals("Null continent name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void nPopCountriesContinentTestInvalidN() {
+        world.nPopCountriesContinent("Asia", -1);
+        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+
+    }
+
+    @Test
+    void nPopCountriesContinentTestZero() {
+        world.nPopCountriesContinent("Asia", 0);
+        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+
     }
 }
 

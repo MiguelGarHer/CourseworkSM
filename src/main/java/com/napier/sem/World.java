@@ -401,7 +401,36 @@ public class World {
      * @param continentName name of continent
      * @param n top N
      */
-    public void nPopCountriesContinent(String continentName, int n){
+    public void nPopCountriesContinent(String continentName, int n) {
+        if (continentName == null) {
+            System.out.println("Null continent name");
+            return;
+        }
+        if (n <= 0){
+            System.out.println("Invalid number");
+            return;
+        }
+
+        ArrayList<Country> continentCountries = new ArrayList<>();
+        for (Country country : countries) {
+            if (country.getContinent().equals(continentName)) {
+                continentCountries.add(country);
+            }
+
+        }
+
+        //Sort all countries by population
+        continentCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
+
+        //Print
+        System.out.println("Top " + n + " countries in " + continentName + ", sorted by population");
+        for (int i = 0; i < n; i++) {
+            System.out.println(continentCountries.get(i));
+        }
+
+        //Write to markdown file
+        String fileName = "nPopCountriesContinent" + continentName + "Top" + n;
+        MarkdownWriter.countryListToMarkdown(continentCountries, n, fileName);
     }
 
     /**
@@ -828,6 +857,15 @@ public class World {
      * @param n top N
      */
     public void nPopCapCitiesRegion(String regionName, int n){
+        if (regionName == null) {
+            System.out.println("Null region name");
+            return;
+        }
+
+        if (n <= 0) {
+            System.out.println("Invalid number");
+            return;
+        }
         ArrayList<City> regionCapCities = new ArrayList<>();
 
         // Get all cap cities in the region

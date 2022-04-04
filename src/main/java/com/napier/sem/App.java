@@ -43,7 +43,7 @@ public class App
         //world.sortCountriesPopWorld();
 
         world.nPopCountriesWorld(10);
-        //world.nPopCountriesContinent();
+        world.nPopCountriesContinent("Asia", 5);
         //world.nPopCountriesRegion();
     }
 
