@@ -391,7 +391,7 @@ public class World {
         }
 
         //Write to markdown file
-        String fileName = "nPopCountriesWorld" + n;
+        String fileName = "nPopCountriesWorldTop" + n;
         MarkdownWriter.countryListToMarkdown(nWorldCountries, n, fileName);
     }
 
@@ -623,7 +623,7 @@ public class World {
         }
 
         //Markdown
-        String fileName = "nPopCitiesWorld";
+        String fileName = "nPopCitiesWorldTop" + n;
         MarkdownWriter.cityListToMarkdown(worldCities, n, fileName);
     }
 
@@ -671,7 +671,7 @@ public class World {
         }
 
         //Markdown
-        String fileName = "nPopCitiesContinent" + continentName;
+        String fileName = "nPopCitiesContinent" + continentName + "Top" + n;
         MarkdownWriter.cityListToMarkdown(continentCities, n, fileName);
     }
 
@@ -851,7 +851,7 @@ public class World {
         }
 
         // Markdown
-        String fileName = "nPopCapCities" + regionName;
+        String fileName = "nPopCapCities" + regionName + "Top" + n;
         MarkdownWriter.cityListToMarkdown(regionCapCities, n, fileName);
     }
 
@@ -888,7 +888,7 @@ public class World {
                 }
 
                 //Markdown
-                String fileName = "nPopCapCitiesContinent" + continentName;
+                String fileName = "nPopCapCitiesContinent" + continentName + "Top" + n;
                 MarkdownWriter.cityListToMarkdown(sortCapCities,n, fileName);
             }
             else {
