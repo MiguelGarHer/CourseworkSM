@@ -337,5 +337,77 @@ public class WorldTest
         world.populationReportContinent("Asia", "  ");
         assertEquals("Blank input on file name", outputStreamCaptor.toString().trim());
     }
+
+
+    @Test
+    void populationReportCountryTestNullCountry() {
+        world.populationReportCountry(null, "filename.md");
+        assertEquals("Null input on country", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportCountryTestNullFileName() {
+        Country country = new Country("code",
+                "name",
+                "continent",
+                "region",
+                1.0,
+                1,
+                1,
+                1.0,
+                1.0,
+                1.0,
+                "localName",
+                "governmentForm",
+                "headOfState",
+                1,
+                "code2");
+
+        world.populationReportCountry(country, null);
+        assertEquals("Null input on file name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportCountryTestEmptyFileName() {
+        Country country = new Country("code",
+                "name",
+                "continent",
+                "region",
+                1.0,
+                1,
+                1,
+                1.0,
+                1.0,
+                1.0,
+                "localName",
+                "governmentForm",
+                "headOfState",
+                1,
+                "code2");
+        world.populationReportCountry(country, "");
+        assertEquals("Empty input on file name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportCountryTestBlankFileName() {
+        Country country = new Country("code",
+                "name",
+                "continent",
+                "region",
+                1.0,
+                1,
+                1,
+                1.0,
+                1.0,
+                1.0,
+                "localName",
+                "governmentForm",
+                "headOfState",
+                1,
+                "code2");
+        world.populationReportCountry(country, "  ");
+        assertEquals("Blank input on file name", outputStreamCaptor.toString().trim());
+    }
+
 }
 
