@@ -333,7 +333,7 @@ public class World {
         countrySidePopulation = totalPopulation - cityPopulation;
 
         int cityPopulationPercentage = (int) Math.round(((double) cityPopulation  / totalPopulation) * 100);
-        int countrySidePopulationPercentage = 100 - cityPopulationPercentage;
+        int countrySidePopulationPercentage = (int) Math.round(((double) countrySidePopulation / totalPopulation) * 100);
 
         //Print
         System.out.println("Population report for " + continentName);
