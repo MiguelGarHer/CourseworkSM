@@ -113,6 +113,10 @@ public class MarkdownWriter {
         }
     }
 
+    public static void countryPopulationToMarkdown() {
+
+    }
+
     public static void cityListToMarkdown(ArrayList<City> cities, String fileName) {
         if (cities == null){
             System.out.println("Null city list");
@@ -129,7 +133,6 @@ public class MarkdownWriter {
             System.out.println("Empty filename");
             return;
         }
-
 
         StringBuilder sb = new StringBuilder();
         sb.append("| Name | Country | District | Population |\r\n");

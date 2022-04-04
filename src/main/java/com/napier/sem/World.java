@@ -271,9 +271,47 @@ public class World {
     }
 
     /**
-     * Generate population report
+     * Generate population report of a country
      */
-    public void getPopulationRep(){
+    public void populationReportCountry(Country country){
+
+    }
+
+    /**
+     * Generate population report of a continent
+     */
+    public void populationReportContinent(String continentName){
+        long totalPopulation = 0;
+        long cityPopulation = 0;
+        long countrySidePopulation;
+
+        for (Country country : countries) {
+            if (country.getContinent().equals(continentName)) {
+                totalPopulation += country.getPopulation();
+                for (City city : country.getCities()) {
+                    cityPopulation += city.getPopulation();
+                }
+            }
+        }
+        countrySidePopulation = totalPopulation - cityPopulation;
+
+        int cityPopulationPercentage = (int) Math.round(((double) cityPopulation  / totalPopulation) * 100);
+        int countrySidePopulationPercentage = 100 - cityPopulationPercentage;
+
+        //Print
+        System.out.println("Population report for " + continentName);
+        System.out.println("Total population: " + totalPopulation);
+        System.out.println("Population living in cities: " + cityPopulation + "(" + cityPopulationPercentage + "%)");
+        System.out.println("Population not living in cities: " + countrySidePopulation + "(" + countrySidePopulationPercentage + "%)");
+
+        //Markdown
+    }
+
+    /**
+     * Generate population report of a region
+     */
+    public void populationReportRegion(String regionName){
+
     }
 
     /**
