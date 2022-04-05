@@ -114,6 +114,31 @@ public class MarkdownWriterTest {
     }
 
     @Test
+    void populationToMarkdownTestNullName() {
+        MarkdownWriter.populationToMarkdown(null, 1, "fileName");
+        assertEquals("Null input on name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationToMarkdownTestBlankName() {
+        MarkdownWriter.populationToMarkdown("", 1, "fileName");
+        assertEquals("Blank name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationToMarkdownTestNullFileName() {
+        MarkdownWriter.populationToMarkdown("name", 1, null);
+        assertEquals("Null filename", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationToMarkdownTestBlankFileName() {
+        MarkdownWriter.populationToMarkdown("name", 1, "");
+        assertEquals("Blank filename", outputStreamCaptor.toString().trim());
+    }
+
+
+    @Test
     void populationReportToMarkdownTestNullName() {
         MarkdownWriter.populationReportToMarkdown(
                 null,

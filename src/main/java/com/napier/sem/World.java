@@ -468,8 +468,8 @@ public class World {
         );
     }
 
-    public void populationReportAllCities() {
-        String fileName = "populationReportAllCities";
+    public void populationAllCities() {
+        String fileName = "populationAllCities";
         for (Country country : countries) {
             for (City city : country.getCities()) {
                 populationReportCity(city, fileName);
@@ -498,7 +498,7 @@ public class World {
         System.out.println("Total population: " + city.getPopulation());
 
         //Markdown
-        MarkdownWriter.populationReportToMarkdown(
+        MarkdownWriter.populationToMarkdown(
                 city.getName(),
                 city.getPopulation(),
                 fileName

@@ -110,16 +110,27 @@ public class MarkdownWriter {
         }
     }
 
-    public static void populationReportToMarkdown(
+    public static void populationToMarkdown(
             String name,
             int population,
             String fileName) {
+
         if (name == null) {
             System.out.println("Null input on name");
             return;
-        } else if (name.isBlank()) {
+        } else if (name.isEmpty()) {
             System.out.println("Blank name");
+            return;
         }
+
+        if (fileName == null) {
+            System.out.println("Null filename");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank filename");
+            return;
+        }
+
 
         StringBuilder sb = new StringBuilder();
 
