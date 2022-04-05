@@ -471,11 +471,15 @@ public class World {
 
     public void populationWorld() {
         String fileName = "populationWorld";
+        MarkdownWriter.populationToMarkdown("World", getWorldPopulation(), fileName);
+    }
+
+    public long getWorldPopulation() {
         long population = 0;
         for (Country country : countries) {
             population += country.getPopulation();
         }
-        MarkdownWriter.populationToMarkdown("World", population, fileName);
+        return population;
     }
 
     public void populationAllDistricts() {
