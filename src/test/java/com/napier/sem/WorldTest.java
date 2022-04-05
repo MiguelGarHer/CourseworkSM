@@ -353,6 +353,30 @@ public class WorldTest {
         assertEquals("Blank input on file name", outputStreamCaptor.toString().trim());
     }
 
+    @Test
+    void populationReportRegionTestNullRegionName() {
+        world.populationReportContinent(null, "filename.md");
+        assertEquals("Null input on continent name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportRegionTestBlankRegionName() {
+        world.populationReportContinent("  ", "filename.md");
+        assertEquals("Blank input on continent name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportRegionTestNullFileName() {
+        world.populationReportContinent("Asia", null);
+        assertEquals("Null input on file name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationReportRegionTestBlankFileName() {
+        world.populationReportContinent("Asia", "  ");
+        assertEquals("Blank input on file name", outputStreamCaptor.toString().trim());
+    }
+
 
     @Test
     void populationReportCountryTestNullCountry() {

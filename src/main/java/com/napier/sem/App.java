@@ -80,6 +80,7 @@ public class App
         // Get all continent population reports
         world.populationReportAllContinents();
         world.populationReportAllCountries();
+        world.populationReportAllRegions();
     }
 
     /**

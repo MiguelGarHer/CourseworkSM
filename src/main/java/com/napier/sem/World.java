@@ -347,11 +347,73 @@ public class World {
         );
     }
 
+    public void populationReportAllRegions() {
+        HashSet<String> regionNames = new HashSet<>();
+        for (Country country : countries) {
+            regionNames.add(country.getRegion());
+        }
+
+        String fileName = "populationReportAllRegions";
+        for (String regionName : regionNames) {
+            populationReportRegion(regionName, fileName);
+        }
+    }
+
     /**
      * Generate population report of a region
      */
-    public void populationReportRegion(String regionName){
+    public void populationReportRegion(String regionName, String fileName) {
+        // Null, empty and blank parameter check
+        if (regionName == null) {
+            System.out.println("Null input on continent name");
+            return;
+        } else if (regionName.isBlank()) {
+            System.out.println("Blank input on continent name");
+            return;
+        }
 
+        if (fileName == null) {
+            System.out.println("Null input on file name");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank input on file name");
+            return;
+        }
+
+        long totalPopulation = 0;
+        long cityPopulation = 0;
+        long countrySidePopulation;
+
+        for (Country country : countries) {
+            if (country.getRegion().equals(regionName)) {
+                totalPopulation += country.getPopulation();
+                for (City city : country.getCities()) {
+                    cityPopulation += city.getPopulation();
+                }
+            }
+        }
+
+        countrySidePopulation = totalPopulation - cityPopulation;
+
+        int cityPopulationPercentage = (int) Math.round(((double) cityPopulation  / totalPopulation) * 100);
+        int countrySidePopulationPercentage = (int) Math.round(((double) countrySidePopulation / totalPopulation) * 100);
+
+        //Print
+        System.out.println("Population report for " + regionName);
+        System.out.println("Total population: " + totalPopulation);
+        System.out.println("Population living in cities: " + cityPopulation + "(" + cityPopulationPercentage + "%)");
+        System.out.println("Population not living in cities: " + countrySidePopulation + "(" + countrySidePopulationPercentage + "%)");
+
+        //Markdown
+        MarkdownWriter.populationReportToMarkdown(
+                regionName,
+                totalPopulation,
+                cityPopulation,
+                cityPopulationPercentage,
+                countrySidePopulation,
+                countrySidePopulationPercentage,
+                fileName
+        );
     }
 
     public void populationReportAllCountries() {
