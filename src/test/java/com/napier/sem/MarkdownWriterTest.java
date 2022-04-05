@@ -84,6 +84,38 @@ public class MarkdownWriterTest {
     }
 
     @Test
+    void languageToMarkdownTestNullLanguage() {
+        MarkdownWriter.languageToMarkdown(
+                null,
+                1,
+                5.0,
+                "fileName");
+        assertEquals("Null input on language", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void languageToMarkdownTestNullFileName() {
+        MarkdownWriter.languageToMarkdown(
+                "language",
+                1,
+                5.0,
+                null);
+        assertEquals("Null filename", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void languageToMarkdownTestBlankFileName() {
+        MarkdownWriter.languageToMarkdown(
+                "language",
+                1,
+                5.0,
+                "");
+        assertEquals("Blank filename", outputStreamCaptor.toString().trim());
+    }
+
+
+
+    @Test
     void cityListToMarkdownTestBlankFileName() {
         MarkdownWriter.cityListToMarkdown(cities, "   ");
         assertEquals("Blank filename", outputStreamCaptor.toString().trim());

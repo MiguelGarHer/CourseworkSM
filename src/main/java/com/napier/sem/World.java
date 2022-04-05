@@ -236,10 +236,6 @@ public class World {
         return null;
     }
 
-
-
-
-
     /**
      * Prints all country details
      * @param country name of country
@@ -272,7 +268,10 @@ public class World {
     public void getCapCityRep(String capCityName){
     }
 
-
+    /**
+     * Prints population report of all available continents
+     * Generates a markdown report
+     */
     public void populationReportAllContinents() {
         HashSet<String> continentNames = new HashSet<>();
         for (Country country : countries) {
@@ -286,7 +285,9 @@ public class World {
     }
 
     /**
-     * Generate population report of a continent
+     * Print and generate population report of a continent
+     * @param continentName specified continent
+     * @param fileName name of markdown file
      */
     public void populationReportContinent(String continentName, String fileName){
         // Null, empty and blank parameter check
@@ -342,6 +343,10 @@ public class World {
         );
     }
 
+
+    /**
+     * Prints and generates population report of all regions
+     */
     public void populationReportAllRegions() {
         HashSet<String> regionNames = new HashSet<>();
         for (Country country : countries) {
@@ -355,7 +360,9 @@ public class World {
     }
 
     /**
-     * Generate population report of a region
+     * Prints and generates population report of a region
+     * @param regionName specified region
+     * @param fileName name of markdown file
      */
     public void populationReportRegion(String regionName, String fileName) {
         // Null, empty and blank parameter check
@@ -411,6 +418,9 @@ public class World {
         );
     }
 
+    /**
+     * Prints and generates population report of all countries
+     */
     public void populationReportAllCountries() {
         String fileName = "populationReportAllCountries";
         for (Country country : countries ) {
@@ -419,7 +429,9 @@ public class World {
     }
 
     /**
-     * Generate population report of a country
+     * Prints and generates population report of a country
+     * @param country specified country
+     * @param fileName name of markdown file
      */
     public void populationReportCountry(Country country, String fileName) {
         // Null, empty and blank parameter check
@@ -468,11 +480,20 @@ public class World {
         );
     }
 
+    /**
+     * Prints and writes population of the world
+     */
     public void populationWorld() {
+        System.out.println("Population of the world: " + getWorldPopulation());
+
         String fileName = "populationWorld";
         MarkdownWriter.populationToMarkdown("World", getWorldPopulation(), fileName);
     }
 
+    /**
+     * Calculates and returns the world population
+     * @return current world population
+     */
     public long getWorldPopulation() {
         long population = 0;
         for (Country country : countries) {
@@ -481,6 +502,9 @@ public class World {
         return population;
     }
 
+    /**
+     * Prints and writes populations of all districts
+     */
     public void populationAllDistricts() {
         String fileName = "populationAllDistricts";
         HashMap<String, Long> districts = getAllDistrictPopulations(countries);
@@ -490,6 +514,11 @@ public class World {
         }
     }
 
+    /**
+     * Calculates and returns the total population of a district
+     * @param countryList ArrayList of Country objects
+     * @return HashMap consisting of country names (K) and populations (V)
+     */
     public HashMap<String, Long> getAllDistrictPopulations(ArrayList<Country> countryList) {
         HashMap<String, Long> districts = new HashMap<>();
         for (Country country : countries) {
@@ -504,6 +533,9 @@ public class World {
         return districts;
     }
 
+    /**
+     * Prints and writes populations of all cities
+     */
     public void populationAllCities() {
         String fileName = "populationAllCities";
         for (Country country : countries) {
@@ -513,6 +545,11 @@ public class World {
         }
     }
 
+    /**
+     * Prints and writes population of a city
+     * @param city specified city
+     * @param fileName file
+     */
     public void populationCity(City city, String fileName) {
         // Null, empty and blank parameter check
         if (city == null) {
@@ -528,7 +565,6 @@ public class World {
             return;
         }
 
-
         //Print
         System.out.println("Population report for " + city.getName());
         System.out.println("Total population: " + city.getPopulation());
@@ -542,6 +578,9 @@ public class World {
 
     }
 
+    /**
+     * Generates and writes language report of all languages
+     */
     public void languageReportAllLanguages() {
         HashMap<String, Long> languages = new HashMap<>();
         for (Country country : countries) {
@@ -559,6 +598,7 @@ public class World {
         sortList.sort(Map.Entry.comparingByValue());
         Collections.reverse(sortList);
 
+        //Markdown
         String fileName = "languageReportAllLanguages";
         for (Map.Entry<String,Long> entry : sortList) {
             MarkdownWriter.languageToMarkdown(
@@ -567,49 +607,57 @@ public class World {
                     (double) Math.round((double) entry.getValue() / getWorldPopulation() * 100000) / 1000,
                     fileName);
         }
-
     }
 
-    public void languageReportRequirement() {
-        HashMap<String, Long> requirementLanguages = new HashMap<>();
-        requirementLanguages.put("English", 0L);
-        requirementLanguages.put("Chinese", 0L);
-        requirementLanguages.put("Hindi", 0L);
-        requirementLanguages.put("Spanish", 0L);
-        requirementLanguages.put("Arabic", 0L);
+    /**
+     * Converts language HashMap to ArrayList
+     * @param languageMap HashMap consisting of language names and their populations
+     * @return ArrayList of Map.Entry
+     */
+    public ArrayList<Map.Entry<String, Long>> languageHashMapToArrayList(HashMap<String,Long> languageMap) {
+        ArrayList<Map.Entry<String, Long>> sortList = new ArrayList<>(languageMap.entrySet());
+        sortList.sort(Map.Entry.comparingByValue());
+        Collections.reverse(sortList);
+
+        return sortList;
+    }
+
+    /**
+     * Generates and writes language report of selected languages
+     * @param languageList ArrayList of selected languages
+     */
+    public void languageReportSelectedLanguages(ArrayList<String> languageList) {
+        String fileName = "languageReportSelectedLanguages";
+
+        HashMap<String, Long> selectedLanguages = new HashMap<>();
+        for (String languageName : languageList) {
+            selectedLanguages.put(languageName, 0L);
+        }
 
         for (Country country : countries) {
             for (Language language : country.getLanguages()) {
-                if (requirementLanguages.containsKey(language.getLanguage())) {
+                if (selectedLanguages.containsKey(language.getLanguage())) {
                     long langPopulation = Math.round((double) country.getPopulation() / 100 * language.getPercentage());
-                    if (requirementLanguages.get(language.getLanguage()) == 0L) {
-                        requirementLanguages.put(language.getLanguage(), langPopulation);
+                    if (selectedLanguages.get(language.getLanguage()) == 0L) {
+                        selectedLanguages.put(language.getLanguage(), langPopulation);
                     } else {
-                        requirementLanguages.put(
+                        selectedLanguages.put(
                                 language.getLanguage(),
-                                requirementLanguages.get(language.getLanguage()) + (long) langPopulation);
+                                selectedLanguages.get(language.getLanguage()) + (long) langPopulation);
                     }
                 }
             }
         }
 
-        ArrayList<Map.Entry<String, Long>> sortList = new ArrayList<>(requirementLanguages.entrySet());
-        sortList.sort(Map.Entry.comparingByValue());
-        Collections.reverse(sortList);
+        ArrayList<Map.Entry<String,Long>> sortedLanguages = languageHashMapToArrayList(selectedLanguages);
 
-
-        String fileName = "languageReportRequirement";
-        for (Map.Entry<String,Long> entry : sortList) {
+        for (Map.Entry<String,Long> entry : sortedLanguages) {
             MarkdownWriter.languageToMarkdown(
                     entry.getKey(),
                     entry.getValue(),
                     (double) Math.round((double) entry.getValue() / getWorldPopulation() * 100000) / 1000,
                     fileName);
         }
-    }
-
-    public void languageReport(Language language, String fileName) {
-
     }
 
     /**

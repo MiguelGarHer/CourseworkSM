@@ -217,7 +217,7 @@ public class MarkdownWriter {
             String fileName) {
 
         if (language == null) {
-            System.out.println("Null input on name");
+            System.out.println("Null input on language");
             return;
         } else if (language.isEmpty()) {
             language = "-";
@@ -230,7 +230,6 @@ public class MarkdownWriter {
             System.out.println("Blank filename");
             return;
         }
-
 
         StringBuilder sb = new StringBuilder();
 
