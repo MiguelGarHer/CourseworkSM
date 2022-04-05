@@ -4,7 +4,7 @@
 | Kabul | 1780000 | 
 | Qandahar | 237500 | 
 | Herat | 186800 | 
-| Not available | 127800 | 
+| Mazar-e-Sharif | 127800 | 
 | Luanda | 2022000 | 
 | Huambo | 163100 | 
 | Lobito | 130000 | 
@@ -18,7 +18,7 @@
 | Dubai | 669181 | 
 | Abu Dhabi | 398695 | 
 | Sharja | 320095 | 
-| Not available | 225970 | 
+| al-Ayn | 225970 | 
 | Ajman | 114395 | 
 | Buenos Aires | 2982146 | 
 | La Matanza | 1266461 | 
@@ -118,11 +118,11 @@
 | Namur | 105419 | 
 | Mons | 90935 | 
 | Cotonou | 536827 | 
-| Not available | 194000 | 
+| Porto-Novo | 194000 | 
 | Djougou | 134099 | 
 | Parakou | 103577 | 
 | Ouagadougou | 824000 | 
-| Not available | 300000 | 
+| Bobo-Dioulasso | 300000 | 
 | Koudougou | 105000 | 
 | Dhaka | 3612850 | 
 | Chittagong | 1392860 | 
@@ -158,7 +158,7 @@
 | Sliven | 105530 | 
 | Dobric | 100399 | 
 | Šumen | 94686 | 
-| Not available | 148000 | 
+| al-Manama | 148000 | 
 | Nassau | 172000 | 
 | Sarajevo | 360000 | 
 | Banja Luka | 143079 | 
@@ -363,7 +363,7 @@
 | Luziânia | 125597 | 
 | Macaé | 125597 | 
 | Teófilo Otoni | 124489 | 
-| Not available | 123782 | 
+| Moji-Guaçu | 123782 | 
 | Palmas | 121919 | 
 | Pindamonhangaba | 121904 | 
 | Francisco Morato | 121197 | 
@@ -425,7 +425,7 @@
 | Coronel Fabriciano | 95933 | 
 | Birigui | 94685 | 
 | Tatuí | 93897 | 
-| Not available | 93346 | 
+| Ji-Paraná | 93346 | 
 | Bacabal | 93121 | 
 | Cametá | 92779 | 
 | Guaíba | 92224 | 
@@ -909,7 +909,7 @@
 | Nkongsamba | 112454 | 
 | Kinshasa | 5064000 | 
 | Lubumbashi | 851381 | 
-| Not available | 806475 | 
+| Mbuji-Mayi | 806475 | 
 | Kolwezi | 417810 | 
 | Kisangani | 417517 | 
 | Kananga | 393030 | 
@@ -919,14 +919,14 @@
 | Tshikapa | 180860 | 
 | Matadi | 172730 | 
 | Mbandaka | 169841 | 
-| Not available | 137459 | 
+| Mwene-Ditu | 137459 | 
 | Boma | 135284 | 
 | Uvira | 115590 | 
 | Butembo | 109406 | 
 | Goma | 109094 | 
 | Kalemie | 101309 | 
 | Brazzaville | 950000 | 
-| Not available | 500000 | 
+| Pointe-Noire | 500000 | 
 | Avarua | 11900 | 
 | Santafé de Bogotá | 6260862 | 
 | Cali | 2077386 | 
@@ -981,7 +981,7 @@
 | Victoria de las Tunas | 132350 | 
 | Matanzas | 123273 | 
 | Manzanillo | 109350 | 
-| Not available | 100751 | 
+| Sancti-Spíritus | 100751 | 
 | Ciego de Ávila | 98505 | 
 | Flying Fish Cove | 700 | 
 | George Town | 19600 | 
@@ -1112,14 +1112,14 @@
 | Sidi Bel Abbès | 153106 | 
 | Skikda | 128747 | 
 | Biskra | 128281 | 
-| Not available | 127284 | 
+| Blida (el-Boulaida) | 127284 | 
 | Béjaïa | 117162 | 
 | Mostaganem | 115212 | 
 | Tébessa | 112007 | 
 | Tlemcen (Tilimsen) | 110242 | 
 | Béchar | 107311 | 
 | Tiaret | 100118 | 
-| Not available | 96794 | 
+| Ech-Chleff (el-Asnam) | 96794 | 
 | Ghardaïa | 89415 | 
 | Guayaquil | 2070040 | 
 | Quito | 1573458 | 
@@ -1139,42 +1139,42 @@
 | Cairo | 6789479 | 
 | Alexandria | 3328196 | 
 | Giza | 2221868 | 
-| Not available | 870716 | 
+| Shubra al-Khayma | 870716 | 
 | Port Said | 469533 | 
 | Suez | 417610 | 
-| Not available | 395402 | 
+| al-Mahallat al-Kubra | 395402 | 
 | Tanta | 371010 | 
-| Not available | 369621 | 
+| al-Mansura | 369621 | 
 | Luxor | 360503 | 
 | Asyut | 343498 | 
 | Bahtim | 275807 | 
 | Zagazig | 267351 | 
-| Not available | 260964 | 
+| al-Faiyum | 260964 | 
 | Ismailia | 254477 | 
-| Not available | 231978 | 
+| Kafr al-Dawwar | 231978 | 
 | Assuan | 219017 | 
 | Damanhur | 212203 | 
-| Not available | 201360 | 
+| al-Minya | 201360 | 
 | Bani Suwayf | 172032 | 
 | Qina | 171275 | 
 | Sawhaj | 170125 | 
-| Not available | 159909 | 
-| Not available | 148787 | 
+| Shibin al-Kawm | 159909 | 
+| Bulaq al-Dakrur | 148787 | 
 | Banha | 145792 | 
-| Not available | 127108 | 
-| Not available | 124819 | 
+| Warraq al-Arab | 127108 | 
+| Kafr al-Shaykh | 124819 | 
 | Mallawi | 119283 | 
 | Bilbays | 113608 | 
 | Mit Ghamr | 101801 | 
-| Not available | 100447 | 
+| al-Arish | 100447 | 
 | Talkha | 97700 | 
 | Qalyub | 97200 | 
 | Jirja | 95400 | 
 | Idfu | 94200 | 
-| Not available | 91700 | 
+| al-Hawamidiya | 91700 | 
 | Disuq | 91300 | 
 | Asmara | 431000 | 
-| Not available | 169000 | 
+| El-Aaiún | 169000 | 
 | Madrid | 2879052 | 
 | Barcelona | 1503451 | 
 | Valencia | 739412 | 
@@ -1193,7 +1193,7 @@
 | L´Hospitalet de Llobregat | 247986 | 
 | Granada | 244767 | 
 | A Coruña (La Coruña) | 243402 | 
-| Not available | 217154 | 
+| Vitoria-Gasteiz | 217154 | 
 | Santa Cruz de Tenerife | 213050 | 
 | Badalona | 209635 | 
 | Oviedo | 200453 | 
@@ -1203,7 +1203,7 @@
 | Santander | 184165 | 
 | Jerez de la Frontera | 182660 | 
 | Pamplona [Iruña] | 180483 | 
-| Not available | 179208 | 
+| Donostia-San Sebastián | 179208 | 
 | Cartagena | 177709 | 
 | Leganés | 173163 | 
 | Fuenlabrada | 171173 | 
@@ -1265,16 +1265,16 @@
 | Le Havre | 190905 | 
 | Reims | 187206 | 
 | Lille | 184657 | 
-| Not available | 180210 | 
+| St-Étienne | 180210 | 
 | Toulon | 160639 | 
 | Grenoble | 153317 | 
 | Angers | 151279 | 
 | Dijon | 149867 | 
 | Brest | 149634 | 
 | Le Mans | 146105 | 
-| Not available | 137140 | 
+| Clermont-Ferrand | 137140 | 
 | Amiens | 135501 | 
-| Not available | 134222 | 
+| Aix-en-Provence | 134222 | 
 | Limoges | 133968 | 
 | Nîmes | 133424 | 
 | Tours | 132820 | 
@@ -1285,7 +1285,7 @@
 | Orléans | 113126 | 
 | Mulhouse | 110359 | 
 | Rouen | 106592 | 
-| Not available | 106367 | 
+| Boulogne-Billancourt | 106367 | 
 | Perpignan | 105115 | 
 | Nancy | 103605 | 
 | Roubaix | 96984 | 
@@ -1313,7 +1313,7 @@
 | Nottingham | 287000 | 
 | Kingston upon Hull | 262000 | 
 | Plymouth | 253000 | 
-| Not available | 252000 | 
+| Stoke-on-Trent | 252000 | 
 | Wolverhampton | 242000 | 
 | Derby | 236000 | 
 | Swansea | 230000 | 
@@ -1326,7 +1326,7 @@
 | Sunderland | 183310 | 
 | Luton | 183000 | 
 | Swindon | 180000 | 
-| Not available | 176000 | 
+| Southend-on-Sea | 176000 | 
 | Walsall | 174739 | 
 | Bournemouth | 162000 | 
 | Peterborough | 156000 | 
@@ -1386,11 +1386,11 @@
 | Kumasi | 385192 | 
 | Tamale | 151069 | 
 | Tema | 109975 | 
-| Not available | 103653 | 
+| Sekondi-Takoradi | 103653 | 
 | Gibraltar | 27025 | 
 | Conakry | 1090610 | 
 | Les Abymes | 62947 | 
-| Not available | 12433 | 
+| Basse-Terre | 12433 | 
 | Serekunda | 102600 | 
 | Banjul | 42326 | 
 | Bissau | 241000 | 
@@ -1422,10 +1422,10 @@
 | Split | 189388 | 
 | Rijeka | 167964 | 
 | Osijek | 104761 | 
-| Not available | 884472 | 
+| Port-au-Prince | 884472 | 
 | Carrefour | 290204 | 
 | Delmas | 240429 | 
-| Not available | 102233 | 
+| Le-Cap-Haïtien | 102233 | 
 | Budapest | 1811552 | 
 | Debrecen | 203648 | 
 | Miskolc | 172357 | 
@@ -1556,7 +1556,7 @@
 | Gwalior | 690765 | 
 | Jodhpur | 666279 | 
 | Nashik (Nasik) | 656925 | 
-| Not available | 648298 | 
+| Hubli-Dharwad | 648298 | 
 | Solapur (Sholapur) | 604215 | 
 | Ranchi | 599306 | 
 | Bareilly | 587211 | 
@@ -1566,7 +1566,7 @@
 | Rajkot | 559407 | 
 | Kota | 537371 | 
 | Thiruvananthapuram (Trivandrum | 524006 | 
-| Not available | 517083 | 
+| Pimpri-Chinchwad | 517083 | 
 | Jalandhar (Jullundur) | 509510 | 
 | Gorakhpur | 505566 | 
 | Chandigarh | 504094 | 
@@ -1653,7 +1653,7 @@
 | Imphal | 198535 | 
 | Latur | 197408 | 
 | Sagar | 195346 | 
-| Not available | 194567 | 
+| Farrukhabad-cum-Fatehgarh | 194567 | 
 | Sangli | 193197 | 
 | Parbhani | 190255 | 
 | Nagar Coil | 190084 | 
@@ -1679,7 +1679,7 @@
 | Burhanpur | 172710 | 
 | Hisar (Hissar) | 172677 | 
 | Tiruvottiyur | 172562 | 
-| Not available | 169336 | 
+| Mirzapur-cum-Vindhyachal | 169336 | 
 | Secunderabad | 167461 | 
 | Nadiad | 167051 | 
 | Dewas | 164364 | 
@@ -1698,7 +1698,7 @@
 | Uluberia | 155172 | 
 | Katihar | 154367 | 
 | Cuddalore | 153086 | 
-| Not available | 151806 | 
+| Hugli-Chinsurah | 151806 | 
 | Dhanbad | 151789 | 
 | Raiganj | 151045 | 
 | Sambhal | 150869 | 
@@ -1797,7 +1797,7 @@
 | Gondiya | 109470 | 
 | Tiruvannamalai | 109196 | 
 | Yeotmal (Yavatmal) | 108578 | 
-| Not available | 108518 | 
+| Kulti-Barakar | 108518 | 
 | Moga | 108304 | 
 | Shivapuri | 108277 | 
 | Bidar | 108016 | 
@@ -1814,7 +1814,7 @@
 | Beawar | 105363 | 
 | Hindupur | 104651 | 
 | Gandhidham | 104585 | 
-| Not available | 104195 | 
+| Haldwani-cum-Kathgodam | 104195 | 
 | Tellicherry (Thalassery) | 103579 | 
 | Wardha | 102985 | 
 | Rishra | 102649 | 
@@ -1822,7 +1822,7 @@
 | Modinagar | 101660 | 
 | Gudivada | 101656 | 
 | Basirhat | 101409 | 
-| Not available | 100867 | 
+| Uttarpara-Kotrung | 100867 | 
 | Ongole | 100836 | 
 | North Barrackpur | 100513 | 
 | Guna | 100490 | 
@@ -1839,7 +1839,7 @@
 | Banda | 97227 | 
 | Godhra | 96813 | 
 | Hospet | 96322 | 
-| Not available | 96315 | 
+| Ashoknagar-Kalyangarh | 96315 | 
 | Achalpur | 96216 | 
 | Patan | 96109 | 
 | Mandasor | 95758 | 
@@ -1883,7 +1883,7 @@
 | Qazvin | 291117 | 
 | Zanjan | 286295 | 
 | Sanandaj | 277808 | 
-| Not available | 273578 | 
+| Bandar-e-Abbas | 273578 | 
 | Khorramabad | 272815 | 
 | Eslamshahr | 265450 | 
 | Borujerd | 217804 | 
@@ -1910,9 +1910,9 @@
 | Birjand | 127608 | 
 | Ilam | 126346 | 
 | Bukan | 120020 | 
-| Not available | 116883 | 
+| Masjed-e-Soleyman | 116883 | 
 | Saqqez | 115394 | 
-| Not available | 111253 | 
+| Gonbad-e Qabus | 111253 | 
 | Saveh | 111245 | 
 | Mahabad | 107799 | 
 | Varamin | 107233 | 
@@ -1921,11 +1921,11 @@
 | Shahrud | 104765 | 
 | Marv Dasht | 103579 | 
 | Zabol | 100887 | 
-| Not available | 100477 | 
-| Not available | 98500 | 
+| Shahr-e Kord | 100477 | 
+| Bandar-e Anzali | 98500 | 
 | Rafsanjan | 98300 | 
 | Marand | 96400 | 
-| Not available | 94600 | 
+| Torbat-e Heydariyeh | 94600 | 
 | Jahrom | 94200 | 
 | Semnan | 91045 | 
 | Miandoab | 90100 | 
@@ -1935,19 +1935,19 @@
 | Irbil | 485968 | 
 | Kirkuk | 418624 | 
 | Basra | 406296 | 
-| Not available | 364096 | 
-| Not available | 309010 | 
+| al-Sulaymaniya | 364096 | 
+| al-Najaf | 309010 | 
 | Karbala | 296705 | 
-| Not available | 268834 | 
-| Not available | 265937 | 
-| Not available | 208797 | 
-| Not available | 196519 | 
-| Not available | 192556 | 
-| Not available | 183183 | 
+| al-Hilla | 268834 | 
+| al-Nasiriya | 265937 | 
+| al-Amara | 208797 | 
+| al-Diwaniya | 196519 | 
+| al-Ramadi | 192556 | 
+| al-Kut | 183183 | 
 | Baquba | 114516 | 
 | Reykjavík | 109184 | 
 | Jerusalem | 633700 | 
-| Not available | 348100 | 
+| Tel Aviv-Jaffa | 348100 | 
 | Haifa | 265700 | 
 | Rishon Le Ziyyon | 188200 | 
 | Beerseba | 163700 | 
@@ -2022,10 +2022,10 @@
 | Kingston | 103962 | 
 | Portmore | 99799 | 
 | Amman | 1000000 | 
-| Not available | 389815 | 
+| al-Zarqa | 389815 | 
 | Irbid | 231511 | 
-| Not available | 137247 | 
-| Not available | 89104 | 
+| al-Rusayfa | 137247 | 
+| Wadi al-Sir | 89104 | 
 | Tokyo | 7980230 | 
 | Jokohama [Yokohama] | 3339594 | 
 | Osaka | 2595674 | 
@@ -2327,7 +2327,7 @@
 | Koyang | 518282 | 
 | Ansan | 510314 | 
 | Pohang | 508899 | 
-| Not available | 481694 | 
+| Chang-won | 481694 | 
 | Masan | 441242 | 
 | Kwangmyong | 350914 | 
 | Chonan | 330259 | 
@@ -2342,7 +2342,7 @@
 | Kimhae | 256370 | 
 | Sunchon | 249263 | 
 | Mokpo | 247452 | 
-| Not available | 242643 | 
+| Yong-in | 242643 | 
 | Wonju | 237460 | 
 | Kunpo | 235233 | 
 | Chunchon | 234528 | 
@@ -2360,17 +2360,17 @@
 | Kimchon | 147027 | 
 | Nonsan | 146619 | 
 | Kuri | 142173 | 
-| Not available | 139111 | 
+| Chong-up | 139111 | 
 | Chechon | 137070 | 
 | Sosan | 134746 | 
 | Shihung | 133443 | 
-| Not available | 131717 | 
+| Tong-yong | 131717 | 
 | Kongju | 131229 | 
 | Yongju | 131097 | 
 | Chinhae | 125997 | 
 | Sangju | 124116 | 
 | Poryong | 122604 | 
-| Not available | 122052 | 
+| Kwang-yang | 122052 | 
 | Miryang | 121501 | 
 | Hanam | 115812 | 
 | Kimje | 115427 | 
@@ -2380,9 +2380,9 @@
 | Naju | 107831 | 
 | Namwon | 103544 | 
 | Tonghae | 95472 | 
-| Not available | 92239 | 
-| Not available | 130215 | 
-| Not available | 102178 | 
+| Mun-gyong | 92239 | 
+| al-Salimiya | 130215 | 
+| Jalib al-Shuyukh | 102178 | 
 | Kuwait | 28859 | 
 | Vientiane | 531800 | 
 | Savannakhet | 96652 | 
@@ -2392,7 +2392,7 @@
 | Tripoli | 1682000 | 
 | Bengasi | 804000 | 
 | Misrata | 121669 | 
-| Not available | 89338 | 
+| al-Zawiya | 89338 | 
 | Castries | 2301 | 
 | Schaan | 5346 | 
 | Vaduz | 5043 | 
@@ -2428,7 +2428,7 @@
 | Agadir | 155244 | 
 | Mohammedia | 154706 | 
 | Khouribga | 152090 | 
-| Not available | 140212 | 
+| Beni-Mellal | 140212 | 
 | Témara | 126303 | 
 | El Jadida | 119083 | 
 | Nador | 112450 | 
@@ -2436,8 +2436,8 @@
 | Settat | 96200 | 
 | Taza | 92700 | 
 | El Araich | 90400 | 
-| Not available | 13154 | 
-| Not available | 1234 | 
+| Monte-Carlo | 13154 | 
+| Monaco-Ville | 1234 | 
 | Chisinau | 719900 | 
 | Tiraspol | 194300 | 
 | Balti | 153400 | 
@@ -2621,7 +2621,7 @@
 | Pánuco | 90551 | 
 | El Fuerte | 89556 | 
 | Tierra Blanca | 89143 | 
-| Not available | 28000 | 
+| Dalap-Uliga-Darrit | 28000 | 
 | Skopje | 444299 | 
 | Bamako | 809552 | 
 | Birkirkara | 21445 | 
@@ -2649,20 +2649,20 @@
 | Beira | 397368 | 
 | Nampula | 303346 | 
 | Chimoio | 171056 | 
-| Not available | 158248 | 
+| Naçala-Porto | 158248 | 
 | Quelimane | 150116 | 
 | Mocuba | 124700 | 
 | Tete | 101984 | 
-| Not available | 99442 | 
+| Xai-Xai | 99442 | 
 | Gurue | 99300 | 
 | Maxixe | 93985 | 
 | Nouakchott | 667300 | 
 | Nouâdhibou | 97600 | 
 | Plymouth | 2000 | 
-| Not available | 94050 | 
-| Not available | 138200 | 
-| Not available | 100616 | 
-| Not available | 98464 | 
+| Fort-de-France | 94050 | 
+| Port-Louis | 138200 | 
+| Beau Bassin-Rose Hill | 100616 | 
+| Vacoas-Phoenix | 98464 | 
 | Blantyre | 478155 | 
 | Lilongwe | 435964 | 
 | Kuala Lumpur | 1297526 | 
@@ -2702,7 +2702,7 @@
 | Ilesha | 378400 | 
 | Onitsha | 371900 | 
 | Iwo | 362000 | 
-| Not available | 359400 | 
+| Ado-Ekiti | 359400 | 
 | Abuja | 350100 | 
 | Kaduna | 342200 | 
 | Mushin | 333200 | 
@@ -2722,7 +2722,7 @@
 | Ilobu | 199000 | 
 | Offa | 197200 | 
 | Ikorodu | 184900 | 
-| Not available | 184500 | 
+| Ilawe-Ekiti | 184500 | 
 | Owo | 183500 | 
 | Ikirun | 181400 | 
 | Shaki | 174500 | 
@@ -2730,11 +2730,11 @@
 | Ondo | 173600 | 
 | Akure | 162300 | 
 | Gusau | 158000 | 
-| Not available | 156400 | 
-| Not available | 153100 | 
+| Ijebu-Ode | 156400 | 
+| Effon-Alaiye | 153100 | 
 | Kumo | 148000 | 
 | Shomolu | 147700 | 
-| Not available | 142900 | 
+| Oka-Akoko | 142900 | 
 | Ikare | 140800 | 
 | Sapele | 139200 | 
 | Deba Habe | 138600 | 
@@ -2751,7 +2751,7 @@
 | Igboho | 106800 | 
 | Ejigbo | 105900 | 
 | Agege | 105000 | 
-| Not available | 103400 | 
+| Ise-Ekiti | 103400 | 
 | Ugep | 102600 | 
 | Epe | 101000 | 
 | Managua | 959000 | 
@@ -2774,7 +2774,7 @@
 | Almere | 142465 | 
 | Arnhem | 138020 | 
 | Zaanstad | 135621 | 
-| Not available | 129170 | 
+| ´s-Hertogenbosch | 129170 | 
 | Amersfoort | 126270 | 
 | Maastricht | 122087 | 
 | Dordrecht | 119811 | 
@@ -2808,7 +2808,7 @@
 | Dunedin | 119600 | 
 | Hamilton | 117100 | 
 | Lower Hutt | 98100 | 
-| Not available | 155000 | 
+| al-Sib | 155000 | 
 | Salala | 131813 | 
 | Bawshar | 107500 | 
 | Suhar | 90814 | 
@@ -2936,7 +2936,7 @@
 | Cabanatuan | 222859 | 
 | San Fernando | 221857 | 
 | Lipa | 218447 | 
-| Not available | 217019 | 
+| Lapu-Lapu | 217019 | 
 | San Pablo | 207927 | 
 | Biñan | 201186 | 
 | Taytay | 198183 | 
@@ -3055,7 +3055,7 @@
 | Torun | 206158 | 
 | Bytom | 205560 | 
 | Zabrze | 200177 | 
-| Not available | 180307 | 
+| Bielsko-Biala | 180307 | 
 | Olsztyn | 170904 | 
 | Rzeszów | 162049 | 
 | Ruda Slaska | 159665 | 
@@ -3076,7 +3076,7 @@
 | Kalisz | 106641 | 
 | Grudziadz | 102434 | 
 | Slupsk | 102370 | 
-| Not available | 102294 | 
+| Jastrzebie-Zdrój | 102294 | 
 | Jaworzno | 97929 | 
 | Jelenia Góra | 93901 | 
 | San Juan | 434374 | 
@@ -3120,11 +3120,11 @@
 | Faaa | 25888 | 
 | Papeete | 25553 | 
 | Doha | 355000 | 
-| Not available | 131480 | 
+| Saint-Denis | 131480 | 
 | Bucuresti | 2016131 | 
 | Iasi | 348070 | 
 | Constanta | 342264 | 
-| Not available | 332498 | 
+| Cluj-Napoca | 332498 | 
 | Galati | 330276 | 
 | Timisoara | 324304 | 
 | Brasov | 314225 | 
@@ -3144,7 +3144,7 @@
 | Piatra Neamt | 125070 | 
 | Râmnicu Vâlcea | 119741 | 
 | Suceava | 118549 | 
-| Not available | 117865 | 
+| Drobeta-Turnu Severin | 117865 | 
 | Târgoviste | 98980 | 
 | Focsani | 98979 | 
 | Târgu Jiu | 98524 | 
@@ -3160,7 +3160,7 @@
 | Kazan | 1101000 | 
 | Ufa | 1091200 | 
 | Tšeljabinsk | 1083200 | 
-| Not available | 1012700 | 
+| Rostov-na-Donu | 1012700 | 
 | Perm | 1009700 | 
 | Volgograd | 993400 | 
 | Voronez | 907700 | 
@@ -3196,7 +3196,7 @@
 | Kaliningrad | 424400 | 
 | Nizni Tagil | 390900 | 
 | Murmansk | 376300 | 
-| Not available | 370400 | 
+| Ulan-Ude | 370400 | 
 | Kurgan | 364700 | 
 | Arkangeli | 361800 | 
 | Sotši | 358600 | 
@@ -3214,7 +3214,7 @@
 | Tšita | 309900 | 
 | Vologda | 302500 | 
 | Veliki Novgorod | 299500 | 
-| Not available | 291600 | 
+| Komsomolsk-na-Amure | 291600 | 
 | Kostroma | 288100 | 
 | Volzski | 286900 | 
 | Taganrog | 284400 | 
@@ -3225,7 +3225,7 @@
 | Orsk | 273900 | 
 | Sterlitamak | 265200 | 
 | Angarsk | 264700 | 
-| Not available | 249200 | 
+| Joškar-Ola | 249200 | 
 | Rybinsk | 239600 | 
 | Prokopjevsk | 237300 | 
 | Niznevartovsk | 233900 | 
@@ -3244,14 +3244,14 @@
 | Zlatoust | 196900 | 
 | Jakutsk | 195400 | 
 | Podolsk | 194300 | 
-| Not available | 194100 | 
-| Not available | 190600 | 
+| Petropavlovsk-Kamtšatski | 194100 | 
+| Kamensk-Uralski | 190600 | 
 | Engels | 189000 | 
 | Syzran | 186900 | 
 | Grozny | 186000 | 
 | Novotšerkassk | 184400 | 
 | Berezniki | 181900 | 
-| Not available | 179200 | 
+| Juzno-Sahalinsk | 179200 | 
 | Volgodonsk | 178200 | 
 | Abakan | 169200 | 
 | Maikop | 167300 | 
@@ -3280,7 +3280,7 @@
 | Korolev | 132400 | 
 | Serpuhov | 132000 | 
 | Odintsovo | 127400 | 
-| Not available | 124900 | 
+| Orehovo-Zujevo | 124900 | 
 | Kamyšin | 124600 | 
 | Novotšeboksarsk | 123400 | 
 | Tšerkessk | 121700 | 
@@ -3294,7 +3294,7 @@
 | Velikije Luki | 116300 | 
 | Novokuibyševsk | 116200 | 
 | Neftekamsk | 115700 | 
-| Not available | 113800 | 
+| Leninsk-Kuznetski | 113800 | 
 | Oktjabrski | 111500 | 
 | Sergijev Posad | 111100 | 
 | Arzamas | 110700 | 
@@ -3305,10 +3305,10 @@
 | Glazov | 106300 | 
 | Solikamsk | 106000 | 
 | Sarapul | 105700 | 
-| Not available | 105200 | 
+| Ust-Ilimsk | 105200 | 
 | Štšolkovo | 104900 | 
 | Mezduretšensk | 104400 | 
-| Not available | 103500 | 
+| Usolje-Sibirskoje | 103500 | 
 | Elista | 103300 | 
 | Novošahtinsk | 101900 | 
 | Votkinsk | 101700 | 
@@ -3327,14 +3327,14 @@
 | Balašov | 97100 | 
 | Zeleznogorsk | 96900 | 
 | Zukovski | 96500 | 
-| Not available | 96100 | 
+| Anzero-Sudzensk | 96100 | 
 | Bugulma | 94100 | 
 | Zeleznogorsk | 94000 | 
 | Novouralsk | 93300 | 
 | Puškin | 92900 | 
 | Vorkuta | 92600 | 
 | Derbent | 92300 | 
-| Not available | 91600 | 
+| Kirovo-Tšepetsk | 91600 | 
 | Krasnogorsk | 91000 | 
 | Klin | 90000 | 
 | Tšaikovski | 90000 | 
@@ -3344,37 +3344,37 @@
 | Jedda | 2046300 | 
 | Mekka | 965700 | 
 | Medina | 608300 | 
-| Not available | 482300 | 
-| Not available | 416100 | 
+| al-Dammam | 482300 | 
+| al-Taif | 416100 | 
 | Tabuk | 292600 | 
 | Burayda | 248600 | 
-| Not available | 225800 | 
-| Not available | 219100 | 
+| al-Hufuf | 225800 | 
+| al-Mubarraz | 219100 | 
 | Khamis Mushayt | 217900 | 
 | Hail | 176800 | 
-| Not available | 152100 | 
-| Not available | 141700 | 
+| al-Kharj | 152100 | 
+| al-Khubar | 141700 | 
 | Jubayl | 140800 | 
-| Not available | 137800 | 
-| Not available | 125700 | 
+| Hafar al-Batin | 137800 | 
+| al-Tuqba | 125700 | 
 | Yanbu | 119800 | 
 | Abha | 112300 | 
 | Ara´ar | 108100 | 
-| Not available | 98900 | 
-| Not available | 93900 | 
+| al-Qatif | 98900 | 
+| al-Hawiya | 93900 | 
 | Unayza | 91100 | 
 | Najran | 91000 | 
 | Omdurman | 1271403 | 
 | Khartum | 947483 | 
-| Not available | 700887 | 
+| Sharq al-Nil | 700887 | 
 | Port Sudan | 308195 | 
 | Kassala | 234622 | 
 | Obeid | 229425 | 
 | Nyala | 227183 | 
 | Wad Madani | 211362 | 
-| Not available | 191164 | 
+| al-Qadarif | 191164 | 
 | Kusti | 173599 | 
-| Not available | 141884 | 
+| al-Fashir | 141884 | 
 | Juba | 114980 | 
 | Pikine | 855287 | 
 | Dakar | 785071 | 
@@ -3382,7 +3382,7 @@
 | Kaolack | 199000 | 
 | Ziguinchor | 192000 | 
 | Rufisque | 150000 | 
-| Not available | 132400 | 
+| Saint-Louis | 132400 | 
 | Mbour | 109300 | 
 | Diourbel | 99400 | 
 | Singapore | 4017733 | 
@@ -3402,7 +3402,7 @@
 | Mogadishu | 997000 | 
 | Hargeysa | 90000 | 
 | Kismaayo | 90000 | 
-| Not available | 5808 | 
+| Saint-Pierre | 5808 | 
 | São Tomé | 49541 | 
 | Paramaribo | 112000 | 
 | Bratislava | 448292 | 
@@ -3432,11 +3432,11 @@
 | Hims | 507404 | 
 | Hama | 343361 | 
 | Latakia | 264563 | 
-| Not available | 144286 | 
-| Not available | 140459 | 
+| al-Qamishliya | 144286 | 
+| Dayr al-Zawr | 140459 | 
 | Jaramana | 138469 | 
 | Duma | 131158 | 
-| Not available | 108020 | 
+| al-Raqqa | 108020 | 
 | Idlib | 91081 | 
 | Cockburn Town | 4800 | 
 | N´Djaména | 530965 | 
@@ -3464,7 +3464,7 @@
 | Dili | 47900 | 
 | Nuku´alofa | 22400 | 
 | Chaguanas | 56601 | 
-| Not available | 43396 | 
+| Port-of-Spain | 43396 | 
 | Tunis | 690600 | 
 | Sfax | 257800 | 
 | Ariana | 197000 | 
@@ -3617,7 +3617,7 @@
 | Tšernivtsi | 259000 | 
 | Rivne | 245000 | 
 | Krementšuk | 239000 | 
-| Not available | 237000 | 
+| Ivano-Frankivsk | 237000 | 
 | Ternopil | 236000 | 
 | Lutsk | 217000 | 
 | Bila Tserkva | 215000 | 
@@ -3633,7 +3633,7 @@
 | Altševsk | 119000 | 
 | Lysytšansk | 116000 | 
 | Jevpatorija | 112000 | 
-| Not available | 109000 | 
+| Kamjanets-Podilskyi | 109000 | 
 | Jenakijeve | 105000 | 
 | Krasnyi Lutš | 101000 | 
 | Stahanov | 101000 | 
@@ -3668,7 +3668,7 @@
 | Milwaukee | 596974 | 
 | Boston | 589141 | 
 | Washington | 572059 | 
-| Not available | 569891 | 
+| Nashville-Davidson | 569891 | 
 | El Paso | 563662 | 
 | Seattle | 563374 | 
 | Denver | 554636 | 
@@ -3710,7 +3710,7 @@
 | Aurora | 276393 | 
 | Raleigh | 276093 | 
 | Newark | 273546 | 
-| Not available | 260512 | 
+| Lexington-Fayette | 260512 | 
 | Anchorage | 260283 | 
 | Louisville | 256231 | 
 | Riverside | 255166 | 
@@ -3735,7 +3735,7 @@
 | Scottsdale | 202705 | 
 | Montgomery | 201568 | 
 | Shreveport | 200145 | 
-| Not available | 199775 | 
+| Augusta-Richmond County | 199775 | 
 | Lubbock | 199564 | 
 | Chesapeake | 199184 | 
 | Mobile | 198915 | 
@@ -3753,7 +3753,7 @@
 | Columbus | 186291 | 
 | Orlando | 185951 | 
 | Boise City | 185787 | 
-| Not available | 185776 | 
+| Winston-Salem | 185776 | 
 | San Bernardino | 185401 | 
 | Jackson | 184256 | 
 | Little Rock | 183133 | 
@@ -3885,7 +3885,7 @@
 | Arvada | 102153 | 
 | Pueblo | 102121 | 
 | Sandy | 101853 | 
-| Not available | 101489 | 
+| Athens-Clarke County | 101489 | 
 | Cambridge | 101355 | 
 | Westminster | 100940 | 
 | San Buenaventura | 100916 | 
@@ -3909,7 +3909,7 @@
 | Compton | 92864 | 
 | Gainesville | 92291 | 
 | Fairfield | 92256 | 
-| Not available | 92040 | 
+| Arden-Arcade | 92040 | 
 | San Mateo | 91799 | 
 | Visalia | 91762 | 
 | Boulder | 91238 | 
@@ -4005,14 +4005,14 @@
 | My Tho | 108404 | 
 | Da Lat | 106409 | 
 | Buon Ma Thuot | 97044 | 
-| Not available | 33700 | 
-| Not available | 1137 | 
+| Port-Vila | 33700 | 
+| Mata-Utu | 1137 | 
 | Apia | 35900 | 
 | Sanaa | 503600 | 
 | Aden | 398300 | 
 | Taizz | 317600 | 
 | Hodeida | 298500 | 
-| Not available | 122400 | 
+| al-Mukalla | 122400 | 
 | Ibb | 103300 | 
 | Beograd | 1204000 | 
 | Novi Sad | 179626 | 

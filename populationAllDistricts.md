@@ -1,6 +1,6 @@
 | Name | Population |
 | --- | --- |
-| Not available | 528117 | 
+| - | 528117 | 
 | Chollanam | 910194 | 
 | Sofala | 397368 | 
 | Castilla and León | 781329 | 
@@ -8,11 +8,11 @@
 | Bender (Tîghina) | 125700 | 
 | Tabuk | 292600 | 
 | Jammu and Kashmir | 1107243 | 
-| Not available | 8937547 | 
+| Nordrhein-Westfalen | 8937547 | 
 | England | 19978543 | 
 | Cayo | 7105 | 
 | Can Tho | 215587 | 
-| Not available | 104761 | 
+| Osijek-Baranja | 104761 | 
 | Western | 2355971 | 
 | Falcón | 352981 | 
 | Manisa | 207148 | 
@@ -33,7 +33,7 @@
 | Aden | 398300 | 
 | Pietari | 4928100 | 
 | Duarte | 108485 | 
-| Not available | 90814 | 
+| al-Batina | 90814 | 
 | Paraná | 4123034 | 
 | Východní Cechy | 189389 | 
 | La Libertad | 750400 | 
@@ -47,9 +47,9 @@
 | Bryssel | 239551 | 
 | Mpumalanga | 167183 | 
 | Yünlin | 98900 | 
-| Not available | 390350 | 
+| Midi-Pyrénées | 390350 | 
 | Hebron | 119401 | 
-| Not available | 159909 | 
+| al-Minufiya | 159909 | 
 | Qazvin | 291117 | 
 | Shanxi | 4169899 | 
 | Tokushima | 269649 | 
@@ -85,7 +85,7 @@
 | Asyut | 343498 | 
 | Ilam | 126346 | 
 | Junín | 327000 | 
-| Not available | 135721 | 
+| Veracruz-Llave | 135721 | 
 | Ilan | 92000 | 
 | Adiyaman | 141529 | 
 | Aichi | 4812894 | 
@@ -93,14 +93,14 @@
 | Lorestan | 490619 | 
 | Liaoning | 15079174 | 
 | Pará | 2430423 | 
-| Not available | 227183 | 
+| Darfur al-Janubiya | 227183 | 
 | Kombo St Mary | 102600 | 
 | Tšita | 309900 | 
 | La Romana | 140204 | 
 | Mordva | 314800 | 
 | Shandong | 12114416 | 
 | Shiga | 493810 | 
-| Not available | 460000 | 
+| Meknès-Tafilalet | 460000 | 
 | Los Lagos | 426768 | 
 | Toscana | 894916 | 
 | Latakia | 264563 | 
@@ -123,7 +123,7 @@
 | Hainan | 557120 | 
 | Nariño | 332396 | 
 | Ceará | 2943123 | 
-| Not available | 787863 | 
+| Kang-won | 787863 | 
 | Lisboa | 1435664 | 
 | Bremen | 663065 | 
 | Thüringen | 415764 | 
@@ -137,7 +137,7 @@
 | Nantou | 201523 | 
 | Abidjan | 2500000 | 
 | Central Luzon | 3440634 | 
-| Not available | 150166 | 
+| Sør-Trøndelag | 150166 | 
 | Fukui | 254818 | 
 | New York | 8958085 | 
 | Hunan | 5439275 | 
@@ -154,11 +154,11 @@
 | Udon Thani | 158100 | 
 | Guárico | 203073 | 
 | Balikesir | 286582 | 
-| Not available | 308014 | 
+| Bas-Zaïre | 308014 | 
 | Ismailia | 254477 | 
 | Prahova | 251348 | 
 | Omsk | 1148900 | 
-| Not available | 191164 | 
+| al-Qadarif | 191164 | 
 | Kärnten | 91141 | 
 | Guangxi | 2925142 | 
 | Sumatera Selatan | 1346764 | 
@@ -236,19 +236,19 @@
 | Formosa | 147636 | 
 | Kiova | 2928000 | 
 | South Carolina | 205341 | 
-| Not available | 144286 | 
+| al-Hasaka | 144286 | 
 | Harare | 1849274 | 
 | Puebla | 1909965 | 
 | Oran | 609823 | 
 | Tarija | 125255 | 
 | Limousin | 133968 | 
-| Not available | 229425 | 
+| Kurdufan al-Shamaliy | 229425 | 
 | Braga | 90535 | 
 | Huambo | 163100 | 
 | Banaadir | 997000 | 
 | Tirana | 270000 | 
-| Not available | 260964 | 
-| Not available | 2484000 | 
+| al-Faiyum | 260964 | 
+| Pyongyang-si | 2484000 | 
 | Kaliningrad | 424400 | 
 | Santiago del Estero | 189947 | 
 | Nusa Tenggara Barat | 306600 | 
@@ -264,14 +264,14 @@
 | Volgograd | 1404900 | 
 | Binh Thuan | 114236 | 
 | Masaya | 88971 | 
-| Not available | 216000 | 
+| Taka-Karpatia | 216000 | 
 | Zacatecas | 415325 | 
 | Upolu | 35900 | 
 | Gaza | 453074 | 
 | Saratov | 1366100 | 
 | San José | 339131 | 
 | East Götanmaan län | 255367 | 
-| Not available | 237000 | 
+| Ivano-Frankivsk | 237000 | 
 | Assam | 913302 | 
 | Honiara | 50100 | 
 | Rio Grande do Norte | 1000066 | 
@@ -280,7 +280,7 @@
 | Qyzylorda | 157400 | 
 | Limburg | 217139 | 
 | Riyadh | 3324000 | 
-| Not available | 309010 | 
+| al-Najaf | 309010 | 
 | ARMM | 94861 | 
 | Granma | 250350 | 
 | Gelderland | 545548 | 
@@ -317,7 +317,7 @@
 | Chagang | 223410 | 
 | Central Java | 3152553 | 
 | Kien Giang | 141132 | 
-| Not available | 216119 | 
+| Kafr al-Shaykh | 216119 | 
 | Lodzkie | 800110 | 
 | Barinas | 217831 | 
 | Manicaland | 131367 | 
@@ -326,9 +326,9 @@
 | Kamtšatka | 194100 | 
 | Lipetsk | 640400 | 
 | Arecibo | 100131 | 
-| Not available | 1953059 | 
+| al-Sharqiya | 1953059 | 
 | Wilayah Persekutuan | 1297526 | 
-| Not available | 202138 | 
+| Trentino-Alto Adige | 202138 | 
 | Baki | 1787800 | 
 | Cundinamarca | 383021 | 
 | Kerman | 618315 | 
@@ -339,7 +339,7 @@
 | Centre | 1618746 | 
 | Kairouan | 113100 | 
 | Central Visayas | 1787289 | 
-| Not available | 996716 | 
+| Tanger-Tétouan | 996716 | 
 | Marinmaa | 249200 | 
 | Ordu | 133642 | 
 | Inner Harbour | 7073 | 
@@ -348,7 +348,7 @@
 | North Gaza | 113901 | 
 | Saint Helena | 1500 | 
 | Ariana | 375600 | 
-| Not available | 105606 | 
+| Bács-Kiskun | 105606 | 
 | Antalya | 682214 | 
 | Meta | 273140 | 
 | Slaskie | 2536449 | 
@@ -366,7 +366,7 @@
 | Maule | 303323 | 
 | Schaan | 5346 | 
 | Mahé | 41000 | 
-| Not available | 189388 | 
+| Split-Dalmatia | 189388 | 
 | Varna | 494886 | 
 | Kirikkale | 142044 | 
 | Kars | 93000 | 
@@ -378,7 +378,7 @@
 | Jaroslavl | 856300 | 
 | Mato Grosso do Sul | 904420 | 
 | Toyama | 500170 | 
-| Not available | 566200 | 
+| Nampo-si | 566200 | 
 | Ashanti | 385192 | 
 | Chisinau | 719900 | 
 | North West | 460736 | 
@@ -388,23 +388,23 @@
 | Khuzestan | 1543134 | 
 | Baskimaa | 852163 | 
 | San Luis | 110136 | 
-| Not available | 117733 | 
+| Franche-Comté | 117733 | 
 | Addis Abeba | 2495000 | 
 | Orenburg | 907100 | 
-| Not available | 530965 | 
+| Chari-Baguirmi | 530965 | 
 | Budapest | 1811552 | 
 | Voronez | 907700 | 
-| Not available | 320643 | 
+| al-Minya | 320643 | 
 | Damaskos | 269627 | 
 | Yamaguchi | 903155 | 
 | Masqat | 314469 | 
 | Borgou | 103577 | 
 | Las Tunas | 132350 | 
 | Loja | 123875 | 
-| Not available | 248290 | 
+| Chaouia-Ouardigha | 248290 | 
 | Hainaut | 291762 | 
 | Grodno | 403000 | 
-| Not available | 140459 | 
+| Dayr al-Zawr | 140459 | 
 | Quang Binh | 209086 | 
 | Maritime | 375000 | 
 | La Araucanía | 233041 | 
@@ -426,11 +426,11 @@
 | Nothwest Border Prov | 1818116 | 
 | Chandigarh | 504094 | 
 | Atyrau | 142500 | 
-| Not available | 381383 | 
+| Doukkala-Abda | 381383 | 
 | Daloa | 121842 | 
 | Orjol | 344500 | 
 | Saksi | 1333568 | 
-| Not available | 211362 | 
+| al-Jazira | 211362 | 
 | Habarovsk | 901000 | 
 | Tbilisi | 1235200 | 
 | Harjumaa | 403981 | 
@@ -449,10 +449,10 @@
 | Sulawesi Tengah | 142800 | 
 | Sharja | 320095 | 
 | Panamá | 471373 | 
-| Not available | 364096 | 
-| Not available | 621914 | 
+| al-Sulaymaniya | 364096 | 
+| Marrakech-Tensift-Al | 621914 | 
 | Satu Mare | 130059 | 
-| Not available | 1566882 | 
+| Emilia-Romagna | 1566882 | 
 | Kaolack | 199000 | 
 | Calabria | 276317 | 
 | Chollabuk | 1510489 | 
@@ -476,14 +476,14 @@
 | Huanuco | 129688 | 
 | Texas | 9208281 | 
 | Iwate | 287353 | 
-| Not available | 108100 | 
+| al-Khudud al-Samaliy | 108100 | 
 | Västmanlands län | 126328 | 
 | Streymoyar | 14542 | 
 | Minas Gerais | 7150060 | 
 | Kelantan | 219582 | 
-| Not available | 1476710 | 
+| Zuid-Holland | 1476710 | 
 | Mwanza | 172300 | 
-| Not available | 907641 | 
+| Rhône-Alpes | 907641 | 
 | Gujarat | 8425343 | 
 | Volynia | 217000 | 
 | National Capital Dis | 247000 | 
@@ -493,7 +493,7 @@
 | Alaska | 260283 | 
 | Murcia | 531213 | 
 | Herson | 353000 | 
-| Not available | 138000 | 
+| Nord-Ouest | 138000 | 
 | Mary | 101000 | 
 | Pichincha | 1775569 | 
 | Almaty Qalasy | 1129400 | 
@@ -505,7 +505,7 @@
 | South Dakota | 123975 | 
 | Chihuahua | 2229318 | 
 | Fakaofo | 300 | 
-| Not available | 310100 | 
+| North Ossetia-Alania | 310100 | 
 | Antwerpen | 446525 | 
 | South Kazakstan | 360100 | 
 | Caldas | 337580 | 
@@ -514,11 +514,11 @@
 | Henan | 6899010 | 
 | Ankara | 3038159 | 
 | Cayenne | 50699 | 
-| Not available | 311391 | 
+| Friuli-Venezia Giuli | 311391 | 
 | Vâlcea | 119741 | 
 | Kwara & Kogi | 673000 | 
 | Vrancea | 98979 | 
-| Not available | 300686 | 
+| Warminsko-Mazurskie | 300686 | 
 | Colima | 352764 | 
 | Kocaeli | 474238 | 
 | Montenegro | 135000 | 
@@ -535,7 +535,7 @@
 | Benguela | 258300 | 
 | Terengganu | 228119 | 
 | Astrahan | 486100 | 
-| Not available | 308195 | 
+| al-Bahr al-Ahmar | 308195 | 
 | Monagas | 319726 | 
 | Central Macedonia | 383967 | 
 | Rift Valley | 275809 | 
@@ -551,11 +551,11 @@
 | Buhoro | 237100 | 
 | Connecticut | 609087 | 
 | Manipur | 198535 | 
-| Not available | 145145 | 
+| Ba Ria-Vung Tau | 145145 | 
 | Lori | 172700 | 
 | Tamaulipas | 2229812 | 
 | Malopolskie | 859644 | 
-| Not available | 2062370 | 
+| Baden-Württemberg | 2062370 | 
 | Hordaland | 230948 | 
 | Wielkopolskie | 683540 | 
 | North Austria | 188022 | 
@@ -583,14 +583,14 @@
 | Taizz | 317600 | 
 | Lovec | 121952 | 
 | Timis | 324304 | 
-| Not available | 114980 | 
+| Bahr al-Jabal | 114980 | 
 | Porto | 273060 | 
 | Querétaro | 179300 | 
 | Quetzaltenango | 90801 | 
 | Kvemo Kartli | 155400 | 
-| Not available | 447121 | 
+| Schleswig-Holstein | 447121 | 
 | Queensland | 1805236 | 
-| Not available | 92700 | 
+| Taza-Al Hoceima-Taou | 92700 | 
 | Kedah | 239175 | 
 | Dakhlet Nouâdhibou | 97600 | 
 | Caquetá | 108574 | 
@@ -603,7 +603,7 @@
 | Béjaïa | 117162 | 
 | Tabora | 92800 | 
 | Mazandaran | 767859 | 
-| Not available | 132400 | 
+| Saint-Louis | 132400 | 
 | Dagestan | 425100 | 
 | Bioko | 40000 | 
 | Equateur | 169841 | 
@@ -612,7 +612,7 @@
 | Kigali | 286000 | 
 | Batna | 183377 | 
 | Sumqayit | 283000 | 
-| Not available | 93976 | 
+| Caras-Severin | 93976 | 
 | West Java | 8038286 | 
 | Namangan | 370500 | 
 | New Providence | 172000 | 
@@ -638,7 +638,7 @@
 | Ruse | 166467 | 
 | Dashhowuz | 141800 | 
 | Nampula | 461594 | 
-| Not available | 138200 | 
+| Port-Louis | 138200 | 
 | Lima | 6464693 | 
 | Odesa | 1101000 | 
 | Uttaranchal | 521659 | 
@@ -667,20 +667,20 @@
 | Steiermark | 240967 | 
 | Nord | 279233 | 
 | Amur | 222000 | 
-| Not available | 2416248 | 
+| Île-de-France | 2416248 | 
 | Thessalia | 113090 | 
 | New Hampshire | 107006 | 
 | Sinaloa | 1995940 | 
 | Esfahan | 1901630 | 
 | Navarra | 180483 | 
-| Not available | 112419 | 
+| Szabolcs-Szatmár-Ber | 112419 | 
 | East Kasai | 943934 | 
 | Gansu | 2462631 | 
 | Oruro | 223553 | 
 | Western Mindanao | 844171 | 
 | Kassala | 234622 | 
-| Not available | 306157 | 
-| Not available | 5808 | 
+| Mecklenburg-Vorpomme | 306157 | 
+| Saint-Pierre | 5808 | 
 | Bandundu | 182142 | 
 | Pahang | 199484 | 
 | Khorazm | 138900 | 
@@ -688,7 +688,7 @@
 | Atacama | 120128 | 
 | Trujillo | 130281 | 
 | Jakarta Raya | 9604900 | 
-| Not available | 28859 | 
+| al-Asima | 28859 | 
 | Loreto | 367000 | 
 | Eastern Cape | 1348125 | 
 | Puerto Plata | 89423 | 
@@ -726,7 +726,7 @@
 | Valparaíso | 725150 | 
 | Atlántico | 1518318 | 
 | Khujand | 161500 | 
-| Not available | 148000 | 
+| al-Manama | 148000 | 
 | Outer Harbour | 21445 | 
 | Hualien | 108407 | 
 | Arkansas | 183133 | 
@@ -761,7 +761,7 @@
 | Holguín | 249492 | 
 | Khanh Hoa | 335372 | 
 | Aceh | 253009 | 
-| Not available | 569122 | 
+| al-Daqahliya | 569122 | 
 | San Marino | 2294 | 
 | Santander | 1006176 | 
 | Osaka | 7824087 | 
@@ -782,12 +782,12 @@
 | Nakhon Sawan | 123800 | 
 | Zaporizzja | 1147000 | 
 | Jilin | 7826824 | 
-| Not available | 818820 | 
+| Kujawsko-Pomorskie | 818820 | 
 | Riad | 152100 | 
 | Bushehr | 143641 | 
-| Not available | 1254180 | 
-| Not available | 94050 | 
-| Not available | 444181 | 
+| Rabat-Salé-Zammour-Z | 1254180 | 
+| Fort-de-France | 94050 | 
+| al-Buhayra | 444181 | 
 | Guizhou | 2512087 | 
 | Moskova | 2305700 | 
 | Wakayama | 391233 | 
@@ -798,7 +798,7 @@
 | Baghdad | 4336000 | 
 | Bishkek shaary | 589400 | 
 | Gävleborgs län | 90742 | 
-| Not available | 196519 | 
+| al-Qadisiya | 196519 | 
 | Tšetšenia | 186000 | 
 | Tainan | 921065 | 
 | Kowloon and New Kowl | 1987996 | 
@@ -820,7 +820,7 @@
 | Pavlodar | 427700 | 
 | Chuquisaca | 178426 | 
 | Valle | 2917302 | 
-| Not available | 100751 | 
+| Sancti-Spíritus | 100751 | 
 | Tanga | 137400 | 
 | Šiauliai | 146563 | 
 | Bacau | 209235 | 
@@ -832,15 +832,15 @@
 | Dodoma | 189000 | 
 | Nouakchott | 667300 | 
 | District of Columbia | 572059 | 
-| Not available | 417517 | 
+| Haute-Zaïre | 417517 | 
 | Groningen | 172701 | 
 | Changhwa | 354117 | 
 | Alsace | 374474 | 
-| Not available | 141884 | 
+| Darfur al-Shamaliya | 141884 | 
 | Kinshasa | 5064000 | 
 | San Miguelito | 315382 | 
 | Almaty | 98000 | 
-| Not available | 2080700 | 
+| Rostov-na-Donu | 2080700 | 
 | Matanzas | 123273 | 
 | Diourbel | 99400 | 
 | Riau | 620409 | 
@@ -857,7 +857,7 @@
 | Pegu [Bago] | 296600 | 
 | Antofagasta | 388694 | 
 | Jambi | 385201 | 
-| Not available | 529363 | 
+| Zachodnio-Pomorskie | 529363 | 
 | Amapá | 256033 | 
 | Yamanashi | 199753 | 
 | Montserrado | 850000 | 
@@ -881,7 +881,7 @@
 | Georgetown | 254000 | 
 | Sagaing | 138600 | 
 | Oyo & Osun | 5884600 | 
-| Not available | 1389515 | 
+| al-Qalyubiya | 1389515 | 
 | Gauteng | 6965169 | 
 | Toamasina | 127441 | 
 | Burjatia | 370400 | 
@@ -896,7 +896,7 @@
 | Rakhine | 137600 | 
 | Abruzzit | 115698 | 
 | Santiago | 5788619 | 
-| Not available | 377730 | 
+| Nord-Pas-de-Calais | 377730 | 
 | Bukarest | 2016131 | 
 | Madrid | 3962883 | 
 | Imbabura | 130643 | 
@@ -907,7 +907,7 @@
 | Wasit | 183183 | 
 | Shan | 239100 | 
 | Logone Occidental | 99500 | 
-| Not available | 169000 | 
+| El-Aaiún | 169000 | 
 | Gilan | 516248 | 
 | Ouest | 1546105 | 
 | Ternopil | 236000 | 
@@ -921,7 +921,7 @@
 | Fejér | 105119 | 
 | Gorj | 98524 | 
 | Neuquén | 167296 | 
-| Not available | 167964 | 
+| Primorje-Gorski Kota | 167964 | 
 | Misrata | 121669 | 
 | Peking | 7569168 | 
 | Grad Zagreb | 706770 | 
@@ -936,7 +936,7 @@
 | Shizuoka | 2198250 | 
 | Adana | 1479816 | 
 | Hmelnytskyi | 371000 | 
-| Not available | 127119 | 
+| Györ-Moson-Sopron | 127119 | 
 | Riika | 764328 | 
 | Katalonia | 2764746 | 
 | Klaipeda | 202451 | 
@@ -948,7 +948,7 @@
 | Dac Lac | 97044 | 
 | East Flanderi | 224180 | 
 | Santa Ana | 139389 | 
-| Not available | 89338 | 
+| al-Zawiya | 89338 | 
 | Taejon | 1425835 | 
 | Toa Baja | 94085 | 
 | Yamagata | 553573 | 
@@ -959,7 +959,7 @@
 | O´Higgins | 212977 | 
 | St George | 37964 | 
 | Akershus | 101340 | 
-| Not available | 62947 | 
+| Grande-Terre | 62947 | 
 | Kerala | 2049812 | 
 | Nayarit | 400336 | 
 | Ayacucho | 118960 | 
@@ -989,7 +989,7 @@
 | Misiones | 201273 | 
 | Sulawesi Selatan | 1060257 | 
 | Bani Suwayf | 172032 | 
-| Not available | 240000 | 
+| al-Shamal | 240000 | 
 | Lambayeque | 517000 | 
 | Bujumbura | 300000 | 
 | Tennessee | 1658222 | 
@@ -997,7 +997,7 @@
 | An Giang | 132681 | 
 | Sfax | 257800 | 
 | Tšernivtsi | 259000 | 
-| Not available | 166700 | 
+| Basel-Stadt | 166700 | 
 | Krasnodar | 1365800 | 
 | Northern | 300069 | 
 | Caroni | 56601 | 
@@ -1005,7 +1005,7 @@
 | Hadramawt | 122400 | 
 | Fyn | 183912 | 
 | Tiroli | 111752 | 
-| Not available | 173599 | 
+| al-Bahr al-Abyad | 173599 | 
 | Montevideo | 1236000 | 
 | Latium | 2757680 | 
 | San Juan | 553526 | 
@@ -1035,10 +1035,10 @@
 | Qashqadaryo | 194100 | 
 | Barisal | 170232 | 
 | Niedersachsen | 1543380 | 
-| Not available | 120753 | 
+| Pohjois-Pohjanmaa | 120753 | 
 | Salta | 367550 | 
 | Kagawa | 332471 | 
-| Not available | 131480 | 
+| Saint-Denis | 131480 | 
 | Bolívar | 1770577 | 
 | Serravalle/Dogano | 4802 | 
 | Guangdong | 9510263 | 
@@ -1062,9 +1062,9 @@
 | Georgia | 1148875 | 
 | Idaho | 185787 | 
 | Plovdiv | 342584 | 
-| Not available | 147527 | 
+| Kastilia-La Mancha | 147527 | 
 | Miranda | 1247120 | 
-| Not available | 766412 | 
+| al-Gharbiya | 766412 | 
 | Rivne | 245000 | 
 | Kouilou | 500000 | 
 | Andhra Pradesh | 10290295 | 
@@ -1074,7 +1074,7 @@
 | Ibb | 103300 | 
 | Hamburg | 1704735 | 
 | Drenthe | 105853 | 
-| Not available | 11043967 | 
+| Tokyo-to | 11043967 | 
 | Jubbada Hoose | 90000 | 
 | Aqtöbe | 253100 | 
 | South Australia | 978100 | 
@@ -1085,15 +1085,15 @@
 | Missouri | 1054602 | 
 | Abhasia [Aphazeti] | 111700 | 
 | St Michael | 6070 | 
-| Not available | 1790358 | 
+| Cap-Vert | 1790358 | 
 | Imereti | 240900 | 
 | Inhambane | 93985 | 
 | Sabah | 125841 | 
 | Navoi | 116300 | 
 | Shanghai | 9696300 | 
-| Not available | 248600 | 
+| al-Qasim | 248600 | 
 | Hodeida | 298500 | 
-| Not available | 527062 | 
+| al-Zarqa | 527062 | 
 | Ica | 304836 | 
 | Bengasi | 804000 | 
 | Hawaii | 371657 | 
@@ -1102,7 +1102,7 @@
 | Dunedin | 119600 | 
 | Hebei | 6458553 | 
 | Mato Grosso | 823363 | 
-| Not available | 155244 | 
+| Souss Massa-Draâ | 155244 | 
 | Ghardaïa | 89415 | 
 | Luxor | 360503 | 
 | St. Andrew | 203761 | 
@@ -1114,8 +1114,8 @@
 | Mardin | 112000 | 
 | Littoral | 1560754 | 
 | Maranhão | 1616536 | 
-| Not available | 192556 | 
-| Not available | 292600 | 
+| al-Anbar | 192556 | 
+| Gharb-Chrarda-Béni H | 292600 | 
 | Arusha | 102500 | 
 | Kyoto | 1837891 | 
 | Lagos | 2389800 | 
@@ -1139,7 +1139,7 @@
 | Morelos | 754212 | 
 | Toskent | 389300 | 
 | Yamalin Nenetsia | 187100 | 
-| Not available | 219149 | 
+| Thua Thien-Hue | 219149 | 
 | Khartum | 2919773 | 
 | Distrito Federal | 15635629 | 
 | Uljanovsk | 804400 | 
@@ -1148,19 +1148,19 @@
 | Edirne | 123383 | 
 | Western Cape | 2551707 | 
 | Oromia | 127842 | 
-| Not available | 12433 | 
+| Basse-Terre | 12433 | 
 | Iowa | 417696 | 
 | Brunei and Muara | 21484 | 
 | Tutuila | 7523 | 
-| Not available | 96921 | 
+| Päijät-Häme | 96921 | 
 | Sistan va Baluchesta | 520405 | 
 | Yerevan | 1248700 | 
-| Not available | 684649 | 
+| Noord-Brabant | 684649 | 
 | Shamal Sina | 100447 | 
 | Içel | 587212 | 
 | New South Wales | 3993949 | 
 | Constantine | 443727 | 
-| Not available | 190905 | 
+| Champagne-Ardenne | 190905 | 
 | Lubuskie | 244201 | 
 | Doha | 355000 | 
 | Shimane | 149821 | 
@@ -1173,15 +1173,15 @@
 | Chittagong | 1637205 | 
 | Khon Kaen | 126500 | 
 | Katsina | 206500 | 
-| Not available | 1436029 | 
+| Provence-Alpes-Côte | 1436029 | 
 | Luanda | 2022000 | 
 | Nordjylland | 161161 | 
 | Karbala | 296705 | 
 | Viangchan | 531800 | 
 | Zapadní Cechy | 166759 | 
-| Not available | 113987 | 
+| Basse-Normandie | 113987 | 
 | Osh | 222700 | 
-| Not available | 143000 | 
+| Extrême-Nord | 143000 | 
 | Galicia | 729937 | 
 | Tver | 454900 | 
 | Hyogo | 4087840 | 
@@ -1209,7 +1209,7 @@
 | Castries | 2301 | 
 | Ciego de Ávila | 98505 | 
 | Pusan | 3804522 | 
-| Not available | 382674 | 
+| Quang Nam-Da Nang | 382674 | 
 | Jiangxi | 3831558 | 
 | Córdoba | 1540107 | 
 | Maale | 71000 | 
@@ -1226,20 +1226,20 @@
 | Istanbul | 8999026 | 
 | Dolnoslaskie | 976924 | 
 | Arizona | 3178903 | 
-| Not available | 171500 | 
+| Kaesong-si | 171500 | 
 | Andorra la Vella | 21189 | 
 | Irbil | 485968 | 
-| Not available | 606200 | 
-| Not available | 312821 | 
-| Not available | 203648 | 
+| Hanti-Mansia | 606200 | 
+| Haute-Normandie | 312821 | 
+| Hajdú-Bihar | 203648 | 
 | México | 10181634 | 
 | Curaçao | 2345 | 
-| Not available | 2790588 | 
+| KwaZulu-Natal | 2790588 | 
 | Midlands | 128037 | 
 | Irbid | 231511 | 
 | Copperbelt | 1002200 | 
 | Perm | 1387600 | 
-| Not available | 140212 | 
+| Tadla-Azilal | 140212 | 
 | Tigray | 96938 | 
 | Maseru | 297000 | 
 | Tarapacá | 366928 | 
@@ -1250,7 +1250,7 @@
 | Usak | 128162 | 
 | Erzurum | 246535 | 
 | Dolj | 313530 | 
-| Not available | 1219028 | 
+| Noord-Holland | 1219028 | 
 | Tekirdag | 229377 | 
 | Siem Reap | 105100 | 
 | Rajshahi | 1265005 | 
@@ -1261,7 +1261,7 @@
 | Idlib | 91081 | 
 | Heilongjiang | 11628057 | 
 | Constanta | 342264 | 
-| Not available | 172357 | 
+| Borsod-Abaúj-Zemplén | 172357 | 
 | La Guajira | 108053 | 
 | Tatarstan | 2174100 | 
 | Nam Ha | 171699 | 
@@ -1277,8 +1277,8 @@
 | Dâmbovita | 98980 | 
 | Thiès | 357300 | 
 | Southern Mindanao | 2541225 | 
-| Not available | 541162 | 
-| Not available | 463931 | 
+| Fès-Boulemane | 541162 | 
+| Languedoc-Roussillon | 463931 | 
 | Louisiana | 1172322 | 
 | Limassol | 154400 | 
 | Örebros län | 124207 | 
@@ -1286,7 +1286,7 @@
 | Kairo | 6789479 | 
 | Vilna | 577969 | 
 | Giza | 2589463 | 
-| Not available | 418624 | 
+| al-Tamim | 418624 | 
 | Babil | 268834 | 
 | Sumy | 480000 | 
 | Central | 2510408 | 
@@ -1298,9 +1298,9 @@
 | Kayseri | 475657 | 
 | Yaracuy | 90940 | 
 | West Irian | 94700 | 
-| Not available | 654824 | 
+| Rheinland-Pfalz | 654824 | 
 | Tahiti | 51441 | 
-| Not available | 108020 | 
+| al-Raqqa | 108020 | 
 | Surkhondaryo | 109500 | 
 | Khorasan | 2574033 | 
 | Tel Aviv | 909000 | 
@@ -1320,8 +1320,8 @@
 | Tabasco | 1297710 | 
 | Vladimir | 639400 | 
 | Vojvodina | 280012 | 
-| Not available | 172561 | 
-| Not available | 121700 | 
+| Varsinais-Suomi | 172561 | 
+| Karatšai-Tšerkessia | 121700 | 
 | Oregon | 803938 | 
 | Jizní Morava | 381862 | 
 | Kagoshima | 549977 | 
@@ -1334,7 +1334,7 @@
 | Biserta | 108900 | 
 | Shaanxi | 4297493 | 
 | Auckland | 1021900 | 
-| Not available | 43396 | 
+| Port-of-Spain | 43396 | 
 | Annaba | 222518 | 
 | Mizoram | 155240 | 
 | Kirovograd | 364000 | 
@@ -1342,7 +1342,7 @@
 | Hatay | 297004 | 
 | Brjansk | 457400 | 
 | Tomsk | 600700 | 
-| Not available | 233400 | 
+| Kabardi-Balkaria | 233400 | 
 | Bauchi & Gombe | 394400 | 
 | Sonora | 1539358 | 
 | Novgorod | 299500 | 
