@@ -92,6 +92,7 @@ public class App
 
     private static void languageReports(World world) {
         world.languageReportRequirement();
+        world.languageReportAllLanguages();
     }
 
     /**

@@ -542,6 +542,34 @@ public class World {
 
     }
 
+    public void languageReportAllLanguages() {
+        HashMap<String, Long> languages = new HashMap<>();
+        for (Country country : countries) {
+            for (Language language : country.getLanguages()) {
+                long langPopulation = Math.round((double) country.getPopulation() / 100 * language.getPercentage());
+                if (!languages.containsKey(language.getLanguage())) {
+                    languages.put(language.getLanguage(), 0L);
+                }
+                languages.put(language.getLanguage(), languages.get(language.getLanguage()) + langPopulation);
+
+            }
+        }
+
+        ArrayList<Map.Entry<String, Long>> sortList = new ArrayList<>(languages.entrySet());
+        sortList.sort(Map.Entry.comparingByValue());
+        Collections.reverse(sortList);
+
+        String fileName = "languageReportAllLanguages";
+        for (Map.Entry<String,Long> entry : sortList) {
+            MarkdownWriter.languageToMarkdown(
+                    entry.getKey(),
+                    entry.getValue(),
+                    (double) Math.round((double) entry.getValue() / getWorldPopulation() * 100000) / 1000,
+                    fileName);
+        }
+
+    }
+
     public void languageReportRequirement() {
         HashMap<String, Long> requirementLanguages = new HashMap<>();
         requirementLanguages.put("English", 0L);
@@ -575,7 +603,7 @@ public class World {
             MarkdownWriter.languageToMarkdown(
                     entry.getKey(),
                     entry.getValue(),
-                    (int) Math.round((double) entry.getValue() / getWorldPopulation() * 100),
+                    (double) Math.round((double) entry.getValue() / getWorldPopulation() * 100000) / 1000,
                     fileName);
         }
     }

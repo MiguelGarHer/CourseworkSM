@@ -213,7 +213,7 @@ public class MarkdownWriter {
     public static void languageToMarkdown(
             String language,
             long population,
-            int percentage,
+            double percentage,
             String fileName) {
 
         if (language == null) {
