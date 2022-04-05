@@ -426,5 +426,38 @@ public class WorldTest {
         world.populationReportCountry(country, "  ");
         assertEquals("Blank input on file name", outputStreamCaptor.toString().trim());
     }
+
+    @Test
+    void populationCityTestNullCity() {
+        world.populationCity(null, "fileName");
+        assertEquals("Null input on city", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void populationCityTestNullFileName() {
+        City city = new City(1,
+                "name",
+                "CCE",
+                "countryName",
+                "district",
+                1);
+        world.populationCity(city, null);
+        assertEquals("Null input on file name", outputStreamCaptor.toString().trim());
+
+    }
+
+    @Test
+    void populationCityTestBlankFileName() {
+        City city = new City(1,
+            "name",
+            "CCE",
+            "countryName",
+            "district",
+            1);
+
+        world.populationCity(city, "");
+        assertEquals("Blank input on file name", outputStreamCaptor.toString().trim());
+
+    }
 }
 

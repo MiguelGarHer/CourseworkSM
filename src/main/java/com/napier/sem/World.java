@@ -472,15 +472,15 @@ public class World {
         String fileName = "populationAllCities";
         for (Country country : countries) {
             for (City city : country.getCities()) {
-                populationReportCity(city, fileName);
+                populationCity(city, fileName);
             }
         }
     }
 
-    public void populationReportCity(City city, String fileName) {
+    public void populationCity(City city, String fileName) {
         // Null, empty and blank parameter check
         if (city == null) {
-            System.out.println("Null input on country");
+            System.out.println("Null input on city");
             return;
         }
 
