@@ -112,6 +112,44 @@ public class MarkdownWriter {
 
     public static void populationReportToMarkdown(
             String name,
+            int population,
+            String fileName) {
+        if (name == null) {
+            System.out.println("Null input on name");
+            return;
+        } else if (name.isBlank()) {
+            System.out.println("Blank name");
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("| " +
+                name + " | " +
+                population + " | " +
+                "\r\n");
+        try {
+            new File("./reports/").mkdir();
+            File file = new File("./reports/" + fileName + ".md");
+            FileWriter fw;
+            if (file.exists()) {
+                fw = new FileWriter(file, true);
+            } else {
+                fw = new FileWriter(file);
+                sb.insert(0,"| --- | --- |\r\n");
+                sb.insert(0,"| Name | Population |\r\n");
+
+            }
+            BufferedWriter writer = new BufferedWriter(fw);
+            writer.write(sb.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void populationReportToMarkdown(
+            String name,
             long totalPopulation,
             long cityPopulation,
             int cityPopulationPercentage,

@@ -81,6 +81,8 @@ public class App
         world.populationReportAllContinents();
         world.populationReportAllCountries();
         world.populationReportAllRegions();
+
+        world.populationReportAllCities();
     }
 
     /**

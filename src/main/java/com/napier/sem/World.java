@@ -262,6 +262,7 @@ public class World {
      * @param cityName name of city
      */
     public void getCityReport(String cityName){
+
     }
 
     /**
@@ -271,12 +272,6 @@ public class World {
     public void getCapCityRep(String capCityName){
     }
 
-    /**
-     * Generate population report of a country
-     */
-    public void populationReportCountry(Country country){
-
-    }
 
     public void populationReportAllContinents() {
         HashSet<String> continentNames = new HashSet<>();
@@ -423,6 +418,9 @@ public class World {
         }
     }
 
+    /**
+     * Generate population report of a country
+     */
     public void populationReportCountry(Country country, String fileName) {
         // Null, empty and blank parameter check
         if (country == null) {
@@ -470,6 +468,43 @@ public class World {
         );
     }
 
+    public void populationReportAllCities() {
+        String fileName = "populationReportAllCities";
+        for (Country country : countries) {
+            for (City city : country.getCities()) {
+                populationReportCity(city, fileName);
+            }
+        }
+    }
+
+    public void populationReportCity(City city, String fileName) {
+        // Null, empty and blank parameter check
+        if (city == null) {
+            System.out.println("Null input on country");
+            return;
+        }
+
+        if (fileName == null) {
+            System.out.println("Null input on file name");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank input on file name");
+            return;
+        }
+
+
+        //Print
+        System.out.println("Population report for " + city.getName());
+        System.out.println("Total population: " + city.getPopulation());
+
+        //Markdown
+        MarkdownWriter.populationReportToMarkdown(
+                city.getName(),
+                city.getPopulation(),
+                fileName
+        );
+
+    }
     /**
      * Print all countries in the world
      * Sorting: Largest population to smallest
