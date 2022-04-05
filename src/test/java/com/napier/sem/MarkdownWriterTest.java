@@ -122,7 +122,7 @@ public class MarkdownWriterTest {
     @Test
     void populationToMarkdownTestBlankName() {
         MarkdownWriter.populationToMarkdown("", 1, "fileName");
-        assertEquals("Blank name", outputStreamCaptor.toString().trim());
+        assertEquals("", outputStreamCaptor.toString().trim());
     }
 
     @Test
@@ -136,7 +136,6 @@ public class MarkdownWriterTest {
         MarkdownWriter.populationToMarkdown("name", 1, "");
         assertEquals("Blank filename", outputStreamCaptor.toString().trim());
     }
-
 
     @Test
     void populationReportToMarkdownTestNullName() {

@@ -3,6 +3,7 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class World {
@@ -466,6 +467,30 @@ public class World {
                 countrySidePopulationPercentage,
                 fileName
         );
+    }
+
+    public void populationAllDistricts() {
+        String fileName = "populationAllDistricts";
+        HashMap<String, Long> districts = getAllDistrictPopulations(countries);
+
+        for (String district : districts.keySet()) {
+            System.out.println(district + " " +  districts.get(district));
+            MarkdownWriter.populationToMarkdown(district, districts.get(district), fileName);
+        }
+    }
+
+    public HashMap<String, Long> getAllDistrictPopulations(ArrayList<Country> countryList) {
+        HashMap<String, Long> districts = new HashMap<>();
+        for (Country country : countries) {
+            for (City city : country.getCities()) {
+                if (districts.containsKey(city.getDistrict())) {
+                    districts.put(city.getDistrict(), districts.get(city.getDistrict()) + city.getPopulation());
+                } else {
+                    districts.put(city.getDistrict(), (long) city.getPopulation());
+                }
+            }
+        }
+        return districts;
     }
 
     public void populationAllCities() {

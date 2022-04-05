@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -425,6 +427,12 @@ public class WorldTest {
                 "code2");
         world.populationReportCountry(country, "  ");
         assertEquals("Blank input on file name", outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void getAllDistrictPopulationsTestNullCountries() {
+        HashMap<String, Long> districts = world.getAllDistrictPopulations(null);
+        assertEquals(new HashMap<String, Long>(), districts);
     }
 
     @Test

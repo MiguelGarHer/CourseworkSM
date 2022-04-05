@@ -112,15 +112,14 @@ public class MarkdownWriter {
 
     public static void populationToMarkdown(
             String name,
-            int population,
+            long population,
             String fileName) {
 
         if (name == null) {
             System.out.println("Null input on name");
             return;
-        } else if (name.isEmpty()) {
-            System.out.println("Blank name");
-            return;
+        } else if (name.isEmpty() || name.contains("-")) {
+            name = "Not available";
         }
 
         if (fileName == null) {

@@ -83,6 +83,7 @@ public class App
         world.populationReportAllRegions();
 
         world.populationAllCities();
+        world.populationAllDistricts();
     }
 
     /**
