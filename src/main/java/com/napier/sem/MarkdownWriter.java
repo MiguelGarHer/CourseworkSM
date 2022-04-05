@@ -118,8 +118,8 @@ public class MarkdownWriter {
         if (name == null) {
             System.out.println("Null input on name");
             return;
-        } else if (name.isEmpty() || name.contains("-")) {
-            name = "Not available";
+        } else if (name.isEmpty()) {
+            name = "-";
         }
 
         if (fileName == null) {
