@@ -248,7 +248,7 @@ public class MarkdownWriter {
             } else {
                 fw = new FileWriter(file);
                 sb.insert(0, "| --- | --- |\r\n");
-                sb.insert(0, "| Name | Population |\r\n");
+                sb.insert(0, "| Name | Speaking population |\r\n");
 
             }
             BufferedWriter writer = new BufferedWriter(fw);
