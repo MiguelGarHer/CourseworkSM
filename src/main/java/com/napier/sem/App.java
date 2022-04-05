@@ -84,6 +84,7 @@ public class App
 
         world.populationAllCities();
         world.populationAllDistricts();
+        world.populationWorld();
     }
 
     /**

@@ -469,12 +469,20 @@ public class World {
         );
     }
 
+    public void populationWorld() {
+        String fileName = "populationWorld";
+        long population = 0;
+        for (Country country : countries) {
+            population += country.getPopulation();
+        }
+        MarkdownWriter.populationToMarkdown("World", population, fileName);
+    }
+
     public void populationAllDistricts() {
         String fileName = "populationAllDistricts";
         HashMap<String, Long> districts = getAllDistrictPopulations(countries);
 
         for (String district : districts.keySet()) {
-            System.out.println(district + " " +  districts.get(district));
             MarkdownWriter.populationToMarkdown(district, districts.get(district), fileName);
         }
     }
