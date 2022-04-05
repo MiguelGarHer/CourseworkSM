@@ -38,6 +38,9 @@ public class App
         // Testing for population reports
         populationReports(world);
 
+        // Testing for language reports
+        languageReports(world);
+
         // Disconnect from MySQL
         world.disconnect();
     }
@@ -85,6 +88,10 @@ public class App
         world.populationAllCities();
         world.populationAllDistricts();
         world.populationWorld();
+    }
+
+    private static void languageReports(World world) {
+        world.languageReportRequirement();
     }
 
     /**

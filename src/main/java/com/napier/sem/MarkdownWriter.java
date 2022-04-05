@@ -210,6 +210,56 @@ public class MarkdownWriter {
         }
     }
 
+    public static void languageToMarkdown(
+            String language,
+            long population,
+            int percentage,
+            String fileName) {
+
+        if (language == null) {
+            System.out.println("Null input on name");
+            return;
+        } else if (language.isEmpty()) {
+            language = "-";
+        }
+
+        if (fileName == null) {
+            System.out.println("Null filename");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank filename");
+            return;
+        }
+
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("| " +
+                language + " | " +
+                population + " (" +
+                percentage + "%) | " +
+                "\r\n");
+        try {
+            new File("./reports/").mkdir();
+            File file = new File("./reports/" + fileName + ".md");
+            FileWriter fw;
+            if (file.exists()) {
+                fw = new FileWriter(file, true);
+            } else {
+                fw = new FileWriter(file);
+                sb.insert(0, "| --- | --- |\r\n");
+                sb.insert(0, "| Name | Population |\r\n");
+
+            }
+            BufferedWriter writer = new BufferedWriter(fw);
+            writer.write(sb.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public static void cityListToMarkdown(ArrayList<City> cities, String fileName) {
         if (cities == null){
             System.out.println("Null city list");

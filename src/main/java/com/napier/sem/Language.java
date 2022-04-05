@@ -31,4 +31,5 @@ public class Language {
                 ", percentage=" + percentage +
                 '}';
     }
+
 }

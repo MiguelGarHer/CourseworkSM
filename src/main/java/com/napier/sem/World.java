@@ -1,10 +1,9 @@
 package com.napier.sem;
 
+import com.google.protobuf.MapEntry;
+
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class World {
 
@@ -542,6 +541,49 @@ public class World {
         );
 
     }
+
+    public void languageReportRequirement() {
+        HashMap<String, Long> requirementLanguages = new HashMap<>();
+        requirementLanguages.put("English", 0L);
+        requirementLanguages.put("Chinese", 0L);
+        requirementLanguages.put("Hindi", 0L);
+        requirementLanguages.put("Spanish", 0L);
+        requirementLanguages.put("Arabic", 0L);
+
+        for (Country country : countries) {
+            for (Language language : country.getLanguages()) {
+                if (requirementLanguages.containsKey(language.getLanguage())) {
+                    long langPopulation = Math.round((double) country.getPopulation() / 100 * language.getPercentage());
+                    if (requirementLanguages.get(language.getLanguage()) == 0L) {
+                        requirementLanguages.put(language.getLanguage(), langPopulation);
+                    } else {
+                        requirementLanguages.put(
+                                language.getLanguage(),
+                                requirementLanguages.get(language.getLanguage()) + (long) langPopulation);
+                    }
+                }
+            }
+        }
+
+        ArrayList<Map.Entry<String, Long>> sortList = new ArrayList<>(requirementLanguages.entrySet());
+        sortList.sort(Map.Entry.comparingByValue());
+        Collections.reverse(sortList);
+
+
+        String fileName = "languageReportRequirement";
+        for (Map.Entry<String,Long> entry : sortList) {
+            MarkdownWriter.languageToMarkdown(
+                    entry.getKey(),
+                    entry.getValue(),
+                    (int) Math.round((double) entry.getValue() / getWorldPopulation() * 100),
+                    fileName);
+        }
+    }
+
+    public void languageReport(Language language, String fileName) {
+
+    }
+
     /**
      * Print all countries in the world
      * Sorting: Largest population to smallest
