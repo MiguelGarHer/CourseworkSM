@@ -34,6 +34,11 @@ public class CityTest {
     }
 
     @Test
+    void getCountryNameTest() {
+        assertEquals("countryName", city.getCountryName());
+    }
+
+    @Test
     void getCountryCodeTest() {
         assertEquals("CCE", city.getCountryCode());
     }

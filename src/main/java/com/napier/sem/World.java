@@ -842,6 +842,7 @@ public class World {
         }
 
         allCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
         //Print
         System.out.println("All cities in the world, sorted by population");
         for (City city : allCities) {
