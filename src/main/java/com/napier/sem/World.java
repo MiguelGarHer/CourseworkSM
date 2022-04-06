@@ -278,21 +278,26 @@ public class World {
     }
 
     /**
-     *
+     * 
      * @param regionName
      */
     public void sortCitiesPopRegion(String regionName){
 
+        //Arraylist to store the sorted cities
         ArrayList<City> sortCities = new ArrayList<City>();
 
+        //Loop inside all the countries in order to find the region
         for(Country c : countries) {
+            //When the region is found we add all the cities of that country
             if (c.region.equals(regionName)) {
                 sortCities.addAll(c.cities);
             }
         }
 
+        //Sort the cities from largest population to smallest
         sortCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
 
+        //Loop through the array "sortCities" in order to print them
         for(City c: sortCities){
             System.out.println(c.toString());
         }
