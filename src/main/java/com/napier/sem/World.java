@@ -375,14 +375,20 @@ public class World {
      * Sorting: Largest population to smallest
      */
     public void sortCitiesPopWorld(){
+
+        //Arraylist to store all the cities
         ArrayList<City> allCities = new ArrayList<>();
+
+        //Loop through all the countries in the world to store their cities
         for (Country country: countries) {
             allCities.addAll(country.getCities());
         }
 
+        //Sort the cities from largest population to smallest
         allCities.sort(Comparator.comparing(City::getPopulation).reversed());
 
         System.out.println("All cities in the world, sorted by population");
+        //Loop through the arraylist to print all the cities sorted
         for (City city : allCities) {
             System.out.println(city);
         }
