@@ -1177,7 +1177,7 @@ public class World {
         }
 
         //Markdown
-        String fileName = "nPopCitiesRegion" + regionCities + "Top" + n;
+        String fileName = "nPopCitiesRegion" + regionName + "Top" + n;
         MarkdownWriter.cityListToMarkdown(regionCities, n, fileName);
 
 
