@@ -1,8 +1,7 @@
 package com.napier.sem;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+
 
 public class App
 {
@@ -119,7 +118,4 @@ public class App
         world.languageReportAllLanguages();
     }
 
-    private static void sprint_3(World world) {
-        world.sortCountriesPopContinent("Asia");
-    }
 }

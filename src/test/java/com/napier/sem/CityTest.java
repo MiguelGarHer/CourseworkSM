@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CityTest {
+class CityTest {
     static City city;
 
     @BeforeAll
@@ -20,31 +20,43 @@ public class CityTest {
 
     @Test
     void getPopulationTest() {
-        assertEquals(1,city.getPopulation());
+        assertEquals(1,
+                city.getPopulation(),
+                "Population is not equal to 1");
     }
 
     @Test
     void getIdTest() {
-        assertEquals(1,city.getId());
+        assertEquals(1,
+                city.getId(),
+                "Id is not equal to 1");
     }
 
     @Test
     void getNameTest() {
-        assertEquals("name", city.getName());
+        assertEquals("name",
+                city.getName(),
+                "Name is not equal to name");
     }
 
     @Test
     void getCountryNameTest() {
-        assertEquals("countryName", city.getCountryName());
+        assertEquals("countryName",
+                city.getCountryName(),
+                "CountryName is not equal to countryName");
     }
 
     @Test
     void getCountryCodeTest() {
-        assertEquals("CCE", city.getCountryCode());
+        assertEquals("CCE",
+                city.getCountryCode(),
+                "CountryCode is not equal to CCE");
     }
 
     @Test
     void getDistrictTest() {
-        assertEquals("district", city.getDistrict());
+        assertEquals("district",
+                city.getDistrict(),
+                "District is not equal to district");
     }
 }

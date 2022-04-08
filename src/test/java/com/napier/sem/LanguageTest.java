@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 
 
 import static org.junit.jupiter.api.Assertions.*;
-public class LanguageTest {
+
+class LanguageTest {
     static Language language;
 
     @BeforeAll
@@ -16,16 +17,20 @@ public class LanguageTest {
 
     @Test
     void getLanguageTest() {
-        assertEquals("language", language.getLanguage());
+        assertEquals("language",
+                language.getLanguage(),
+                "Language is not equal to language");
     }
 
     @Test
     void isOfficialTest() {
-        assertTrue(language.isOfficial());
+        assertTrue(language.isOfficial(), "IsOfficial is not equal to True");
     }
 
     @Test
     void getPercentageTest() {
-        assertEquals(1.0, language.getPercentage());
+        assertEquals(1.0,
+                language.getPercentage(),
+                "Percentage is not equal to 1.0");
     }
 }

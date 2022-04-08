@@ -4,13 +4,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.Buffer;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
+import java.util.List;
 
 public class MarkdownWriter {
-    public static void countryListToMarkdown(ArrayList<Country> countries, String fileName) {
+    public static void countryListToMarkdown(List<Country> countries, String fileName) {
         if (countries == null){
             System.out.println("Null country list");
             return;
@@ -57,7 +54,7 @@ public class MarkdownWriter {
         }
     }
 
-    public static void countryListToMarkdown(ArrayList<Country> countries, int n, String fileName) {
+    public static void countryListToMarkdown(List<Country> countries, int n, String fileName) {
         if (countries == null){
             System.out.println("Null country list");
             return;
@@ -115,11 +112,12 @@ public class MarkdownWriter {
             long population,
             String fileName) {
 
+        String columnName = name;
         if (name == null) {
             System.out.println("Null input on name");
             return;
         } else if (name.isEmpty()) {
-            name = "-";
+            columnName = "-";
         }
 
         if (fileName == null) {
@@ -134,7 +132,7 @@ public class MarkdownWriter {
         StringBuilder sb = new StringBuilder();
 
         sb.append("| " +
-                name + " | " +
+                columnName + " | " +
                 population + " | " +
                 "\r\n");
         try {
@@ -216,11 +214,13 @@ public class MarkdownWriter {
             double percentage,
             String fileName) {
 
+        String languageName = language;
+
         if (language == null) {
             System.out.println("Null input on language");
             return;
         } else if (language.isEmpty()) {
-            language = "-";
+            languageName = "-";
         }
 
         if (fileName == null) {
@@ -234,7 +234,7 @@ public class MarkdownWriter {
         StringBuilder sb = new StringBuilder();
 
         sb.append("| " +
-                language + " | " +
+                languageName + " | " +
                 population + " (" +
                 percentage + "%) | " +
                 "\r\n");
@@ -259,7 +259,7 @@ public class MarkdownWriter {
     }
 
 
-    public static void cityListToMarkdown(ArrayList<City> cities, String fileName) {
+    public static void cityListToMarkdown(List<City> cities, String fileName) {
         if (cities == null){
             System.out.println("Null city list");
             return;
@@ -298,7 +298,7 @@ public class MarkdownWriter {
         }
     }
 
-    public static void cityListToMarkdown(ArrayList<City> cities, int n, String fileName) {
+    public static void cityListToMarkdown(List<City> cities, int n, String fileName) {
         if (cities == null){
             System.out.println("Null city list");
             return;

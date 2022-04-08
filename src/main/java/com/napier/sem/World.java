@@ -1,7 +1,5 @@
 package com.napier.sem;
 
-import com.google.protobuf.MapEntry;
-
 import java.sql.*;
 import java.util.*;
 
@@ -11,7 +9,7 @@ public class World {
     private Connection con = null;
 
     // ArrayList containing all the data of the countries
-    private final ArrayList<Country> countries = new ArrayList<>();
+    private final List<Country> countries = new ArrayList<>();
 
     /**
      * Constructor for World
@@ -155,7 +153,7 @@ public class World {
      * @param countryCode country code
      * @return ArrayList of City
      */
-    public ArrayList<City> getCities(String countryCode, String countryName)
+    public List<City> getCities(String countryCode, String countryName)
     {
         ArrayList<City> cities = new ArrayList<>();
         try {
@@ -197,7 +195,7 @@ public class World {
      * @param countryCode country code
      * @return list of Language objects
      */
-    public ArrayList<Language> getLanguages(String countryCode) {
+    public List<Language> getLanguages(String countryCode) {
         ArrayList<Language> languages = new ArrayList<>();
         try {
             String sqlQuery = "SELECT * FROM countrylanguage WHERE countrycode = '" + countryCode + "';";
@@ -222,7 +220,7 @@ public class World {
      */
     public Language resultToLanguage(ResultSet resultSet) {
         try {
-            boolean isOfficial = resultSet.getString(3).equals("T");
+            boolean isOfficial = "T".equals(resultSet.getString(3));
             Language language;
             language = new Language(
                     resultSet.getString(2),
@@ -507,7 +505,7 @@ public class World {
      */
     public void populationAllDistricts() {
         String fileName = "populationAllDistricts";
-        HashMap<String, Long> districts = getAllDistrictPopulations(countries);
+        HashMap<String, Long> districts = (HashMap<String, Long>) getAllDistrictPopulations(countries);
 
         for (String district : districts.keySet()) {
             MarkdownWriter.populationToMarkdown(district, districts.get(district), fileName);
@@ -519,7 +517,7 @@ public class World {
      * @param countryList ArrayList of Country objects
      * @return HashMap consisting of country names (K) and populations (V)
      */
-    public HashMap<String, Long> getAllDistrictPopulations(ArrayList<Country> countryList) {
+    public Map<String, Long> getAllDistrictPopulations(List<Country> countryList) {
         HashMap<String, Long> districts = new HashMap<>();
         for (Country country : countries) {
             for (City city : country.getCities()) {
@@ -614,7 +612,7 @@ public class World {
      * @param languageMap HashMap consisting of language names and their populations
      * @return ArrayList of Map.Entry
      */
-    public ArrayList<Map.Entry<String, Long>> languageHashMapToArrayList(HashMap<String,Long> languageMap) {
+    public List<Map.Entry<String, Long>> languageHashMapToArrayList(Map<String,Long> languageMap) {
         ArrayList<Map.Entry<String, Long>> sortList = new ArrayList<>(languageMap.entrySet());
         sortList.sort(Map.Entry.comparingByValue());
         Collections.reverse(sortList);
@@ -626,7 +624,7 @@ public class World {
      * Generates and writes language report of selected languages
      * @param languageList ArrayList of selected languages
      */
-    public void languageReportSelectedLanguages(ArrayList<String> languageList) {
+    public void languageReportSelectedLanguages(List<String> languageList) {
         String fileName = "languageReportSelectedLanguages";
 
         HashMap<String, Long> selectedLanguages = new HashMap<>();
@@ -649,7 +647,7 @@ public class World {
             }
         }
 
-        ArrayList<Map.Entry<String,Long>> sortedLanguages = languageHashMapToArrayList(selectedLanguages);
+        ArrayList<Map.Entry<String,Long>> sortedLanguages = (ArrayList<Map.Entry<String, Long>>) languageHashMapToArrayList(selectedLanguages);
 
         for (Map.Entry<String,Long> entry : sortedLanguages) {
             MarkdownWriter.languageToMarkdown(
@@ -1126,7 +1124,7 @@ public class World {
      */
     public void sortCapCitiesPopWorld(){
 
-        ArrayList<City> sortCapCities = new ArrayList<City>();
+        ArrayList<City> sortCapCities = new ArrayList<>();
 
             for (Country country : countries) {
                 for (City city : country.getCities()) {
@@ -1157,7 +1155,7 @@ public class World {
      */
     public void sortCapCitiesPopRegion(String regionName){
 
-        ArrayList<City> sortCapCities = new ArrayList<City>();
+        ArrayList<City> sortCapCities = new ArrayList<>();
 
         //NULL checker
         if(regionName != null) {
@@ -1202,7 +1200,7 @@ public class World {
      */
     public void sortCapCitiesPopContinent(String continentName){
 
-        ArrayList<City> sortCapCities = new ArrayList<City>();
+        ArrayList<City> sortCapCities = new ArrayList<>();
 
         //NULL checker
         if(continentName != null) {
