@@ -676,6 +676,11 @@ public class World {
         for(Country c : sortCountries){
             System.out.println(c);
         }
+
+        //Write markdown file
+        String fileName = "sortCountriesPopWorld";
+        MarkdownWriter.countryListToMarkdown(sortCountries, fileName);
+
     }
 
     /**
