@@ -1246,7 +1246,6 @@ public class World {
 
 
 
-
     }
 
     /**
@@ -1294,6 +1293,12 @@ public class World {
         for (City c : sortCities){
             System.out.println(c.getName());
         }
+
+        //Markdown
+        String fileName = "nPopCitiesDistrict" + districtName + "Top" + n;
+        MarkdownWriter.cityListToMarkdown(sortCities, n, fileName);
+
+
     }
 
     /**

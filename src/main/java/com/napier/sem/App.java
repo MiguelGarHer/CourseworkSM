@@ -71,7 +71,7 @@ public class App
         world.nPopCitiesContinent("Asia", 20);
         world.nPopCitiesRegion("Caribbean", 5);
         world.nPopCitiesCountry("France", 5);
-        //world.nPopCitiesDistrict("California", 5);
+        world.nPopCitiesDistrict("California", 5);
     }
 
     /**
