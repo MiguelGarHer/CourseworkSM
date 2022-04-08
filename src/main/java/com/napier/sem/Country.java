@@ -1,10 +1,10 @@
 package com.napier.sem;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Country {
-	private ArrayList<City> cities;
-	private ArrayList<Language> languages;
+	private List<City> cities;
+	private List<Language> languages;
 
 	private final String code;
 	private final String name;
@@ -40,19 +40,19 @@ public class Country {
 		this.code2 = code2;
 	}
 
-	public void setCities(ArrayList<City> cities) {
+	public void setCities(List<City> cities) {
 		this.cities = cities;
 	}
 
-	public void setLanguages(ArrayList<Language> languages) {
+	public void setLanguages(List<Language> languages) {
 		this.languages = languages;
 	}
 
-	public ArrayList<City> getCities() {
+	public List<City> getCities() {
 		return cities;
 	}
 
-	public ArrayList<Language> getLanguages() {
+	public List<Language> getLanguages() {
 		return languages;
 	}
 
