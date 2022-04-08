@@ -1,8 +1,7 @@
 package com.napier.sem;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.*;
 
 public class World {
 
@@ -10,7 +9,7 @@ public class World {
     private Connection con = null;
 
     // ArrayList containing all the data of the countries
-    private final ArrayList<Country> countries = new ArrayList<>();
+    private final List<Country> countries = new ArrayList<>();
 
     /**
      * Constructor for World
@@ -114,7 +113,7 @@ public class World {
                     resultSet.getString(15));
 
             // Get cities method
-            country.setCities(getCities(resultSet.getString(1)));
+            country.setCities(getCities(resultSet.getString(1),resultSet.getString(2)));
 
             // Get languages method
             country.setLanguages(getLanguages(resultSet.getString(1)));
@@ -131,15 +130,16 @@ public class World {
      * @param resultSet ResultSet from SQL query
      * @return City
      */
-    public City resultToCity(ResultSet resultSet) {
+    public City resultToCity(ResultSet resultSet, String countryName) {
         try {
             City city;
             city = new City(
-                   resultSet.getInt(1),
-                   resultSet.getString(2),
-                   resultSet.getString(3),
-                   resultSet.getString(4),
-                   resultSet.getInt(5));
+                    resultSet.getInt(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    countryName,
+                    resultSet.getString(4),
+                    resultSet.getInt(5));
             return city;
         } catch (SQLException | NullPointerException e) {
             System.out.println(e.getMessage());
@@ -153,14 +153,14 @@ public class World {
      * @param countryCode country code
      * @return ArrayList of City
      */
-    public ArrayList<City> getCities(String countryCode)
+    public List<City> getCities(String countryCode, String countryName)
     {
         ArrayList<City> cities = new ArrayList<>();
         try {
             String sqlQuery = "SELECT * FROM city WHERE countrycode = '" + countryCode + "';";
             ResultSet resultSet = getResultSet(sqlQuery);
             while(resultSet.next()) {
-                cities.add(resultToCity(resultSet));
+                cities.add(resultToCity(resultSet, countryName));
             }
             return cities;
         } catch (SQLException e) {
@@ -195,7 +195,7 @@ public class World {
      * @param countryCode country code
      * @return list of Language objects
      */
-    public ArrayList<Language> getLanguages(String countryCode) {
+    public List<Language> getLanguages(String countryCode) {
         ArrayList<Language> languages = new ArrayList<>();
         try {
             String sqlQuery = "SELECT * FROM countrylanguage WHERE countrycode = '" + countryCode + "';";
@@ -220,7 +220,7 @@ public class World {
      */
     public Language resultToLanguage(ResultSet resultSet) {
         try {
-            boolean isOfficial = resultSet.getString(3).equals("T");
+            boolean isOfficial = "T".equals(resultSet.getString(3));
             Language language;
             language = new Language(
                     resultSet.getString(2),
@@ -256,6 +256,7 @@ public class World {
      * @param cityName name of city
      */
     public void getCityReport(String cityName){
+
     }
 
     /**
@@ -266,9 +267,395 @@ public class World {
     }
 
     /**
-     * Generate population report
+     * Prints population report of all available continents
+     * Generates a markdown report
      */
-    public void getPopulationRep(){
+    public void populationReportAllContinents() {
+        HashSet<String> continentNames = new HashSet<>();
+        for (Country country : countries) {
+            continentNames.add(country.getContinent());
+        }
+
+        String fileName = "populationReportAllContinents";
+        for (String continent : continentNames) {
+            populationReportContinent(continent, fileName);
+        }
+    }
+
+    /**
+     * Print and generate population report of a continent
+     * @param continentName specified continent
+     * @param fileName name of markdown file
+     */
+    public void populationReportContinent(String continentName, String fileName){
+        // Null, empty and blank parameter check
+        if (continentName == null) {
+            System.out.println("Null input on continent name");
+            return;
+        } else if (continentName.isBlank()) {
+            System.out.println("Blank input on continent name");
+            return;
+        }
+
+        if (fileName == null) {
+            System.out.println("Null input on file name");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank input on file name");
+            return;
+        }
+
+        long totalPopulation = 0;
+        long cityPopulation = 0;
+        long countrySidePopulation;
+
+        for (Country country : countries) {
+            if (country.getContinent().equals(continentName)) {
+                totalPopulation += country.getPopulation();
+                for (City city : country.getCities()) {
+                    cityPopulation += city.getPopulation();
+                }
+            }
+        }
+
+        countrySidePopulation = totalPopulation - cityPopulation;
+
+        int cityPopulationPercentage = (int) Math.round(((double) cityPopulation  / totalPopulation) * 100);
+        int countrySidePopulationPercentage = (int) Math.round(((double) countrySidePopulation / totalPopulation) * 100);
+
+        //Print
+        System.out.println("Population report for " + continentName);
+        System.out.println("Total population: " + totalPopulation);
+        System.out.println("Population living in cities: " + cityPopulation + "(" + cityPopulationPercentage + "%)");
+        System.out.println("Population not living in cities: " + countrySidePopulation + "(" + countrySidePopulationPercentage + "%)");
+
+        //Markdown
+        MarkdownWriter.populationReportToMarkdown(
+                continentName,
+                totalPopulation,
+                cityPopulation,
+                cityPopulationPercentage,
+                countrySidePopulation,
+                countrySidePopulationPercentage,
+                fileName
+        );
+    }
+
+
+    /**
+     * Prints and generates population report of all regions
+     */
+    public void populationReportAllRegions() {
+        HashSet<String> regionNames = new HashSet<>();
+        for (Country country : countries) {
+            regionNames.add(country.getRegion());
+        }
+
+        String fileName = "populationReportAllRegions";
+        for (String regionName : regionNames) {
+            populationReportRegion(regionName, fileName);
+        }
+    }
+
+    /**
+     * Prints and generates population report of a region
+     * @param regionName specified region
+     * @param fileName name of markdown file
+     */
+    public void populationReportRegion(String regionName, String fileName) {
+        // Null, empty and blank parameter check
+        if (regionName == null) {
+            System.out.println("Null input on continent name");
+            return;
+        } else if (regionName.isBlank()) {
+            System.out.println("Blank input on continent name");
+            return;
+        }
+
+        if (fileName == null) {
+            System.out.println("Null input on file name");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank input on file name");
+            return;
+        }
+
+        long totalPopulation = 0;
+        long cityPopulation = 0;
+        long countrySidePopulation;
+
+        for (Country country : countries) {
+            if (country.getRegion().equals(regionName)) {
+                totalPopulation += country.getPopulation();
+                for (City city : country.getCities()) {
+                    cityPopulation += city.getPopulation();
+                }
+            }
+        }
+
+        countrySidePopulation = totalPopulation - cityPopulation;
+
+        int cityPopulationPercentage = (int) Math.round(((double) cityPopulation  / totalPopulation) * 100);
+        int countrySidePopulationPercentage = (int) Math.round(((double) countrySidePopulation / totalPopulation) * 100);
+
+        //Print
+        System.out.println("Population report for " + regionName);
+        System.out.println("Total population: " + totalPopulation);
+        System.out.println("Population living in cities: " + cityPopulation + "(" + cityPopulationPercentage + "%)");
+        System.out.println("Population not living in cities: " + countrySidePopulation + "(" + countrySidePopulationPercentage + "%)");
+
+        //Markdown
+        MarkdownWriter.populationReportToMarkdown(
+                regionName,
+                totalPopulation,
+                cityPopulation,
+                cityPopulationPercentage,
+                countrySidePopulation,
+                countrySidePopulationPercentage,
+                fileName
+        );
+    }
+
+    /**
+     * Prints and generates population report of all countries
+     */
+    public void populationReportAllCountries() {
+        String fileName = "populationReportAllCountries";
+        for (Country country : countries ) {
+            populationReportCountry(country, fileName);
+        }
+    }
+
+    /**
+     * Prints and generates population report of a country
+     * @param country specified country
+     * @param fileName name of markdown file
+     */
+    public void populationReportCountry(Country country, String fileName) {
+        // Null, empty and blank parameter check
+        if (country == null) {
+            System.out.println("Null input on country");
+            return;
+        }
+
+        if (fileName == null) {
+            System.out.println("Null input on file name");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank input on file name");
+            return;
+        }
+
+        long totalPopulation = 0;
+        long cityPopulation = 0;
+        long countrySidePopulation;
+
+        totalPopulation += country.getPopulation();
+        for (City city : country.getCities()) {
+            cityPopulation += city.getPopulation();
+        }
+
+        countrySidePopulation = totalPopulation - cityPopulation;
+
+        int cityPopulationPercentage = (int) Math.round(((double) cityPopulation  / totalPopulation) * 100);
+        int countrySidePopulationPercentage = (int) Math.round(((double) countrySidePopulation / totalPopulation) * 100);
+
+        //Print
+        System.out.println("Population report for " + country.getName());
+        System.out.println("Total population: " + totalPopulation);
+        System.out.println("Population living in cities: " + cityPopulation + "(" + cityPopulationPercentage + "%)");
+        System.out.println("Population not living in cities: " + countrySidePopulation + "(" + countrySidePopulationPercentage + "%)");
+
+        //Markdown
+        MarkdownWriter.populationReportToMarkdown(
+                country.getName(),
+                totalPopulation,
+                cityPopulation,
+                cityPopulationPercentage,
+                countrySidePopulation,
+                countrySidePopulationPercentage,
+                fileName
+        );
+    }
+
+    /**
+     * Prints and writes population of the world
+     */
+    public void populationWorld() {
+        System.out.println("Population of the world: " + getWorldPopulation());
+
+        String fileName = "populationWorld";
+        MarkdownWriter.populationToMarkdown("World", getWorldPopulation(), fileName);
+    }
+
+    /**
+     * Calculates and returns the world population
+     * @return current world population
+     */
+    public long getWorldPopulation() {
+        long population = 0;
+        for (Country country : countries) {
+            population += country.getPopulation();
+        }
+        return population;
+    }
+
+    /**
+     * Prints and writes populations of all districts
+     */
+    public void populationAllDistricts() {
+        String fileName = "populationAllDistricts";
+        HashMap<String, Long> districts = (HashMap<String, Long>) getAllDistrictPopulations(countries);
+
+        for (String district : districts.keySet()) {
+            MarkdownWriter.populationToMarkdown(district, districts.get(district), fileName);
+        }
+    }
+
+    /**
+     * Calculates and returns the total population of a district
+     * @param countryList ArrayList of Country objects
+     * @return HashMap consisting of country names (K) and populations (V)
+     */
+    public Map<String, Long> getAllDistrictPopulations(List<Country> countryList) {
+        HashMap<String, Long> districts = new HashMap<>();
+        for (Country country : countries) {
+            for (City city : country.getCities()) {
+                if (districts.containsKey(city.getDistrict())) {
+                    districts.put(city.getDistrict(), districts.get(city.getDistrict()) + city.getPopulation());
+                } else {
+                    districts.put(city.getDistrict(), (long) city.getPopulation());
+                }
+            }
+        }
+        return districts;
+    }
+
+    /**
+     * Prints and writes populations of all cities
+     */
+    public void populationAllCities() {
+        String fileName = "populationAllCities";
+        for (Country country : countries) {
+            for (City city : country.getCities()) {
+                populationCity(city, fileName);
+            }
+        }
+    }
+
+    /**
+     * Prints and writes population of a city
+     * @param city specified city
+     * @param fileName file
+     */
+    public void populationCity(City city, String fileName) {
+        // Null, empty and blank parameter check
+        if (city == null) {
+            System.out.println("Null input on city");
+            return;
+        }
+
+        if (fileName == null) {
+            System.out.println("Null input on file name");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank input on file name");
+            return;
+        }
+
+        //Print
+        System.out.println("Population report for " + city.getName());
+        System.out.println("Total population: " + city.getPopulation());
+
+        //Markdown
+        MarkdownWriter.populationToMarkdown(
+                city.getName(),
+                city.getPopulation(),
+                fileName
+        );
+
+    }
+
+    /**
+     * Generates and writes language report of all languages
+     */
+    public void languageReportAllLanguages() {
+        HashMap<String, Long> languages = new HashMap<>();
+        for (Country country : countries) {
+            for (Language language : country.getLanguages()) {
+                long langPopulation = Math.round((double) country.getPopulation() / 100 * language.getPercentage());
+                if (!languages.containsKey(language.getLanguage())) {
+                    languages.put(language.getLanguage(), 0L);
+                }
+                languages.put(language.getLanguage(), languages.get(language.getLanguage()) + langPopulation);
+
+            }
+        }
+
+        ArrayList<Map.Entry<String, Long>> sortList = new ArrayList<>(languages.entrySet());
+        sortList.sort(Map.Entry.comparingByValue());
+        Collections.reverse(sortList);
+
+        //Markdown
+        String fileName = "languageReportAllLanguages";
+        for (Map.Entry<String,Long> entry : sortList) {
+            MarkdownWriter.languageToMarkdown(
+                    entry.getKey(),
+                    entry.getValue(),
+                    (double) Math.round((double) entry.getValue() / getWorldPopulation() * 100000) / 1000,
+                    fileName);
+        }
+    }
+
+    /**
+     * Converts language HashMap to ArrayList
+     * @param languageMap HashMap consisting of language names and their populations
+     * @return ArrayList of Map.Entry
+     */
+    public List<Map.Entry<String, Long>> languageHashMapToArrayList(Map<String,Long> languageMap) {
+        ArrayList<Map.Entry<String, Long>> sortList = new ArrayList<>(languageMap.entrySet());
+        sortList.sort(Map.Entry.comparingByValue());
+        Collections.reverse(sortList);
+
+        return sortList;
+    }
+
+    /**
+     * Generates and writes language report of selected languages
+     * @param languageList ArrayList of selected languages
+     */
+    public void languageReportSelectedLanguages(List<String> languageList) {
+        String fileName = "languageReportSelectedLanguages";
+
+        HashMap<String, Long> selectedLanguages = new HashMap<>();
+        for (String languageName : languageList) {
+            selectedLanguages.put(languageName, 0L);
+        }
+
+        for (Country country : countries) {
+            for (Language language : country.getLanguages()) {
+                if (selectedLanguages.containsKey(language.getLanguage())) {
+                    long langPopulation = Math.round((double) country.getPopulation() / 100 * language.getPercentage());
+                    if (selectedLanguages.get(language.getLanguage()) == 0L) {
+                        selectedLanguages.put(language.getLanguage(), langPopulation);
+                    } else {
+                        selectedLanguages.put(
+                                language.getLanguage(),
+                                selectedLanguages.get(language.getLanguage()) + (long) langPopulation);
+                    }
+                }
+            }
+        }
+
+        ArrayList<Map.Entry<String,Long>> sortedLanguages = (ArrayList<Map.Entry<String, Long>>) languageHashMapToArrayList(selectedLanguages);
+
+        for (Map.Entry<String,Long> entry : sortedLanguages) {
+            MarkdownWriter.languageToMarkdown(
+                    entry.getKey(),
+                    entry.getValue(),
+                    (double) Math.round((double) entry.getValue() / getWorldPopulation() * 100000) / 1000,
+                    fileName);
+        }
     }
 
     /**
@@ -306,13 +693,17 @@ public class World {
 
 
         // Sort temporary list - https://www.baeldung.com/java-8-comparator-comparing
-        countries.sort(Comparator.comparing(Country::getPopulation).reversed());
+        continentCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
 
         // Print sorted list
         System.out.println("All countries in " + continentName + ", sorted by population");
-        for (Country country : countries) {
+        for (Country country : continentCountries) {
             System.out.println(country);
         }
+
+        //Write markdown file
+        String fileName = "sortCountriesPopContinent" + continentName;
+        MarkdownWriter.countryListToMarkdown(continentCountries, fileName);
     }
 
     /**
@@ -347,6 +738,10 @@ public class World {
         for (Country country : regionCountries) {
             System.out.println(country);
         }
+
+        //Write markdown file
+        String fileName = "sortCountriesPopRegion" + regionName;
+        MarkdownWriter.countryListToMarkdown(regionCountries, fileName);
     }
 
     /**
@@ -376,6 +771,10 @@ public class World {
         for (int i = 0; i < n; i++) {
             System.out.println(nWorldCountries.get(i));
         }
+
+        //Write to markdown file
+        String fileName = "nPopCountriesWorldTop" + n;
+        MarkdownWriter.countryListToMarkdown(nWorldCountries, n, fileName);
     }
 
     /**
@@ -384,7 +783,41 @@ public class World {
      * @param continentName name of continent
      * @param n top N
      */
-    public void nPopCountriesContinent(String continentName, int n){
+    public void nPopCountriesContinent(String continentName, int n) {
+        if (continentName == null) {
+            System.out.println("Null continent name");
+            return;
+        }
+
+        if (continentName.isBlank()) {
+            System.out.println("Blank continent name");
+            return;
+        }
+        if (n <= 0){
+            System.out.println("Invalid number");
+            return;
+        }
+
+        ArrayList<Country> continentCountries = new ArrayList<>();
+        for (Country country : countries) {
+            if (country.getContinent().equals(continentName)) {
+                continentCountries.add(country);
+            }
+
+        }
+
+        //Sort all countries by population
+        continentCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
+
+        //Print
+        System.out.println("Top " + n + " countries in " + continentName + ", sorted by population");
+        for (int i = 0; i < n; i++) {
+            System.out.println(continentCountries.get(i));
+        }
+
+        //Write to markdown file
+        String fileName = "nPopCountriesContinent" + continentName + "Top" + n;
+        MarkdownWriter.countryListToMarkdown(continentCountries, n, fileName);
     }
 
     /**
@@ -394,6 +827,48 @@ public class World {
      * @param n top N
      */
     public void nPopCountriesRegion(String regionName, int n){
+        // Null, empty and blank parameter check
+        if (regionName == null) {
+            System.out.println("Null input, no region");
+            return;
+        } else if (regionName.isEmpty()) {
+            System.out.println("Empty input, no region");
+            return;
+        } else if (regionName.isBlank()) {
+            System.out.println("Blank input, no region");
+            return;
+        }
+
+        // Non negative and zero parameter check
+        if (n < 1) {
+            System.out.println("Invalid number");
+            return;
+        }
+
+        //Get all countries in specified region and add to list
+        ArrayList<Country> regionCountries = new ArrayList<>();
+        for (Country country : countries) {
+            if (country.getRegion().equals(regionName)) {
+                regionCountries.add(country);
+            }
+        }
+        //Sort all countries by population
+        regionCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
+
+        //Print list until nth element
+        System.out.println("Top " + n + " countries in " + regionName + ", sorted by population");
+        for (int i = 0; i < n; i++) {
+            System.out.println(regionCountries.get(i));
+        }
+
+
+
+
+
+
+
+
+
     }
 
     /**
@@ -408,10 +883,14 @@ public class World {
 
         allCities.sort(Comparator.comparing(City::getPopulation).reversed());
 
+        //Print
         System.out.println("All cities in the world, sorted by population");
         for (City city : allCities) {
             System.out.println(city);
         }
+
+        //Markdown file
+        MarkdownWriter.cityListToMarkdown(allCities, "sortCitiesPopWorld");
     }
 
     /**
@@ -448,6 +927,10 @@ public class World {
         for (City city : continentCities) {
             System.out.println(city);
         }
+
+        String fileName = "sortCitiesPopContinent" + continentName;
+        MarkdownWriter.cityListToMarkdown(continentCities, fileName);
+
     }
 
     /**
@@ -482,6 +965,10 @@ public class World {
         for(City c: sortCities){
             System.out.println(c.toString());
         }
+
+        //Markdown
+        String fileName = "sortCitiesPopRegion" + regionName;
+        MarkdownWriter.cityListToMarkdown(sortCities, fileName);
 
     }
 
@@ -519,6 +1006,11 @@ public class World {
         for (City city : countryCities) {
             System.out.println(city);
         }
+
+
+        //Markdown file
+        String fileName = "sortCitiesPopCountry" + countryName;
+        MarkdownWriter.cityListToMarkdown(countryCities, fileName);
 
     }
 
@@ -558,6 +1050,10 @@ public class World {
         for (City city : districtCities) {
             System.out.println(city);
         }
+
+        //Markdown files
+        String fileName = "sortCitiesPopDistrict" + districtName;
+        MarkdownWriter.cityListToMarkdown(districtCities, fileName);
     }
 
     /**
@@ -584,6 +1080,10 @@ public class World {
         for (int i = 0; i < n; i++) {
             System.out.println(worldCities.get(i));
         }
+
+        //Markdown
+        String fileName = "nPopCitiesWorldTop" + n;
+        MarkdownWriter.cityListToMarkdown(worldCities, n, fileName);
     }
 
 
@@ -628,6 +1128,10 @@ public class World {
         for (int i = 0; i < n; i++) {
             System.out.println(continentCities.get(i));
         }
+
+        //Markdown
+        String fileName = "nPopCitiesContinent" + continentName + "Top" + n;
+        MarkdownWriter.cityListToMarkdown(continentCities, n, fileName);
     }
 
     /**
@@ -637,6 +1141,46 @@ public class World {
      * @param n top N
      */
     public void nPopCitiesRegion(String regionName, int n){
+        // Null, empty and blank parameter check
+        if (regionName == null) {
+            System.out.println("Null input, no region");
+            return;
+        } else if (regionName.isEmpty()) {
+            System.out.println("Empty input, no region");
+            return;
+        } else if (regionName.isBlank()) {
+            System.out.println("Blank input, no region");
+            return;
+        }
+
+        // Non negative and zero parameter check
+        if (n < 1) {
+            System.out.println("Invalid number");
+            return;
+        }
+
+        //Get all cities in specified region and add to list
+        ArrayList<City> regionCities = new ArrayList<>();
+        for (Country country : countries) {
+            if (country.getRegion().equals(regionName)) {
+                regionCities.addAll(country.getCities());
+            }
+        }
+
+        //Sort all cities by population
+        regionCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
+        //Print list until nth element
+        System.out.println("Top " + n + " cities in " + regionName + ", sorted by population");
+        for (int i = 0; i < n; i++) {
+            System.out.println(regionCities.get(i));
+        }
+
+        //Markdown
+        String fileName = "nPopCitiesRegion" + regionName + "Top" + n;
+        MarkdownWriter.cityListToMarkdown(regionCities, n, fileName);
+
+
     }
 
     /**
@@ -696,7 +1240,7 @@ public class World {
      */
     public void sortCapCitiesPopWorld(){
 
-        ArrayList<City> sortCapCities = new ArrayList<City>();
+        ArrayList<City> sortCapCities = new ArrayList<>();
 
             for (Country country : countries) {
                 for (City city : country.getCities()) {
@@ -714,6 +1258,10 @@ public class World {
         for (City c : sortCapCities) {
             System.out.println(c.toString());
         }
+
+        // Markdown
+        String fileName = "sortCapCitiesPopWorld";
+        MarkdownWriter.cityListToMarkdown(sortCapCities, fileName);
     }
     
     /**
@@ -723,7 +1271,7 @@ public class World {
      */
     public void sortCapCitiesPopRegion(String regionName){
 
-        ArrayList<City> sortCapCities = new ArrayList<City>();
+        ArrayList<City> sortCapCities = new ArrayList<>();
 
         //NULL checker
         if(regionName != null) {
@@ -747,6 +1295,10 @@ public class World {
                 for (City c : sortCapCities) {
                     System.out.println(c.toString());
                 }
+
+                //Markdown
+                String fileName = "sortCapCitiesPopRegion" + regionName;
+                MarkdownWriter.cityListToMarkdown(sortCapCities, fileName);
             }
             else {
                 System.out.println("No capital cities in this region");
@@ -764,7 +1316,7 @@ public class World {
      */
     public void sortCapCitiesPopContinent(String continentName){
 
-        ArrayList<City> sortCapCities = new ArrayList<City>();
+        ArrayList<City> sortCapCities = new ArrayList<>();
 
         //NULL checker
         if(continentName != null) {
@@ -788,6 +1340,10 @@ public class World {
                 for (City c : sortCapCities) {
                     System.out.println(c.toString());
                 }
+
+                //Markdown
+                String fileName = "sortCapCitiesPopContinent" + continentName;
+                MarkdownWriter.cityListToMarkdown(sortCapCities, fileName);
             }
             else {
                 System.out.println("No capital cities in this continent");
@@ -805,6 +1361,40 @@ public class World {
      * @param n top N
      */
     public void nPopCapCitiesRegion(String regionName, int n){
+        if (regionName == null) {
+            System.out.println("Null region name");
+            return;
+        }
+
+        if (n <= 0) {
+            System.out.println("Invalid number");
+            return;
+        }
+        ArrayList<City> regionCapCities = new ArrayList<>();
+
+        // Get all cap cities in the region
+        for (Country country : countries) {
+            if (country.getRegion().equals(regionName)) {
+                for (City city: country.getCities()) {
+                    if (city.getId() == country.getCapital()) {
+                        regionCapCities.add(city);
+                    }
+                }
+            }
+        }
+
+        // Sort
+        regionCapCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
+
+        // Print
+        System.out.println("Top " + n + " populated capital cities in" + regionName);
+        for (int i = 0; i < n; i++) {
+            System.out.println(regionCapCities.get(i));
+        }
+
+        // Markdown
+        String fileName = "nPopCapCities" + regionName + "Top" + n;
+        MarkdownWriter.cityListToMarkdown(regionCapCities, n, fileName);
     }
 
     /**
@@ -838,6 +1428,10 @@ public class World {
                 for (int i = 0; i < n; i++) {
                     System.out.println(sortCapCities.get(i));
                 }
+
+                //Markdown
+                String fileName = "nPopCapCitiesContinent" + continentName + "Top" + n;
+                MarkdownWriter.cityListToMarkdown(sortCapCities,n, fileName);
             }
             else {
                 System.out.println("No capital cities in this continent");
@@ -853,6 +1447,35 @@ public class World {
      * Sorting: Largest population to smallest
      * @param n top N
      */
-    public void nPopCapCitiesWorld(int n){
+    public void nPopCapCitiesWorld(int n) {
+        ///Check n is not an invalid number
+        if (n <= 0) {
+            System.out.println("Invalid number");
+            return;
+        }
+
+        //Get all Capital cities in the world
+        ArrayList<City> nWorldCapCities = new ArrayList<>();
+
+        for (Country country : countries) {
+            for (City city : country.getCities()) {
+                if (city.getId() == country.getCapital()) {
+                    nWorldCapCities.add(city);
+                }
+            }
+        }
+
+        //Sort capital cities
+        nWorldCapCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
+
+        //Print
+        System.out.println("Top " + n + " capital cities in the world, sorted by population");
+        for (int i = 0; i < n; i++) {
+            System.out.println(nWorldCapCities.get(i));
+        }
+
+        //Markdown
+        String fileName = "nPopCapCitiesContinentWorld" + "Top" + n;
+        MarkdownWriter.cityListToMarkdown(nWorldCapCities, n, fileName);
     }
 }

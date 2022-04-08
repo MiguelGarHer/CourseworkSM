@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class WorldIntegrationTest
+class WorldIntegrationTest
 {
     static World world;
 
@@ -30,11 +30,10 @@ public class WorldIntegrationTest
         if (tablesResultSet.next())
         {
             String firstTable = tablesResultSet.getString(1);
-            assertNotNull(firstTable);
             String columnQuery = "SHOW COLUMNS FROM " + firstTable + ";";
             ResultSet columnsResultSet = world.getResultSet(columnQuery);
             if (columnsResultSet.next()) {
-                assertNotNull(columnsResultSet.getString(1));
+                assertNotNull(columnsResultSet.getString(1), "Table column doesn't equal to null");
             }
         }
 
