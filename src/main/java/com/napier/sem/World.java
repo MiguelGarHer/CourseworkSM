@@ -1381,7 +1381,7 @@ public class World {
         }
 
         //Get all Capital cities in the world
-        ArrayList<City> nWorldCapCities = new ArrayList<City>();
+        ArrayList<City> nWorldCapCities = new ArrayList<>();
 
         for (Country country : countries) {
             for (City city : country.getCities()) {
@@ -1399,5 +1399,9 @@ public class World {
         for (int i = 0; i < n; i++) {
             System.out.println(nWorldCapCities.get(i));
         }
+
+        //Markdown
+        String fileName = "nPopCapCitiesContinentWorld" + "Top" + n;
+        MarkdownWriter.cityListToMarkdown(nWorldCapCities, n, fileName);
     }
 }

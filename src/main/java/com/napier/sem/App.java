@@ -83,7 +83,7 @@ public class App
 
         world.nPopCapCitiesRegion("Caribbean", 5);
         world.nPopCapCitiesContinent("Asia", 10);
-        //world.nPopCapCitiesWorld(50);
+        world.nPopCapCitiesWorld(50);
     }
 
     /**
