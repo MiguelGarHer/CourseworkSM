@@ -43,3 +43,5 @@ buildNumber.properties
 .idea/
 
 .attach_*
+
+reports/

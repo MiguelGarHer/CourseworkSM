@@ -1,5 +1,8 @@
 package com.napier.sem;
 
+import java.util.ArrayList;
+
+
 public class App
 {
     public static void main(String[] args)
@@ -10,7 +13,7 @@ public class App
         //Connect to MySQL
 
         if (args.length < 1) {
-            world.connect("localhost:33060", 15000);
+            world.connect("localhost:33060", 0);
         } else{
             world.connect(args[0], Integer.parseInt(args[1]));
         }
@@ -18,114 +21,101 @@ public class App
         // Read all countries
         world.getCountries();
 
-        // Testing for sprint 1 methods
-        //sprint_1(world);
-
-        // Testing for sprint 2 methods
-        sprint_2(world);
-
         // Disconnect from MySQL
         world.disconnect();
+
+        // Testing for country reports
+        countryReports(world);
+
+        // Testing for city reports
+        cityReports(world);
+
+        // Testing for cap city reports
+        capCityReports(world);
+
+        // Testing for population reports
+        populationReports(world);
+
+        // Testing for language reports
+        languageReports(world);
     }
 
     /**
-     * Testing for sprint 1 methods
-     * @param world world object
+     * Helper method which calls all country related reports
+     * @param world
      */
-    private static void sprint_1(World world) {
-        // Vinh: Test: sortCitiesPopWorld():
+    private static void countryReports(World world) {
+        world.sortCountriesPopContinent("Asia");
+        world.sortCountriesPopRegion("Caribbean");
+        //world.sortCountriesPopWorld();
+
+        world.nPopCountriesWorld(10);
+        world.nPopCountriesContinent("Asia", 5);
+        //world.nPopCountriesRegion();
+    }
+
+    /**
+     * Helper method which calls all city related reports
+     * @param world
+     */
+    private static void cityReports(World world) {
         world.sortCitiesPopWorld();
-
-        System.out.println();
-
-        // Vinh: Test: sortCitiesPopContinent()
         world.sortCitiesPopContinent("Asia");
-
-        System.out.println();
-
-        // Vinh: Test: sortCitiesPopDistrict()
+        world.sortCitiesPopRegion("Caribbean");
+        world.sortCitiesPopCountry("France");
         world.sortCitiesPopDistrict("California");
 
-        System.out.println();
-
-        //Miguel: Test: sortCitiesPopRegion()
-        world.sortCitiesPopRegion("Caribbean");
-
-        System.out.println();
-
-        //Haidi: Test: sortCitiesPopCountry()
-        world.sortCitiesPopCountry("France");
-
-        System.out.println();
-
+        world.nPopCitiesWorld(50);
+        world.nPopCitiesContinent("Asia", 20);
+        //world.nPopCitiesRegion("Caribbean", 5);
+        //world.nPopCitiesCountry("France", 5);
+        //world.nPopCitiesDistrict("California", 5);
     }
 
     /**
-     * Testing for sprint 2 methods
-     * @param world world object
+     * Helper method which calls all capital city related reports
+     * @param world
      */
-    private static void sprint_2(World world) {
-        // Vinh Test: sortCountriesPopContinent():
-        world.sortCountriesPopContinent("Asia");
-
-        System.out.println();
-
-
-        // Vinh Test: nPopCitiesContinent():
-        world.nPopCitiesContinent("Asia", 5);
-
-        System.out.println();
-
-        // Edu Test: nPopCitiesWorld
-        world.nPopCitiesWorld(5);
-
-        System.out.println();
-
-        // Edu Test: sortCapCitiesPopRegion
-        world.sortCapCitiesPopRegion("South America");
-
-        System.out.println();
-
-        //Edu Test : sortCountriesPopRegion():
-        world.sortCountriesPopRegion("Caribbean");
-
-        System.out.println();
-
-
-        // Miguel Test: sortCapCitiesPopContinent
+    private static void capCityReports(World world) {
+        world.sortCapCitiesPopWorld();
+        world.sortCapCitiesPopRegion("Caribbean");
         world.sortCapCitiesPopContinent("Asia");
 
-        System.out.println();
-
-        // Miguel Test: nPopCapCitiesContinent
-        world.nPopCapCitiesContinent("Asia", 5);
-
-        System.out.println();
-
-        // Miguel Test: sortCapCitiesPopRegion
-        world.sortCapCitiesPopRegion("South America");
-
-        System.out.println();
-
-        // Haidi Test: nPopCountriesWorld
-        world.nPopCountriesWorld(5);
-
-        System.out.println();
-
-        // Haidi Test: sortCapCitiesPopWorld
-        world.sortCapCitiesPopWorld();
-
-        System.out.println();
+        world.nPopCapCitiesRegion("Caribbean", 5);
+        world.nPopCapCitiesContinent("Asia", 10);
+        //world.nPopCapCitiesWorld(50);
     }
-    /**
-     * Testing for sprint 3 methods
-     * @param world world object
-     */
-    private static void sprint_3(World world) {
-        // Edu Test: nPopCountriesRegion
-        world.nPopCountriesRegion("Caribbean", 5);
 
-        System.out.println();
+    /**
+     * Helper method which calls all population related reports
+     * @param world
+     */
+    private static void populationReports(World world) {
+        // Get all continent population reports
+        world.populationReportAllContinents();
+        world.populationReportAllCountries();
+        world.populationReportAllRegions();
+
+        world.populationAllCities();
+        world.populationAllDistricts();
+        world.populationWorld();
+    }
+
+    /**
+     * Helper method which calls all language related reports
+     * @param world
+     */
+    private static void languageReports(World world) {
+
+        ArrayList<String> requirementLanguages = new ArrayList<>();
+        requirementLanguages.add("Chinese");
+        requirementLanguages.add("English");
+        requirementLanguages.add("Hindi");
+        requirementLanguages.add("Spanish");
+        requirementLanguages.add("Arabic");
+        world.languageReportSelectedLanguages(requirementLanguages);
+
+        world.languageReportAllLanguages();
     }
 
 }
