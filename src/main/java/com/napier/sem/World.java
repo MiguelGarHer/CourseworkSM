@@ -1224,6 +1224,14 @@ public class World {
         for (int i = 0; i < n; i++) {
             System.out.println(nCountryCity.get(i));
         }
+
+        //Markdown
+        String fileName = "nPopCitiesRegion" + countryName + "Top" + n;
+        MarkdownWriter.cityListToMarkdown(nCountryCity, n, fileName);
+
+
+
+
     }
 
     /**
