@@ -840,6 +840,48 @@ public class World {
      * @param n top N
      */
     public void nPopCountriesRegion(String regionName, int n){
+        // Null, empty and blank parameter check
+        if (regionName == null) {
+            System.out.println("Null input, no region");
+            return;
+        } else if (regionName.isEmpty()) {
+            System.out.println("Empty input, no region");
+            return;
+        } else if (regionName.isBlank()) {
+            System.out.println("Blank input, no region");
+            return;
+        }
+
+        // Non negative and zero parameter check
+        if (n < 1) {
+            System.out.println("Invalid number");
+            return;
+        }
+
+        //Get all countries in specified region and add to list
+        ArrayList<Country> regionCountries = new ArrayList<>();
+        for (Country country : countries) {
+            if (country.getRegion().equals(regionName)) {
+                regionCountries.add(country);
+            }
+        }
+        //Sort all countries by population
+        regionCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
+
+        //Print list until nth element
+        System.out.println("Top " + n + " countries in " + regionName + ", sorted by population");
+        for (int i = 0; i < n; i++) {
+            System.out.println(regionCountries.get(i));
+        }
+
+
+
+
+
+
+
+
+
     }
 
     /**
@@ -1112,6 +1154,46 @@ public class World {
      * @param n top N
      */
     public void nPopCitiesRegion(String regionName, int n){
+        // Null, empty and blank parameter check
+        if (regionName == null) {
+            System.out.println("Null input, no region");
+            return;
+        } else if (regionName.isEmpty()) {
+            System.out.println("Empty input, no region");
+            return;
+        } else if (regionName.isBlank()) {
+            System.out.println("Blank input, no region");
+            return;
+        }
+
+        // Non negative and zero parameter check
+        if (n < 1) {
+            System.out.println("Invalid number");
+            return;
+        }
+
+        //Get all cities in specified region and add to list
+        ArrayList<City> regionCities = new ArrayList<>();
+        for (Country country : countries) {
+            if (country.getRegion().equals(regionName)) {
+                regionCities.addAll(country.getCities());
+            }
+        }
+
+        //Sort all cities by population
+        regionCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
+        //Print list until nth element
+        System.out.println("Top " + n + " cities in " + regionName + ", sorted by population");
+        for (int i = 0; i < n; i++) {
+            System.out.println(regionCities.get(i));
+        }
+
+        //Markdown
+        String fileName = "nPopCitiesRegion" + regionName + "Top" + n;
+        MarkdownWriter.cityListToMarkdown(regionCities, n, fileName);
+
+
     }
 
     /**
@@ -1121,6 +1203,48 @@ public class World {
      * @param n top N
      */
     public void nPopCitiesCountry(String countryName, int n){
+        //Check n is not a invalid number
+        if(n<=0){
+            System.out.println("Invalid number");
+            return;
+        }
+
+        //Check Country input is not invalid
+        if (countryName == null) {
+            System.out.println("Null input, no such city.");
+            return;
+        } else if (countryName.isEmpty()) {
+            System.out.println("Empty input.");
+            return;
+        } else if (countryName.isBlank()) {
+            System.out.println("Blank input.");
+            return;
+        }
+
+        //Get all cities in the country
+        ArrayList<City> nCountryCity = new ArrayList<City>();
+        for (Country country : countries) {
+            if (country.getName().equals(countryName)) {
+                nCountryCity.addAll(country.getCities());
+            }
+        }
+
+        //Sort all cities by population
+        nCountryCity.sort(Comparator.comparingInt(City::getPopulation).reversed());
+
+        //Print it
+        System.out.println("Top " + n + " populated cities in " + countryName + ".");
+        for (int i = 0; i < n; i++) {
+            System.out.println(nCountryCity.get(i));
+        }
+
+        //Markdown
+        String fileName = "nPopCitiesCountry" + countryName + "Top" + n;
+        MarkdownWriter.cityListToMarkdown(nCountryCity, n, fileName);
+
+
+
+
     }
 
     /**
@@ -1344,6 +1468,35 @@ public class World {
      * Sorting: Largest population to smallest
      * @param n top N
      */
-    public void nPopCapCitiesWorld(int n){
+    public void nPopCapCitiesWorld(int n) {
+        ///Check n is not an invalid number
+        if (n <= 0) {
+            System.out.println("Invalid number");
+            return;
+        }
+
+        //Get all Capital cities in the world
+        ArrayList<City> nWorldCapCities = new ArrayList<>();
+
+        for (Country country : countries) {
+            for (City city : country.getCities()) {
+                if (city.getId() == country.getCapital()) {
+                    nWorldCapCities.add(city);
+                }
+            }
+        }
+
+        //Sort capital cities
+        nWorldCapCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
+
+        //Print
+        System.out.println("Top " + n + " capital cities in the world, sorted by population");
+        for (int i = 0; i < n; i++) {
+            System.out.println(nWorldCapCities.get(i));
+        }
+
+        //Markdown
+        String fileName = "nPopCapCitiesContinentWorld" + "Top" + n;
+        MarkdownWriter.cityListToMarkdown(nWorldCapCities, n, fileName);
     }
 }

@@ -67,8 +67,8 @@ public class App
 
         world.nPopCitiesWorld(50);
         world.nPopCitiesContinent("Asia", 20);
-        //world.nPopCitiesRegion("Caribbean", 5);
-        //world.nPopCitiesCountry("France", 5);
+        world.nPopCitiesRegion("Caribbean", 5);
+        world.nPopCitiesCountry("France", 5);
         //world.nPopCitiesDistrict("California", 5);
     }
 
@@ -83,7 +83,7 @@ public class App
 
         world.nPopCapCitiesRegion("Caribbean", 5);
         world.nPopCapCitiesContinent("Asia", 10);
-        //world.nPopCapCitiesWorld(50);
+        world.nPopCapCitiesWorld(50);
     }
 
     /**
