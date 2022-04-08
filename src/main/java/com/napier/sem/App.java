@@ -49,11 +49,11 @@ public class App
     private static void countryReports(World world) {
         world.sortCountriesPopContinent("Asia");
         world.sortCountriesPopRegion("Caribbean");
-        //world.sortCountriesPopWorld();
+        world.sortCountriesPopWorld();
 
         world.nPopCountriesWorld(10);
         world.nPopCountriesContinent("Asia", 5);
-        //world.nPopCountriesRegion();
+        world.nPopCountriesRegion("Caribbean", 5);
     }
 
     /**
@@ -69,8 +69,8 @@ public class App
 
         world.nPopCitiesWorld(50);
         world.nPopCitiesContinent("Asia", 20);
-        //world.nPopCitiesRegion("Caribbean", 5);
-        //world.nPopCitiesCountry("France", 5);
+        world.nPopCitiesRegion("Caribbean", 5);
+        world.nPopCitiesCountry("France", 5);
         //world.nPopCitiesDistrict("California", 5);
     }
 
@@ -85,7 +85,7 @@ public class App
 
         world.nPopCapCitiesRegion("Caribbean", 5);
         world.nPopCapCitiesContinent("Asia", 10);
-        //world.nPopCapCitiesWorld(50);
+        world.nPopCapCitiesWorld(50);
     }
 
     /**
