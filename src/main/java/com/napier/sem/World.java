@@ -879,12 +879,9 @@ public class World {
             System.out.println(regionCountries.get(i));
         }
 
-
-
-
-
-
-
+        //Write to markdown file
+        String fileName = "nPopCountriesRegion" + regionName + "Top" + n;
+        MarkdownWriter.countryListToMarkdown(regionCountries, n, fileName);
 
 
     }

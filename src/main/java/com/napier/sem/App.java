@@ -51,7 +51,7 @@ public class App
 
         world.nPopCountriesWorld(10);
         world.nPopCountriesContinent("Asia", 5);
-        //world.nPopCountriesRegion();
+        world.nPopCountriesRegion("Caribbean", 5);
     }
 
     /**
