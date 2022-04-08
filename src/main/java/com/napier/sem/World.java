@@ -663,6 +663,19 @@ public class World {
      * Sorting: Largest population to smallest
      */
     public void sortCountriesPopWorld(){
+
+        //Arraylist of countries that stores all the countries in the world
+        ArrayList<Country> sortCountries = new ArrayList<Country>(this.countries);
+
+        //Sort all the countries from larges population to smallest
+        sortCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
+
+        System.out.println("All the countries in the world organized by population");
+
+        //Print out all the countries
+        for(Country c : sortCountries){
+            System.out.println(c);
+        }
     }
 
     /**

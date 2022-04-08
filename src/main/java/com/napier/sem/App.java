@@ -47,7 +47,7 @@ public class App
     private static void countryReports(World world) {
         world.sortCountriesPopContinent("Asia");
         world.sortCountriesPopRegion("Caribbean");
-        //world.sortCountriesPopWorld();
+        world.sortCountriesPopWorld();
 
         world.nPopCountriesWorld(10);
         world.nPopCountriesContinent("Asia", 5);
