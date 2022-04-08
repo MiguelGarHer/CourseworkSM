@@ -1176,6 +1176,11 @@ public class World {
             System.out.println(regionCities.get(i));
         }
 
+        //Markdown
+        String fileName = "nPopCitiesRegion" + regionCities + "Top" + n;
+        MarkdownWriter.cityListToMarkdown(regionCities, n, fileName);
+
+
     }
 
     /**
