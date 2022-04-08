@@ -1116,6 +1116,28 @@ public class World {
      * @param n top N
      */
     public void nPopCitiesDistrict(String districtName, int n){
+
+        //ArrayList to store all the cities in that district
+        ArrayList<City> sortCities = new ArrayList<City>();
+
+        //Search all the cities whose district is "districtName"
+        for(Country c : countries){
+            for(City city : c.getCities()){
+                if(city.getDistrict().equals(districtName)){
+                    //Add the city to the arraylist
+                    sortCities.add(city);
+                }
+            }
+        }
+
+        //Sort all the cities from largest population to smallest
+        sortCities.sort(Comparator.comparing(City::getPopulation).reversed());
+
+        //Print out all the cities sorted
+        System.out.println("All the cities in the district " + districtName + "sorted from largest population to smallest.");
+        for (City c : sortCities){
+            System.out.println(c.getName());
+        }
     }
 
     /**
