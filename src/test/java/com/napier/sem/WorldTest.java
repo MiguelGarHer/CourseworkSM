@@ -244,6 +244,38 @@ class WorldTest {
 
     }
 
+    @Test
+    void nPopCitiesDistrictTestNull() {
+        world.nPopCitiesDistrict(null, 2);
+        assertEquals("Null input, no cities",
+                outputStreamCaptor.toString().trim(),
+                "Null districtName was passed");
+    }
+
+    @Test
+    void nPopCitiesDistrictTestEmpty() {
+        world.nPopCitiesDistrict("", 2);
+        assertEquals("Empty input, no cities",
+                outputStreamCaptor.toString().trim(),
+                "Empty districtName was passed");
+    }
+
+    @Test
+    void nPopCitiesDistrictTestBlank() {
+        world.nPopCitiesDistrict("  ", 2);
+        assertEquals("Blank input, no cities",
+                outputStreamCaptor.toString().trim(),
+                "Blank districtName was passed");
+    }
+
+    @Test
+    void nPopCitiesDistrictNegative() {
+        world.nPopCitiesDistrict("California", -5);
+        assertEquals("Invalid number",
+                outputStreamCaptor.toString().trim(),
+                "Negative n was passed");
+    }
+
     //sortCountriesPopRegion Test(Empty, null and blank)
 
     @Test

@@ -1117,6 +1117,23 @@ public class World {
      */
     public void nPopCitiesDistrict(String districtName, int n){
 
+        if(n<1){
+            System.out.println("Invalid number");
+            return;
+        }
+
+        // Null, empty and blank parameter check
+        if (districtName == null) {
+            System.out.println("Null input, no cities");
+            return;
+        } else if (districtName.isEmpty()) {
+            System.out.println("Empty input, no cities");
+            return;
+        } else if (districtName.isBlank()) {
+            System.out.println("Blank input, no cities");
+            return;
+        }
+
         //ArrayList to store all the cities in that district
         ArrayList<City> sortCities = new ArrayList<City>();
 

@@ -38,6 +38,8 @@ public class App
 
         // Testing for language reports
         languageReports(world);
+
+        world.nPopCitiesDistrict("California", 2);
     }
 
     /**
