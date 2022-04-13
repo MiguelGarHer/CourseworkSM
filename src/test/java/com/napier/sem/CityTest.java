@@ -5,9 +5,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit Test Class: Class testing City class
+ */
 class CityTest {
-    static City city;
+    static City city;   // City object
 
+    /**
+     * Initializing method, executed before each test
+     */
     @BeforeAll
     static void init() {
         city = new City(1,
@@ -18,6 +24,9 @@ class CityTest {
                 1);
     }
 
+    /**
+     * Unit Test: Testing getPopulation
+     */
     @Test
     void getPopulationTest() {
         assertEquals(1,
@@ -25,6 +34,9 @@ class CityTest {
                 "Population is not equal to 1");
     }
 
+    /**
+     * Unit Test: Testing getId
+     */
     @Test
     void getIdTest() {
         assertEquals(1,
@@ -32,6 +44,9 @@ class CityTest {
                 "Id is not equal to 1");
     }
 
+    /**
+     * Unit Test: Testing getName
+     */
     @Test
     void getNameTest() {
         assertEquals("name",
@@ -39,6 +54,9 @@ class CityTest {
                 "Name is not equal to name");
     }
 
+    /**
+     * Unit Test: Testing getCountryName
+     */
     @Test
     void getCountryNameTest() {
         assertEquals("countryName",
@@ -46,6 +64,9 @@ class CityTest {
                 "CountryName is not equal to countryName");
     }
 
+    /**
+     * Unit Test: Testing getCountryCode
+     */
     @Test
     void getCountryCodeTest() {
         assertEquals("CCE",
@@ -53,6 +74,9 @@ class CityTest {
                 "CountryCode is not equal to CCE");
     }
 
+    /**
+     * Unit Test: Testing getDistrict
+     */
     @Test
     void getDistrictTest() {
         assertEquals("district",

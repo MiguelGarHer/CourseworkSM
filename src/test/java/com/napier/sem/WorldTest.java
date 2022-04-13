@@ -568,9 +568,9 @@ class WorldTest {
     @Test
     void getAllDistrictPopulationsTestNullCountries() {
         Map<String, Long> districts = world.getAllDistrictPopulations(null);
-        assertEquals(new HashMap<String, Long>(),
-                districts,
-                "Null Country list was passed");
+        assertEquals("Null country list",
+                outputStreamCaptor.toString().trim(),
+                "Null country list was passed");
     }
 
     @Test

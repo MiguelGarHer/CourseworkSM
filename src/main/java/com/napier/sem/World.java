@@ -3,6 +3,9 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.*;
 
+/**
+ * Facade/Interface class modelling a world
+ */
 public class World {
 
     // Connection to MySQL database
@@ -21,6 +24,8 @@ public class World {
 
     /**
      * Connect to the MySQL database.
+     * @param location Path to database
+     * @param delay Delay between each connection attempt
      */
     public void connect(String location, int delay) {
         try {
@@ -232,38 +237,6 @@ public class World {
             System.out.println(e.getMessage());
         }
         return null;
-    }
-
-    /**
-     * Prints all country details
-     * @param country name of country
-     */
-    public void printCountry(Country country) {
-        if (country != null) {
-            System.out.println(country);
-        }
-    }
-
-    /**
-     * Generate country report
-     * @param countryName name of country
-     */
-    public void getCountryRep(String countryName){
-    }
-
-    /**
-     * Generate city report
-     * @param cityName name of city
-     */
-    public void getCityReport(String cityName){
-
-    }
-
-    /**
-     * Generate capital city report
-     * @param capCityName name of capital city
-     */
-    public void getCapCityRep(String capCityName){
     }
 
     /**
@@ -518,8 +491,12 @@ public class World {
      * @return HashMap consisting of country names (K) and populations (V)
      */
     public Map<String, Long> getAllDistrictPopulations(List<Country> countryList) {
+        if (countryList == null) {
+            System.out.println("Null country list");
+            return null;
+        }
         HashMap<String, Long> districts = new HashMap<>();
-        for (Country country : countries) {
+        for (Country country : countryList) {
             for (City city : country.getCities()) {
                 if (districts.containsKey(city.getDistrict())) {
                     districts.put(city.getDistrict(), districts.get(city.getDistrict()) + city.getPopulation());
@@ -641,7 +618,7 @@ public class World {
                     } else {
                         selectedLanguages.put(
                                 language.getLanguage(),
-                                selectedLanguages.get(language.getLanguage()) + (long) langPopulation);
+                                selectedLanguages.get(language.getLanguage()) + langPopulation);
                     }
                 }
             }
@@ -665,7 +642,7 @@ public class World {
     public void sortCountriesPopWorld(){
 
         //Arraylist of countries that stores all the countries in the world
-        ArrayList<Country> sortCountries = new ArrayList<Country>(this.countries);
+        ArrayList<Country> sortCountries = new ArrayList<>(this.countries);
 
         //Sort all the countries from larges population to smallest
         sortCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
@@ -1205,7 +1182,7 @@ public class World {
      * @param n top N
      */
     public void nPopCitiesCountry(String countryName, int n){
-        //Check n is not a invalid number
+        //Check n is not an invalid number
         if(n<=0){
             System.out.println("Invalid number");
             return;
@@ -1224,7 +1201,7 @@ public class World {
         }
 
         //Get all cities in the country
-        ArrayList<City> nCountryCity = new ArrayList<City>();
+        ArrayList<City> nCountryCity = new ArrayList<>();
         for (Country country : countries) {
             if (country.getName().equals(countryName)) {
                 nCountryCity.addAll(country.getCities());
@@ -1273,7 +1250,7 @@ public class World {
         }
 
         //ArrayList to store all the cities in that district
-        ArrayList<City> sortCities = new ArrayList<City>();
+        ArrayList<City> sortCities = new ArrayList<>();
 
         //Search all the cities whose district is "districtName"
         for(Country c : countries){
@@ -1285,7 +1262,7 @@ public class World {
             }
         }
 
-        //Sort all the cities from largest population to smallest
+        //Sort all the cities from the largest population to smallest
         sortCities.sort(Comparator.comparing(City::getPopulation).reversed());
 
         //Print out all the cities sorted

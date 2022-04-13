@@ -44,7 +44,7 @@ public class App
 
     /**
      * Helper method which calls all country related reports
-     * @param world
+     * @param world Interface/Facade
      */
     private static void countryReports(World world) {
         world.sortCountriesPopContinent("Asia");
@@ -58,7 +58,7 @@ public class App
 
     /**
      * Helper method which calls all city related reports
-     * @param world
+     * @param world Interface/Facade
      */
     private static void cityReports(World world) {
         world.sortCitiesPopWorld();
@@ -76,7 +76,7 @@ public class App
 
     /**
      * Helper method which calls all capital city related reports
-     * @param world
+     * @param world World object
      */
     private static void capCityReports(World world) {
         world.sortCapCitiesPopWorld();
@@ -90,7 +90,7 @@ public class App
 
     /**
      * Helper method which calls all population related reports
-     * @param world
+     * @param world Interface/Facade
      */
     private static void populationReports(World world) {
         // Get all continent population reports
@@ -105,7 +105,7 @@ public class App
 
     /**
      * Helper method which calls all language related reports
-     * @param world
+     * @param world Interface/Facade
      */
     private static void languageReports(World world) {
 

@@ -6,6 +6,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Helper class handling Markdown writing/reading
+ */
 public class MarkdownWriter {
     public static void countryListToMarkdown(List<Country> countries, String fileName) {
         if (countries == null){

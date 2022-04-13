@@ -1,15 +1,15 @@
 package com.napier.sem;
 
+/**
+ * City class modelling a city
+ */
 public class City {
-    private final int id;
-    private final String name;
-    private final String countryCode;
-
-
-
-    private final String countryName;
-    private final String district;
-    private final int population;
+    private final int id;               // City id
+    private final String name;          // City name
+    private final String countryCode;   // Country code
+    private final String countryName;   // Country name
+    private final String district;      // District name
+    private final int population;       // Population
 
     /**
      * Constructor for City
@@ -29,30 +29,58 @@ public class City {
         this.population = population;
     }
 
+    /**
+     * Getter for population attribute
+     * @return city population
+     */
     public int getPopulation(){
         return  this.population;
     }
 
+    /**
+     * Getter for city id attribute
+     * @return city id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Getter for city name attribute
+     * @return city name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Getter for country code attribute
+     * @return country code
+     */
     public String getCountryCode() {
         return countryCode;
     }
 
+    /**
+     * Getter for country name attribute
+     * @return country name
+     */
     public String getCountryName() {
         return countryName;
     }
 
+    /**
+     * Getter for city district attribute
+     * @return city district
+     */
     public String getDistrict() {
         return district;
     }
 
+    /**
+     * ToString method
+     * @return all class attributes
+     */
     @Override
     public String toString() {
         return "City{" +
