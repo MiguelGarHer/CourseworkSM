@@ -727,7 +727,9 @@ class WorldTest {
     @Test
     void nPopCountriesRegionTestNull() {
         world.nPopCountriesRegion(null, 1);
-        assertEquals("Null input, no region", outputStreamCaptor.toString().trim());
+        assertEquals("Null input, no region",
+                outputStreamCaptor.toString().trim(),
+                "Null region name was passed");
     }
 
     /**
@@ -736,7 +738,9 @@ class WorldTest {
     @Test
     void nPopCountriesRegionTestBlank() {
         world.nPopCountriesRegion("  ", 1);
-        assertEquals("Blank input, no region", outputStreamCaptor.toString().trim());
+        assertEquals("Blank input, no region",
+                outputStreamCaptor.toString().trim(),
+                "Blank region name was passed");
     }
 
     /**
@@ -745,7 +749,9 @@ class WorldTest {
     @Test
     void nPopCountriesRegionTestNegative() {
         world.nPopCountriesRegion("Caribbean", -1);
-        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+        assertEquals("Invalid number",
+                outputStreamCaptor.toString().trim(),
+                "Negative n was passed");
     }
 
     /**
@@ -754,7 +760,9 @@ class WorldTest {
     @Test
     void nPopCountriesRegionTestZero() {
         world.nPopCountriesRegion("Caribbean",0);
-        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+        assertEquals("Invalid number",
+                outputStreamCaptor.toString().trim(),
+                "n == 0 was passed");
     }
 
     /**
@@ -763,7 +771,9 @@ class WorldTest {
     @Test
     void nPopCitiesRegionTestNull() {
         world.nPopCitiesRegion(null, 1);
-        assertEquals("Null input, no region", outputStreamCaptor.toString().trim());
+        assertEquals("Null input, no region",
+                outputStreamCaptor.toString().trim(),
+                "Null region name was passed");
     }
 
     /**
@@ -772,7 +782,9 @@ class WorldTest {
     @Test
     void nPopCitiesRegionTestBlank() {
         world.nPopCitiesRegion("  ", 1);
-        assertEquals("Blank input, no region", outputStreamCaptor.toString().trim());
+        assertEquals("Blank input, no region",
+                outputStreamCaptor.toString().trim(),
+                "Blank region name was passed");
     }
 
     /**
@@ -781,7 +793,9 @@ class WorldTest {
     @Test
     void nPopCitiesRegionTestNegative() {
         world.nPopCitiesRegion("Caribbean", -1);
-        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+        assertEquals("Invalid number",
+                outputStreamCaptor.toString().trim(),
+                "Negative n was passed");
     }
 
     /**
@@ -790,7 +804,9 @@ class WorldTest {
     @Test
     void nPopCitiesRegionTestZero() {
         world.nPopCitiesRegion("Caribbean", 0);
-        assertEquals("Invalid number", outputStreamCaptor.toString().trim());
+        assertEquals("Invalid number",
+                outputStreamCaptor.toString().trim(),
+                "n == 0 was passed");
     }
 }
 
