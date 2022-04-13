@@ -2,9 +2,15 @@ package com.napier.sem;
 
 import java.util.ArrayList;
 
-
+/**
+ * Class for main application
+ */
 public class App
 {
+    /**
+     * Main method that calls all methods
+     * @param args command-line arguments
+     */
     public static void main(String[] args)
     {
         // Create World
@@ -39,7 +45,6 @@ public class App
         // Testing for language reports
         languageReports(world);
 
-        world.nPopCitiesDistrict("California", 2);
     }
 
     /**
@@ -72,6 +77,7 @@ public class App
         world.nPopCitiesRegion("Caribbean", 5);
         world.nPopCitiesCountry("France", 5);
         world.nPopCitiesDistrict("California", 5);
+
     }
 
     /**
