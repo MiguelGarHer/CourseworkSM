@@ -11,14 +11,20 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit Test Class: Class testing MarkdownWriter class
+ */
 class MarkdownWriterTest {
-    private static List<Country> countries;
+    private static List<Country> countries; // List of Country objects
 
-    private static List<City> cities;
+    private static List<City> cities;   // List of City objects
 
+    // Stream capturing console print
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
-
+    /**
+     * Initializing method, executed before all tests
+     */
     @BeforeAll
     static void init() {
         countries = new ArrayList<>();
@@ -48,12 +54,17 @@ class MarkdownWriterTest {
                 1));
     }
 
-
+    /**
+     * Prepare method, executed before each test
+     */
     @BeforeEach
     public void setUp() {
         System.setOut(new PrintStream(outputStreamCaptor));
     }
 
+    /**
+     * Unit Test: countryListToMarkdown - blank parameter test (fileName)
+     */
     @Test
     void countryListToMarkdownTestBlankFileName() {
         MarkdownWriter.countryListToMarkdown(countries, "   ");
@@ -62,6 +73,9 @@ class MarkdownWriterTest {
                 "Empty countryList was passed");
     }
 
+    /**
+     * Unit Test: countryListToMarkdown - null parameter test (countries)
+     */
     @Test
     void countryListToMarkdownTestNullList() {
         MarkdownWriter.countryListToMarkdown(null, "fileName");
@@ -70,6 +84,9 @@ class MarkdownWriterTest {
                 "Null countryList was passed");
     }
 
+    /**
+     * Unit Test: countryListToMarkdown - null parameter test (fileName)
+     */
     @Test
     void countryListToMarkdownTestNullFileName() {
         MarkdownWriter.countryListToMarkdown(countries, null);
@@ -78,6 +95,9 @@ class MarkdownWriterTest {
                 "Null file name was passed");
     }
 
+    /**
+     * Unit Test: countryListToMarkdown - invalid number parameter test (n)
+     */
     @Test
     void countryListToMarkdownTestInvalidNumber() {
         MarkdownWriter.countryListToMarkdown(countries,-1, "fileName");
@@ -86,6 +106,9 @@ class MarkdownWriterTest {
                 "Invalid n number was passed");
     }
 
+    /**
+     * Unit Test: countryListToMarkdown - number == 0 parameter test (n)
+     */
     @Test
     void countryListToMarkdownTestInvalidNumberZero() {
         MarkdownWriter.countryListToMarkdown(countries,0, "fileName");
@@ -94,6 +117,9 @@ class MarkdownWriterTest {
                 "n = 0 was passed");
     }
 
+    /**
+     * Unit Test: languageToMarkdown - null parameter test (language)
+     */
     @Test
     void languageToMarkdownTestNullLanguage() {
         MarkdownWriter.languageToMarkdown(
@@ -106,6 +132,9 @@ class MarkdownWriterTest {
                 "Null language was passed");
     }
 
+    /**
+     * Unit Test: languageToMarkdown - null parameter test (fileName)
+     */
     @Test
     void languageToMarkdownTestNullFileName() {
         MarkdownWriter.languageToMarkdown(
@@ -118,6 +147,9 @@ class MarkdownWriterTest {
                 "Null filename was passed");
     }
 
+    /**
+     * Unit Test: languageToMarkdown - blank parameter test (fileName)
+     */
     @Test
     void languageToMarkdownTestBlankFileName() {
         MarkdownWriter.languageToMarkdown(
@@ -130,8 +162,9 @@ class MarkdownWriterTest {
                 "Blank filename was passed");
     }
 
-
-
+    /**
+     * Unit Test: cityListToMarkdown - blank parameter test (fileName)
+     */
     @Test
     void cityListToMarkdownTestBlankFileName() {
         MarkdownWriter.cityListToMarkdown(cities, "   ");
@@ -140,6 +173,9 @@ class MarkdownWriterTest {
                 "Blank filename was passed");
     }
 
+    /**
+     * Unit Test: cityListToMarkdown - null parameter test (cities)
+     */
     @Test
     void cityListToMarkdownTestNullList() {
         MarkdownWriter.cityListToMarkdown(null, "fileName");
@@ -148,6 +184,9 @@ class MarkdownWriterTest {
                 "Null list was passed");
     }
 
+    /**
+     * Unit Test: cityListToMarkdown - null parameter test (fileName)
+     */
     @Test
     void cityListToMarkdownTestNullFileName() {
         MarkdownWriter.cityListToMarkdown(cities, null);
@@ -156,6 +195,9 @@ class MarkdownWriterTest {
                 "Null filename was passed");
     }
 
+    /**
+     * Unit Test: cityListToMarkdown - invalid number parameter test (n)
+     */
     @Test
     void cityListToMarkdownTestInvalidNumber() {
         MarkdownWriter.cityListToMarkdown(cities,-1, "fileName");
@@ -164,6 +206,9 @@ class MarkdownWriterTest {
                 "Invalid n number was passed");
     }
 
+    /**
+     * Unit Test: cityListToMarkdown - number == 0 parameter test (n)
+     */
     @Test
     void cityListToMarkdownTestInvalidNumberZero() {
         MarkdownWriter.cityListToMarkdown(cities,0, "fileName");
@@ -172,6 +217,9 @@ class MarkdownWriterTest {
                 "n = 0 was passed");
     }
 
+    /**
+     * Unit Test: populationToMarkdown - null parameter test (name)
+     */
     @Test
     void populationToMarkdownTestNullName() {
         MarkdownWriter.populationToMarkdown(null, 1, "fileName");
@@ -180,6 +228,9 @@ class MarkdownWriterTest {
                 "Null name input was passed");
     }
 
+    /**
+     * Unit Test: populationToMarkdown - blank parameter test (name)
+     */
     @Test
     void populationToMarkdownTestBlankName() {
         MarkdownWriter.populationToMarkdown("", 1, "fileName");
@@ -188,6 +239,9 @@ class MarkdownWriterTest {
                 "Empty name input was NOT passed");
     }
 
+    /**
+     * Unit Test: populationToMarkdown - null parameter test (fileName)
+     */
     @Test
     void populationToMarkdownTestNullFileName() {
         MarkdownWriter.populationToMarkdown("name", 1, null);
@@ -196,6 +250,9 @@ class MarkdownWriterTest {
                 "Null filename was passed");
     }
 
+    /**
+     * Unit Test: populationToMarkdown - blank parameter test (fileName)
+     */
     @Test
     void populationToMarkdownTestBlankFileName() {
         MarkdownWriter.populationToMarkdown("name", 1, "");
@@ -204,6 +261,9 @@ class MarkdownWriterTest {
                 "Blank filename was passed");
     }
 
+    /**
+     * Unit Test: populationReportToMarkdown - null parameter test (name)
+     */
     @Test
     void populationReportToMarkdownTestNullName() {
         MarkdownWriter.populationReportToMarkdown(
@@ -220,6 +280,9 @@ class MarkdownWriterTest {
                 "Null name input was passed");
     }
 
+    /**
+     * Unit Test: populationReportToMarkdown - blank parameter test (name)
+     */
     @Test
     void populationReportToMarkdownTestBlankName() {
         MarkdownWriter.populationReportToMarkdown(
@@ -236,6 +299,9 @@ class MarkdownWriterTest {
                 "Blank name input was passed");
     }
 
+    /**
+     * Unit Test: populationReportToMarkdown - null parameter test (fileName)
+     */
     @Test
     void populationReportToMarkdownTestNullFileName() {
         MarkdownWriter.populationReportToMarkdown(
@@ -252,6 +318,9 @@ class MarkdownWriterTest {
                 "Null filename was passed");
     }
 
+    /**
+     * Unit Test: populationReportToMarkdown - empty parameter test (fileName)
+     */
     @Test
     void populationReportToMarkdownTestEmptyFileName() {
         MarkdownWriter.populationReportToMarkdown(

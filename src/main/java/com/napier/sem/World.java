@@ -670,9 +670,6 @@ public class World {
         if (continentName == null) {
             System.out.println("Null input, no countries");
             return;
-        } else if (continentName.isEmpty()) {
-            System.out.println("Empty input, no countries");
-            return;
         } else if (continentName.isBlank()) {
             System.out.println("Blank input, no countries");
             return;
@@ -711,10 +708,7 @@ public class World {
         if(regionName == null){
             System.out.println("Null input, no countries");
             return;
-        }if(regionName.isEmpty()){
-            System.out.println("Empty input, no countries");
-            return;
-        } else if(regionName.isBlank()){
+        } else if (regionName.isBlank()){
             System.out.println("Blank input, no countries");
             return;
         }
@@ -782,12 +776,11 @@ public class World {
         if (continentName == null) {
             System.out.println("Null continent name");
             return;
-        }
-
-        if (continentName.isBlank()) {
+        } else if (continentName.isBlank()) {
             System.out.println("Blank continent name");
             return;
         }
+
         if (n <= 0){
             System.out.println("Invalid number");
             return;
@@ -825,9 +818,6 @@ public class World {
         // Null, empty and blank parameter check
         if (regionName == null) {
             System.out.println("Null input, no region");
-            return;
-        } else if (regionName.isEmpty()) {
-            System.out.println("Empty input, no region");
             return;
         } else if (regionName.isBlank()) {
             System.out.println("Blank input, no region");
@@ -895,9 +885,6 @@ public class World {
         if (continentName == null) {
             System.out.println("Null input, no cities");
             return;
-        } else if (continentName.isEmpty()) {
-            System.out.println("Empty input, no cities");
-            return;
         } else if (continentName.isBlank()) {
             System.out.println("Blank input, no cities");
             return;
@@ -935,9 +922,6 @@ public class World {
         if (regionName == null) {
             System.out.println("Null input, no cities");
             return;
-        } else if (regionName.isEmpty()) {
-            System.out.println("Empty input, no cities");
-            return;
         } else if (regionName.isBlank()) {
             System.out.println("Blank input, no cities");
             return;
@@ -973,9 +957,6 @@ public class World {
         // Null, empty and blank parameter check
         if (countryName == null) {
             System.out.println("Null input, no cities");
-            return;
-        } else if (countryName.isEmpty()) {
-            System.out.println("Empty input, no cities");
             return;
         } else if (countryName.isBlank()) {
             System.out.println("Blank input, no cities");
@@ -1015,9 +996,6 @@ public class World {
         // Null, empty and blank parameter check
         if (districtName == null) {
             System.out.println("Null input, no cities");
-            return;
-        } else if (districtName.isEmpty()) {
-            System.out.println("Empty input, no cities");
             return;
         } else if (districtName.isBlank()) {
             System.out.println("Blank input, no cities");
@@ -1090,9 +1068,6 @@ public class World {
         if (continentName == null) {
             System.out.println("Null input, no cities");
             return;
-        } else if (continentName.isEmpty()) {
-            System.out.println("Empty input, no cities");
-            return;
         } else if (continentName.isBlank()) {
             System.out.println("Blank input, no cities");
             return;
@@ -1136,9 +1111,6 @@ public class World {
         // Null, empty and blank parameter check
         if (regionName == null) {
             System.out.println("Null input, no region");
-            return;
-        } else if (regionName.isEmpty()) {
-            System.out.println("Empty input, no region");
             return;
         } else if (regionName.isBlank()) {
             System.out.println("Blank input, no region");
@@ -1240,9 +1212,6 @@ public class World {
         // Null, empty and blank parameter check
         if (districtName == null) {
             System.out.println("Null input, no cities");
-            return;
-        } else if (districtName.isEmpty()) {
-            System.out.println("Empty input, no cities");
             return;
         } else if (districtName.isBlank()) {
             System.out.println("Blank input, no cities");
@@ -1407,6 +1376,9 @@ public class World {
     public void nPopCapCitiesRegion(String regionName, int n){
         if (regionName == null) {
             System.out.println("Null region name");
+            return;
+        } else if (regionName.isBlank()) {
+            System.out.println("Blank input, no capital cities");
             return;
         }
 

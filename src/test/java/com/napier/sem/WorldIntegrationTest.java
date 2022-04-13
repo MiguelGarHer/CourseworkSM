@@ -8,10 +8,16 @@ import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Integration Test Class: Class testing World class
+ */
 class WorldIntegrationTest
 {
-    static World world;
+    static World world; // World object
 
+    /**
+     * Initializing method, executed before each test
+     */
     @BeforeAll
     static void init()
     {
@@ -20,8 +26,9 @@ class WorldIntegrationTest
     }
 
     /**
-     * Tests read to database by looking at the first table and its column are not null
-     * @throws SQLException
+     * Integration Test: Confirm that application is connected to database
+     * Logic: Query the database, and check that the first table and its column are not null
+     * @throws SQLException exception whenever a query was unable to be executed
      */
     @Test
     void testGetResultSetNotNull() throws SQLException {
@@ -33,7 +40,7 @@ class WorldIntegrationTest
             String columnQuery = "SHOW COLUMNS FROM " + firstTable + ";";
             ResultSet columnsResultSet = world.getResultSet(columnQuery);
             if (columnsResultSet.next()) {
-                assertNotNull(columnsResultSet.getString(1), "Table column doesn't equal to null");
+                assertNotNull(columnsResultSet.getString(1), "Table column is equal to null");
             }
         }
 
