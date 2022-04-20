@@ -1,5 +1,5 @@
-| Name | Population |
-| --- | --- |
+| Name | Population living in cities | Population not living in cities | Total population |
+| --- | --- | --- | --- |
 | South America | 172037859 (50%) | 173742141 (50%) | 345780000 (100%) |
 | Central America | 65860964 (49%) | 69360036 (51%) | 135221000 (100%) |
 | Eastern Africa | 24067066 (10%) | 222931934 (90%) | 246999000 (100%) |

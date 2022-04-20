@@ -1,4 +1,4 @@
-| Name | Speaking population |
+| Language | Speaking population |
 | --- | --- |
 | Chinese | 1191843539 (19.607%) | 
 | Hindi | 405633070 (6.673%) | 

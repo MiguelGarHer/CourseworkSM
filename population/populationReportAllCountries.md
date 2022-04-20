@@ -1,5 +1,5 @@
-| Name | Population |
-| --- | --- |
+| Name | Population living in cities | Population not living in cities | Total population |
+| --- | --- | --- | --- |
 | Aruba | 29034 (28%) | 73966 (72%) | 103000 (100%) |
 | Afghanistan | 2332100 (10%) | 20387900 (90%) | 22720000 (100%) |
 | Angola | 2561600 (20%) | 10316400 (80%) | 12878000 (100%) |
