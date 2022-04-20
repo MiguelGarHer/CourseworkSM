@@ -193,7 +193,7 @@ public class MarkdownWriter {
         sb.append("%) |");
         sb.append("\r\n");
 
-        stringBuilderToMarkdown(sb, "country", fileName);
+        stringBuilderToMarkdown(sb, "population", fileName);
 
     }
 
@@ -367,18 +367,51 @@ public class MarkdownWriter {
             }
 
             if (createDirectory(reportDirectoryPath)) {
-                try {
-                    String fullFilePath = reportDirectoryPath + fileName + ".md";
-                    BufferedWriter writer = new BufferedWriter(new FileWriter(fullFilePath));
-                    writer.write(stringBuilder.toString());
-                    writer.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (reportType.equals("population") || reportType.equals("language")) {
+                    String columnNames;
+
+                    if (reportType.equals("population")) {
+                        columnNames = "| Name | Population |\r\n";
+                    } else {
+                        columnNames = "| Name | Speaking population |\r\n";
+                    }
+
+                    try {
+                        FileWriter fw;
+
+                        String fullFilePath = reportDirectoryPath + fileName + ".md";
+                        File file = new File(fullFilePath);
+
+                        if (file.exists()) {
+                            fw = new FileWriter(file, true);
+                        } else {
+                            fw = new FileWriter(file);
+                            stringBuilder.insert(0, "| --- | --- |\r\n");
+                            stringBuilder.insert(0, columnNames);
+                        }
+
+                        BufferedWriter writer = new BufferedWriter(fw);
+                        writer.write(stringBuilder.toString());
+                        writer.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    try {
+                        String fullFilePath = reportDirectoryPath + fileName + ".md";
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(fullFilePath));
+                        writer.write(stringBuilder.toString());
+                        writer.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
+
+
+
             } else {
                 System.out.println("Failed to create directory");
             }
-
         } else {
             System.out.println("Failed to create  base directory");
         }
