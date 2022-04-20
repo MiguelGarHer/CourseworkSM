@@ -27,8 +27,9 @@ public class MarkdownWriter {
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append("| Code | Name | Continent | Region | Population | Capital |\r\n");
-        sb.append("| --- | --- | --- | --- | --- | --- |\r\n");
+        String[] columnNames = new String[2];
+        columnNames[0] = "| Code | Name | Continent | Region | Population | Capital |\r\n";
+        columnNames[1] = "| --- | --- | --- | --- | --- | --- |\r\n";
 
         for (Country country : countries) {
             String capitalCityName = null;
@@ -57,7 +58,7 @@ public class MarkdownWriter {
         }
 
         // Call writing method
-        stringBuilderToMarkdown(sb, "", fileName);
+        stringBuilderToMarkdown(columnNames, sb, "", fileName);
     }
 
     public static void countryListToMarkdown(List<Country> countries, int n, String fileName) {
@@ -80,8 +81,10 @@ public class MarkdownWriter {
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append("| Code | Name | Continent | Region | Population | Capital |\r\n");
-        sb.append("| --- | --- | --- | --- | --- | --- |\r\n");
+        String[] columnNames = new String[2];
+
+        columnNames[0] = "| Code | Name | Continent | Region | Population | Capital |\r\n";
+        columnNames[1] = "| --- | --- | --- | --- | --- | --- |\r\n";
 
         for (int i = 0; i < n; i++) {
             String capitalCityName = null;
@@ -110,7 +113,7 @@ public class MarkdownWriter {
             sb.append("\r\n");
         }
 
-        stringBuilderToMarkdown(sb, "country", fileName);
+        stringBuilderToMarkdown(columnNames, sb, "country", fileName);
 
     }
 
@@ -137,6 +140,9 @@ public class MarkdownWriter {
 
 
         StringBuilder sb = new StringBuilder();
+        String[] columnNames = new String[2];
+        columnNames[0] = "| Name | Population |\r\n";
+        columnNames[1] = "| --- | --- |\r\n";
 
         sb.append("| ");
         sb.append(columnName);
@@ -145,7 +151,7 @@ public class MarkdownWriter {
         sb.append(" | ");
         sb.append("\r\n");
 
-        stringBuilderToMarkdown(sb, "population", fileName);
+        stringBuilderToMarkdown(columnNames, sb, "population", fileName);
 
 
     }
@@ -175,6 +181,9 @@ public class MarkdownWriter {
         }
 
         StringBuilder sb = new StringBuilder();
+        String[] columnNames = new String[2];
+        columnNames[0] = "| Name | Population living in cities | Population not living in cities | Total population |\r\n";
+        columnNames[1] = "| --- | --- | --- | --- |\r\n";
 
         sb.append("| ");
         sb.append(name);
@@ -193,7 +202,7 @@ public class MarkdownWriter {
         sb.append("%) |");
         sb.append("\r\n");
 
-        stringBuilderToMarkdown(sb, "population", fileName);
+        stringBuilderToMarkdown(columnNames, sb, "population", fileName);
 
     }
 
@@ -221,6 +230,9 @@ public class MarkdownWriter {
         }
 
         StringBuilder sb = new StringBuilder();
+        String[] columnNames = new String[2];
+        columnNames[0] = "| Language | Speaking population |\r\n";
+        columnNames[1] = "| --- | --- |\r\n";
 
         sb.append("| ");
         sb.append(languageName);
@@ -231,7 +243,7 @@ public class MarkdownWriter {
         sb.append("%) | ");
         sb.append("\r\n");
 
-        stringBuilderToMarkdown(sb, "language", fileName);
+        stringBuilderToMarkdown(columnNames, sb, "language", fileName);
 
     }
 
@@ -254,8 +266,9 @@ public class MarkdownWriter {
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append("| Name | Country | District | Population |\r\n");
-        sb.append("| --- | --- | --- | --- |\r\n");
+        String[] columnNames = new String[2];
+        columnNames[0] = "| Name | Country | District | Population |\r\n";
+        columnNames[1] = "| --- | --- | --- | --- |\r\n";
 
         for (City city : cities) {
             sb.append("| ");
@@ -271,7 +284,7 @@ public class MarkdownWriter {
             sb.append("\r\n");
         }
 
-        stringBuilderToMarkdown(sb, "city", fileName);
+        stringBuilderToMarkdown(columnNames, sb, "city", fileName);
 
     }
 
@@ -295,8 +308,9 @@ public class MarkdownWriter {
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append("| Name | Country | District | Population |\r\n");
-        sb.append("| --- | --- | --- | --- |\r\n");
+        String[] columnNames = new String[2];
+        columnNames[0] = "| Name | Country | District | Population |\r\n";
+        columnNames[1] = "| --- | --- | --- | --- |\r\n";
 
         for (int i = 0; i < n; i++) {
             City city = cities.get(i);
@@ -312,16 +326,16 @@ public class MarkdownWriter {
             sb.append(" |");
             sb.append("\r\n");
         }
-        stringBuilderToMarkdown(sb, "city", fileName);
+        stringBuilderToMarkdown(columnNames, sb, "city", fileName);
 
     }
 
-    public static void stringBuilderToMarkdown(StringBuilder stringBuilder, String reportType, String fileName) {
+    public static void stringBuilderToMarkdown(String[] columnNames, StringBuilder records, String reportType, String fileName) {
 
-        if (stringBuilder == null) {
+        if (records == null) {
             System.out.println("Null stringbuilder");
             return;
-        } else if (stringBuilder.length() == 0) {
+        } else if (records.length() == 0) {
             System.out.println("Empty stringbuilder");
             return;
         }
@@ -339,6 +353,14 @@ public class MarkdownWriter {
             return;
         } else if (fileName.isBlank()) {
             System.out.println("Blank filename");
+            return;
+        }
+
+        if (columnNames == null) {
+            System.out.println("Null column name");
+            return;
+        } else if (columnNames.length != 2) {
+            System.out.println("Invalid column name (missing row?)");
             return;
         }
 
@@ -367,53 +389,31 @@ public class MarkdownWriter {
             }
 
             if (createDirectory(reportDirectoryPath)) {
-                if (reportType.equals("population") || reportType.equals("language")) {
-                    String columnNames;
+                try {
+                    FileWriter fw;
 
-                    if (reportType.equals("population")) {
-                        columnNames = "| Name | Population |\r\n";
+                    String fullFilePath = reportDirectoryPath + fileName + ".md";
+                    File file = new File(fullFilePath);
+
+                    if (file.exists()) {
+                        fw = new FileWriter(file, true);
                     } else {
-                        columnNames = "| Name | Speaking population |\r\n";
+                        fw = new FileWriter(file);
+                        records.insert(0, columnNames[1]);
+                        records.insert(0, columnNames[0]);
                     }
 
-                    try {
-                        FileWriter fw;
-
-                        String fullFilePath = reportDirectoryPath + fileName + ".md";
-                        File file = new File(fullFilePath);
-
-                        if (file.exists()) {
-                            fw = new FileWriter(file, true);
-                        } else {
-                            fw = new FileWriter(file);
-                            stringBuilder.insert(0, "| --- | --- |\r\n");
-                            stringBuilder.insert(0, columnNames);
-                        }
-
-                        BufferedWriter writer = new BufferedWriter(fw);
-                        writer.write(stringBuilder.toString());
-                        writer.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    try {
-                        String fullFilePath = reportDirectoryPath + fileName + ".md";
-                        BufferedWriter writer = new BufferedWriter(new FileWriter(fullFilePath));
-                        writer.write(stringBuilder.toString());
-                        writer.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    BufferedWriter writer = new BufferedWriter(fw);
+                    writer.write(records.toString());
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-
-
-
             } else {
                 System.out.println("Failed to create directory");
             }
         } else {
-            System.out.println("Failed to create  base directory");
+            System.out.println("Failed to create base directory");
         }
 
 

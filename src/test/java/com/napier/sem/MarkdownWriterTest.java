@@ -338,11 +338,44 @@ class MarkdownWriterTest {
     }
 
     /**
+     * Unit Test: stringBuilderToMarkdown - null parameter test (columnNames)
+     */
+    @Test
+    void stringBuilderToMarkdownTestNullColumnName() {
+        MarkdownWriter.stringBuilderToMarkdown(
+                null,
+                new StringBuilder("1"),
+                "country",
+                "fileName"
+        );
+        assertEquals("Null column name",
+                outputStreamCaptor.toString().trim(),
+                "Empty column name was passed");
+    }
+
+    /**
+     * Unit Test: stringBuilderToMarkdown - invalid parameter test (columnNames length != 2)
+     */
+    @Test
+    void stringBuilderToMarkdownTestInvalidColumnName() {
+        MarkdownWriter.stringBuilderToMarkdown(
+                new String[1],
+                new StringBuilder("1"),
+                "country",
+                "fileName"
+        );
+        assertEquals("Invalid column name (missing row?)",
+                outputStreamCaptor.toString().trim(),
+                "Invalid column name was passed");
+    }
+
+    /**
      * Unit Test: stringBuilderToMarkdown - null parameter test (stringBuilder)
      */
     @Test
     void stringBuilderToMarkdownTestNullStringBuilder() {
         MarkdownWriter.stringBuilderToMarkdown(
+                new String[2],
                 null,
                 "country",
                 "fileName"
@@ -358,6 +391,7 @@ class MarkdownWriterTest {
     @Test
     void stringBuilderToMarkdownTestEmptyStringBuilder() {
         MarkdownWriter.stringBuilderToMarkdown(
+                new String[2],
                 new StringBuilder(),
                 "country",
                 "fileName"
@@ -375,6 +409,7 @@ class MarkdownWriterTest {
         StringBuilder sb = new StringBuilder();
         sb.append("sb");
         MarkdownWriter.stringBuilderToMarkdown(
+                new String[2],
                 sb,
                 null,
                 "fileName"
@@ -392,6 +427,7 @@ class MarkdownWriterTest {
         StringBuilder sb = new StringBuilder();
         sb.append("sb");
         MarkdownWriter.stringBuilderToMarkdown(
+                new String[2],
                 sb,
                 " ",
                 "fileName"
@@ -409,6 +445,7 @@ class MarkdownWriterTest {
         StringBuilder sb = new StringBuilder();
         sb.append("sb");
         MarkdownWriter.stringBuilderToMarkdown(
+                new String[2],
                 sb,
                 "country",
                 null
@@ -426,6 +463,7 @@ class MarkdownWriterTest {
         StringBuilder sb = new StringBuilder();
         sb.append("sb");
         MarkdownWriter.stringBuilderToMarkdown(
+                new String[2],
                 sb,
                 "country",
                 ""
