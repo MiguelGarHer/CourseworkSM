@@ -10,6 +10,8 @@ import java.util.List;
  * Helper class handling Markdown writing/reading
  */
 public class MarkdownWriter {
+
+
     public static void countryListToMarkdown(List<Country> countries, String fileName) {
         if (countries == null){
             System.out.println("Null country list");
@@ -38,23 +40,24 @@ public class MarkdownWriter {
             if (capitalCityName == null) {
                 capitalCityName = "";
             }
-            sb.append("| " +
-                    country.getCode() + " | " +
-                    country.getName() + " | " +
-                    country.getContinent() + " | " +
-                    country.getRegion() + " | " +
-                    country.getPopulation() + " | " +
-                    capitalCityName +
-                    " |" +"\r\n");
+            sb.append("| ");
+            sb.append(country.getCode());
+            sb.append(" | ");
+            sb.append(country.getName());
+            sb.append(" | ");
+            sb.append(country.getContinent());
+            sb.append(" | ");
+            sb.append(country.getRegion());
+            sb.append(" | ");
+            sb.append(country.getPopulation());
+            sb.append(" | ");
+            sb.append(capitalCityName);
+            sb.append(" |");
+            sb.append("\r\n");
         }
-        try {
-            new File("./reports/").mkdir();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + fileName + ".md")));
-            writer.write(sb.toString());
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        // Call writing method
+        stringBuilderToMarkdown(sb, "", fileName);
     }
 
     public static void countryListToMarkdown(List<Country> countries, int n, String fileName) {
@@ -91,23 +94,24 @@ public class MarkdownWriter {
             if (capitalCityName == null) {
                 capitalCityName = "";
             }
-            sb.append("| " +
-                    country.getCode() + " | " +
-                    country.getName() + " | " +
-                    country.getContinent() + " | " +
-                    country.getRegion() + " | " +
-                    country.getPopulation() + " | " +
-                    capitalCityName +
-                    " |" +"\r\n");
+            sb.append("| ");
+            sb.append(country.getCode());
+            sb.append(" | ");
+            sb.append(country.getName());
+            sb.append(" | ");
+            sb.append(country.getContinent());
+            sb.append(" | ");
+            sb.append(country.getRegion());
+            sb.append(" | ");
+            sb.append(country.getPopulation());
+            sb.append(" | ");
+            sb.append(capitalCityName);
+            sb.append(" |");
+            sb.append("\r\n");
         }
-        try {
-            new File("./reports/").mkdir();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + fileName + ".md")));
-            writer.write(sb.toString());
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        stringBuilderToMarkdown(sb, "country", fileName);
+
     }
 
     public static void populationToMarkdown(
@@ -134,28 +138,15 @@ public class MarkdownWriter {
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append("| " +
-                columnName + " | " +
-                population + " | " +
-                "\r\n");
-        try {
-            new File("./reports/").mkdir();
-            File file = new File("./reports/" + fileName + ".md");
-            FileWriter fw;
-            if (file.exists()) {
-                fw = new FileWriter(file, true);
-            } else {
-                fw = new FileWriter(file);
-                sb.insert(0,"| --- | --- |\r\n");
-                sb.insert(0,"| Name | Population |\r\n");
+        sb.append("| ");
+        sb.append(columnName);
+        sb.append(" | ");
+        sb.append(population);
+        sb.append(" | ");
+        sb.append("\r\n");
 
-            }
-            BufferedWriter writer = new BufferedWriter(fw);
-            writer.write(sb.toString());
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        stringBuilderToMarkdown(sb, "population", fileName);
+
 
     }
 
@@ -185,30 +176,25 @@ public class MarkdownWriter {
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append("| " +
-                name + " | " +
-                cityPopulation + " (" + cityPopulationPercentage + "%) | " +
-                countrySidePopulation + " (" + countrySidePopulationPercentage  + "%) | " +
-                totalPopulation + " (" + (cityPopulationPercentage + countrySidePopulationPercentage) + "%) |" +
-                "\r\n");
-        try {
-            new File("./reports/").mkdir();
-            File file = new File("./reports/" + fileName + ".md");
-            FileWriter fw;
-            if (file.exists()) {
-                fw = new FileWriter(file, true);
-            } else {
-                fw = new FileWriter(file);
-                sb.insert(0,"| --- | --- | --- | --- |\r\n");
-                sb.insert(0,"| Name | Population living in cities | Population not living in cities | Total population |\r\n");
+        sb.append("| ");
+        sb.append(name);
+        sb.append(" | ");
+        sb.append(cityPopulation);
+        sb.append(" (");
+        sb.append(cityPopulationPercentage);
+        sb.append("%) | ");
+        sb.append(countrySidePopulation);
+        sb.append(" (");
+        sb.append(countrySidePopulationPercentage);
+        sb.append("%) | ");
+        sb.append(totalPopulation);
+        sb.append(" (");
+        sb.append(cityPopulationPercentage + countrySidePopulationPercentage);
+        sb.append("%) |");
+        sb.append("\r\n");
 
-            }
-            BufferedWriter writer = new BufferedWriter(fw);
-            writer.write(sb.toString());
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        stringBuilderToMarkdown(sb, "country", fileName);
+
     }
 
     public static void languageToMarkdown(
@@ -236,29 +222,17 @@ public class MarkdownWriter {
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append("| " +
-                languageName + " | " +
-                population + " (" +
-                percentage + "%) | " +
-                "\r\n");
-        try {
-            new File("./reports/").mkdir();
-            File file = new File("./reports/" + fileName + ".md");
-            FileWriter fw;
-            if (file.exists()) {
-                fw = new FileWriter(file, true);
-            } else {
-                fw = new FileWriter(file);
-                sb.insert(0, "| --- | --- |\r\n");
-                sb.insert(0, "| Name | Speaking population |\r\n");
+        sb.append("| ");
+        sb.append(languageName);
+        sb.append(" | ");
+        sb.append(population);
+        sb.append(" (");
+        sb.append(percentage);
+        sb.append("%) | ");
+        sb.append("\r\n");
 
-            }
-            BufferedWriter writer = new BufferedWriter(fw);
-            writer.write(sb.toString());
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        stringBuilderToMarkdown(sb, "language", fileName);
+
     }
 
 
@@ -284,21 +258,21 @@ public class MarkdownWriter {
         sb.append("| --- | --- | --- | --- |\r\n");
 
         for (City city : cities) {
-            sb.append("| " +
-                    city.getName() + " | " +
-                    city.getCountryName() + " | " +
-                    city.getDistrict() + " | " +
-                    city.getPopulation() + " | " +
-                    " |" +"\r\n");
+            sb.append("| ");
+            sb.append(city.getName());
+            sb.append(" | ");
+            sb.append(city.getCountryName());
+            sb.append(" | ");
+            sb.append(city.getDistrict());
+            sb.append(" | ");
+            sb.append(city.getPopulation());
+            sb.append(" | ");
+            sb.append(" |");
+            sb.append("\r\n");
         }
-        try {
-            new File("./reports/").mkdir();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + fileName + ".md")));
-            writer.write(sb.toString());
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        stringBuilderToMarkdown(sb, "city", fileName);
+
     }
 
     public static void cityListToMarkdown(List<City> cities, int n, String fileName) {
@@ -313,9 +287,6 @@ public class MarkdownWriter {
         } else if (fileName.isBlank()) {
             System.out.println("Blank filename");
             return;
-        } else if (fileName.isEmpty()) {
-            System.out.println("Empty filename");
-            return;
         }
 
         if (n <= 0) {
@@ -329,21 +300,108 @@ public class MarkdownWriter {
 
         for (int i = 0; i < n; i++) {
             City city = cities.get(i);
-            sb.append("| " +
-                    city.getName() + " | " +
-                    city.getCountryName() + " | " +
-                    city.getDistrict() + " | " +
-                    city.getPopulation() + " | " +
-                    " |" +"\r\n");
+            sb.append("| ");
+            sb.append(city.getName());
+            sb.append(" | ");
+            sb.append(city.getCountryName());
+            sb.append(" | ");
+            sb.append(city.getDistrict());
+            sb.append(" | ");
+            sb.append(city.getPopulation());
+            sb.append(" | ");
+            sb.append(" |");
+            sb.append("\r\n");
         }
-        try {
-            new File("./reports/").mkdir();
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + fileName + ".md")));
-            writer.write(sb.toString());
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        stringBuilderToMarkdown(sb, "city", fileName);
+
+    }
+
+    public static void stringBuilderToMarkdown(StringBuilder stringBuilder, String reportType, String fileName) {
+
+        if (stringBuilder == null) {
+            System.out.println("Null stringbuilder");
+            return;
+        } else if (stringBuilder.length() == 0) {
+            System.out.println("Empty stringbuilder");
+            return;
         }
+
+        if (reportType == null) {
+            System.out.println("Null report type");
+            return;
+        } else if (reportType.isBlank()) {
+            System.out.println("Blank report type");
+            return;
+        }
+
+        if (fileName == null) {
+            System.out.println("Null filename");
+            return;
+        } else if (fileName.isBlank()) {
+            System.out.println("Blank filename");
+            return;
+        }
+
+
+        String baseDirectoryPath = "./reports/";
+
+        if (createDirectory(baseDirectoryPath)) {
+            String reportDirectoryPath;
+
+            switch (reportType) {
+                case "country":
+                    reportDirectoryPath = baseDirectoryPath + "country/";
+                    break;
+                case "city":
+                    reportDirectoryPath = baseDirectoryPath + "city/";
+                    break;
+                case "population":
+                    reportDirectoryPath = baseDirectoryPath + "population/";
+                    break;
+                case "language":
+                    reportDirectoryPath = baseDirectoryPath + "language/";
+                    break;
+                default:
+                    reportDirectoryPath = baseDirectoryPath;
+                    break;
+            }
+
+            if (createDirectory(reportDirectoryPath)) {
+                try {
+                    String fullFilePath = reportDirectoryPath + fileName + ".md";
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(fullFilePath));
+                    writer.write(stringBuilder.toString());
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Failed to create directory");
+            }
+
+        } else {
+            System.out.println("Failed to create  base directory");
+        }
+
+
+    }
+
+    public static boolean createDirectory(String path) {   // https://stackoverflow.com/a/36217180
+        if (path == null) {
+            System.out.println("Null path");
+            return false;
+        } else if (path.isBlank()) {
+            System.out.println("Blank path");
+            return false;
+        }
+
+        File directory = new File(path);
+        boolean directoryCreated = directory.exists();
+        if (!directoryCreated) {
+            directoryCreated = directory.mkdir();
+        }
+
+        return directoryCreated;
     }
 }
 

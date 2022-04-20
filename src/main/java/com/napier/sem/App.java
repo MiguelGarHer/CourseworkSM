@@ -17,13 +17,11 @@ public class App
         World world = new World();
 
         //Connect to MySQL
-
         if (args.length < 1) {
             world.connect("localhost:33060", 0);
         } else{
             world.connect(args[0], Integer.parseInt(args[1]));
         }
-
         // Read all countries
         world.getCountries();
 
@@ -44,7 +42,6 @@ public class App
 
         // Testing for language reports
         languageReports(world);
-
     }
 
     /**
@@ -77,7 +74,6 @@ public class App
         world.nPopCitiesRegion("Caribbean", 5);
         world.nPopCitiesCountry("France", 5);
         world.nPopCitiesDistrict("California", 5);
-
     }
 
     /**

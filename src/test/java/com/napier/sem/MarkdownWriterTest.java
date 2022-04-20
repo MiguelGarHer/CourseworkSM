@@ -336,4 +336,112 @@ class MarkdownWriterTest {
                 outputStreamCaptor.toString().trim(),
                 "Blank filename was passed");
     }
+
+    /**
+     * Unit Test: stringBuilderToMarkdown - null parameter test (stringBuilder)
+     */
+    @Test
+    void stringBuilderToMarkdownTestNullStringBuilder() {
+        MarkdownWriter.stringBuilderToMarkdown(
+                null,
+                "country",
+                "fileName"
+        );
+        assertEquals("Null stringbuilder",
+                outputStreamCaptor.toString().trim(),
+                "Null stringbuilder was passed");
+    }
+
+    /**
+     * Unit Test: stringBuilderToMarkdown - empty parameter test (stringBuilder)
+     */
+    @Test
+    void stringBuilderToMarkdownTestEmptyStringBuilder() {
+        MarkdownWriter.stringBuilderToMarkdown(
+                new StringBuilder(),
+                "country",
+                "fileName"
+        );
+        assertEquals("Empty stringbuilder",
+                outputStreamCaptor.toString().trim(),
+                "Empty stringbuilder was passed");
+    }
+
+    /**
+     * Unit Test: stringBuilderToMarkdown - null parameter test (reportType)
+     */
+    @Test
+    void stringBuilderToMarkdownTestNullReportType() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("sb");
+        MarkdownWriter.stringBuilderToMarkdown(
+                sb,
+                null,
+                "fileName"
+        );
+        assertEquals("Null report type",
+                outputStreamCaptor.toString().trim(),
+                "Null report type was passed");
+    }
+
+    /**
+     * Unit Test: stringBuilderToMarkdown - blank parameter test (reportType)
+     */
+    @Test
+    void stringBuilderToMarkdownTestBlankReportType() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("sb");
+        MarkdownWriter.stringBuilderToMarkdown(
+                sb,
+                " ",
+                "fileName"
+        );
+        assertEquals("Blank report type",
+                outputStreamCaptor.toString().trim(),
+                "Blank report type was passed");
+    }
+
+    /**
+     * Unit Test: stringBuilderToMarkdown - null parameter test (fileName)
+     */
+    @Test
+    void stringBuilderToMarkdownTestNullFileName() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("sb");
+        MarkdownWriter.stringBuilderToMarkdown(
+                sb,
+                "country",
+                null
+        );
+        assertEquals("Null filename",
+                outputStreamCaptor.toString().trim(),
+                "Null filename was passed");
+    }
+
+    /**
+     * Unit Test: stringBuilderToMarkdown - blank/empty parameter test (fileName)
+     */
+    @Test
+    void stringBuilderToMarkdownTestBlankFileName() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("sb");
+        MarkdownWriter.stringBuilderToMarkdown(
+                sb,
+                "country",
+                ""
+        );
+        assertEquals("Blank filename",
+                outputStreamCaptor.toString().trim(),
+                "Blank filename was passed");
+    }
+
+    @Test
+    void createDirectoryTestNullPath() {
+        assertFalse(MarkdownWriter.createDirectory(null));
+    }
+
+    @Test
+    void createDirectoryTestEmptyPath() {
+        assertFalse(MarkdownWriter.createDirectory(" "));
+    }
 }
