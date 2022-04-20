@@ -333,10 +333,10 @@ public class MarkdownWriter {
     public static void stringBuilderToMarkdown(String[] columnNames, StringBuilder records, String reportType, String fileName) {
 
         if (records == null) {
-            System.out.println("Null stringbuilder");
+            System.out.println("Null string builder");
             return;
         } else if (records.length() == 0) {
-            System.out.println("Empty stringbuilder");
+            System.out.println("Empty string builder");
             return;
         }
 
@@ -419,7 +419,7 @@ public class MarkdownWriter {
 
     }
 
-    public static boolean createDirectory(String path) {   // https://stackoverflow.com/a/36217180
+    public static boolean createDirectory(String path) {   // Refer to: https://stackoverflow.com/a/36217180
         if (path == null) {
             System.out.println("Null path");
             return false;

@@ -380,9 +380,9 @@ class MarkdownWriterTest {
                 "country",
                 "fileName"
         );
-        assertEquals("Null stringbuilder",
+        assertEquals("Null string builder",
                 outputStreamCaptor.toString().trim(),
-                "Null stringbuilder was passed");
+                "Null string builder was passed");
     }
 
     /**
@@ -396,9 +396,9 @@ class MarkdownWriterTest {
                 "country",
                 "fileName"
         );
-        assertEquals("Empty stringbuilder",
+        assertEquals("Empty string builder",
                 outputStreamCaptor.toString().trim(),
-                "Empty stringbuilder was passed");
+                "Empty string builder was passed");
     }
 
     /**
@@ -475,11 +475,11 @@ class MarkdownWriterTest {
 
     @Test
     void createDirectoryTestNullPath() {
-        assertFalse(MarkdownWriter.createDirectory(null));
+        assertFalse(MarkdownWriter.createDirectory(null), "True even though no directory was created");
     }
 
     @Test
     void createDirectoryTestEmptyPath() {
-        assertFalse(MarkdownWriter.createDirectory(" "));
+        assertFalse(MarkdownWriter.createDirectory(" "), "True even though no directory was created");
     }
 }
