@@ -8,11 +8,8 @@ import java.util.*;
  */
 public class World {
 
-    // Connection to MySQL database
-    private Connection con = null;
-
-    // ArrayList containing all the data of the countries
-    private final List<Country> countries = new ArrayList<>();
+    private Connection con;                    // Connection to MySQL database
+    private final List<Country> countries;     // ArrayList containing all the data of the countries
 
     /**
      * Constructor for World
@@ -20,6 +17,8 @@ public class World {
      * Initiates database communication and reading of data
      */
     public World(){
+        countries = new ArrayList<>();
+        con = null;
     }
 
     /**
