@@ -11,7 +11,11 @@ import java.util.List;
  */
 public class MarkdownWriter {
 
-
+    /**
+     * Prepare a list of countries to be written into Markdown format
+     * @param countries list of Country objects
+     * @param fileName name of Markdown file
+     */
     public static void countryListToMarkdown(List<Country> countries, String fileName) {
         if (countries == null){
             System.out.println("Null country list");
@@ -61,6 +65,12 @@ public class MarkdownWriter {
         stringBuilderToMarkdown(columnNames, sb, "", fileName);
     }
 
+    /**
+     * Prepare a number of countries to be written into Markdown format
+     * @param countries list of Country objects
+     * @param n number of countries to be written
+     * @param fileName name of Markdown file
+     */
     public static void countryListToMarkdown(List<Country> countries, int n, String fileName) {
         if (countries == null){
             System.out.println("Null country list");
@@ -117,6 +127,12 @@ public class MarkdownWriter {
 
     }
 
+    /**
+     * Prepare a population information into Markdown format
+     * @param name name of information (country, world etc)
+     * @param population population of object
+     * @param fileName name of Markdown file
+     */
     public static void populationToMarkdown(
             String name,
             long population,
@@ -156,6 +172,16 @@ public class MarkdownWriter {
 
     }
 
+    /**
+     * Prepare a population report to be written into Markdown format
+     * @param name name of area (world, continent etc).
+     * @param totalPopulation total population of area
+     * @param cityPopulation population living in cities
+     * @param cityPopulationPercentage city population percentage
+     * @param countrySidePopulation population not living in cities
+     * @param countrySidePopulationPercentage non-city population percentage
+     * @param fileName name of Markdown file
+     */
     public static void populationReportToMarkdown(
             String name,
             long totalPopulation,
@@ -206,6 +232,13 @@ public class MarkdownWriter {
 
     }
 
+    /**
+     * Prepare a Language to be written into Markdown format
+     * @param language language name
+     * @param population speaking population
+     * @param percentage percentage of overall population
+     * @param fileName name of Markdown
+     */
     public static void languageToMarkdown(
             String language,
             long population,
@@ -247,7 +280,11 @@ public class MarkdownWriter {
 
     }
 
-
+    /**
+     * Prepare a list of cities to be written into Markdown format
+     * @param cities list of City objects
+     * @param fileName name of Markdown file
+     */
     public static void cityListToMarkdown(List<City> cities, String fileName) {
         if (cities == null){
             System.out.println("Null city list");
@@ -288,6 +325,12 @@ public class MarkdownWriter {
 
     }
 
+    /**
+     * Prepare a number of cities to be written into Markdown format
+     * @param cities list of City objects
+     * @param n number of cities to be written
+     * @param fileName name of Markdown file
+     */
     public static void cityListToMarkdown(List<City> cities, int n, String fileName) {
         if (cities == null){
             System.out.println("Null city list");
@@ -330,6 +373,13 @@ public class MarkdownWriter {
 
     }
 
+    /**
+     * Write a Markdown table
+     * @param columnNames name of columns
+     * @param records all data (records)
+     * @param reportType type of report
+     * @param fileName name of Markdown file
+     */
     public static void stringBuilderToMarkdown(String[] columnNames, StringBuilder records, String reportType, String fileName) {
 
         if (records == null) {
@@ -419,6 +469,11 @@ public class MarkdownWriter {
 
     }
 
+    /**
+     * Create a directory if it doesn't exist already
+     * @param path path to new directory
+     * @return boolean - True if successful, otherwise False
+     */
     public static boolean createDirectory(String path) {   // Refer to: https://stackoverflow.com/a/36217180
         if (path == null) {
             System.out.println("Null path");
