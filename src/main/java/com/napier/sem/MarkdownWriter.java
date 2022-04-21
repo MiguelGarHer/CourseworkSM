@@ -62,7 +62,7 @@ public class MarkdownWriter {
         }
 
         // Call writing method
-        stringBuilderToMarkdown(columnNames, sb, "", fileName);
+        stringBuilderToMarkdown(columnNames, sb, "country", fileName);
     }
 
     /**

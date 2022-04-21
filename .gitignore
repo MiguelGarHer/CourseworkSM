@@ -45,3 +45,5 @@ buildNumber.properties
 .attach_*
 
 reports/
+
+.obsidian/
