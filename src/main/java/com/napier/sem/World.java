@@ -1389,7 +1389,7 @@ public class World {
         }
 
         // Markdown
-        String fileName = "nPopCapCities" + regionName + "Top" + n;
+        String fileName = "nPopCapCitiesRegion" + regionName + "Top" + n;
         MarkdownWriter.cityListToMarkdown(regionCapCities, n, fileName);
     }
 
@@ -1470,7 +1470,7 @@ public class World {
         }
 
         //Markdown
-        String fileName = "nPopCapCitiesContinentWorld" + "Top" + n;
+        String fileName = "nPopCapCitiesWorld" + "Top" + n;
         MarkdownWriter.cityListToMarkdown(nWorldCapCities, n, fileName);
     }
 }
