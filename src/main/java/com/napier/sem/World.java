@@ -549,7 +549,6 @@ public class World {
                 city.getPopulation(),
                 fileName
         );
-
     }
 
     /**
@@ -656,7 +655,6 @@ public class World {
         //Write markdown file
         String fileName = "sortCountriesPopWorld";
         MarkdownWriter.countryListToMarkdown(sortCountries, fileName);
-
     }
 
     /**
@@ -681,7 +679,6 @@ public class World {
                 continentCountries.add(country);
             }
         }
-
 
         // Sort temporary list - https://www.baeldung.com/java-8-comparator-comparing
         continentCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
@@ -848,8 +845,6 @@ public class World {
         //Write to markdown file
         String fileName = "nPopCountriesRegion" + regionName + "Top" + n;
         MarkdownWriter.countryListToMarkdown(regionCountries, n, fileName);
-
-
     }
 
     /**
@@ -908,7 +903,6 @@ public class World {
 
         String fileName = "sortCitiesPopContinent" + continentName;
         MarkdownWriter.cityListToMarkdown(continentCities, fileName);
-
     }
 
     /**
@@ -944,7 +938,6 @@ public class World {
         //Markdown
         String fileName = "sortCitiesPopRegion" + regionName;
         MarkdownWriter.cityListToMarkdown(sortCities, fileName);
-
     }
 
     /**
@@ -979,11 +972,9 @@ public class World {
             System.out.println(city);
         }
 
-
         //Markdown file
         String fileName = "sortCitiesPopCountry" + countryName;
         MarkdownWriter.cityListToMarkdown(countryCities, fileName);
-
     }
 
     /**
@@ -1142,8 +1133,6 @@ public class World {
         //Markdown
         String fileName = "nPopCitiesRegion" + regionName + "Top" + n;
         MarkdownWriter.cityListToMarkdown(regionCities, n, fileName);
-
-
     }
 
     /**
@@ -1191,9 +1180,6 @@ public class World {
         //Markdown
         String fileName = "nPopCitiesCountry" + countryName + "Top" + n;
         MarkdownWriter.cityListToMarkdown(nCountryCity, n, fileName);
-
-
-
     }
 
     /**
@@ -1202,7 +1188,6 @@ public class World {
      * @param n top N
      */
     public void nPopCitiesDistrict(String districtName, int n){
-
         if(n<1){
             System.out.println("Invalid number");
             return;
@@ -1242,8 +1227,6 @@ public class World {
         //Markdown
         String fileName = "nPopCitiesDistrict" + districtName + "Top" + n;
         MarkdownWriter.cityListToMarkdown(sortCities, n, fileName);
-
-
     }
 
     /**
@@ -1251,16 +1234,15 @@ public class World {
      * Sorting: Largest population to smallest
      */
     public void sortCapCitiesPopWorld(){
-
         ArrayList<City> sortCapCities = new ArrayList<>();
 
-            for (Country country : countries) {
-                for (City city : country.getCities()) {
-                    if (city.getId() == country.getCapital()) {
-                            sortCapCities.add(city);
-                    }
+        for (Country country : countries) {
+            for (City city : country.getCities()) {
+                if (city.getId() == country.getCapital()) {
+                        sortCapCities.add(city);
                 }
             }
+        }
 
         //Sort capital cities
         sortCapCities.sort(Comparator.comparingInt(City::getPopulation).reversed());
@@ -1282,7 +1264,6 @@ public class World {
      * @param regionName name of region
      */
     public void sortCapCitiesPopRegion(String regionName){
-
         ArrayList<City> sortCapCities = new ArrayList<>();
 
         //NULL checker
@@ -1419,7 +1400,6 @@ public class World {
      * @param n top N
      */
     public void nPopCapCitiesContinent(String continentName, int n){
-
         ArrayList<City> sortCapCities = new ArrayList<>();
 
         //NULL checker

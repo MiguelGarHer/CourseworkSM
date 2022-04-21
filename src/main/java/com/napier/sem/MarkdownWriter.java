@@ -154,7 +154,6 @@ public class MarkdownWriter {
             return;
         }
 
-
         StringBuilder sb = new StringBuilder();
         String[] columnNames = new String[2];
         columnNames[0] = "| Name | Population |\r\n";
@@ -168,7 +167,6 @@ public class MarkdownWriter {
         sb.append("\r\n");
 
         stringBuilderToMarkdown(columnNames, sb, "population", fileName);
-
 
     }
 
@@ -370,7 +368,6 @@ public class MarkdownWriter {
             sb.append("\r\n");
         }
         stringBuilderToMarkdown(columnNames, sb, "city", fileName);
-
     }
 
     /**
@@ -381,7 +378,7 @@ public class MarkdownWriter {
      * @param fileName name of Markdown file
      */
     public static void stringBuilderToMarkdown(String[] columnNames, StringBuilder records, String reportType, String fileName) {
-
+        // Parameter check for records
         if (records == null) {
             System.out.println("Null string builder");
             return;
@@ -390,6 +387,7 @@ public class MarkdownWriter {
             return;
         }
 
+        // Parameter check for report type
         if (reportType == null) {
             System.out.println("Null report type");
             return;
@@ -398,6 +396,7 @@ public class MarkdownWriter {
             return;
         }
 
+        // Parameter check for file name
         if (fileName == null) {
             System.out.println("Null filename");
             return;
@@ -406,6 +405,7 @@ public class MarkdownWriter {
             return;
         }
 
+        // Parameter check for column names
         if (columnNames == null) {
             System.out.println("Null column name");
             return;
@@ -413,7 +413,6 @@ public class MarkdownWriter {
             System.out.println("Invalid column name (missing row?)");
             return;
         }
-
 
         String baseDirectoryPath = "./reports/";
 
@@ -465,8 +464,6 @@ public class MarkdownWriter {
         } else {
             System.out.println("Failed to create base directory");
         }
-
-
     }
 
     /**
@@ -474,7 +471,8 @@ public class MarkdownWriter {
      * @param path path to new directory
      * @return boolean - True if successful, otherwise False
      */
-    public static boolean createDirectory(String path) {   // Refer to: https://stackoverflow.com/a/36217180
+    public static boolean createDirectory(String path) {
+        // Parameter check for path
         if (path == null) {
             System.out.println("Null path");
             return false;
@@ -484,7 +482,7 @@ public class MarkdownWriter {
         }
 
         File directory = new File(path);
-        boolean directoryCreated = directory.exists();
+        boolean directoryCreated = directory.exists();  // Refer to: https://stackoverflow.com/a/36217180
         if (!directoryCreated) {
             directoryCreated = directory.mkdir();
         }
