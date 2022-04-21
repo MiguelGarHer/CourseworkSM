@@ -1,4 +1,5 @@
 # Requirements
+## 32/32 requirements have been implemented, which is 100%.
 | ID | Name | Met | Screenshot | 
 | --- | --- | --- | --- |
 | 1 | All the countries in the world organised by largest population to smallest. | Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/country/sortCountriesPopWorld.md) | 
@@ -20,11 +21,16 @@
 | 17 | All the capital cities in the world organised by largest population to smallest. | Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/city/sortCapCitiesPopWorld.md) |
 | 18 | All the capital cities in a continent organised by largest population to smallest. | Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/city/sortCapCitiesPopContinentAsia.md) |
 | 19 | All the capital cities in a region organised by largest to smallest. | Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/city/sortCapCitiesPopRegionCaribbean.md) |
-| 20 | The top `N` populated capital cities in the world where `N` is provided by the user.| Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/city/nPopCapCitiesContinentWorldTop50.md) |
+| 20 | The top `N` populated capital cities in the world where `N` is provided by the user.| Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/city/nPopCapCitiesWorldTop50.md) |
 | 21 | The top `N` populated capital cities in a continent where `N` is provided by the user. | Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/city/nPopCapCitiesContinentAsiaTop10.md) |
-| 22 | The top `N` populated capital cities in a region where `N` is provided by the user. | Yes | [Link]() |
-| 21 | | Yes | [Link]() |
-| 21 | | Yes | [Link]() |
-| 21 | | Yes | [Link]() |
-| 21 | | Yes | [Link]() |
-| 21 | | Yes | [Link]() |
+| 22 | The top `N` populated capital cities in a region where `N` is provided by the user. | Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/city/nPopCapCitiesRegionCaribbeanTop5.md) |
+| 23 | The population of people, people living in cities, and people not living in cities in each continent. | Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/population/populationReportAllContinents.md) |
+| 24 | The population of people, people living in cities, and people not living in cities in each region.| Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/population/populationReportAllRegions.md) |
+| 25 | The population of people, people living in cities, and people not living in cities in each country. | Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/population/populationReportAllCountries.md) |
+| 26 | The population of the world. | Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/population/populationWorld.md) |
+| 27 | The population of a continent.| Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/population/populationReportAllContinents.md) |
+| 28 | The population of a region.| Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/population/populationReportAllRegions.md) |
+| 29 | The population of a country.| Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/population/populationReportAllCountries.md) |
+| 30 | The population of a district.| Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/population/populationAllDistricts.md) |
+| 31 | The population of a city.| Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/population/populationAllCities.md) |
+| 32 | The number of people who speak the following the following languages from greatest number to smallest, including the percentage of the world population: Chinese, English, Hindi, Spanish, Arabic. | Yes | [Link](https://github.com/MiguelGarHer/CourseworkSM/blob/reports/language/languageReportSelectedLanguages.md) |
