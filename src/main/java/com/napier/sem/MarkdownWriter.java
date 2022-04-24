@@ -416,6 +416,7 @@ public class MarkdownWriter {
 
         String baseDirectoryPath = "./reports/";
 
+        // Create base directory
         if (createDirectory(baseDirectoryPath)) {
             String reportDirectoryPath;
 
@@ -437,10 +438,12 @@ public class MarkdownWriter {
                     break;
             }
 
+            // Create subdirectory
             if (createDirectory(reportDirectoryPath)) {
                 try {
                     FileWriter fw;
 
+                    // Create Markdown file
                     String fullFilePath = reportDirectoryPath + fileName + ".md";
                     File file = new File(fullFilePath);
 

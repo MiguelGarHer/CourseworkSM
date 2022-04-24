@@ -568,6 +568,8 @@ public class World {
         }
 
         ArrayList<Map.Entry<String, Long>> sortList = new ArrayList<>(languages.entrySet());
+
+        //Sort all the languages from largest speaking population to smallest
         sortList.sort(Map.Entry.comparingByValue());
         Collections.reverse(sortList);
 
@@ -622,6 +624,7 @@ public class World {
             }
         }
 
+        //Sort all the languages from largest speaking population to smallest - https://www.baeldung.com/java-8-comparator-comparing
         ArrayList<Map.Entry<String,Long>> sortedLanguages = (ArrayList<Map.Entry<String, Long>>) languageHashMapToArrayList(selectedLanguages);
 
         for (Map.Entry<String,Long> entry : sortedLanguages) {
@@ -642,7 +645,7 @@ public class World {
         //Arraylist of countries that stores all the countries in the world
         ArrayList<Country> sortCountries = new ArrayList<>(this.countries);
 
-        //Sort all the countries from larges population to smallest
+        //Sort all the countries from larges population to smallest - https://www.baeldung.com/java-8-comparator-comparing
         sortCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
 
         System.out.println("All the countries in the world organized by population");
@@ -716,7 +719,7 @@ public class World {
             }
         }
 
-        //Sort temporary list
+        //Sort temporary list - https://www.baeldung.com/java-8-comparator-comparing
         regionCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
         //Print sorted list
         System.out.println("All countries in " + regionName + ", sorted by population");
@@ -748,7 +751,7 @@ public class World {
             }
         }
 
-        //Sort all countries by population
+        //Sort all countries by population - https://www.baeldung.com/java-8-comparator-comparing
         nWorldCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
 
         //Print
@@ -790,7 +793,7 @@ public class World {
 
         }
 
-        //Sort all countries by population
+        //Sort all countries by population - https://www.baeldung.com/java-8-comparator-comparing
         continentCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
 
         //Print
@@ -833,7 +836,8 @@ public class World {
                 regionCountries.add(country);
             }
         }
-        //Sort all countries by population
+
+        // Sorting - https://www.baeldung.com/java-8-comparator-comparing
         regionCountries.sort(Comparator.comparing(Country::getPopulation).reversed());
 
         //Print list until nth element
@@ -857,6 +861,7 @@ public class World {
             allCities.addAll(country.getCities());
         }
 
+        // Sorting - https://www.baeldung.com/java-8-comparator-comparing
         allCities.sort(Comparator.comparing(City::getPopulation).reversed());
 
         //Print
@@ -1354,6 +1359,7 @@ public class World {
      * @param n top N
      */
     public void nPopCapCitiesRegion(String regionName, int n){
+        // Parameter check for regionName
         if (regionName == null) {
             System.out.println("Null region name");
             return;
@@ -1362,6 +1368,7 @@ public class World {
             return;
         }
 
+        // Parameter check for n
         if (n <= 0) {
             System.out.println("Invalid number");
             return;
