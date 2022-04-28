@@ -13,3 +13,6 @@ Coursework for Software Methods
 
 ------
 # [Link to requirements document](documentation/requirementsheet.md)
+# [Link to use cases](documentation/use-cases)
+# [Link to diagrams](documentation/diagrams)
+# [Link to user stories](documentation/user-stories.md)
