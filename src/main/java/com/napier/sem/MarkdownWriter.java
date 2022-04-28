@@ -17,11 +17,13 @@ public class MarkdownWriter {
      * @param fileName name of Markdown file
      */
     public static void countryListToMarkdown(List<Country> countries, String fileName) {
+        // Parameter check for countries
         if (countries == null){
             System.out.println("Null country list");
             return;
         }
 
+        // Parameter check for fileName
         if (fileName == null) {
             System.out.println("Null filename");
             return;
@@ -35,6 +37,7 @@ public class MarkdownWriter {
         columnNames[0] = "| Code | Name | Continent | Region | Population | Capital |\r\n";
         columnNames[1] = "| --- | --- | --- | --- | --- | --- |\r\n";
 
+        // Convert each country into Markdown table format
         for (Country country : countries) {
             String capitalCityName = null;
             for (City city : country.getCities()) {
@@ -61,7 +64,7 @@ public class MarkdownWriter {
             sb.append("\r\n");
         }
 
-        // Call writing method
+        // Call Markdown writer method
         stringBuilderToMarkdown(columnNames, sb, "country", fileName);
     }
 
@@ -72,11 +75,13 @@ public class MarkdownWriter {
      * @param fileName name of Markdown file
      */
     public static void countryListToMarkdown(List<Country> countries, int n, String fileName) {
+        // Parameter check for countries
         if (countries == null){
             System.out.println("Null country list");
             return;
         }
 
+        // Parameter check for fileName
         if (fileName == null) {
             System.out.println("Null filename");
             return;
@@ -85,6 +90,7 @@ public class MarkdownWriter {
             return;
         }
 
+        // Parameter check for n
         if (n <= 0) {
             System.out.println("Invalid number");
             return;
@@ -96,6 +102,7 @@ public class MarkdownWriter {
         columnNames[0] = "| Code | Name | Continent | Region | Population | Capital |\r\n";
         columnNames[1] = "| --- | --- | --- | --- | --- | --- |\r\n";
 
+        // Convert each country into Markdown table format
         for (int i = 0; i < n; i++) {
             String capitalCityName = null;
             Country country = countries.get(i);
@@ -123,6 +130,7 @@ public class MarkdownWriter {
             sb.append("\r\n");
         }
 
+        // Call Markdown writer method
         stringBuilderToMarkdown(columnNames, sb, "country", fileName);
 
     }
@@ -133,12 +141,10 @@ public class MarkdownWriter {
      * @param population population of object
      * @param fileName name of Markdown file
      */
-    public static void populationToMarkdown(
-            String name,
-            long population,
-            String fileName) {
-
+    public static void populationToMarkdown(String name, long population, String fileName) {
         String columnName = name;
+
+        // Parameter check for name
         if (name == null) {
             System.out.println("Null input on name");
             return;
@@ -146,6 +152,7 @@ public class MarkdownWriter {
             columnName = "-";
         }
 
+        // Parameter check for fileName
         if (fileName == null) {
             System.out.println("Null filename");
             return;
@@ -166,6 +173,7 @@ public class MarkdownWriter {
         sb.append(" | ");
         sb.append("\r\n");
 
+        // Call Markdown writer method
         stringBuilderToMarkdown(columnNames, sb, "population", fileName);
 
     }
@@ -189,6 +197,7 @@ public class MarkdownWriter {
             int countrySidePopulationPercentage,
             String fileName) {
 
+        // Parameter check for name
         if (name == null) {
             System.out.println("Null input on name");
             return;
@@ -196,6 +205,7 @@ public class MarkdownWriter {
             System.out.println("Blank name");
         }
 
+        // Parameter check for fileName
         if (fileName == null) {
             System.out.println("Null filename");
             return;
@@ -204,6 +214,7 @@ public class MarkdownWriter {
             return;
         }
 
+        // Convert to Markdown table format
         StringBuilder sb = new StringBuilder();
         String[] columnNames = new String[2];
         columnNames[0] = "| Name | Population living in cities | Population not living in cities | Total population |\r\n";
@@ -226,6 +237,7 @@ public class MarkdownWriter {
         sb.append("%) |");
         sb.append("\r\n");
 
+        // Call Markdown writing method
         stringBuilderToMarkdown(columnNames, sb, "population", fileName);
 
     }
@@ -243,8 +255,8 @@ public class MarkdownWriter {
             double percentage,
             String fileName) {
 
+        // Parameter check for languageName
         String languageName = language;
-
         if (language == null) {
             System.out.println("Null input on language");
             return;
@@ -252,6 +264,7 @@ public class MarkdownWriter {
             languageName = "-";
         }
 
+        // Parameter check for fileName
         if (fileName == null) {
             System.out.println("Null filename");
             return;
@@ -260,6 +273,7 @@ public class MarkdownWriter {
             return;
         }
 
+        // Convert to Markdown table format
         StringBuilder sb = new StringBuilder();
         String[] columnNames = new String[2];
         columnNames[0] = "| Language | Speaking population |\r\n";
@@ -274,6 +288,7 @@ public class MarkdownWriter {
         sb.append("%) | ");
         sb.append("\r\n");
 
+        // Call Markdown writing method
         stringBuilderToMarkdown(columnNames, sb, "language", fileName);
 
     }
@@ -284,19 +299,18 @@ public class MarkdownWriter {
      * @param fileName name of Markdown file
      */
     public static void cityListToMarkdown(List<City> cities, String fileName) {
+        // Parameter check for cities
         if (cities == null){
             System.out.println("Null city list");
             return;
         }
 
+        // Parameter check for fileName
         if (fileName == null) {
             System.out.println("Null filename");
             return;
         } else if (fileName.isBlank()) {
             System.out.println("Blank filename");
-            return;
-        } else if (fileName.isEmpty()) {
-            System.out.println("Empty filename");
             return;
         }
 
@@ -305,6 +319,7 @@ public class MarkdownWriter {
         columnNames[0] = "| Name | Country | District | Population |\r\n";
         columnNames[1] = "| --- | --- | --- | --- |\r\n";
 
+        // Convert each city into Markdown table format
         for (City city : cities) {
             sb.append("| ");
             sb.append(city.getName());
@@ -319,6 +334,7 @@ public class MarkdownWriter {
             sb.append("\r\n");
         }
 
+        // Call Markdown writing method
         stringBuilderToMarkdown(columnNames, sb, "city", fileName);
 
     }
@@ -330,11 +346,13 @@ public class MarkdownWriter {
      * @param fileName name of Markdown file
      */
     public static void cityListToMarkdown(List<City> cities, int n, String fileName) {
+        // Parameter check for cities
         if (cities == null){
             System.out.println("Null city list");
             return;
         }
 
+        // Parameter check for fileName
         if (fileName == null) {
             System.out.println("Null filename");
             return;
@@ -343,6 +361,7 @@ public class MarkdownWriter {
             return;
         }
 
+        // Parameter check for n
         if (n <= 0) {
             System.out.println("Invalid number");
             return;
@@ -353,6 +372,7 @@ public class MarkdownWriter {
         columnNames[0] = "| Name | Country | District | Population |\r\n";
         columnNames[1] = "| --- | --- | --- | --- |\r\n";
 
+        // Convert into Markdown table format
         for (int i = 0; i < n; i++) {
             City city = cities.get(i);
             sb.append("| ");
@@ -367,11 +387,13 @@ public class MarkdownWriter {
             sb.append(" |");
             sb.append("\r\n");
         }
+
+        // Call Markdown writing method
         stringBuilderToMarkdown(columnNames, sb, "city", fileName);
     }
 
     /**
-     * Write a Markdown table
+     * Write a Markdown table into Markdown file
      * @param columnNames name of columns
      * @param records all data (records)
      * @param reportType type of report
